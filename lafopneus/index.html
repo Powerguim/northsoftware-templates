@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lafopneus – Pneus e oficina automóvel em São Pedro do Sul</title>
+<meta name="description" content="Pneus, mecânica, bate-chapas e lavagem na Rua da Bela Vista, em São Pedro do Sul, desde 1993. 127 avaliações no Google.">
+<style>@font-face{font-family:'Young Serif';src:url('../assets/fonts/young-serif-400.woff2') format('woff2');font-weight:400;font-display:swap;}@font-face{font-family:'DM Sans';src:url('../assets/fonts/of-dm-sans-var.woff2') format('woff2');font-weight:100 1000;font-display:swap;}@font-face{font-family:'DM Sans';src:url('../assets/fonts/of-dm-sans-var-italic.woff2') format('woff2');font-weight:100 1000;font-style:italic;font-display:swap;}@font-face{font-family:'Alfa Slab One';src:url('../assets/fonts/of-alfa-slab-one-400.woff2') format('woff2');font-weight:400;font-display:swap;}@font-face{font-family:'Big Shoulders Stencil';src:url('../assets/fonts/of-big-shoulders-stencil-var.woff2') format('woff2');font-weight:100 900;font-display:swap;}@font-face{font-family:'Instrument Sans';src:url('../assets/fonts/of-instrument-sans-var.woff2') format('woff2');font-weight:400 700;font-display:swap;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus,#1a73e8);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.demo{background:#ffd84d;color:#3a2e00;text-align:center;font:500 .82rem/1.4 system-ui,sans-serif;padding:.45rem 1rem}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+:root{--cream:#eef0f2;--paper:#f7f8fa;--green:#1d4064;--green2:#16324f;--deep:#0e2136;--ochre:#f0b400;--ochre2:#ffd439;
+  --rust:#b48900;--ink:#1a2026;--muted:#5a6369;--line:#d2d6da;--focus:#f0b400;
+  --slab:'Young Serif',Georgia,serif;--sten:'Big Shoulders Stencil',Impact,sans-serif;--sans:'DM Sans',system-ui,sans-serif;
+  --clad:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 2px,transparent 2px 46px)}
+html{scroll-behavior:smooth}
+body{font:400 1.0625rem/1.65 var(--sans);color:var(--ink);background:var(--cream)}
+h1,h2,h3{font-family:var(--slab);font-weight:400;line-height:1.08;letter-spacing:-.005em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.kick{display:inline-flex;align-items:center;gap:.6rem;font:800 1.02rem/1.1 var(--sten);letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.kick::before{content:"";width:1.6rem;height:.5rem;background:var(--ochre);border-radius:2px;flex:none}
+.h2{font-size:clamp(2rem,3.8vw,3rem);color:var(--green2);margin:.9rem 0 .9rem}
+.lead{font-size:1.12rem;color:var(--muted);max-width:52ch}
+.btn{display:inline-flex;align-items:center;gap:.55rem;border:0;border-radius:8px;padding:.95rem 1.3rem;font:700 1rem/1 var(--sans);
+  cursor:pointer;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-o{background:var(--ochre);color:var(--deep);box-shadow:0 4px 0 #a97e00}
+.btn-g{background:transparent;color:var(--green2);box-shadow:inset 0 0 0 2px var(--green2)}
+.btn-c{background:transparent;color:var(--cream);box-shadow:inset 0 0 0 2px rgba(238,240,242,.7)}
+.dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:#9aa0a6;margin-right:.45rem;vertical-align:1px}
+.dot.on{background:#2fb35f;box-shadow:0 0 0 4px rgba(47,179,95,.2)}
+.stars{--p:100%;display:inline-block;width:6rem;height:1.1rem;vertical-align:-2px;
+  background:linear-gradient(90deg,var(--sc,#0e2136) var(--p),rgba(14,33,54,.2) var(--p));-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 20'%3E%3Cg%3E%3Cpath id='s' d='M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z'/%3E%3Cuse href='%23s' x='22.5'/%3E%3Cuse href='%23s' x='45'/%3E%3Cuse href='%23s' x='67.5'/%3E%3Cuse href='%23s' x='90'/%3E%3C/g%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 20'%3E%3Cg%3E%3Cpath id='s' d='M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z'/%3E%3Cuse href='%23s' x='22.5'/%3E%3Cuse href='%23s' x='45'/%3E%3Cuse href='%23s' x='67.5'/%3E%3Cuse href='%23s' x='90'/%3E%3C/g%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+.mag{position:absolute;z-index:2;top:-12px;left:50%;width:26px;height:26px;margin-left:-13px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#6191bc,#1d4064 62%,#0e2136);box-shadow:0 5px 7px rgba(0,0,0,.35)}
+
+/* hero: the garage front */
+.fascia{background:var(--green);border-bottom:6px solid var(--ochre)}
+.nav{display:flex;align-items:center;gap:1.8rem;padding-top:1rem;padding-bottom:1rem}
+.brand{display:flex;align-items:center;gap:.75rem;margin-right:auto;font:400 1.45rem/1.05 var(--slab);color:var(--cream);text-decoration:none}
+.brand i{width:2.3rem;height:2.3rem;border-radius:50%;background:var(--ochre);color:var(--deep);display:grid;place-items:center;flex:none}
+.brand i svg{width:1.25rem;height:1.25rem}
+.nav a.l{color:#d7dcd2;text-decoration:none;font:800 1rem/1 var(--sten);letter-spacing:.16em;text-transform:uppercase}
+.nav a.l:hover{color:#fff}
+.nav .tel{background:var(--ochre);color:var(--deep);font-weight:700;padding:.65rem 1.1rem;border-radius:8px;text-decoration:none;white-space:nowrap}
+.facade{background:var(--clad),var(--green2);padding:1.6rem 1.75rem 0}
+.door{position:relative;height:clamp(560px,calc(100vh - 170px),760px);max-width:1380px;margin:0 auto;background:#2a2d2b;overflow:hidden;border-radius:3px 3px 0 0}
+.shutter{position:absolute;left:0;right:0;top:0;height:108px;z-index:2;display:grid;place-items:center;
+  background:repeating-linear-gradient(180deg,#d6dbda 0,#c3c9c9 8px,#8f9798 9px,#eceff0 10px,#d6dbda 12px);box-shadow:0 12px 20px -8px rgba(0,0,0,.6)}
+.shutter::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:linear-gradient(#aab1b2,#687072);border-top:1px solid #f2f4f4}
+.shutter span{position:relative;top:-6px;font:800 2.3rem/1 var(--sten);letter-spacing:.34em;text-transform:uppercase;color:rgba(31,64,61,.8);white-space:nowrap;padding-left:.34em}
+.shutter i{position:absolute;z-index:1;bottom:3px;left:50%;width:70px;height:8px;margin-left:-35px;border-radius:4px;background:#2b3032}
+.door>img.ph,.door>div.ph{position:absolute;left:0;top:96px;width:100%;height:calc(100% - 96px);object-fit:cover;object-position:var(--hero-pos,50% 50%)}
+.sign{position:absolute;z-index:3;top:154px;right:7%;width:280px;background:var(--paper);border-radius:10px;padding:.85rem 1.1rem 1rem;text-align:center;
+  box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 5px var(--green),0 18px 28px -10px rgba(0,0,0,.6);transform:rotate(1.4deg);transform-origin:50% -46px}
+.sign .ch{position:absolute;top:-48px;width:3px;height:50px;background:repeating-linear-gradient(180deg,#4f5658 0 5px,#c3c9ca 5px 8px)}
+.sign .ch.l{left:22%}.sign .ch.r{right:22%}
+.sign small{display:block;font:800 .9rem/1 var(--sten);letter-spacing:.26em;color:var(--green);text-transform:uppercase}
+.sign strong{display:block;margin-top:.4rem;font:600 1.02rem/1.3 var(--sans);color:var(--ink)}
+.hcard{position:absolute;z-index:3;left:2.6rem;bottom:2.6rem;width:min(640px,58%);background:var(--paper);border-radius:6px;
+  padding:1.9rem 2.2rem 2rem;border-top:8px solid var(--ochre);box-shadow:0 30px 60px -24px rgba(0,0,0,.75)}
+.hcard h1{font-size:var(--h1,3rem);color:var(--green2);margin:.75rem 0 .85rem}
+.hcard p{color:var(--muted);font-size:1.06rem;max-width:52ch}
+.cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
+.badge{position:absolute;z-index:3;right:3rem;bottom:2.8rem;width:176px;height:176px;border-radius:50%;background:var(--ochre);color:var(--deep);
+  display:grid;place-content:center;text-align:center;transform:rotate(-7deg);
+  box-shadow:inset 0 0 0 7px var(--ochre),inset 0 0 0 9px var(--deep),0 18px 30px -12px rgba(0,0,0,.65)}
+.badge b{font:400 3.1rem/1 var(--slab)}
+.badge.cnt b{font-size:2.6rem}
+.badge .stars{display:block;margin:.35rem auto 0;width:5.6rem;height:1.02rem}
+.badge small{display:block;font:800 .82rem/1.2 var(--sten);letter-spacing:.14em;text-transform:uppercase;margin-top:.35rem}
+
+section{padding:6.5rem 0;position:relative}
+
+/* casa */
+.casa .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:4.5rem;align-items:center}
+.why{list-style:none;margin-top:1.8rem;display:grid;gap:.8rem}
+.why li{display:grid;grid-template-columns:3.2rem 1fr;gap:1rem;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:1rem 1.2rem}
+.why .n{font:800 2.3rem/1 var(--sten);color:#b28800}
+.why h3{font-size:1.15rem;color:var(--green2)}
+.why p{color:var(--muted);font-size:.97rem;margin-top:.15rem}
+.nums{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.nums div{background:var(--green);color:var(--cream);border-radius:10px;padding:.9rem 1.2rem .8rem;min-width:9.5rem;box-shadow:0 4px 0 var(--deep)}
+.nums b{display:block;font:800 2.6rem/1 var(--sten);color:var(--ochre2);letter-spacing:.02em}
+.nums span{font-size:.86rem;color:#cfd6de}
+.pics{position:relative;height:560px}
+.pics img,.pics>div{position:absolute;object-fit:cover;border:10px solid #fff;box-shadow:0 24px 40px -22px rgba(30,25,15,.65)}
+.pics .p1{left:0;top:0;width:72%;height:74%;transform:rotate(-2deg)}
+.pics .p2{right:0;bottom:0;width:56%;height:50%;transform:rotate(2.5deg)}
+.pics .t1{left:24%;top:-12px;transform:rotate(-6deg)}
+.pics .t2{right:16%;bottom:calc(50% - 14px);transform:rotate(5deg)}
+.pics .cap{position:absolute;z-index:3;left:3%;bottom:7%;max-width:46%;font:800 1rem/1.25 var(--sten);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--deep);background:var(--ochre);padding:.55rem .8rem;transform:rotate(-2deg);box-shadow:0 10px 18px -10px rgba(0,0,0,.5)}
+
+/* servicos: the pegboard */
+.serv{background:var(--clad),var(--green2);color:var(--cream)}
+.serv .top{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.2rem}
+.serv .kick{color:var(--ochre2)}
+.serv .h2{color:#fff;margin-bottom:.4rem}
+.serv .lead{color:#c9d1da}
+.board{position:relative;border:11px solid #7d532f;border-radius:6px;padding:1.4rem 2rem 2.4rem;
+  background:radial-gradient(circle,#4a2f1a 0 3px,rgba(74,47,26,.3) 3.6px,transparent 4.4px) 0 0/28px 28px,
+    linear-gradient(160deg,rgba(255,255,255,.13),rgba(0,0,0,.14)),#c29469;
+  box-shadow:0 34px 60px -30px rgba(0,0,0,.8),inset 0 0 50px rgba(70,35,10,.35),inset 0 0 0 1px rgba(0,0,0,.25)}
+.tools{display:block;width:100%;height:auto;max-height:180px}
+.tools .sil{fill:rgba(52,30,12,.36);stroke:rgba(52,30,12,.36);stroke-width:7;stroke-linejoin:round}
+.tools .t{filter:drop-shadow(3px 5px 2px rgba(40,20,5,.45))}
+.tools .st{fill:url(#bk-steel)}.tools .wd{fill:url(#bk-wood)}.tools .hm{fill:url(#bk-dark)}
+.tools .r{fill:#b5432b}.tools .o{fill:#f0b400}.tools .gp{fill:#2f6b52}.tools .dk{fill:#555d60}
+.tools .gr{fill:none;stroke:rgba(0,0,0,.25);stroke-width:2.2;stroke-linecap:round}
+.tools .hole{fill:#6b4527}
+.tools .peg{fill:#3a2614;stroke:rgba(255,255,255,.3);stroke-width:1}
+.tools .lbl{font:800 13px var(--sten);letter-spacing:.2em;fill:rgba(247,248,250,.85);text-anchor:middle;dominant-baseline:central}
+.tags{display:grid;grid-template-columns:repeat(var(--cols,3),1fr);gap:1.6rem 1.6rem;list-style:none;margin-top:.4rem}
+.tags li{position:relative;padding-top:2.4rem}
+.tags li::before{content:"";position:absolute;z-index:3;top:.15rem;left:var(--hx,50%);width:15px;height:15px;margin-left:-7.5px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#eef1f1,#80898b 60%,#495052);box-shadow:0 3px 4px rgba(0,0,0,.45)}
+.tags li::after{content:"";position:absolute;z-index:0;top:.7rem;left:var(--hx,50%);width:2px;height:2.45rem;margin-left:-1px;background:#3b2a1c}
+.tg{position:relative;z-index:1;background:var(--paper);border-radius:12px;padding:1.7rem 1rem 1.25rem;color:var(--ink);
+  transform:rotate(var(--r,0deg));transform-origin:var(--hx,50%) 0;box-shadow:0 20px 28px -14px rgba(40,20,5,.65),0 1px 0 rgba(0,0,0,.08)}
+.tg::before{content:"";position:absolute;top:.45rem;left:var(--hx,50%);width:16px;height:16px;margin-left:-8px;border-radius:50%;background:#8a6340;
+  box-shadow:0 0 0 3.5px #c9cfd0,0 0 0 4.5px #8a9193}
+.tg img,.tg>div.ph{width:100%;height:150px;object-fit:cover;border-radius:6px}
+.tg .hd{display:flex;align-items:baseline;gap:.65rem;margin-top:.9rem}
+.tg .no{font:800 2.2rem/1 var(--sten);color:var(--rust);flex:none}
+.tg h3{font-size:1.26rem;color:var(--green2);line-height:1.12}
+.tg p{font-size:.95rem;color:var(--muted);margin-top:.35rem;line-height:1.5}
+
+/* como: three round road signs along a strip of road */
+.como .head{display:flex;justify-content:space-between;align-items:end;gap:2rem}
+.road{position:relative;margin-top:3.8rem;height:70px;border-radius:6px;
+  background:repeating-linear-gradient(90deg,#f1ede4 0 60px,transparent 60px 104px) 0 50%/100% 6px no-repeat,
+    linear-gradient(#e9e4d8,#e9e4d8) 0 7px/100% 3px no-repeat,linear-gradient(#e9e4d8,#e9e4d8) 0 calc(100% - 7px)/100% 3px no-repeat,
+    linear-gradient(#3b4043,#2b2f31);box-shadow:0 14px 22px -14px rgba(0,0,0,.6)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;list-style:none;margin-top:-76px;position:relative}
+.steps li{text-align:center;padding:0 1rem}
+.steps .mk{width:82px;height:82px;margin:0 auto;border-radius:50%;background:#1f5fae;color:#fff;display:grid;place-items:center;
+  font:800 2.7rem/1 var(--sten);border:5px solid #fff;box-shadow:0 0 0 2px #1f5fae,0 12px 18px -8px rgba(0,0,0,.55)}
+.steps .ic{display:block;width:2rem;height:2rem;margin:1.2rem auto 0;color:var(--green)}
+.steps .ic svg{width:100%;height:100%}
+.steps p{font:400 1.3rem/1.3 var(--slab);color:var(--green2);margin-top:.6rem}
+
+/* galeria: photo prints lying on the workbench */
+.galeria{color:var(--cream);background:repeating-linear-gradient(180deg,transparent 0 146px,rgba(0,0,0,.35) 146px 148px),
+  repeating-linear-gradient(180deg,rgba(0,0,0,.05) 0 2px,transparent 2px 7px,rgba(255,255,255,.04) 7px 9px,transparent 9px 23px),
+  linear-gradient(180deg,#7d5636,#5d3d24)}
+.galeria .h2{color:#fff}.galeria .kick{color:var(--ochre2)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:220px;gap:1.8rem;margin-top:2.4rem}
+.gal figure{position:relative;background:#fff;padding:10px;box-shadow:0 22px 30px -16px rgba(0,0,0,.75);transform:rotate(var(--r,0deg))}
+.gal figure:first-child{grid-row:span 2}
+.gal img,.gal figure>div{width:100%;height:100%;object-fit:cover}
+.note{margin-top:1.4rem;font-size:.86rem;color:#d2d7da}
+
+/* avaliacoes */
+.av{background:var(--ochre);color:var(--deep)}
+.av .wrap{display:grid;grid-template-columns:.8fr 2fr;gap:3.4rem;align-items:start}
+.av .kick{color:var(--deep)}.av .kick::before{background:var(--deep)}
+.av .h2{color:var(--deep);font-size:1.75rem}
+.score b{display:block;font:400 6.4rem/.9 var(--slab);margin:.9rem 0 .6rem}
+.score b.cnt{font-size:4.6rem}
+.score .stars{width:8rem;height:1.45rem}
+.score p{color:#39310a;margin-top:.5rem}
+.score a{display:inline-block;margin-top:1rem;font-weight:700;color:var(--deep)}
+.rv{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;padding-top:1rem}
+.rv.n2{grid-template-columns:1fr 1fr}.rv.n1{grid-template-columns:1fr}
+.rv blockquote{position:relative;background:var(--paper);border-radius:3px;padding:2rem 1.5rem 1.4rem;display:flex;flex-direction:column;
+  transform:rotate(var(--r,0deg));box-shadow:0 20px 30px -18px rgba(60,40,0,.65)}
+.rv .q{font:400 3.2rem/.7 var(--slab);color:var(--ochre)}
+.rv p{font-size:1.08rem;line-height:1.55;color:var(--ink);margin:.8rem 0 1.1rem;flex:1}
+.rv.n1 p{font:400 clamp(1.35rem,2.4vw,1.85rem)/1.35 var(--slab);color:var(--green2);max-width:34ch}
+.rv cite{font:800 .95rem var(--sten);letter-spacing:.14em;text-transform:uppercase;font-style:normal;color:var(--muted)}
+.rv .btn{align-self:start}
+
+/* contacto */
+.contacto{background:var(--clad),var(--green2);color:var(--cream)}
+.contacto .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:4rem;align-items:start}
+.clip{position:relative;background:linear-gradient(160deg,#9c6c44,#7a502e);border-radius:16px;padding:3.4rem 1.1rem 1.1rem;margin-top:1rem;
+  box-shadow:0 30px 50px -24px rgba(0,0,0,.75)}
+.clip::before{content:"";position:absolute;z-index:2;top:-14px;left:50%;width:170px;height:58px;margin-left:-85px;border-radius:10px 10px 16px 16px;
+  background:linear-gradient(#f1f3f3,#959d9f 60%,#cdd2d3);box-shadow:0 6px 10px -4px rgba(0,0,0,.5)}
+.clip::after{content:"";position:absolute;z-index:3;top:-4px;left:50%;width:56px;height:16px;margin-left:-28px;border-radius:8px;background:var(--green2)}
+.paper{background:var(--paper);color:var(--ink);border-radius:3px;padding:2.2rem 1.8rem 1.8rem;
+  background-image:linear-gradient(rgba(41,81,79,.07) 1px,transparent 1px);background-size:100% 30px}
+.paper h3{font-size:1.8rem;color:var(--green2)}
+.paper>p{color:var(--muted);margin:.4rem 0 1.3rem}
+.quote{display:grid;gap:1rem}
+.quote label{display:grid;gap:.35rem;font:800 .95rem/1.2 var(--sten);letter-spacing:.14em;text-transform:uppercase;color:var(--green2)}
+.quote .opt{font:400 .85rem var(--sans);letter-spacing:0;text-transform:none;color:var(--muted)}
+.quote input,.quote select,.quote textarea{font:500 1rem var(--sans);color:var(--ink);padding:.8rem .95rem;border:1.5px solid #c3c7cb;border-radius:8px;background:#fff}
+.quote input:focus,.quote select:focus,.quote textarea:focus{border-color:var(--ochre);outline:none;box-shadow:0 0 0 3px rgba(240,180,0,.25)}
+.quote input[name="m"]{font:700 1.35rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:.6rem .9rem .6rem 2.7rem;max-width:15.5rem;
+  border:2.5px solid var(--ink);border-radius:6px;background:linear-gradient(90deg,#1d4fb8 0 1.9rem,#fff 1.9rem)}
+.quote input[name="m"]::placeholder{color:#a3a8ad}
+.quote button{justify-self:start;border:0;border-radius:8px;background:var(--ochre);color:var(--deep);font:700 1rem var(--sans);padding:1rem 1.4rem;cursor:pointer;box-shadow:0 4px 0 #a97e00}
+.info .h2{color:#fff}
+.info .kick{color:var(--ochre2)}
+.hsign{background:var(--paper);color:var(--ink);border-radius:14px;padding:1.7rem 2rem 1.5rem;margin-top:1.3rem;
+  background-image:radial-gradient(circle at 15px 15px,#8d9496 0 4px,transparent 5px),radial-gradient(circle at calc(100% - 15px) 15px,#8d9496 0 4px,transparent 5px),
+    radial-gradient(circle at 15px calc(100% - 15px),#8d9496 0 4px,transparent 5px),radial-gradient(circle at calc(100% - 15px) calc(100% - 15px),#8d9496 0 4px,transparent 5px);
+  box-shadow:inset 0 0 0 7px var(--paper),inset 0 0 0 9px var(--green),0 20px 40px -20px rgba(0,0,0,.6)}
+.hsign h3{font-size:1.5rem;color:var(--green2);text-align:center}
+.hsign .now{display:block;text-align:center;font-weight:600;margin:.35rem 0 .7rem;color:var(--muted)}
+table{border-collapse:collapse;width:100%}
+th,td{padding:.62rem 0;border-bottom:1px dashed #c6cbcf;text-align:left;font-weight:500;color:var(--muted)}
+td{text-align:right;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+tr:last-child th,tr:last-child td{border-bottom:0}
+.where{margin-top:1.6rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;color:#d6dce3;line-height:1.7}
+.where svg{width:1.8rem;height:1.8rem;color:var(--ochre2)}
+.where a{color:#fff;text-decoration:none;font-weight:600}
+.where .map{color:var(--ochre2);display:inline-block;margin-top:.4rem}
+footer{background:var(--deep);color:#a9b2bb;padding:3.4rem 0 2rem;font-size:.93rem}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+footer .fb{font:400 1.3rem/1.15 var(--slab);color:#fff}
+footer h4{font:800 1rem var(--sten);letter-spacing:.18em;text-transform:uppercase;color:var(--ochre2);margin-bottom:.6rem}
+footer a{text-decoration:none}
+footer th,footer td{color:#d1d7dd;border-color:rgba(255,255,255,.12)}footer th{color:#a9b2bb}
+footer .credit{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-top:1.4rem;margin-top:1rem;font-size:.85rem}
+.fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:20;width:3.8rem;height:3.8rem;border-radius:50%;border:3px solid var(--paper);
+  background:#25d366;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 30px -8px rgba(0,0,0,.5)}
+.fab svg{width:1.8rem;height:1.8rem}
+.shot .serv{padding:3.4rem 0}
+.shot .demo,.shot .fab,.shot .strip,.shot [data-hide-in-shot]{display:none!important}
+@media (max-width:860px){
+  .nav{gap:.8rem;padding-top:.75rem;padding-bottom:.75rem}
+  .nav a.l{display:none}
+  .brand{font-size:1.08rem;gap:.55rem}.brand i{width:1.8rem;height:1.8rem}.brand i svg{width:1rem;height:1rem}
+  .nav .tel{font-size:.85rem;padding:.55rem .75rem}
+  .facade{padding:.7rem .7rem 1rem}
+  .door{height:auto;overflow:visible;background:none}
+  .shutter{position:relative;height:50px}
+  .shutter span{font-size:1.05rem;letter-spacing:.24em;top:-5px}
+  .shutter::after{height:9px}.shutter i{width:44px;height:5px;margin-left:-22px;bottom:2px}
+  .door>img.ph,.door>div.ph{position:relative;top:auto;height:196px;margin-top:-4px}
+  .sign{top:72px;right:.55rem;width:172px;padding:.45rem .55rem .55rem;transform-origin:50% -22px}
+  .sign .ch{top:-24px;height:26px;width:2px}
+  .sign small{font-size:.68rem}.sign strong{font-size:.78rem;margin-top:.2rem}
+  .badge{width:100px;height:100px;right:auto;left:.6rem;bottom:auto;top:116px;box-shadow:inset 0 0 0 4px var(--ochre),inset 0 0 0 5.5px var(--deep),0 10px 18px -8px rgba(0,0,0,.6)}
+  .badge b{font-size:1.75rem}.badge.cnt b{font-size:1.5rem}
+  .badge .stars{width:3.5rem;height:.65rem;margin-top:.2rem}
+  .badge small{font-size:.55rem;margin-top:.15rem}
+  .hcard{position:relative;left:auto;bottom:auto;width:auto;margin:-1.3rem .45rem 0;padding:1.2rem 1.15rem 1.3rem;border-top-width:6px}
+  .hcard h1{font-size:var(--h1m,1.9rem);margin:.6rem 0 .6rem}
+  .hcard p{font-size:.98rem;line-height:1.55}
+  .cta{margin-top:1.1rem;gap:.55rem}
+  .cta .btn{flex:1 1 auto;justify-content:center;padding:.9rem 1rem;font-size:.95rem}
+  .cta .pn{display:none}
+  section{padding:4.2rem 0}
+  .casa .wrap,.av .wrap,.contacto .wrap{grid-template-columns:1fr;gap:2.4rem}
+  .pics{height:330px}
+  .pics img,.pics>div{border-width:7px}
+  .pics .cap{font-size:.82rem;max-width:58%}
+  .serv .top,.como .head{display:block}
+  .serv .top .btn{display:none}
+  .shot .serv{padding:2rem 0}
+  .board{border-width:7px;padding:.8rem .8rem 1.4rem;background-size:20px 20px,auto,auto}
+  .tools{width:150%;max-width:none;max-height:none;margin-left:-25%}
+  .board{overflow:hidden}
+  .tags{grid-template-columns:1fr;gap:1rem}
+  .tags li{padding-top:1.9rem}
+  .tags li::after{height:2rem}
+  .tags li{--hx:calc(.75rem + 46px)}
+  .tg{display:grid;grid-template-columns:92px 1fr;gap:.85rem;align-items:center;padding:1.5rem .75rem .8rem;transform:rotate(calc(var(--r,0deg) * .5))}
+  .tg img,.tg>div.ph{height:84px}
+  .tg .hd{display:block;margin-top:0}
+  .tg .no{display:block;font-size:1.2rem;letter-spacing:.06em;margin-bottom:.1rem}
+  .tg h3{font-size:1.08rem}
+  .fab{opacity:0;transform:scale(.6);pointer-events:none;transition:opacity .2s,transform .2s}
+  .fab.up{opacity:1;transform:none;pointer-events:auto}
+  .tg p{font-size:.86rem;line-height:1.4;margin-top:.2rem}
+  .como .head .btn{margin-top:1rem}
+  .road{display:none}
+  .steps{grid-template-columns:1fr;gap:1.4rem;margin-top:2rem}
+  .steps::before{content:"";position:absolute;left:16px;top:-.8rem;bottom:-.8rem;width:46px;border-radius:5px;
+    background:repeating-linear-gradient(180deg,#f1ede4 0 22px,transparent 22px 40px) 50% 0/4px 100% no-repeat,linear-gradient(90deg,#3b4043,#2b2f31)}
+  .steps li{display:grid;grid-template-columns:78px 1fr;gap:1rem;align-items:center;text-align:left;padding:0}
+  .steps .ic{display:none}
+  .steps .mk{width:64px;height:64px;font-size:2.1rem;border-width:4px;margin:0 0 0 7px}
+  .steps p{margin:0;font-size:1.12rem}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:130px;gap:1rem}
+  .gal figure{padding:6px}
+  .gal figure:first-child{grid-column:span 2;grid-row:span 1;height:190px}
+  .gal figure:first-child{grid-row:auto}
+  .rv,.rv.n2{grid-template-columns:1fr;gap:1.6rem}
+  .score b{font-size:4.4rem;margin-top:.6rem}.score b.cnt{font-size:3.4rem}
+  .clip{padding:2.8rem .7rem .7rem}
+  .paper{padding:1.7rem 1.2rem 1.4rem}
+  .hsign{padding:1.5rem 1.4rem 1.3rem}
+  footer .wrap{grid-template-columns:1fr}
+  .nums div{min-width:0;flex:1 1 40%}.nums b{font-size:2.1rem}
+}
+@media (min-width:861px){.hcard{left:auto;right:2.6rem}.badge{right:auto;left:3rem}.sign{right:auto;left:7%;transform:rotate(-1.4deg)}}</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lafopneus · pré-visualização do site">
+<meta property="og:description" content="Pneus, mecânica, bate-chapas e lavagem na Rua da Bela Vista, em São Pedro do Sul, desde 1993. 127 avaliações no Google.">
+<meta property="og:url" content="https://preview.northsoftware.pt/lafopneus/">
+<meta property="og:image" content="https://preview.northsoftware.pt/lafopneus/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<div class="demo">Pré-visualização preparada pela North Software para Lafopneus. Ainda não está publicada; as fotografias são ilustrativas.</div>
+<header id="inicio" class="hero" data-sec="inicio">
+  <div class="fascia"><nav class="nav wrap" aria-label="Principal"><a class="brand" href="#"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></i>Lafopneus</a>
+    <a class="l" href="#servicos">Serviços</a><a class="l" href="#oficina">Oficina</a><a class="l" href="#avaliacoes">Avaliações</a><a class="l" href="#contacto">Contacto</a>
+    <a class="tel" href="tel:+351232723478">232 723 478</a></nav></div>
+  <div class="facade"><div class="door" style="--h1:3.2rem;--h1m:2.05rem">
+    <div class="shutter" aria-hidden="true"><span>Desde 1993 · São Pedro do Sul</span><i></i></div>
+    <img class="ph" src="../assets/stock/detail-08.jpg" alt="Underside of a car on a two-post lift: exhaust, rear wheel and suspension, bright tiled workshop behind.">
+    <div class="sign"><i class="ch l"></i><i class="ch r"></i><small>Hoje</small><strong><span class="dot"></span><span data-open>09:00 – 12:30 · 14:30 – 19:00</span></strong></div>
+    <div class="badge cnt"><b>127</b><small>avaliações<br>no Google</small></div>
+    <div class="hcard"><span class="kick">Pneus e oficina em São Pedro do Sul, desde 1993</span>
+      <h1>&quot;Fizeram um excelente diagnóstico.&quot;</h1>
+      <p>Pneus, mecânica, bate-chapas e lavagem na Rua da Bela Vista, em São Pedro do Sul, desde 1993. Aberto de segunda a sábado.</p>
+      <div class="cta"><button type="button" class="btn btn-o" onclick='demoWA(&quot;Ol\u00e1, queria marcar o meu carro para a oficina.&quot;)'>Marcar pelo WhatsApp</button><a class="btn btn-g" href="tel:+351232723478">Ligar<span class="pn"> 232 723 478</span></a></div>
+    </div>
+  </div></div>
+</header>
+<section id="oficina" class="casa" data-sec="casa"><div class="wrap">
+  <div><span class="kick">A oficina</span><h2 class="h2">Porquê a Lafopneus</h2>
+    <p class="lead">Mais de 30 anos em São Pedro do Sul.</p>
+    <ul class="why"><li><span class="n">01</span><div><h3>Desde 1993</h3><p>&quot;Empresa com grande experiência e longos anos na região&quot;, escreve um cliente.</p></div></li><li><span class="n">02</span><div><h3>Preços acessíveis</h3><p>&quot;Serviço de qualidade a preços acessíveis!&quot;, escreve outro.</p></div></li><li><span class="n">03</span><div><h3>Aberto ao sábado</h3><p>De segunda a sábado, das 9h às 12h30 e das 14h30 às 19h.</p></div></li></ul>
+    <div class="nums"><div><b>127</b><span>avaliações no Google</span></div><div><b>1993</b><span>ano de abertura</span></div></div></div>
+  <div class="pics"><img class="p1" src="../assets/stock/mechanic-01.jpg" alt="Mechanic in navy overalls leaning into the engine bay of a light-coloured hatchback, seen from the side."><img class="p2" src="../assets/stock/workshop-03.jpg" alt="Weathered hands tightening a hose clamp with a screwdriver in a dark boxer-engine bay.">
+    <p class="cap">Desde 1993 · São Pedro do Sul</p></div>
+</div></section>
+<section id="servicos" class="serv" data-sec="servicos"><div class="wrap">
+  <div class="top"><div><span class="kick">Serviços · São Pedro do Sul</span><h2 class="h2">O que fazemos</h2>
+    <p class="lead">Dos pneus à lavagem, no mesmo sítio.</p></div>
+    <button type="button" class="btn btn-o" onclick='demoWA(&quot;Ol\u00e1, queria marcar o meu carro para a oficina.&quot;)'>Marcar pelo WhatsApp</button></div>
+  <div class="board"><svg class="tools" viewBox="0 0 1100 215" aria-hidden="true"><defs><linearGradient id="bk-steel" x1="0" x2="1"><stop offset="0" stop-color="#8f989a"/><stop offset=".45" stop-color="#eef1f1"/><stop offset="1" stop-color="#a3abad"/></linearGradient><linearGradient id="bk-wood" x1="0" x2="1"><stop offset="0" stop-color="#b9824a"/><stop offset=".5" stop-color="#dcae74"/><stop offset="1" stop-color="#a87140"/></linearGradient><linearGradient id="bk-dark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6d7578"/><stop offset=".5" stop-color="#3b4245"/><stop offset="1" stop-color="#262b2d"/></linearGradient></defs><g transform="translate(85 8) scale(1)"><path d="M-16 20a16 16 0 1 0 32 0a16 16 0 1 0-32 0ZM-8 20a8 8 0 1 1 16 0a8 8 0 1 1-16 0ZM-6.5 33V162H6.5V33ZM8.5 197.2A21 21 0 1 0 -8.5 197.2L-8.5 180A8.5 8.5 0 0 1 8.5 180Z" class="sil"/><g class="t"><path d="M-16 20a16 16 0 1 0 32 0a16 16 0 1 0-32 0ZM-8 20a8 8 0 1 1 16 0a8 8 0 1 1-16 0ZM-6.5 33V162H6.5V33ZM8.5 197.2A21 21 0 1 0 -8.5 197.2L-8.5 180A8.5 8.5 0 0 1 8.5 180Z" class="st"/></g><circle class="peg" cx="0" cy="20" r="4.5"/></g><g transform="translate(235 14) scale(1)"><rect x="-13" y="0" width="26" height="80" rx="11" class="sil"/><rect x="-7.5" y="80" width="15" height="11" rx="2" class="sil"/><path d="M-3.5 91H3.5V182L5.5 192H-5.5L-3.5 182Z" class="sil"/><g class="t"><rect x="-13" y="0" width="26" height="80" rx="11" class="r"/><path d="M-6 22V70M0 22V70M6 22V70" class="gr"/><rect x="-7.5" y="80" width="15" height="11" rx="2" class="st"/><path d="M-3.5 91H3.5V182L5.5 192H-5.5L-3.5 182Z" class="st"/><circle cx="0" cy="11" r="4.5" class="hole"/></g><circle class="peg" cx="0" cy="11" r="4.5"/></g><g transform="translate(395 8) scale(1)"><rect x="-7" y="20" width="14" height="170" rx="6" class="sil"/><path d="M-40 6Q-40 0 -34 0H28L40 5V21L28 26H-34Q-40 26 -40 20Z" class="sil"/><g class="t"><rect x="-7" y="20" width="14" height="170" rx="6" class="wd"/><path d="M-40 6Q-40 0 -34 0H28L40 5V21L28 26H-34Q-40 26 -40 20Z" class="hm"/></g><circle class="peg" cx="-18" cy="31" r="4.5"/><circle class="peg" cx="18" cy="31" r="4.5"/></g><g transform="translate(550 8) scale(1)"><path d="M-16 20a16 16 0 1 0 32 0a16 16 0 1 0-32 0ZM-8 20a8 8 0 1 1 16 0a8 8 0 1 1-16 0ZM-6.5 33V162H6.5V33ZM8.5 197.2A21 21 0 1 0 -8.5 197.2L-8.5 180A8.5 8.5 0 0 1 8.5 180Z" class="sil"/><text class="lbl" x="0" y="100" transform="rotate(-90 0 100)">EM USO</text><circle class="peg" cx="0" cy="20" r="4.5"/></g><g transform="translate(700 6) scale(1)"><path d="M-5 60L-24 188Q-25 196 -17 196L-13 196L7 72Z" class="sil"/><path d="M5 60L24 188Q25 196 17 196L13 196L-7 72Z" class="sil"/><path d="M-10 84L-8 22Q-7 6 0 0Q7 6 8 22L10 84Z" class="sil"/><circle cx="0" cy="66" r="7" class="sil"/><g class="t"><path d="M-5 60L-24 188Q-25 196 -17 196L-13 196L7 72Z" class="gp"/><path d="M5 60L24 188Q25 196 17 196L13 196L-7 72Z" class="gp"/><path d="M-10 84L-8 22Q-7 6 0 0Q7 6 8 22L10 84Z" class="st"/><circle cx="0" cy="66" r="7" class="dk"/></g><circle class="peg" cx="0" cy="12" r="4.5"/></g><g transform="translate(850 20) scale(0.9)"><rect x="-13" y="0" width="26" height="80" rx="11" class="sil"/><rect x="-7.5" y="80" width="15" height="11" rx="2" class="sil"/><path d="M-3.5 91H3.5V182L5.5 192H-5.5L-3.5 182Z" class="sil"/><g class="t"><rect x="-13" y="0" width="26" height="80" rx="11" class="o"/><path d="M-6 22V70M0 22V70M6 22V70" class="gr"/><rect x="-7.5" y="80" width="15" height="11" rx="2" class="st"/><path d="M-3.5 91H3.5V182L5.5 192H-5.5L-3.5 182Z" class="st"/><circle cx="0" cy="11" r="4.5" class="hole"/></g><circle class="peg" cx="0" cy="11" r="4.5"/></g><g transform="translate(1005 18) scale(0.82)"><path d="M-16 20a16 16 0 1 0 32 0a16 16 0 1 0-32 0ZM-8 20a8 8 0 1 1 16 0a8 8 0 1 1-16 0ZM-6.5 33V162H6.5V33ZM8.5 197.2A21 21 0 1 0 -8.5 197.2L-8.5 180A8.5 8.5 0 0 1 8.5 180Z" class="sil"/><g class="t"><path d="M-16 20a16 16 0 1 0 32 0a16 16 0 1 0-32 0ZM-8 20a8 8 0 1 1 16 0a8 8 0 1 1-16 0ZM-6.5 33V162H6.5V33ZM8.5 197.2A21 21 0 1 0 -8.5 197.2L-8.5 180A8.5 8.5 0 0 1 8.5 180Z" class="st"/></g><circle class="peg" cx="0" cy="20" r="4.5"/></g></svg><ul class="tags" style="--cols:4"><li style="--r:-1.6deg"><div class="tg"><img class="ph" src="../assets/stock/tyres-brakes-01.jpg" alt="Drilled brake disc and hub with the wheel removed, car raised on a yellow lift arm."><div><div class="hd"><span class="no">01</span><h3>Pneus</h3></div><p>Venda e montagem de pneus.</p></div></div></li><li style="--r:1.2deg"><div class="tg"><img class="ph" src="../assets/stock/mechanic-02.jpg" alt="Mechanic in a blue work coat checking fluids under an open bonnet, workshop floor behind."><div><div class="hd"><span class="no">02</span><h3>Mecânica</h3></div><p>Manutenção e reparação de ligeiros.</p></div></div></li><li style="--r:-0.8deg"><div class="tg"><img class="ph" src="../assets/stock/bodywork-paint-01.jpg" alt="Hand holding a spray gun next to a masked-up car panel in a paint booth with a grated floor."><div><div class="hd"><span class="no">03</span><h3>Bate-chapas</h3></div><p>Reparação de chapa.</p></div></div></li><li style="--r:1.7deg"><div class="tg"><img class="ph" src="../assets/stock/mechanic-03.jpg" alt="Close-up of hands with a socket wrench at the scuttle panel of a car with the bonnet open."><div><div class="hd"><span class="no">04</span><h3>Lavagem</h3></div><p>Lavagem de viaturas.</p></div></div></li></ul></div>
+</div></section>
+<section id="como" class="como" data-sec="como"><div class="wrap">
+  <div class="head"><div><span class="kick">Como funciona</span><h2 class="h2">Orçamento por foto</h2>
+    <p class="lead">Comece pelo telemóvel, sem sair de casa.</p></div>
+    <button type="button" class="btn btn-g" onclick='demoWA(&quot;Ol\u00e1, queria marcar o meu carro para a oficina.&quot;)'>Enviar fotos pelo WhatsApp</button></div>
+  <div class="road" aria-hidden="true"></div>
+  <ol class="steps"><li><span class="mk">1</span><div><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h4l2-3h4l2 3h4v12H4z"/><circle cx="12" cy="13" r="4"/></svg></span><p>Tire duas ou três fotos do dano.</p></div></li><li><span class="mk">2</span><div><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg></span><p>Envie-as pelo WhatsApp com a matrícula.</p></div></li><li><span class="mk">3</span><div><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><p>Recebe uma estimativa e marcamos a data.</p></div></li></ol>
+</div></section>
+<section id="galeria" class="galeria" data-sec="galeria"><div class="wrap">
+  <span class="kick">Galeria</span><h2 class="h2">Trabalhos</h2>
+  <div class="gal"><figure style="--r:-0.64deg"><img src="../assets/stock/workshop-01.jpg" alt="Bright daylight shot of forearms wiping the scuttle panel of an open engine bay, battery and intake in the foreground."></figure><figure style="--r:1.36deg"><img src="../assets/stock/detail-01.jpg" alt="Two pairs of hands working together in an engine bay, one with a ratchet extension, one holding a connector."></figure><figure style="--r:-0.96deg"><img src="../assets/stock/mechanic-04.jpg" alt="Gloved hand working on an exposed cylinder head of an engine on the bench, blue overalls."></figure><figure style="--r:0.72deg"><img src="../assets/stock/tyres-brakes-02.jpg" alt="Portrait version: drilled brake disc and hub on a car with the wheel off, reflective workshop floor."></figure><figure style="--r:-1.28deg"><img src="../assets/stock/workshop-14.jpg" alt="Rear of a small classic car freshly resprayed in sage green, engine lid open, tidy bright workshop blurred behind."></figure></div>
+  <p class="note">Fotografias ilustrativas. No site final, as fotografias são as da oficina.</p>
+</div></section>
+<section id="avaliacoes" class="av" data-sec="avaliacoes"><div class="wrap">
+  <div class="score"><span class="kick">Avaliações</span><b class="cnt">127</b><p>avaliações no Google.</p><h2 class="h2">Quem cá vem, volta</h2>
+    <a href="https://www.google.com/maps/search/?api=1&query=Lafopneus+S%C3%A3o+Pedro+do+Sul">Ler as avaliações no Google →</a></div>
+  <div class="rv n3"><blockquote style="--r:0.84deg"><i class="mag"></i><span class="q">“</span><p>Viram-me o carro quando tive na serra uma falha nos travões. Fizeram um excelente diagnóstico e disseram para viajar descansado, e não me cobraram nada.</p><cite>L. N., no Google</cite></blockquote><blockquote style="--r:-0.56deg"><i class="mag"></i><span class="q">“</span><p>Empresa com grande experiência e longos anos na região. Excelente atendimento. Profissionais qualificados. Preços muito bons. Recomendo vivamente.</p><cite>M. L. F., no Google</cite></blockquote><blockquote style="--r:1.19deg"><i class="mag"></i><span class="q">“</span><p>Serviço de qualidade a preços acessíveis! Pessoal qualificado e interessado em fazer bem as coisas!</p><cite>C. L., no Google</cite></blockquote></div>
+</div></section>
+<section id="contacto" class="contacto" data-sec="contacto"><div class="wrap">
+  <div class="clip"><div class="paper"><h3>Pedir orçamento</h3><p>Diga-nos a matrícula e o que precisa. Respondemos pelo WhatsApp.</p><form class="quote" onsubmit="return sendQuote(this)">
+  <label>Matrícula<input name="m" data-l="Matrícula" placeholder="AA-00-BB" required autocomplete="off"></label>
+  <label>Carro <span class="opt">(opcional)</span><input name="mod" data-l="Carro" placeholder="Marca e modelo" autocomplete="off"></label>
+  <label>Serviço<select name="s" data-l="Serviço"><option>Pneus</option><option>Revisão</option><option>Diagnóstico / avaria</option><option>Bate-chapas</option><option>Outro</option></select></label>
+  <label>O que se passa? <span class="opt">(opcional)</span><textarea name="n" data-l="O que se passa?" rows="3"></textarea></label>
+  <button type="submit">Enviar pedido pelo WhatsApp</button>
+</form></div></div>
+  <div class="info"><span class="kick">Contacto</span><h2 class="h2">Onde estamos</h2>
+    <div class="hsign"><h3>Horário</h3><span class="now"><span class="dot"></span><span data-open>09:00 – 12:30 · 14:30 – 19:00</span></span>
+      <table><tr><th scope="row">Segunda a sábado</th><td>09:00 – 12:30 · 14:30 – 19:00</td></tr><tr><th scope="row">Domingo</th><td>Encerrado</td></tr></table></div>
+    <div class="where"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><p>Rua da Bela Vista, 88, 3660-417 São Pedro do Sul<br><a href="tel:+351232723478">232 723 478</a><br><a href="mailto:lafopneus@hotmail.com">lafopneus@hotmail.com</a><br><a class="map" href="https://www.google.com/maps/search/?api=1&query=Rua+da+Bela+Vista%2C+88%2C+3660-417+S%C3%A3o+Pedro+do+Sul">Abrir no Google Maps →</a></p></div>
+  </div>
+</div></section>
+<footer><div class="wrap">
+  <div><div class="fb">Lafopneus</div><p style="margin-top:.8rem">Pneus, mecânica, bate-chapas e lavagem na Rua da Bela Vista, em São Pedro do Sul, desde 1993. 127 avaliações no Google.</p></div>
+  <div><h4>Contactos</h4><p>Rua da Bela Vista, 88, 3660-417 São Pedro do Sul<br><a href="tel:+351232723478">232 723 478</a><br><a href="mailto:lafopneus@hotmail.com">lafopneus@hotmail.com</a></p></div>
+  <div><h4>Horário</h4><table style="font-size:.88rem"><tr><th scope="row">Segunda a sábado</th><td>09:00 – 12:30 · 14:30 – 19:00</td></tr><tr><th scope="row">Domingo</th><td>Encerrado</td></tr></table></div>
+  <div class="credit">© Lafopneus - Ferreira &amp; Pinto, Lda, São Pedro do Sul. Site feito pela North Software.</div>
+</div></footer>
+<button type="button" class="fab" aria-label="Marcar pelo WhatsApp" onclick='demoWA(&quot;Ol\u00e1, queria marcar o meu carro para a oficina.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg></button>
+<script>(function(){var f=document.querySelector('.fab');if(!f)return;
+function t(){f.classList.toggle('up',window.scrollY>360);}t();addEventListener('scroll',t,{passive:true});})();</script>
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp da oficina com a mensagem:\n\n'+msg);}
+function sendQuote(f){var t="Ol\u00e1, queria um or\u00e7amento.";f.querySelectorAll('[data-l]').forEach(function(x){if(x.value)t+='\n'+x.getAttribute('data-l')+': '+x.value;});demoWA(t);return false;}
+(function(){
+  var open={"1": [["09:00", "12:30"], ["14:30", "19:00"]], "2": [["09:00", "12:30"], ["14:30", "19:00"]], "3": [["09:00", "12:30"], ["14:30", "19:00"]], "4": [["09:00", "12:30"], ["14:30", "19:00"]], "5": [["09:00", "12:30"], ["14:30", "19:00"]], "6": [["09:00", "12:30"], ["14:30", "19:00"]]}; if(!Object.keys(open).length) return;
+  function mins(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  var d=new Date(), day=d.getDay(), now=d.getHours()*60+d.getMinutes(), slots=open[day]||[], txt, on=false;
+  for(var i=0;i<slots.length;i++){ if(now>=mins(slots[i][0])&&now<mins(slots[i][1])){on=true;txt='Aberto agora, até às '+slots[i][1];break;} }
+  if(!on){
+    var next=null;
+    for(var k=0;k<slots.length;k++){ if(now<mins(slots[k][0])){next='Abre hoje às '+slots[k][0];break;} }
+    if(!next){ for(var j=1;j<=7;j++){var dd=(day+j)%7; if(open[dd]&&open[dd].length){next='Abre '+(j==1?'amanhã':['domingo','segunda','terça','quarta','quinta','sexta','sábado'][dd])+' às '+open[dd][0][0];break;}} }
+    txt='Fechado agora. '+(next||'');
+  }
+  document.querySelectorAll('[data-open]').forEach(function(el){el.textContent=txt;el.classList.toggle('is-open',on);});
+})();
+</script>
+<script>
+document.querySelectorAll('[data-open].is-open').forEach(function(x){var d=x.previousElementSibling;if(d&&d.classList.contains('dot'))d.classList.add('on');});
+(function(){var m=location.hash.match(/^#shot-([a-z]+)$/);if(!m)return;var t=document.querySelector('[data-sec="'+m[1]+'"]');if(!t)return;
+document.documentElement.classList.add('shot');
+document.querySelectorAll('[data-sec]').forEach(function(s){if(s!==t)s.style.display='none';});})();
+</script>
+</body></html>

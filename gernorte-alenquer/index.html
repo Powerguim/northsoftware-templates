@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gernorte – Eletricidade e eletrónica em Alenquer</title>
+<meta name="description" content="Gernorte, em Alenquer desde 1991: eletricidade, eletrónica e reparação de equipamento elétrico. Peça o seu orçamento.">
+<style>@font-face{font-family:'Inter Tight';src:url('../assets/fonts/inter-tight-var.woff2') format('woff2');font-weight:100 900;font-display:swap;}@font-face{font-family:'JetBrains Mono';src:url('../assets/fonts/of-jetbrains-mono-var.woff2') format('woff2');font-weight:100 800;font-display:swap;}@font-face{font-family:'Plex Cond';src:url('../assets/fonts/ibm-plex-sans-condensed-600.woff2') format('woff2');font-weight:600;font-display:swap;}@font-face{font-family:'Plex Sans';src:url('../assets/fonts/ibm-plex-sans-400.woff2') format('woff2');font-weight:400;font-display:swap;}@font-face{font-family:'Plex Sans';src:url('../assets/fonts/ibm-plex-sans-600.woff2') format('woff2');font-weight:600;font-display:swap;}@font-face{font-family:'Plex Mono';src:url('../assets/fonts/ibm-plex-mono-400.woff2') format('woff2');font-weight:400;font-display:swap;}@font-face{font-family:'Plex Mono';src:url('../assets/fonts/ibm-plex-mono-500.woff2') format('woff2');font-weight:500;font-display:swap;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus,#1a73e8);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.demo{background:#ffd84d;color:#3a2e00;text-align:center;font:500 .82rem/1.4 system-ui,sans-serif;padding:.45rem 1rem}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+:root{--navy:#0e3a30;--navy2:#092d25;--navy3:#165245;--cyan:#8fd0b4;--paper:#f1f6f3;--paper2:#e5f0ea;--ink:#0e211b;
+  --muted:#4f6a60;--yellow:#7ee0a8;--yellow2:#9de7bd;--line:#c8d8ce;--focus:#7ee0a8;
+  --cond:'Inter Tight','Arial Narrow',sans-serif;--sans:'Plex Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+html{scroll-behavior:smooth}
+body{font:400 1.04rem/1.6 var(--sans);color:var(--ink);background:var(--paper)}
+h1,h2,h3{font-family:var(--cond);font-weight:600;line-height:1.02;letter-spacing:-.01em}
+.wrap{max-width:1220px;margin:0 auto;padding:0 2rem}
+.mono{font-family:var(--mono)}
+.bp{background-color:var(--navy);color:#e6f0ed;
+  background-image:linear-gradient(rgba(143,208,180,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(143,208,180,.13) 1px,transparent 1px),
+  linear-gradient(rgba(143,208,180,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(143,208,180,.055) 1px,transparent 1px);
+  background-size:96px 96px,96px 96px,24px 24px,24px 24px;background-position:-1px -1px}
+.btn{display:inline-flex;align-items:center;gap:.65rem;border:0;border-radius:3px;padding:1rem 1.45rem;font:600 1rem/1 var(--sans);
+  cursor:pointer;text-decoration:none;transition:background .15s,transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:1.2rem;height:1.2rem;flex:none}
+.btn-y{background:var(--yellow);color:#13231e}.btn-y:hover{background:var(--yellow2)}
+.btn-o{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(143,208,180,.7)}
+.btn-ink{background:var(--ink);color:#fff}
+.code{display:flex;align-items:center;gap:.7rem;font:500 .9rem/1.3 var(--mono);color:var(--cyan)}
+.code .sq{width:.7rem;height:.7rem;background:var(--yellow);flex:none}
+
+/* hero */
+.nav{display:flex;align-items:center;gap:2rem;padding-top:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid rgba(143,208,180,.25)}
+.brand{display:flex;align-items:center;gap:.7rem;font:600 1.6rem/1 var(--cond);text-decoration:none;color:#fff;margin-right:auto}
+.brand .ico{width:1.7rem;height:1.7rem;color:var(--yellow)}
+.nav a.l{font:400 .88rem var(--mono);text-decoration:none;color:#b8d3c8}
+.nav a.l:hover{color:#fff}
+.nav .tel{font:500 .95rem var(--mono);text-decoration:none;color:#fff;padding:.6rem .9rem;border:1px solid rgba(143,208,180,.6);border-radius:3px}
+.hero-in{display:grid;grid-template-columns:1.02fr 1fr;gap:4.5rem;align-items:center;padding-top:3.4rem;padding-bottom:3.2rem}
+.hero h1{font-size:clamp(2.8rem,5.4vw,4.5rem);color:#fff;margin-top:1.1rem;max-width:14ch}
+.hero-p{margin-top:1.2rem;color:#c3d8d0;font-size:1.1rem;max-width:46ch}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem;list-style:none}
+.chips li{font:400 .82rem/1 var(--mono);color:#d0e5dd;border:1px solid rgba(143,208,180,.45);padding:.5rem .7rem;border-radius:2px}
+.plate{position:relative;margin:2.2rem 0 0 2.4rem}
+.frame{position:relative;padding:10px;border:1px solid rgba(143,208,180,.55)}
+.frame img{width:100%;height:440px;object-fit:cover;display:block;filter:saturate(.92)}
+.frame i{position:absolute;width:18px;height:18px;border-color:var(--yellow);border-style:solid}
+.frame i:nth-child(2){top:-5px;left:-5px;border-width:2px 0 0 2px}.frame i:nth-child(3){top:-5px;right:-5px;border-width:2px 2px 0 0}
+.frame i:nth-child(4){bottom:-5px;left:-5px;border-width:0 0 2px 2px}.frame i:nth-child(5){bottom:-5px;right:-5px;border-width:0 2px 2px 0}
+.dim{position:absolute;color:var(--cyan);font:400 .8rem/1 var(--mono)}
+.dim::before{content:"";position:absolute;background:var(--cyan);opacity:.75}
+.dim.top{left:0;right:0;top:-1.6rem;height:1px}
+.dim.top::before{inset:0}
+.dim.top b,.dim.top u{position:absolute;top:-6px;width:1px;height:13px;background:var(--cyan);transform:rotate(45deg)}
+.dim.top b{left:0}.dim.top u{right:0}
+.dim.top span{position:absolute;left:50%;top:-.5rem;transform:translateX(-50%);background:var(--navy);padding:0 .7rem;white-space:nowrap}
+.dim.side{top:0;bottom:0;left:-1.6rem;width:1px}
+.dim.side::before{inset:0}
+.dim.side b,.dim.side u{position:absolute;left:-6px;width:13px;height:1px;background:var(--cyan);transform:rotate(45deg)}
+.dim.side b{top:0}.dim.side u{bottom:0}
+.dim.side span{position:absolute;top:50%;left:0;transform:translate(-50%,-50%) rotate(-90deg);background:var(--navy);padding:0 .7rem;white-space:nowrap}
+.plate figcaption{margin-top:.7rem;font:400 .78rem var(--mono);color:#92b9a9}
+.callout{position:absolute;right:12%;top:24%;width:4.2rem;height:4.2rem;border:2px solid var(--yellow);border-radius:50%}
+.callout::after{content:"A";position:absolute;left:115%;top:-1.6rem;font:500 .85rem var(--mono);color:#13231e;background:var(--yellow);padding:.2rem .45rem}
+.status{display:grid;grid-template-columns:1.1fr 1fr 1.3fr 1.1fr;border-top:1px solid rgba(143,208,180,.3)}
+.status>div{padding:1.05rem 1.2rem 1.25rem 0}
+.status>div+div{padding-left:1.4rem;border-left:1px solid rgba(143,208,180,.3)}
+.status small{display:block;font:400 .74rem var(--mono);color:#89b0a1;margin-bottom:.3rem}
+.status strong{font:600 1.08rem/1.3 var(--sans);color:#fff}
+.status a{text-decoration:none}
+.dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:#7e978d;margin-right:.5rem;vertical-align:1px}
+.dot.on{background:#43d17a;box-shadow:0 0 0 4px rgba(67,209,122,.2)}
+
+section{padding:6.5rem 0}
+.h2{font-size:clamp(2.4rem,4.4vw,3.7rem)}
+.lead{font-size:1.1rem;color:var(--muted);max-width:52ch;margin-top:1rem}
+
+/* servicos: the drawing sheet */
+.servicos{padding:5rem 0}
+.servicos .head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.4rem}
+.servicos .h2{color:#fff}
+.servicos .lead{color:#b9d2c8}
+.sheet{position:relative;background-color:#f6f9f7;color:var(--ink);padding:14px;box-shadow:0 40px 80px -40px rgba(0,0,0,.7);
+  background-image:linear-gradient(rgba(61,124,101,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(61,124,101,.07) 1px,transparent 1px);
+  background-size:20px 20px}
+.sheet-in{border:2px solid var(--ink)}
+.sheet-body{display:grid;grid-template-columns:1.25fr 1fr;border-bottom:2px solid var(--ink)}
+.legend{padding:1.6rem 2rem 1.4rem}
+.sh-t{display:flex;justify-content:space-between;font:500 .8rem var(--mono);color:var(--muted);padding-bottom:.7rem;border-bottom:1px solid var(--ink)}
+.legend ul{list-style:none}
+.legend li{display:grid;grid-template-columns:3.4rem 1fr;gap:1.1rem;align-items:start;padding:1rem 0;border-bottom:1px dashed #9cb4ab}
+.legend li:last-child{border-bottom:0}
+.sym{width:3.4rem;height:3.4rem;border:1.5px solid var(--ink);display:grid;place-items:center;background:#fff}
+.sym .ico{width:1.9rem;height:1.9rem;color:var(--ink)}
+.legend h3{font-size:1.45rem}
+.legend p{color:var(--muted);font-size:.95rem;margin-top:.1rem}
+.detail{position:relative;border-left:2px solid var(--ink);padding:1.2rem;display:flex;flex-direction:column}
+.detail .ph{position:relative;flex:1;min-height:300px}
+.detail img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.detail .callout{right:16%;top:20%}
+.detail figcaption{font:400 .78rem var(--mono);color:var(--muted);margin-top:.6rem}
+.carimbo{display:grid;grid-template-columns:2fr 1.2fr 1fr 1.3fr 1.2fr}
+.carimbo>div{padding:.65rem 1rem .75rem;border-right:1px solid var(--ink);min-width:0}
+.carimbo>div:last-child{border-right:0}
+.carimbo small{display:block;font:400 .7rem var(--mono);color:var(--muted)}
+.carimbo b{display:block;font:600 1.15rem/1.25 var(--cond);overflow-wrap:anywhere}
+.carimbo .firm b{font-size:1.5rem}
+
+/* empresa + revisões */
+.empresa .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:5rem;align-items:start}
+.statement{font:600 clamp(1.6rem,2.6vw,2.2rem)/1.2 var(--cond);margin-top:1.4rem;max-width:30ch}
+.kpi{display:flex;gap:0;margin-top:2.4rem;border:1px solid var(--line);background:#fff}
+.kpi>div{flex:1;padding:1.1rem 1.3rem}
+.kpi>div+div{border-left:1px solid var(--line)}
+.kpi small{display:block;font:400 .75rem var(--mono);color:var(--muted)}
+.kpi b{display:block;font:600 2.8rem/1.05 var(--cond);color:var(--navy)}
+.rev{width:100%;border-collapse:collapse;background:#fff;border:2px solid var(--ink)}
+.rev caption{text-align:left;font:500 .8rem var(--mono);color:var(--muted);padding-bottom:.6rem}
+.rev th{font:500 .75rem var(--mono);color:var(--muted);text-align:left;padding:.6rem .9rem;border-bottom:2px solid var(--ink);background:var(--paper2)}
+.rev td{padding:.9rem;border-bottom:1px solid var(--line);vertical-align:top;font-size:.96rem}
+.rev td:first-child{font:500 1rem var(--mono);width:3.2rem;text-align:center;border-right:1px solid var(--line)}
+.rev td:nth-child(2){font:600 1.15rem/1.2 var(--cond);width:11rem;border-right:1px solid var(--line)}
+.emp-photo{position:relative}
+.emp-photo img{width:100%;height:420px;object-fit:cover}
+
+/* como: flow diagram */
+.como{background:var(--paper2)}
+.como .head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.6rem}
+.flow{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:3.2rem;counter-reset:s}
+.flow li{position:relative;background:#fff;border:1.5px solid var(--ink);padding:1.4rem 1.4rem 1.6rem;counter-increment:s}
+.flow li::before{content:"Passo " counter(s);display:block;font:500 .78rem var(--mono);color:var(--muted);margin-bottom:.6rem}
+.flow li:not(:last-child)::after{content:"";position:absolute;top:50%;right:-3.2rem;width:3.2rem;height:1.5px;background:var(--ink)}
+.flow li:not(:last-child) i{position:absolute;top:50%;right:-1.85rem;width:.6rem;height:.6rem;border:solid var(--ink);border-width:1.5px 1.5px 0 0;transform:translate(0,-50%) rotate(45deg);margin-top:.5px}
+.flow p{font:600 1.35rem/1.2 var(--cond)}
+.flow .ico{width:1.8rem;height:1.8rem;color:var(--navy3);margin-bottom:.6rem}
+
+/* galeria */
+.gal{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:250px 250px;gap:1.2rem;margin-top:2.6rem}
+.gal figure{position:relative}
+.gal figure:first-child{grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal figcaption{position:absolute;left:0;bottom:0;background:var(--ink);color:#fff;font:400 .75rem var(--mono);padding:.35rem .6rem}
+.note{margin-top:1rem;font:400 .78rem var(--mono);color:var(--muted)}
+
+/* avaliacoes */
+.avaliacoes{background:#fff;border-top:1px solid var(--line)}
+.avaliacoes .wrap{display:grid;grid-template-columns:.85fr 2fr;gap:4rem;align-items:start}
+.av-side .count{font:600 6rem/1 var(--cond);color:var(--navy);margin-top:1.4rem}
+.av-side p{color:var(--muted)}
+.rep{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.rep.n1{grid-template-columns:1.2fr 1fr}
+.rep.n3 blockquote:first-child{grid-column:span 2}
+.rep blockquote{border:1.5px solid var(--ink);background:var(--paper);display:flex;flex-direction:column}
+.rep .rh{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 1rem;border-bottom:1.5px solid var(--ink);font:500 .78rem var(--mono);color:var(--muted);background:#fff}
+.rep .rh span{display:flex;align-items:center;gap:.4rem;color:#1f7a45}
+.rep .rh .ico{width:1rem;height:1rem}
+.rep p{font:600 1.4rem/1.3 var(--cond);padding:1.3rem 1.2rem 1.5rem}
+.rep.n3 blockquote:first-child p,.rep.n1 p{font-size:1.85rem}
+.rep img{width:100%;height:100%;min-height:260px;object-fit:cover;border:1.5px solid var(--ink)}
+
+/* contacto */
+.contacto .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start}
+.form-card{background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:10px 10px 0 rgba(143,208,180,.35)}
+.form-card .fh{display:flex;justify-content:space-between;font:500 .78rem var(--mono);color:var(--muted);padding:.7rem 1.4rem;border-bottom:2px solid var(--ink);background:#fff}
+.form-card .fb{padding:1.8rem 1.8rem 2rem}
+.form-card h2{font-size:2.3rem}
+.form-card .fb>p{color:var(--muted);margin:.5rem 0 1.4rem}
+.quote{display:grid;gap:1rem}
+.quote label{display:grid;gap:.35rem;font-weight:600;font-size:.92rem}
+.quote .opt{font-weight:400;color:var(--muted)}
+.quote input,.quote select,.quote textarea{font:inherit;padding:.8rem .95rem;border:1.5px solid #9cb4ab;border-radius:2px;background:#fff}
+.quote input:focus,.quote select:focus,.quote textarea:focus{border-color:var(--navy3);outline:none}
+.quote button{justify-self:start;border:0;border-radius:3px;background:var(--yellow);color:#13231e;font:600 1rem var(--sans);padding:1rem 1.45rem;cursor:pointer}
+.info .h2{color:#fff}
+.now{display:block;margin:1.2rem 0 1rem;font:500 .95rem var(--mono);color:#fff}
+table.h{border-collapse:collapse;width:100%}
+table.h th,table.h td{padding:.75rem 0;border-bottom:1px solid rgba(143,208,180,.25);text-align:left;font-weight:400;color:#b9d2c8}
+table.h td{text-align:right;color:#fff;font-family:var(--mono);font-size:.95rem}
+.addr{margin-top:2rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;line-height:1.75;color:#d3e4dd}
+.addr .ico{width:1.6rem;height:1.6rem;color:var(--yellow)}
+.addr a{text-decoration:none;color:#fff}
+.addr .map{color:var(--yellow);font-weight:600}
+footer{background:var(--navy2);color:#8fada1;padding:3.4rem 0 2rem;font-size:.92rem}
+footer .wrap{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem}
+footer .brand{font-size:1.5rem;margin-bottom:.7rem}
+footer h4{color:#fff;font:500 .8rem var(--mono);margin-bottom:.6rem}
+footer a{text-decoration:none}
+footer table.h th,footer table.h td{color:#8fada1;font-size:.86rem;padding:.4rem 0}
+footer .credit{grid-column:1/-1;border-top:1px solid rgba(143,208,180,.2);padding-top:1.4rem;margin-top:.6rem;font-size:.84rem}
+.shot [data-sec]{min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.shot [data-sec]>.wrap{width:100%}
+.fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:20;width:3.8rem;height:3.8rem;border-radius:50%;border:0;
+  background:#25d366;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 30px -8px rgba(0,0,0,.45)}
+.fab svg{width:1.9rem;height:1.9rem}
+.x-dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:#9b958c;margin-right:.5rem;vertical-align:1px}
+.x-dot.on{background:#3fbf66;box-shadow:0 0 0 4px rgba(63,191,102,.2)}
+.shot .demo,.shot .fab,.shot .strip,.shot [data-hide-in-shot]{display:none!important}
+@media (max-width:860px){
+  .wrap{padding:0 1.2rem}
+  .nav a.l{display:none}
+  .nav{gap:1rem}
+  .brand{font-size:1.3rem}
+  .brand .ico{width:1.4rem;height:1.4rem}
+  .nav .tel{font-size:.82rem;padding:.5rem .7rem}
+  .hero-in{grid-template-columns:1fr;gap:2.4rem;padding-top:2.2rem;padding-bottom:2rem}
+  .hero h1{font-size:2.6rem}
+  .hero-p{font-size:1rem}
+  .cta .btn{flex:1 1 100%;justify-content:center}
+  .plate{order:-1;margin:1.6rem 0 0 1.6rem}
+  .frame img{height:230px}
+  .hero h1{margin-top:.8rem}
+  .dim.side{left:-1.2rem}
+  .status{grid-template-columns:1fr 1fr}
+  .status>div:nth-child(3){padding-left:0;border-left:0}
+  .status>div:nth-child(n+3){border-top:1px solid rgba(143,208,180,.3)}
+  .status strong{font-size:.98rem}
+  section{padding:4rem 0}
+  .servicos{padding:3.6rem 0}
+  .servicos .head,.como .head{display:block}
+  .servicos .head .btn{display:none}
+  .sheet{padding:8px}
+  .sheet-body{grid-template-columns:1fr}
+  .legend{padding:1.1rem 1rem 1rem}
+  .legend li{grid-template-columns:2.8rem 1fr;gap:.9rem}
+  .sym{width:2.8rem;height:2.8rem}.sym .ico{width:1.6rem;height:1.6rem}
+  .legend h3{font-size:1.3rem}
+  .detail{border-left:0;border-top:2px solid var(--ink);padding:.8rem}
+  .detail .ph{min-height:200px}
+  .carimbo{grid-template-columns:1fr 1fr}
+  .carimbo>div{border-bottom:1px solid var(--ink)}
+  .carimbo>div:nth-child(2n){border-right:0}
+  .carimbo .firm{grid-column:span 2;border-right:0}
+  .empresa .wrap,.avaliacoes .wrap,.contacto .wrap{grid-template-columns:1fr;gap:2.4rem}
+  .kpi b{font-size:2.1rem}
+  .rev td:nth-child(2){width:auto}
+  .flow{grid-template-columns:1fr;gap:2rem}
+  .flow li:not(:last-child)::after{top:auto;bottom:-2rem;right:50%;width:1.5px;height:2rem}
+  .flow li:not(:last-child) i{top:auto;right:50%;bottom:-1.25rem;transform:translate(50%,0) rotate(135deg)}
+  .gal{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:150px}
+  .gal figure:first-child{grid-column:span 2;grid-row:span 2}
+  .av-side .count{font-size:4.4rem}
+  .rep,.rep.n1{grid-template-columns:1fr}
+  .rep.n3 blockquote:first-child{grid-column:auto}
+  .rep.n3 blockquote:first-child p,.rep.n1 p{font-size:1.5rem}
+  .form-card .fb{padding:1.3rem}
+  footer .wrap{grid-template-columns:1fr}
+}
+h1,h2,h3{letter-spacing:-.02em}.hero-in{grid-template-columns:1fr 1.02fr}.hero-in>div:first-child{order:2}.plate{margin:2.2rem 2.4rem 0 0}@media (max-width:860px){.hero-in{grid-template-columns:1fr}.hero-in>div:first-child{order:0}.plate{margin:1.6rem 0 0 1.6rem}}</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gernorte · pré-visualização do site">
+<meta property="og:description" content="Gernorte, em Alenquer desde 1991: eletricidade, eletrónica e reparação de equipamento elétrico. Peça o seu orçamento.">
+<meta property="og:url" content="https://preview.northsoftware.pt/gernorte-alenquer/">
+<meta property="og:image" content="https://preview.northsoftware.pt/gernorte-alenquer/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<div class="demo">Pré-visualização preparada pela North Software para Gernorte. Ainda não está publicada; as fotografias são ilustrativas.</div>
+<header id="inicio" class="hero bp" data-sec="inicio">
+  <nav class="nav wrap" aria-label="Principal"><a class="brand" href="#"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/></svg>Gernorte</a>
+    <a class="l" href="#servicos">Serviços</a><a class="l" href="#empresa">Empresa</a><a class="l" href="#avaliacoes">Clientes</a>
+    <a class="l" href="#contacto">Contacto</a><a class="tel" href="tel:+351263710226">263 710 226</a></nav>
+  <div class="hero-in wrap">
+    <div><p class="code"><span class="sq"></span>Eletricidade e eletrónica em Alenquer</p>
+      <h1>Eletricidade em Alenquer, desde 1991.</h1>
+      <p class="hero-p">Eletricidade, eletrónica e reparação de equipamento elétrico, na Rua Sacadura Cabral, em Alenquer. Envie uma fotografia e receba o seu orçamento.</p>
+      <div class="cta"><button type="button" class="btn btn-y" onclick='demoWA(&quot;Ol\u00e1, queria pedir um or\u00e7amento para uma obra.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg><span>Pedir orçamento pelo WhatsApp</span></button><a class="btn btn-o" href="tel:+351263710226">Ligar 263 710 226</a></div>
+      <ul class="chips"><li>Desde 1991</li><li>35 anos</li><li>11 avaliações no Google</li><li>Orçamento por foto</li></ul></div>
+    <figure class="plate">
+      <div class="dim top" aria-hidden="true"><b></b><u></u><span>Eletricidade · Eletrónica · Desde 1991</span></div>
+      <div class="dim side" aria-hidden="true"><b></b><u></u><span>Alenquer</span></div>
+      <div class="frame"><img src="../assets/stock/obras-hero-07.jpg" alt="Fotografia ilustrativa: eletricidade"><i></i><i></i><i></i><i></i></div>
+      <figcaption>Fig. 1 · Eletricidade · fotografia ilustrativa</figcaption>
+    </figure>
+  </div>
+  <div class="status wrap"><div><small>Estado</small><strong><span class="dot"></span><span data-open>08:00–18:00</span></strong></div><div><small>Telefone</small><strong><a href="tel:+351263710226">263 710 226</a></strong></div><div><small>Morada</small><strong>Rua Sacadura Cabral, 26 A, 2580-371 Alenquer</strong></div><div><small>Orçamentos</small><strong>Por foto, no WhatsApp</strong></div></div>
+</header>
+<section id="servicos" class="servicos bp" data-sec="servicos"><div class="wrap">
+  <div class="head"><div><p class="code"><span class="sq"></span>Folha de serviços</p>
+    <h2 class="h2" style="margin-top:.9rem">O que fazemos</h2></div>
+    <button type="button" class="btn btn-y" onclick='demoWA(&quot;Ol\u00e1, queria pedir um or\u00e7amento para uma obra.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg><span>Pedir orçamento pelo WhatsApp</span></button></div>
+  <div class="sheet"><div class="sheet-in">
+    <div class="sheet-body">
+      <div class="legend"><p class="sh-t"><span>Legenda</span><span>3 serviços</span></p><ul><li><span class="sym"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/></svg></span><div><h3>Eletricidade</h3><p>Trabalhos de eletricidade, com conhecimento técnico de 35 anos em Alenquer.</p></div></li><li><span class="sym"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><div><h3>Reparação de equipamento elétrico</h3><p>Reparação e manutenção de equipamento elétrico, a atividade principal da empresa.</p></div></li><li><span class="sym"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><div><h3>Eletrónica</h3><p>Trabalhos de eletrónica, como diz o nome da empresa desde 1991.</p></div></li></ul></div>
+      <figure class="detail"><div class="ph"><img src="../assets/stock/obras-specialist-05.jpg" alt="Fotografia ilustrativa: eletricidade"><span class="callout" aria-hidden="true"></span></div>
+        <figcaption>Detalhe A · Eletricidade · fotografia ilustrativa</figcaption></figure>
+    </div>
+    <div class="carimbo"><div class="firm"><small>Empresa</small><b>Gernorte</b></div><div><small>Local</small><b>Alenquer</b></div><div><small>Desde</small><b>1991</b></div><div><small>Contacto</small><b>263 710 226</b></div><div><small>Orçamento</small><b>Por foto</b></div></div>
+  </div></div>
+</div></section>
+<section id="empresa" class="empresa" data-sec="empresa"><div class="wrap">
+  <div><p class="code" style="color:var(--muted)"><span class="sq"></span>A empresa</p>
+    <p class="statement">Gernorte, em Alenquer desde 1991: eletricidade, eletrónica e reparação de equipamento elétrico.</p>
+    <div class="kpi"><div><small>Fundação</small><b>1991</b></div><div><small>Anos de trabalho</small><b>35</b></div><div><small>Avaliações Google</small><b>11</b></div></div></div>
+  <div><div class="emp-photo"><img src="../assets/stock/obras-team-01.jpg" alt="Worker in a checked shirt fitting a new white window frame with a cordless drill, seen from behind, city buildings outside."></div></div>
+</div></section>
+<section id="como" class="como" data-sec="como"><div class="wrap">
+  <div class="head"><div><h2 class="h2">Orçamento por foto</h2>
+    <p class="lead">Envie uma fotografia do quadro, do equipamento ou do trabalho e receba um orçamento.</p></div>
+    <button type="button" class="btn btn-ink" onclick='demoWA(&quot;Ol\u00e1, queria pedir um or\u00e7amento para uma obra.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg><span>Enviar fotos pelo WhatsApp</span></button></div>
+  <ol class="flow"><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h4l2-3h4l2 3h4v12H4z"/><circle cx="12" cy="13" r="4"/></svg><p>Tire fotos do espaço ou do problema.</p><i aria-hidden="true"></i></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg><p>Envie-as pelo WhatsApp com a localidade.</p><i aria-hidden="true"></i></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><p>Enviamos uma estimativa ou combinamos uma visita.</p><i aria-hidden="true"></i></li></ol>
+</div></section>
+<section id="galeria" class="galeria" data-sec="galeria"><div class="wrap">
+  <h2 class="h2">Trabalhos</h2><p class="lead">Eletricidade em Alenquer. Tem um trabalho parecido em mente? Envie-nos fotos pelo WhatsApp.</p>
+  <div class="gal"><figure><img src="../assets/stock/obras-gallery-05.jpg" alt="Fotografia ilustrativa: eletricidade"><figcaption>Fig. 2 · Eletricidade</figcaption></figure><figure><img src="../assets/stock/obras-gallery-06.jpg" alt="Fotografia ilustrativa: eletricidade"><figcaption>Fig. 3 · Eletricidade</figcaption></figure><figure><img src="../assets/stock/obras-gallery-07.jpg" alt="Fotografia ilustrativa: eletricidade"><figcaption>Fig. 4 · Eletricidade</figcaption></figure><figure><img src="../assets/stock/obras-gallery-08.jpg" alt="Fotografia ilustrativa: eletricidade"><figcaption>Fig. 5 · Eletricidade</figcaption></figure><figure><img src="../assets/stock/obras-gallery-28.jpg" alt="Fotografia ilustrativa: eletricidade"><figcaption>Fig. 6 · Eletricidade</figcaption></figure></div>
+  <p class="note">Fotografias ilustrativas. No site final entram as fotografias dos trabalhos da empresa.</p>
+</div></section>
+<section id="avaliacoes" class="avaliacoes" data-sec="avaliacoes"><div class="wrap">
+  <div class="av-side"><h2 class="h2">O que dizem os clientes</h2><p class="count">11</p><p>avaliações no Google</p></div><div class="rep n2"><blockquote><div class="rh">Cliente R. B.<span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Google</span></div><p>Conhecimento técnico e profissionalismo. Satisfação garantida.</p></blockquote><blockquote><div class="rh">Cliente A. M.<span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Google</span></div><p>Bom serviço. Recomendo.</p></blockquote></div>
+</div></section>
+<section id="contacto" class="contacto bp" data-sec="contacto"><div class="wrap">
+  <div class="form-card"><div class="fh"><span>Ficha de pedido</span><span>Gernorte</span></div>
+    <div class="fb"><h2>Pedir orçamento</h2><p>Diga-nos o tipo de obra e a localidade. Respondemos pelo WhatsApp.</p><form class="quote" onsubmit="return sendQuote(this)">
+  <label>Tipo de obra<select name="s" data-l="Tipo de obra"><option>Eletricidade</option><option>Reparação de equipamento</option><option>Outro</option></select></label>
+  <label>Localidade<input name="loc" data-l="Localidade" placeholder="ex.: Braga" required autocomplete="off"></label>
+  <label>Descreva o trabalho <span class="opt">(opcional)</span><textarea name="n" data-l="Descreva o trabalho" rows="3"></textarea></label>
+  <button type="submit">Enviar pedido pelo WhatsApp</button>
+</form></div></div>
+  <div class="info"><h2 class="h2">Horário e contactos</h2>
+    <span class="now"><span class="dot"></span><span data-open>Ligue para confirmar o horário</span></span>
+    <table class="h"><tr><th scope="row">Segunda a sexta</th><td>08:00–18:00</td></tr><tr><th scope="row">Sábado e domingo</th><td>Encerrado</td></tr></table>
+    <div class="addr"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><p>Rua Sacadura Cabral, 26 A, 2580-371 Alenquer<br><a href="tel:+351263710226">263 710 226</a><br><a href="mailto:geral@gernorte.pt">geral@gernorte.pt</a><br><a class="map" href="https://www.google.com/maps/search/?api=1&query=Rua+Sacadura+Cabral,+26+A,+2580-371+Alenquer">Abrir no Google Maps</a></p></div>
+  </div>
+</div></section>
+<footer data-hide-in-shot><div class="wrap">
+  <div><span class="brand"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/></svg>Gernorte</span><p>Gernorte, em Alenquer desde 1991: eletricidade, eletrónica e reparação de equipamento elétrico. Peça o seu orçamento.</p></div>
+  <div><h4>Contactos</h4><p>Rua Sacadura Cabral, 26 A, 2580-371 Alenquer<br><a href="tel:+351263710226">263 710 226</a><br><a href="mailto:geral@gernorte.pt">geral@gernorte.pt</a></p></div>
+  <div><h4>Horário</h4><table class="h"><tr><th scope="row">Segunda a sexta</th><td>08:00–18:00</td></tr><tr><th scope="row">Sábado e domingo</th><td>Encerrado</td></tr></table></div>
+  <div class="credit">© Gernorte - Electricidade e Electrónica, Lda, Alenquer. Site feito pela North Software.</div>
+</div></footer>
+<button type="button" class="fab" aria-label="Pedir orçamento pelo WhatsApp" onclick='demoWA(&quot;Ol\u00e1, queria pedir um or\u00e7amento para uma obra.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg></button>
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp da empresa com a mensagem:\n\n'+msg);}
+function sendQuote(f){var t="Ol\u00e1, queria um or\u00e7amento.";f.querySelectorAll('[data-l]').forEach(function(x){if(x.value)t+='\n'+x.getAttribute('data-l')+': '+x.value;});demoWA(t);return false;}
+(function(){
+  var open={"1": [["08:00", "18:00"]], "2": [["08:00", "18:00"]], "3": [["08:00", "18:00"]], "4": [["08:00", "18:00"]], "5": [["08:00", "18:00"]]}; if(!Object.keys(open).length) return;
+  function mins(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  var d=new Date(), day=d.getDay(), now=d.getHours()*60+d.getMinutes(), slots=open[day]||[], txt, on=false;
+  for(var i=0;i<slots.length;i++){ if(now>=mins(slots[i][0])&&now<mins(slots[i][1])){on=true;txt='Aberto agora, até às '+slots[i][1];break;} }
+  if(!on){
+    var next=null;
+    for(var k=0;k<slots.length;k++){ if(now<mins(slots[k][0])){next='Abre hoje às '+slots[k][0];break;} }
+    if(!next){ for(var j=1;j<=7;j++){var dd=(day+j)%7; if(open[dd]&&open[dd].length){next='Abre '+(j==1?'amanhã':['domingo','segunda','terça','quarta','quinta','sexta','sábado'][dd])+' às '+open[dd][0][0];break;}} }
+    txt='Fechado agora. '+(next||'');
+  }
+  document.querySelectorAll('[data-open]').forEach(function(el){el.textContent=txt;el.classList.toggle('is-open',on);});
+})();
+</script>
+<script>
+document.querySelectorAll('[data-open].is-open').forEach(function(x){var d=x.previousElementSibling;if(d&&d.classList.contains('dot'))d.classList.add('on');});
+(function(){var m=location.hash.match(/^#shot-([a-z]+)$/);if(!m)return;var t=document.querySelector('[data-sec="'+m[1]+'"]');if(!t)return;
+document.documentElement.classList.add('shot');
+document.querySelectorAll('[data-sec]').forEach(function(s){if(s!==t)s.style.display='none';});})();
+</script>
+</body></html>
