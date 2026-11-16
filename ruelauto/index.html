@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruelauto – Oficina automóvel no Bunheiro, Murtosa</title>
+<meta name="description" content="Manutenção e reparação automóvel na Zona Industrial do Bunheiro (Murtosa). 71 avaliações no Google.">
+<style>@font-face{font-family:'Syne';src:url('../assets/fonts/of-syne-var.woff2') format('woff2');font-weight:400 800;font-display:swap;}@font-face{font-family:'Figtree';src:url('../assets/fonts/figtree-var.woff2') format('woff2');font-weight:300 900;font-display:swap;}@font-face{font-family:'Unbounded';src:url('../assets/fonts/of-unbounded-var.woff2') format('woff2');font-weight:200 900;font-display:swap;}@font-face{font-family:'DM Sans';src:url('../assets/fonts/of-dm-sans-var.woff2') format('woff2');font-weight:100 1000;font-display:swap;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus,#1a73e8);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.demo{background:#ffd84d;color:#3a2e00;text-align:center;font:500 .82rem/1.4 system-ui,sans-serif;padding:.45rem 1rem}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+:root{--bg:#09130e;--panel:#0f2218;--panel2:#153123;--amber:#b8e04a;--amber2:#d5ed94;--red:#ff7a3d;--text:#e8f0ea;
+  --muted:#8fa495;--line:rgba(255,255,255,.09);--focus:#b8e04a;--wide:'Syne',system-ui,sans-serif;--sans:'Figtree',system-ui,sans-serif}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font:400 1.0625rem/1.65 var(--sans);color:var(--text);background:var(--bg)}
+h1,h2,h3{font-family:var(--wide);font-weight:600;line-height:1.08;letter-spacing:-.025em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.kick{display:inline-flex;align-items:center;gap:.6rem;font:600 .8rem/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
+.kick::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--amber);box-shadow:0 0 12px 2px rgba(184,224,74,.7);flex:none}
+.btn{display:inline-flex;align-items:center;gap:.6rem;border:0;border-radius:999px;padding:1rem 1.5rem;font:700 1rem/1 var(--sans);
+  cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-amber{background:var(--amber);color:#121704;box-shadow:0 0 0 1px rgba(213,237,148,.5),0 10px 34px -8px rgba(184,224,74,.65)}
+.btn-ghost{background:rgba(255,255,255,.06);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:#6b7380;margin-right:.5rem;vertical-align:1px}
+.dot.on{background:#3ddc84;box-shadow:0 0 10px 2px rgba(61,220,132,.6)}
+
+/* hero */
+.hero{position:relative;min-height:min(100vh,840px);display:flex;flex-direction:column;overflow:hidden;background:#000}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--hero-pos,50% 50%);filter:saturate(.8) contrast(1.05)}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(700px 500px at 82% 48%,rgba(184,224,74,.13),transparent 70%),
+  linear-gradient(90deg,rgba(9,19,14,.97) 0%,rgba(9,19,14,.88) 40%,rgba(9,19,14,.55) 70%,rgba(9,19,14,.72) 100%),
+  linear-gradient(0deg,rgba(9,19,14,1) 0%,rgba(9,19,14,0) 30%)}
+.hero>.wrap{position:relative;z-index:1;width:100%}
+.nav{display:flex;align-items:center;gap:2rem;padding-top:1.4rem;padding-bottom:1.4rem}
+.brand{font:700 1.08rem/1.15 var(--wide);text-decoration:none;margin-right:auto;letter-spacing:-.01em;display:flex;align-items:center;gap:.7rem}
+.brand i{width:1.6rem;height:1.6rem;border-radius:50%;border:2px solid var(--amber);position:relative;flex:none;box-shadow:0 0 12px rgba(184,224,74,.5)}
+.brand i::after{content:"";position:absolute;left:50%;top:50%;width:.55rem;height:2px;background:var(--amber);transform-origin:0 50%;transform:rotate(-40deg)}
+.nav a.l{color:#c4d2c8;text-decoration:none;font-size:.95rem}
+.nav a.l:hover{color:#fff}
+.nav .tel{white-space:nowrap;font-weight:700;text-decoration:none;padding:.6rem 1.1rem;border-radius:999px;box-shadow:inset 0 0 0 1.5px rgba(184,224,74,.7);color:var(--amber2)}
+.hero-body{flex:1;display:grid;grid-template-columns:1.25fr .85fr;gap:3rem;align-items:center;padding-top:1rem;padding-bottom:3rem}
+.hero h1{font-size:var(--h1,3.2rem);margin:1.3rem 0 1.3rem;max-width:17ch;color:#fff}
+.hero-p{font-size:1.14rem;color:#c4d2c8;max-width:46ch}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.1rem}
+.gauge{position:relative;width:min(380px,100%);aspect-ratio:1;justify-self:center;border-radius:50%;
+  background:radial-gradient(circle at 50% 45%,#172f23 0%,#0b1912 70%);
+  box-shadow:0 0 0 10px #12251b,0 0 0 11px rgba(255,255,255,.12),0 40px 80px -20px rgba(0,0,0,.9),inset 0 0 50px rgba(0,0,0,.8)}
+.gauge svg{position:absolute;inset:0;width:100%;height:100%}
+.gauge .tk{stroke:#5d6672;stroke-width:1.2}.gauge .tk.mj{stroke:#e8f0ea;stroke-width:2.4}
+.gauge .lb{font:600 10px var(--wide);fill:#abbdb0;text-anchor:middle;dominant-baseline:central}
+.gauge .trk{fill:none;stroke:rgba(255,255,255,.07);stroke-width:7}
+.gauge .val{fill:none;stroke:var(--amber);stroke-width:7;stroke-linecap:round;filter:drop-shadow(0 0 5px rgba(184,224,74,.9))}
+.gauge .ndl{stroke:var(--red);stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 4px rgba(255,122,61,.8))}
+.gauge .hub{fill:#1b3729;stroke:#335745;stroke-width:2}
+.gauge .read{position:absolute;left:0;right:0;top:56%;text-align:center}
+.gauge .read b{display:block;font:700 2.7rem/1 var(--wide);color:#fff;letter-spacing:-.03em;text-shadow:0 0 18px rgba(184,224,74,.35)}
+.gauge .read small{display:block;margin-top:.45rem;font-size:.82rem;color:var(--muted);letter-spacing:.06em}
+.odo{display:inline-flex;gap:3px;padding:4px;border-radius:6px;background:#050906;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.odo span{width:1.75rem;height:2.4rem;display:grid;place-items:center;border-radius:3px;font:600 1.45rem/1 var(--wide);color:#fff;
+  background:linear-gradient(#20252d,#0f1216 50%,#20252d)}
+.odo span.z{color:#4a525d}
+.gauge.odom .read{top:42%}
+.trip{position:relative;z-index:1;border-top:1px solid var(--line);background:rgba(9,19,14,.75);backdrop-filter:blur(8px)}
+.trip .wrap{display:grid;grid-template-columns:1fr 1fr 1.4fr}
+.trip .wrap>div{padding:1.2rem 0 1.4rem}
+.trip .wrap>div+div{padding-left:2rem;border-left:1px solid var(--line)}
+.trip small{display:block;font:600 .7rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.trip strong{font-weight:600;color:#fff;font-size:1.02rem}
+.trip a{text-decoration:none}
+
+section{padding:6.5rem 0;position:relative}
+.h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin:1rem 0 1rem;color:#fff}
+.lead{font-size:1.12rem;color:var(--muted);max-width:52ch}
+
+/* casa */
+.casa .wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.duo{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:250px 250px;gap:1rem}
+.duo img{width:100%;height:100%;object-fit:cover;border-radius:18px;filter:saturate(.85)}
+.duo .a{grid-row:span 2}
+.why{list-style:none;margin-top:2rem;display:grid;gap:1rem}
+.why li{display:grid;grid-template-columns:2.6rem 1fr;gap:1rem;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem}
+.why .ic{width:2.6rem;height:2.6rem;border-radius:50%;display:grid;place-items:center;color:var(--amber);background:rgba(184,224,74,.1);box-shadow:inset 0 0 0 1px rgba(184,224,74,.35)}
+.why .ic svg{width:1.3rem;height:1.3rem}
+.why h3{font-size:1rem;color:#fff;letter-spacing:-.01em}
+.why p{color:var(--muted);font-size:.97rem;margin-top:.2rem}
+.nums{display:flex;flex-wrap:wrap;gap:1rem 2.6rem;margin-top:2.2rem}
+.nums b{display:block;font:700 2.3rem/1 var(--wide);color:var(--amber);letter-spacing:-.04em;text-shadow:0 0 20px rgba(184,224,74,.35)}
+.nums span{font-size:.85rem;color:var(--muted)}
+
+/* servicos: the warning lamps */
+.serv{background:radial-gradient(900px 420px at 50% 0%,rgba(184,224,74,.10),transparent 70%),#060e09;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.serv .top{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.4rem}
+.cluster{position:relative;display:flex;justify-content:center;align-items:stretch;gap:.6rem;padding:1.5rem 2rem;border-radius:999px;
+  background:linear-gradient(#0c0f13,#040805);box-shadow:0 0 0 1px rgba(255,255,255,.1),0 0 0 9px #14181e,0 0 0 10px rgba(255,255,255,.08),inset 0 8px 30px rgba(0,0,0,.9)}
+.lamp{flex:1;max-width:230px;display:flex;flex-direction:column;align-items:center;gap:.6rem;text-align:center;padding:.3rem .4rem}
+.lamp svg{width:2.6rem;height:2.6rem;color:var(--amber);filter:drop-shadow(0 0 6px rgba(184,224,74,.95)) drop-shadow(0 0 16px rgba(184,224,74,.5));
+  animation:lit 3.6s ease-in-out infinite;animation-delay:var(--d)}
+.lamp:nth-child(3n+2) svg{color:#5fe08f;filter:drop-shadow(0 0 6px rgba(95,224,143,.9)) drop-shadow(0 0 16px rgba(95,224,143,.45))}
+.lamp span{font:600 .72rem/1.3 var(--wide);letter-spacing:.02em;color:#d5e2d9}
+.lamp+.lamp{border-left:1px solid rgba(255,255,255,.07)}
+@keyframes lit{0%,100%{opacity:1}50%{opacity:.72}}
+.cards{display:grid;grid-template-columns:repeat(var(--n,4),1fr);gap:1rem;margin-top:2.6rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.card .ph{position:relative;height:170px}
+.card .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.85)}
+.card .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--panel),transparent 60%)}
+.card .ic{position:absolute;z-index:1;left:1.1rem;bottom:-1.1rem;width:2.6rem;height:2.6rem;border-radius:50%;display:grid;place-items:center;
+  background:#09130e;color:var(--amber);box-shadow:0 0 0 1px rgba(184,224,74,.5),0 0 18px rgba(184,224,74,.35)}
+.card .ic svg{width:1.3rem;height:1.3rem}
+.card .tx{padding:1.6rem 1.2rem 1.4rem}
+.card h3{font-size:.98rem;color:#fff;line-height:1.25}
+.card p{font-size:.93rem;color:var(--muted);margin-top:.4rem;line-height:1.5}
+
+/* como: gear gate */
+.como .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:4.5rem;align-items:center}
+.gate{background:radial-gradient(circle at 50% 40%,#1a1f27,#0b1912 70%);border-radius:28px;padding:2.4rem;border:1px solid var(--line);
+  box-shadow:inset 0 0 40px rgba(0,0,0,.7)}
+.gate svg{width:100%;height:auto;display:block}
+.gate .g{fill:none;stroke:#254434;stroke-width:16;stroke-linecap:round;stroke-linejoin:round}
+.gate .gl{fill:none;stroke:rgba(184,224,74,.85);stroke-width:3;stroke-linecap:round;stroke-dasharray:4 7}
+.gate .pos{fill:#09130e;stroke:#335745;stroke-width:2}
+.gate .pos.on{stroke:var(--amber);filter:drop-shadow(0 0 6px rgba(184,224,74,.8))}
+.gate text{font:700 15px var(--wide);text-anchor:middle;dominant-baseline:central;fill:#59616c}
+.gate text.on{fill:var(--amber2)}
+.gate .knob{fill:url(#knob);stroke:#000;stroke-width:1}
+.gears{list-style:none;display:grid;gap:1rem;margin-top:2rem}
+.gears li{display:grid;grid-template-columns:3.6rem 1fr;gap:1.1rem;align-items:center;padding:1rem 1.2rem;background:var(--panel);border:1px solid var(--line);border-radius:14px}
+.gears b{font:700 1.5rem/1 var(--wide);color:var(--amber);text-shadow:0 0 14px rgba(184,224,74,.4)}
+.gears p{font-weight:500;font-size:1.08rem;color:#fff}
+.como .cta{margin-top:1.8rem}
+
+/* galeria */
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:210px;gap:1rem;margin-top:2.6rem}
+.gal img{width:100%;height:100%;object-fit:cover;border-radius:16px;filter:saturate(.85)}
+.gal .a{grid-column:span 3;grid-row:span 2}.gal .b{grid-column:span 3}.gal .c{grid-column:span 2}.gal .d{grid-column:span 1}
+.note{margin-top:1rem;font-size:.85rem;color:var(--muted)}
+
+/* avaliacoes */
+.av{background:linear-gradient(#09130e,#0b1d13)}
+.av .wrap{display:grid;grid-template-columns:.85fr 2fr;gap:3.5rem;align-items:start}
+.score b{display:block;font:700 5.6rem/.95 var(--wide);color:var(--amber);letter-spacing:-.05em;text-shadow:0 0 30px rgba(184,224,74,.4);margin:1.2rem 0 .5rem}
+.score p{color:var(--muted)}
+.score a{display:inline-block;margin-top:1.2rem;color:var(--amber2);font-weight:700}
+.rv{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.rv.n2{grid-template-columns:1fr 1fr}.rv.n1{grid-template-columns:1fr}
+.rv blockquote{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:1.6rem 1.5rem;position:relative;display:flex;flex-direction:column}
+.rv blockquote::before{content:"";position:absolute;left:1.5rem;right:1.5rem;top:0;height:2px;background:var(--amber);box-shadow:0 0 14px 1px rgba(184,224,74,.7)}
+.rv .q{font:700 2.6rem/1 var(--wide);color:var(--amber)}
+.rv p{font-size:1.08rem;line-height:1.55;color:#fff;margin:.6rem 0 1.2rem;flex:1}
+.rv.n1 p{font:600 clamp(1.3rem,2.4vw,1.8rem)/1.35 var(--wide);max-width:32ch;letter-spacing:-.02em}
+.rv cite{font-style:normal;font-size:.88rem;color:var(--muted)}
+
+/* contacto */
+.contacto .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start}
+.formbox{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:2.2rem}
+.formbox h3{font-size:1.5rem;color:#fff}
+.formbox>p{color:var(--muted);margin:.5rem 0 1.4rem}
+.quote{display:grid;gap:1rem}
+.quote label{display:grid;gap:.35rem;font-weight:600;font-size:.9rem;color:#c4d2c8}
+.quote .opt{font-weight:400;color:var(--muted)}
+.quote input,.quote select,.quote textarea{font:inherit;color:#fff;padding:.85rem 1rem;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:#091710}
+.quote input::placeholder,.quote textarea::placeholder{color:#5c6470}
+.quote input:focus,.quote select:focus,.quote textarea:focus{border-color:var(--amber);outline:none;box-shadow:0 0 0 3px rgba(184,224,74,.18)}
+.quote button{justify-self:start;border:0;border-radius:999px;background:var(--amber);color:#121704;font:700 1rem var(--sans);padding:1rem 1.5rem;cursor:pointer}
+.info .now{display:block;font-weight:600;margin-bottom:1.2rem}
+table{border-collapse:collapse;width:100%}
+th,td{padding:.75rem 0;border-bottom:1px solid var(--line);text-align:left;font-weight:400;color:var(--muted)}
+td{text-align:right;color:#fff;font-variant-numeric:tabular-nums}
+.where{margin-top:2rem;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:1.4rem;display:grid;grid-template-columns:auto 1fr;gap:1rem}
+.where svg{width:1.8rem;height:1.8rem;color:var(--amber)}
+.where p{color:#c4d2c8;line-height:1.7}
+.where a{color:#fff;text-decoration:none;font-weight:600}
+.where .map{display:inline-block;margin-top:.5rem;color:var(--amber2)}
+footer{background:#050906;color:#7e9283;padding:3.4rem 0 2rem;font-size:.93rem;border-top:1px solid var(--line)}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+footer .brand{color:#fff}
+footer h4{font:600 .72rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:.7rem}
+footer a{text-decoration:none}
+footer .credit{grid-column:1/-1;border-top:1px solid #162d21;padding-top:1.4rem;margin-top:1rem;font-size:.85rem}
+.fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:20;width:3.8rem;height:3.8rem;border-radius:50%;border:0;
+  background:#25d366;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 30px -8px rgba(0,0,0,.6)}
+.fab svg{width:1.9rem;height:1.9rem}
+.shot .demo,.shot .fab,.shot .strip,.shot [data-hide-in-shot]{display:none!important}
+@media (max-width:860px){
+  .nav a.l{display:none}
+  .nav{gap:.8rem}
+  .brand{font-size:.9rem}.brand i{width:1.3rem;height:1.3rem}
+  .nav .tel{padding:.5rem .85rem;font-size:.85rem}
+  .hero{min-height:auto}
+  .hero::before{background:radial-gradient(500px 400px at 50% 85%,rgba(184,224,74,.12),transparent 70%),
+    linear-gradient(0deg,rgba(9,19,14,1) 0%,rgba(9,19,14,.9) 50%,rgba(9,19,14,.6) 100%)}
+  .hero-body{grid-template-columns:1fr;gap:2.6rem;padding-top:1.4rem;padding-bottom:2.4rem}
+  .hero h1{font-size:var(--h1m,2rem)}
+  .hero-p{font-size:1.02rem}
+  .cta .btn{flex:1 1 100%;justify-content:center}
+  .gauge{width:250px}
+  .gauge .read b{font-size:2rem}
+  .odo span{width:1.35rem;height:1.9rem;font-size:1.1rem}
+  .trip .wrap{grid-template-columns:1fr}
+  .trip .wrap>div{padding:.8rem 0}
+  .trip .wrap>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  section{padding:4.2rem 0}
+  .casa .wrap,.como .wrap,.av .wrap,.contacto .wrap{grid-template-columns:1fr;gap:2.4rem}
+  .duo{grid-template-rows:150px 150px}
+  .serv .top{display:block}.serv .top .btn{display:none}
+  .cluster{flex-wrap:wrap;border-radius:28px;padding:1.2rem .6rem;gap:.2rem}
+  .lamp{flex:1 1 45%;padding:.7rem .3rem}
+  .lamp+.lamp{border-left:0}
+  .lamp svg{width:2.1rem;height:2.1rem}
+  .cards{grid-template-columns:1fr;gap:.8rem}
+  .card{flex-direction:row}
+  .card .ph{width:38%;height:auto;min-height:130px;flex:none}
+  .card .ph::after{background:linear-gradient(270deg,var(--panel),transparent 60%)}
+  .card .ic{display:none}
+  .card .tx{padding:1rem 1rem 1rem .6rem}
+  .gate{padding:1.4rem}
+  .rv,.rv.n2{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+  .gal .a,.gal .b{grid-column:span 2}.gal .a{grid-row:span 1}.gal .c,.gal .d{grid-column:span 1}
+  .score b{font-size:4rem}
+  .formbox{padding:1.5rem}
+  footer .wrap{grid-template-columns:1fr}
+  .nums b{font-size:1.9rem}
+}
+.hero>img{filter:saturate(.7) brightness(.8)}.hero::before{z-index:1;background:radial-gradient(700px 500px at 82% 48%,rgba(184,224,74,.14),transparent 70%),linear-gradient(90deg,rgba(9,19,14,.96) 0%,rgba(9,19,14,.9) 45%,rgba(9,19,14,0.82) 100%),linear-gradient(0deg,rgba(9,19,14,1) 0%,rgba(9,19,14,0) 30%)}@media (max-width:860px){.hero::before{background:linear-gradient(0deg,rgba(9,19,14,.96) 0%,rgba(9,19,14,.9) 50%,rgba(9,19,14,.85) 100%)}}</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ruelauto · pré-visualização do site">
+<meta property="og:description" content="Manutenção e reparação automóvel na Zona Industrial do Bunheiro (Murtosa). 71 avaliações no Google.">
+<meta property="og:url" content="https://preview.northsoftware.pt/ruelauto/">
+<meta property="og:image" content="https://preview.northsoftware.pt/ruelauto/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<div class="demo">Pré-visualização preparada pela North Software para Ruelauto. Ainda não está publicada; as fotografias são ilustrativas.</div>
+<header id="inicio" class="hero" data-sec="inicio">
+  <img src="../assets/stock/hero-02.jpg" alt="Mechanic in blue overalls working on an engine on a stand in a hazy, backlit workshop (head out of frame)." fetchpriority="high">
+  <nav class="nav wrap" aria-label="Principal"><a class="brand" href="#"><i></i>Ruelauto</a>
+    <a class="l" href="#servicos">Serviços</a><a class="l" href="#oficina">Oficina</a><a class="l" href="#avaliacoes">Avaliações</a><a class="l" href="#contacto">Contacto</a>
+    <a class="tel" href="tel:+351234023440">234 023 440</a></nav>
+  <div class="hero-body wrap" style="--h1:3rem;--h1m:1.9rem">
+    <div><span class="kick">Oficina na Zona Industrial do Bunheiro, Murtosa</span>
+      <h1>&quot;Mecânica de excelência. Honestidade e franqueza.&quot;</h1>
+      <p class="hero-p">Manutenção e reparação automóvel na Zona Industrial do Bunheiro (Murtosa). Aberto de segunda a sexta, das 8h30 às 19h, sem pausa ao almoço.</p>
+      <div class="cta"><button type="button" class="btn btn-amber" onclick='demoWA(&quot;Ol\u00e1, queria marcar o meu carro para a oficina.&quot;)'>Marcar pelo WhatsApp</button><a class="btn btn-ghost" href="tel:+351234023440">Ligar 234 023 440</a></div></div>
+    <div class="gauge odom" aria-hidden="true"><svg viewBox="0 0 200 200"><path class="trk" d="M34.9 165.1A92 92 0 1 1 165.1 165.1"/><line class="tk mj" x1="37.8" y1="162.2" x2="44.8" y2="155.2"/><line class="tk" x1="28.8" y1="151.7" x2="32.9" y2="148.8"/><line class="tk" x1="21.6" y1="140.0" x2="26.0" y2="137.7"/><line class="tk" x1="16.3" y1="127.2" x2="21.1" y2="125.6"/><line class="tk" x1="13.1" y1="113.8" x2="18.0" y2="113.0"/><line class="tk" x1="12.0" y1="100.0" x2="17.0" y2="100.0"/><line class="tk mj" x1="13.1" y1="86.2" x2="23.0" y2="87.8"/><line class="tk" x1="16.3" y1="72.8" x2="21.1" y2="74.4"/><line class="tk" x1="21.6" y1="60.0" x2="26.0" y2="62.3"/><line class="tk" x1="28.8" y1="48.3" x2="32.9" y2="51.2"/><line class="tk" x1="37.8" y1="37.8" x2="41.3" y2="41.3"/><line class="tk" x1="48.3" y1="28.8" x2="51.2" y2="32.9"/><line class="tk mj" x1="60.0" y1="21.6" x2="64.6" y2="30.5"/><line class="tk" x1="72.8" y1="16.3" x2="74.4" y2="21.1"/><line class="tk" x1="86.2" y1="13.1" x2="87.0" y2="18.0"/><line class="tk" x1="100.0" y1="12.0" x2="100.0" y2="17.0"/><line class="tk" x1="113.8" y1="13.1" x2="113.0" y2="18.0"/><line class="tk" x1="127.2" y1="16.3" x2="125.6" y2="21.1"/><line class="tk mj" x1="140.0" y1="21.6" x2="135.4" y2="30.5"/><line class="tk" x1="151.7" y1="28.8" x2="148.8" y2="32.9"/><line class="tk" x1="162.2" y1="37.8" x2="158.7" y2="41.3"/><line class="tk" x1="171.2" y1="48.3" x2="167.1" y2="51.2"/><line class="tk" x1="178.4" y1="60.0" x2="174.0" y2="62.3"/><line class="tk" x1="183.7" y1="72.8" x2="178.9" y2="74.4"/><line class="tk mj" x1="186.9" y1="86.2" x2="177.0" y2="87.8"/><line class="tk" x1="188.0" y1="100.0" x2="183.0" y2="100.0"/><line class="tk" x1="186.9" y1="113.8" x2="182.0" y2="113.0"/><line class="tk" x1="183.7" y1="127.2" x2="178.9" y2="125.6"/><line class="tk" x1="178.4" y1="140.0" x2="174.0" y2="137.7"/><line class="tk" x1="171.2" y1="151.7" x2="167.1" y2="148.8"/><line class="tk mj" x1="162.2" y1="162.2" x2="155.2" y2="155.2"/></svg><div class="read"><div class="odo"><span class="z">0</span><span class="z">0</span><span class="z">0</span><span>7</span><span>1</span></div><small>avaliações no Google</small></div></div>
+  </div>
+  <div class="trip"><div class="wrap">
+    <div><small>Hoje</small><strong><span class="dot"></span><span data-open>08:30 – 19:00</span></strong></div>
+    <div><small>Telefone</small><strong><a href="tel:+351234023440">234 023 440</a></strong></div>
+    <div><small>Morada</small><strong>Rua da Zona Industrial, Lote 28, 3870-021 Bunheiro, Murtosa</strong></div>
+  </div></div>
+</header>
+<section id="servicos" class="serv" data-sec="servicos"><div class="wrap">
+  <div class="top"><div><span class="kick">Acendeu uma luz no painel?</span><h2 class="h2">O que fazemos</h2>
+    <p class="lead">O carro de todos os dias, bem tratado.</p></div>
+    <button type="button" class="btn btn-amber" onclick='demoWA(&quot;Ol\u00e1, queria marcar o meu carro para a oficina.&quot;)'>Marcar pelo WhatsApp</button></div>
+  <div class="cluster"><div class="lamp" style="--d:0.0s"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg><span>Mecânica</span></div><div class="lamp" style="--d:0.7s"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg><span>Revisões</span></div></div>
+  <div class="cards" style="--n:2"><article class="card"><div class="ph"><img src="../assets/stock/mechanic-02.jpg" alt="Mechanic in a blue work coat checking fluids under an open bonnet, workshop floor behind."><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span></div><div class="tx"><h3>Mecânica</h3><p>Manutenção e reparação de ligeiros.</p></div></article><article class="card"><div class="ph"><img src="../assets/stock/mechanic-03.jpg" alt="Close-up of hands with a socket wrench at the scuttle panel of a car with the bonnet open."><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></span></div><div class="tx"><h3>Revisões</h3><p>Manutenção periódica do automóvel.</p></div></article></div>
+</div></section>
+<section id="oficina" class="casa" data-sec="casa"><div class="wrap">
+  <div><span class="kick">A oficina</span><h2 class="h2">Porquê a Ruelauto</h2>
+    <p class="lead">O que os clientes destacam.</p>
+    <ul class="why"><li><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></span><div><h3>Honestidade</h3><p>&quot;Honestidade e franqueza&quot;, escreve um cliente.</p></div></li><li><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><div><h3>Problema resolvido</h3><p>&quot;Eficiência na solução do problema&quot;, escreve outro.</p></div></li><li><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><h3>Sem pausa ao almoço</h3><p>Das 8h30 às 19h, de segunda a sexta.</p></div></li></ul>
+    <div class="nums"><div><b>71</b><span>avaliações</span></div></div></div>
+  <div class="duo"><img class="a" src="../assets/stock/mechanic-01.jpg" alt="Mechanic in navy overalls leaning into the engine bay of a light-coloured hatchback, seen from the side."><img class="b" src="../assets/stock/night-02.jpg" alt="Dark saloon front corner at night, rain beads on the bonnet, headlight glowing warm."><img class="c" src="../assets/stock/workshop-03.jpg" alt="Weathered hands tightening a hose clamp with a screwdriver in a dark boxer-engine bay."></div>
+</div></section>
+<section id="como" class="como" data-sec="como"><div class="wrap">
+  <div class="gate"><svg viewBox="0 0 260 200" role="img" aria-label="Grelha de mudanças">
+<defs><radialGradient id="knob" cx="40%" cy="35%"><stop offset="0" stop-color="#4a525e"/><stop offset="1" stop-color="#0d0f12"/></radialGradient></defs>
+<path class="g" d="M50 40V160M130 40V160M210 40V160M50 100H210"/>
+<path class="gl" d="M50 40V100H130V40"/>
+<circle class="pos on" cx="50" cy="40" r="20"/><text class="on" x="50" y="40">1</text>
+<circle class="pos on" cx="50" cy="160" r="20"/><text class="on" x="50" y="160">2</text>
+<circle class="pos on" cx="130" cy="40" r="20"/><text class="on" x="130" y="40">3</text>
+<circle class="pos" cx="130" cy="160" r="20"/><text x="130" y="160">4</text>
+<circle class="pos" cx="210" cy="40" r="20"/><text x="210" y="40">5</text>
+<circle class="pos" cx="210" cy="160" r="20"/><text x="210" y="160">R</text>
+<circle class="knob" cx="130" cy="40" r="15"/>
+</svg></div>
+  <div><span class="kick">Como funciona</span><h2 class="h2">Orçamento por foto</h2>
+    <p class="lead">Três mudanças e o carro está marcado, sem sair de casa.</p>
+    <ol class="gears"><li><b>1ª</b><p>Tire duas ou três fotos do dano.</p></li><li><b>2ª</b><p>Envie-as pelo WhatsApp com a matrícula.</p></li><li><b>3ª</b><p>Recebe uma estimativa e marcamos a data.</p></li></ol>
+    <div class="cta"><button type="button" class="btn btn-amber" onclick='demoWA(&quot;Ol\u00e1, queria marcar o meu carro para a oficina.&quot;)'>Enviar fotos pelo WhatsApp</button></div></div>
+</div></section>
+<section id="galeria" class="galeria" data-sec="galeria"><div class="wrap">
+  <span class="kick">Galeria</span><h2 class="h2">Trabalhos</h2>
+  <div class="gal"><img class="a" src="../assets/stock/night-07.jpg" alt="Straight-on wheel: machined silver spokes, yellow brake caliper and disc, dark car body above."><img class="b" src="../assets/stock/workshop-01.jpg" alt="Bright daylight shot of forearms wiping the scuttle panel of an open engine bay, battery and intake in the foreground."><img class="c" src="../assets/stock/night-08.jpg" alt="Restored classic straight-six in a deep blue bay: round air cleaner, copper oil cap, glass fuel filter."><img class="d" src="../assets/stock/tyres-brakes-01.jpg" alt="Drilled brake disc and hub with the wheel removed, car raised on a yellow lift arm."></div>
+  <p class="note">Fotografias ilustrativas. No site final, as fotografias são as da oficina.</p>
+</div></section>
+<section id="avaliacoes" class="av" data-sec="avaliacoes"><div class="wrap">
+  <div class="score"><span class="kick">Avaliações</span><b>71</b><p>avaliações no Google.</p><h2 class="h2" style="font-size:1.6rem">Quem cá vem, volta</h2>
+    <a href="https://www.google.com/maps/search/?api=1&query=Ruelauto+Bunheiro%2C+Murtosa">Ler as avaliações no Google →</a></div>
+  <div class="rv n3"><blockquote><span class="q">“</span><p>Mecânica de excelência. Honestidade e franqueza. Simpatia ao mais alto nível.</p><cite>M. F., no Google</cite></blockquote><blockquote><span class="q">“</span><p>Eficiência na solução do problema e satisfação do cliente. Recomendo!</p><cite>C. C., no Google</cite></blockquote><blockquote><span class="q">“</span><p>Oficina com bom serviço de atendimento e reparação de viaturas automóveis. Recomendo vivamente!</p><cite>O., no Google</cite></blockquote></div>
+</div></section>
+<section id="contacto" class="contacto" data-sec="contacto"><div class="wrap">
+  <div class="formbox"><h3>Pedir orçamento</h3><p>Diga-nos a matrícula e o que precisa. Respondemos pelo WhatsApp.</p><form class="quote" onsubmit="return sendQuote(this)">
+  <label>Matrícula<input name="m" data-l="Matrícula" placeholder="AA-00-BB" required autocomplete="off"></label>
+  <label>Carro <span class="opt">(opcional)</span><input name="mod" data-l="Carro" placeholder="Marca e modelo" autocomplete="off"></label>
+  <label>Serviço<select name="s" data-l="Serviço"><option>Revisão</option><option>Diagnóstico / avaria</option><option>Reparação</option><option>Outro</option></select></label>
+  <label>O que se passa? <span class="opt">(opcional)</span><textarea name="n" data-l="O que se passa?" rows="3"></textarea></label>
+  <button type="submit">Enviar pedido pelo WhatsApp</button>
+</form></div>
+  <div class="info"><span class="kick">Horário e morada</span><h2 class="h2">Estamos aqui</h2>
+    <span class="now"><span class="dot"></span><span data-open>08:30 – 19:00</span></span>
+    <table><tr><th scope="row">Segunda a sexta</th><td>08:30 – 19:00</td></tr><tr><th scope="row">Sábado e domingo</th><td>Encerrado</td></tr></table>
+    <div class="where"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><p>Rua da Zona Industrial, Lote 28, 3870-021 Bunheiro, Murtosa<br><a href="tel:+351234023440">234 023 440</a><br><a href="mailto:geral.ruelauto@gmail.com">geral.ruelauto@gmail.com</a><br><a class="map" href="https://www.google.com/maps/search/?api=1&query=Rua+da+Zona+Industrial%2C+Lote+28%2C+3870-021+Bunheiro%2C+Murtosa">Abrir no Google Maps →</a></p></div>
+  </div>
+</div></section>
+<footer><div class="wrap">
+  <div><div class="brand">Ruelauto</div><p style="margin-top:.8rem">Manutenção e reparação automóvel na Zona Industrial do Bunheiro (Murtosa). 71 avaliações no Google.</p></div>
+  <div><h4>Contactos</h4><p>Rua da Zona Industrial, Lote 28, 3870-021 Bunheiro, Murtosa<br><a href="tel:+351234023440">234 023 440</a><br><a href="mailto:geral.ruelauto@gmail.com">geral.ruelauto@gmail.com</a></p></div>
+  <div><h4>Horário</h4><table style="font-size:.88rem"><tr><th scope="row">Segunda a sexta</th><td>08:30 – 19:00</td></tr><tr><th scope="row">Sábado e domingo</th><td>Encerrado</td></tr></table></div>
+  <div class="credit">© Ruelauto - Oficina Automóvel, Unipessoal, Lda, Bunheiro, Murtosa. Site feito pela North Software.</div>
+</div></footer>
+<button type="button" class="fab" aria-label="Marcar pelo WhatsApp" onclick='demoWA(&quot;Ol\u00e1, queria marcar o meu carro para a oficina.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg></button>
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp da oficina com a mensagem:\n\n'+msg);}
+function sendQuote(f){var t="Ol\u00e1, queria um or\u00e7amento.";f.querySelectorAll('[data-l]').forEach(function(x){if(x.value)t+='\n'+x.getAttribute('data-l')+': '+x.value;});demoWA(t);return false;}
+(function(){
+  var open={"1": [["08:30", "19:00"]], "2": [["08:30", "19:00"]], "3": [["08:30", "19:00"]], "4": [["08:30", "19:00"]], "5": [["08:30", "19:00"]]}; if(!Object.keys(open).length) return;
+  function mins(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  var d=new Date(), day=d.getDay(), now=d.getHours()*60+d.getMinutes(), slots=open[day]||[], txt, on=false;
+  for(var i=0;i<slots.length;i++){ if(now>=mins(slots[i][0])&&now<mins(slots[i][1])){on=true;txt='Aberto agora, até às '+slots[i][1];break;} }
+  if(!on){
+    var next=null;
+    for(var k=0;k<slots.length;k++){ if(now<mins(slots[k][0])){next='Abre hoje às '+slots[k][0];break;} }
+    if(!next){ for(var j=1;j<=7;j++){var dd=(day+j)%7; if(open[dd]&&open[dd].length){next='Abre '+(j==1?'amanhã':['domingo','segunda','terça','quarta','quinta','sexta','sábado'][dd])+' às '+open[dd][0][0];break;}} }
+    txt='Fechado agora. '+(next||'');
+  }
+  document.querySelectorAll('[data-open]').forEach(function(el){el.textContent=txt;el.classList.toggle('is-open',on);});
+})();
+</script>
+<script>
+document.querySelectorAll('[data-open].is-open').forEach(function(x){var d=x.previousElementSibling;if(d&&d.classList.contains('dot'))d.classList.add('on');});
+(function(){var m=location.hash.match(/^#shot-([a-z]+)$/);if(!m)return;var t=document.querySelector('[data-sec="'+m[1]+'"]');if(!t)return;
+document.documentElement.classList.add('shot');
+document.querySelectorAll('[data-sec]').forEach(function(s){if(s!==t)s.style.display='none';});})();
+</script>
+</body></html>
