@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Churrasqueira Bruno – Frango grelhado e take-away em Lagoa</title>
+<meta name="description" content="Churrasqueira e hamburgueria na Rua da Liberdade, em Lagoa, com frango grelhado, pataniscas de polvo e comida caseira, take-away e 4,7 estrelas no Google.">
+<style>@font-face{font-family:'Anton';src:url('../assets/fonts/anton-400.woff2') format('woff2');font-weight:400;font-display:swap;}@font-face{font-family:'Bricolage Grotesque';src:url('../assets/fonts/bricolage-grotesque-var.woff2') format('woff2');font-weight:200 800;font-display:swap;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus,#1a73e8);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.demo{background:#ffd84d;color:#3a2e00;text-align:center;font:500 .82rem/1.4 system-ui,sans-serif;padding:.45rem 1rem}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+:root{--ink:#151311;--yolk:#ffc82e;--tomato:#ec4222;--cream:#fff4de;--paper:#fffaf0;--muted:#5f584e;--focus:#ec4222;
+  --display:'Anton',Impact,'Arial Narrow',sans-serif;--sans:'Bricolage Grotesque',system-ui,'Segoe UI',sans-serif}
+html{scroll-behavior:smooth}
+body{font:400 1.0625rem/1.6 var(--sans);color:var(--ink);background:var(--cream)}
+h1,h2{font-family:var(--display);font-weight:400;line-height:1.06;text-transform:uppercase;letter-spacing:.005em}
+h3{font-family:var(--sans);font-weight:800;line-height:1.15}
+.wrap{max-width:1240px;margin:0 auto;padding:0 1.5rem}
+.btn{display:inline-flex;align-items:center;gap:.65rem;border:3px solid var(--ink);border-radius:14px;padding:.95rem 1.4rem;
+  font:700 1.05rem/1 var(--sans);cursor:pointer;text-decoration:none;box-shadow:5px 5px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.btn svg{width:1.3rem;height:1.3rem;flex:none}
+.btn-red{background:var(--tomato);color:#fff}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-ink{background:var(--ink);color:var(--yolk)}
+.btn-yolk{background:var(--yolk);color:var(--ink)}
+.stars{--p:100%;display:inline-block;width:6.1rem;height:1.1rem;vertical-align:-2px;
+  background:linear-gradient(90deg,var(--ink) var(--p),rgba(21,19,17,.22) var(--p));-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 20'%3E%3Cg%3E%3Cpath id='s' d='M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z'/%3E%3Cuse href='%23s' x='22.5'/%3E%3Cuse href='%23s' x='45'/%3E%3Cuse href='%23s' x='67.5'/%3E%3Cuse href='%23s' x='90'/%3E%3C/g%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 20'%3E%3Cg%3E%3Cpath id='s' d='M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z'/%3E%3Cuse href='%23s' x='22.5'/%3E%3Cuse href='%23s' x='45'/%3E%3Cuse href='%23s' x='67.5'/%3E%3Cuse href='%23s' x='90'/%3E%3C/g%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+.dot{display:inline-block;width:.65rem;height:.65rem;border-radius:50%;background:#8b8478;flex:none;border:2px solid var(--ink)}
+.dot.on{background:#2fd16a}
+
+/* hero */
+.hero{position:relative;background:var(--yolk);overflow:hidden}
+.hero::before{content:"";position:absolute;right:0;top:0;bottom:0;width:46%;
+  background:radial-gradient(rgba(21,19,17,.13) 1.6px,transparent 1.8px) 0 0/16px 16px}
+.nav{position:relative;display:flex;align-items:center;gap:1.8rem;padding-top:1.2rem;padding-bottom:1.2rem}
+.nav .brand{font:400 2rem/1 var(--display);text-transform:uppercase;text-decoration:none;margin-right:auto;letter-spacing:.01em}
+.nav a.l{font-weight:700;text-decoration:none}
+.nav a.l:hover{text-decoration:underline;text-decoration-thickness:3px}
+.nav .tel{white-space:nowrap;background:var(--ink);color:var(--yolk);padding:.7rem 1.1rem;border-radius:12px;font-weight:800;text-decoration:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center;padding-top:.6rem;padding-bottom:4rem}
+.label{display:inline-block;background:var(--ink);color:#fff;font-weight:700;padding:.45rem .9rem;border-radius:9px;
+  transform:rotate(-2deg);margin-bottom:1.3rem}
+.hero h1{font-size:var(--h1,5rem);padding-right:3.2rem}
+.hero-p{font-size:1.15rem;max-width:46ch;margin-top:1.3rem;font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.9rem}
+.today{display:flex;align-items:center;gap:.6rem;margin-top:1.6rem;font-weight:700}
+.pic{position:relative;margin-right:1rem}
+.pic .frame{border:3px solid var(--ink);border-radius:28px;overflow:hidden;box-shadow:12px 12px 0 var(--ink);aspect-ratio:4/5;
+  background:var(--ink);transform:rotate(1.5deg)}
+.pic img{width:100%;height:100%;object-fit:cover;object-position:var(--hero-pos,50% 50%)}
+.sticker{position:absolute;display:grid;place-content:center;text-align:center;border:3px solid var(--ink);border-radius:50%;
+  box-shadow:4px 4px 0 var(--ink)}
+.st-rate{left:-44px;top:44px;width:158px;height:158px;background:var(--tomato);color:#fff;transform:rotate(-12deg);font:700 .88rem/1.2 var(--sans)}
+.st-rate b{display:block;font:400 3.3rem/1 var(--display)}
+.st-rate .stars{width:5.2rem;height:.95rem;margin:.2rem auto .25rem;background:linear-gradient(90deg,#fff var(--p),rgba(255,255,255,.35) var(--p))}
+.st-since{right:-30px;bottom:-28px;width:132px;height:132px;background:#fff;transform:rotate(9deg);font:700 .95rem/1.1 var(--sans)}
+.st-since b{display:block;font:400 2.5rem/1 var(--display)}
+.strip{background:var(--ink);color:var(--yolk);overflow:hidden;white-space:nowrap}
+.strip p{display:inline-block;padding:.95rem 0;font:400 1.7rem/1 var(--display);text-transform:uppercase;animation:roll 40s linear infinite}
+.strip span{color:var(--tomato);margin:0 1.3rem}
+@keyframes roll{to{transform:translateX(-50%)}}
+
+section{padding:6rem 0}
+.h2{font-size:clamp(2.8rem,5.6vw,4.8rem)}
+.lead{font-size:1.15rem;color:var(--muted);max-width:50ch;margin-top:1rem}
+
+/* casa */
+.casa{background:var(--cream)}
+.casa-top{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:end;margin-bottom:3rem}
+.nums{display:flex;gap:1.1rem;justify-content:flex-end;flex-wrap:wrap}
+.num{width:150px;height:150px;border-radius:50%;border:3px solid var(--ink);display:grid;place-content:center;text-align:center;
+  font-weight:700;font-size:.88rem;line-height:1.15;box-shadow:5px 5px 0 var(--ink);padding:0 .8rem}
+.num b{display:block;font:400 2.8rem/1 var(--display);margin-bottom:.15rem}
+.num:nth-child(1){background:var(--yolk);transform:rotate(-6deg)}
+.num:nth-child(2){background:var(--tomato);color:#fff;transform:rotate(4deg)}
+.num:nth-child(3){background:#fff;transform:rotate(-3deg)}
+.casa-row{display:grid;grid-template-columns:1.3fr repeat(var(--n,3),1fr);gap:1.2rem}
+.casa-row img{width:100%;height:100%;min-height:330px;object-fit:cover;border:3px solid var(--ink);border-radius:22px}
+.why{border:3px solid var(--ink);border-radius:22px;padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:.8rem;min-height:330px}
+.why h3{font:400 2rem/1 var(--display);text-transform:uppercase;margin-top:auto}
+.why p{font-weight:500}
+.why i{font:400 3.4rem/1 var(--display);font-style:normal}
+.why:nth-of-type(1){background:var(--yolk)}
+.why:nth-of-type(2){background:var(--tomato);color:#fff}
+.why:nth-of-type(3){background:var(--ink);color:#fff}
+.why:nth-of-type(3) i{color:var(--yolk)}
+
+/* order board */
+.board{background:var(--ink);color:#fff;padding:5rem 0 5.5rem}
+.board-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.2rem}
+.board-head h2{font-size:clamp(3.2rem,7vw,6rem);color:var(--yolk)}
+.board-head p{max-width:36ch;color:#d9d3c7;font-size:1.1rem}
+.board-head p b{color:var(--yolk)}
+.board-grid{display:grid;grid-template-columns:1.32fr .9fr;gap:3.2rem;align-items:start}
+.items{list-style:none;border-top:2px solid #3b3631}
+.board-grid>*{min-width:0}
+.items li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:1rem;align-items:center;padding:1.05rem 0;border-bottom:2px solid #3b3631}
+.items h3{font:400 2rem/1.05 var(--display);text-transform:uppercase;letter-spacing:.01em;color:#fff;display:flex;align-items:center;gap:.4rem .9rem;flex-wrap:wrap}
+.items p{color:#bdb5a8;margin-top:.25rem}
+.tag{font:800 .78rem/1 var(--sans);text-transform:none;letter-spacing:0;background:var(--tomato);color:#fff;padding:.42rem .6rem;
+  border-radius:7px;transform:rotate(-3deg);display:inline-block}
+.tag.y{background:var(--yolk);color:var(--ink);transform:rotate(2deg)}
+.add{width:3.1rem;height:3.1rem;border-radius:50%;border:0;background:var(--yolk);color:var(--ink);font:800 2rem/1 var(--sans);
+  cursor:pointer;display:grid;place-items:center;transition:transform .12s,background .12s}
+.add{font-size:0}
+.add::before{content:"";width:1.05rem;height:1.05rem;background:linear-gradient(currentColor,currentColor) center/100% 3.5px no-repeat,
+  linear-gradient(currentColor,currentColor) center/3.5px 100% no-repeat}
+.add:hover{transform:scale(1.08)}
+.items li.in .add{background:var(--tomato);color:#fff}
+.items li.info .add{display:none}
+.items li.info h3{color:#e9e2d5;font-size:1.6rem}
+.q{font:400 1.5rem/1 var(--display);color:var(--yolk);min-width:2ch;text-align:right}
+.call{margin-top:1.6rem;font-weight:700;color:#d9d3c7;font-size:1.1rem}
+.call a{font:400 2rem/1 var(--display);color:var(--yolk);text-decoration:none;margin-left:.4rem;letter-spacing:.02em}
+.side .ph{border-radius:24px;overflow:hidden;border:3px solid #fff;aspect-ratio:4/3.3}
+.side .ph img{width:100%;height:100%;object-fit:cover}
+.ticket{position:relative;background:var(--paper);color:var(--ink);margin:-120px 1.3rem 0;padding:1.5rem 1.6rem 1.3rem;
+  transform:rotate(-1.6deg);filter:drop-shadow(0 22px 26px rgba(0,0,0,.5))}
+.ticket::after{content:"";position:absolute;left:0;right:0;bottom:-11px;height:12px;
+  background:conic-gradient(from -45deg at 50% 100%,var(--paper) 90deg,transparent 0) 0 0/16px 12px repeat-x}
+.ticket h3{display:flex;align-items:center;justify-content:space-between;font:400 1.75rem/1 var(--display);text-transform:uppercase}
+.ticket h3 span{font:800 .95rem/1 var(--sans);background:var(--tomato);color:#fff;border-radius:999px;padding:.35rem .65rem}
+.ticket h3 span[hidden]{display:none}
+.lines{list-style:none;border-top:2px dashed #cfc5b2;border-bottom:2px dashed #cfc5b2;margin:.9rem 0 1rem;padding:.75rem 0;
+  display:grid;gap:.4rem;font-weight:600}
+.lines .empty{color:var(--muted);font-weight:400}
+.lines li{display:flex;gap:.5rem;align-items:center}
+.lines .rm{margin-left:auto;width:1.7rem;height:1.7rem;border-radius:50%;border:2px solid var(--ink);background:#fff;cursor:pointer;font-weight:800}
+.ticket label{display:grid;gap:.3rem;font-weight:700;font-size:.9rem;margin-bottom:.8rem}
+.ticket input,.ticket select{width:100%;min-width:0;font:inherit;font-weight:500;padding:.7rem .85rem;border:2px solid var(--ink);border-radius:10px;background:#fff}
+.ticket .row{display:grid;grid-template-columns:1.35fr 1fr;gap:.8rem}
+.shot section[data-sec]{min-height:100vh}
+.ticket .btn{width:100%;justify-content:center;margin-top:.3rem}
+
+/* como */
+.como{background:var(--tomato);color:#fff}
+.como .head{display:flex;justify-content:space-between;align-items:end;gap:2rem}
+.como .lead{color:#ffe1d6}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;counter-reset:s;margin-top:2.8rem}
+.steps li{counter-increment:s;background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:22px;padding:1.5rem 1.6rem 1.8rem;
+  box-shadow:7px 7px 0 var(--ink)}
+.steps li:nth-child(2){transform:rotate(1deg)}
+.steps li::before{content:counter(s);display:block;font:400 4.8rem/1 var(--display);color:var(--tomato);margin-bottom:.5rem}
+.steps p{font-weight:700;font-size:1.32rem;line-height:1.3}
+
+/* galeria */
+.galeria{background:var(--cream)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:250px 250px;gap:1rem;margin-top:2.4rem}
+.gal img{width:100%;height:100%;object-fit:cover;border-radius:20px;border:3px solid var(--ink)}
+.gal .big{grid-column:span 2;grid-row:span 2}
+.gal .wide{grid-column:span 2}
+.galeria .note{margin-top:1rem;font-size:.86rem;color:var(--muted)}
+
+/* avaliacoes */
+.avaliacoes{background:var(--yolk)}
+.avaliacoes .wrap{display:grid;grid-template-columns:.8fr 2fr;gap:3.5rem;align-items:start}
+.score b{display:block;font:400 9.5rem/.85 var(--display)}
+.score .stars{width:8.6rem;height:1.55rem;margin:1rem 0 1.2rem}
+.score h2{font-size:2.6rem}
+.score p{margin-top:.8rem;font-weight:500}
+.gl{display:inline-block;margin-top:1rem;font-weight:800;color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;align-items:start}
+.cards blockquote{background:#fff;border:3px solid var(--ink);border-radius:22px;padding:1.4rem 1.5rem 1.5rem;box-shadow:7px 7px 0 var(--ink)}
+.cards blockquote:nth-child(2){transform:rotate(1.2deg);margin-top:1.8rem}
+.cards blockquote:nth-child(3){transform:rotate(-1deg)}
+.cards blockquote::before{content:"\201C";display:block;height:2.9rem;font:400 5.4rem/1 var(--display);color:var(--tomato)}
+.cards p{font-weight:600;font-size:1.13rem;line-height:1.45}
+.cards cite{display:block;margin-top:1rem;font-style:normal;font-weight:800;font-size:.9rem;color:var(--muted)}
+.cards.n2{grid-template-columns:1fr 1fr}
+.cards.n1,.cards.n0{grid-template-columns:1fr}
+.cards.n1 blockquote{padding:2rem 2.6rem 2.4rem}
+.cards.n1 p{font:400 clamp(2rem,4vw,3.4rem)/1.05 var(--display);text-transform:uppercase;max-width:20ch}
+.cards.n0 .big{background:var(--ink);color:#fff;border-radius:22px;padding:2.8rem;box-shadow:7px 7px 0 var(--tomato)}
+.cards.n0 .big p{font:400 clamp(2rem,4vw,3.2rem)/1.05 var(--display);text-transform:uppercase;max-width:22ch}
+.cards.n0 .gl{color:var(--yolk)}
+
+/* contacto */
+.contacto{background:var(--ink);color:#fff}
+.contacto .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem;align-items:start}
+.order{background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:24px;padding:2.2rem;box-shadow:9px 9px 0 var(--yolk)}
+.order h3{font:400 2.6rem/1 var(--display);text-transform:uppercase;margin-bottom:.5rem}
+.order>p{color:var(--muted);margin-bottom:1.4rem}
+.quote{display:grid;gap:1rem}
+.quote label{display:grid;gap:.35rem;font-weight:700;font-size:.93rem}
+.quote .opt{font-weight:400;color:var(--muted)}
+.quote input,.quote select,.quote textarea{font:inherit;padding:.8rem .95rem;border:2px solid var(--ink);border-radius:12px;background:#fff}
+.quote input:focus,.quote select:focus,.quote textarea:focus{outline:3px solid var(--yolk);outline-offset:1px}
+.quote button{justify-self:start;border:3px solid var(--ink);border-radius:14px;background:var(--tomato);color:#fff;font:700 1.05rem var(--sans);
+  padding:.95rem 1.4rem;cursor:pointer;box-shadow:5px 5px 0 var(--ink)}
+.info h2{color:var(--yolk);font-size:clamp(3rem,6vw,4.8rem)}
+.info .now{display:flex;align-items:center;gap:.6rem;font-weight:700;margin:1rem 0 1.2rem}
+.info .dot{border-color:#fff}
+table{border-collapse:collapse;width:100%}
+th,td{padding:.8rem 0;border-bottom:2px solid #34302b;text-align:left;font-weight:500;color:#cfc8bb}
+td{text-align:right;color:#fff;font-weight:700}
+.where{margin-top:2rem;border:3px solid #fff;border-radius:20px;padding:1.5rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.where svg{width:2rem;height:2rem;color:var(--yolk)}
+.where p{line-height:1.75}
+.where a{color:#fff;text-decoration:none;font-weight:700}
+.where .map{color:var(--yolk)}
+footer{background:var(--yolk);color:var(--ink);padding:3.5rem 0 2rem;font-size:.95rem;border-top:3px solid var(--ink)}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+footer .brand{font:400 2.4rem/1 var(--display);text-transform:uppercase}
+footer h4{font:800 1rem var(--sans);margin-bottom:.6rem}
+footer a{text-decoration:none;font-weight:700}
+footer th,footer td{color:var(--ink);border-color:rgba(21,19,17,.2);padding:.4rem 0}
+footer .social{display:flex;gap:1rem;margin-top:.9rem}
+footer .social a{text-decoration:underline}
+footer .credit{grid-column:1/-1;border-top:2px solid var(--ink);padding-top:1.3rem;margin-top:1rem;font-size:.86rem}
+.fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:20;width:3.9rem;height:3.9rem;border-radius:50%;border:3px solid var(--ink);
+  background:#25d366;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:4px 4px 0 var(--ink)}
+.fab svg{width:1.9rem;height:1.9rem}
+.shot .demo,.shot .fab,.shot .strip,.shot [data-hide-in-shot]{display:none!important}
+
+@media (max-width:860px){
+  .nav a.l{display:none}
+  .nav{gap:.8rem;padding-top:1rem;padding-bottom:1rem}
+  .nav .brand{font-size:1.45rem;line-height:1.05}
+  .nav .tel{padding:.55rem .8rem;font-size:.85rem}
+  .hero::before{width:100%;top:auto;height:300px}
+  .hero-grid{grid-template-columns:1fr;gap:2.4rem;padding-top:.2rem;padding-bottom:3.2rem}
+  .label{margin-bottom:1rem;font-size:.92rem}
+  .hero h1{font-size:clamp(2.5rem,11.5vw,3.3rem)}
+  .hero-p{font-size:1.04rem}
+  .cta{gap:.8rem}
+  .pic{margin:0 .8rem 1rem .4rem}
+  .pic .frame{aspect-ratio:4/3;box-shadow:8px 8px 0 var(--ink)}
+  .st-rate{width:112px;height:112px;left:-14px;top:-34px;font-size:.72rem}
+  .st-rate b{font-size:2.3rem}
+  .st-rate .stars{width:4rem;height:.75rem}
+  .st-since{width:96px;height:96px;right:-12px;bottom:-22px;font-size:.78rem}
+  .st-since b{font-size:1.8rem}
+  section{padding:4rem 0}
+  .casa-top{grid-template-columns:1fr;gap:2rem}
+  .nums{justify-content:flex-start}
+  .num{width:112px;height:112px;font-size:.75rem}
+  .num b{font-size:2rem}
+  .casa-row{grid-template-columns:1fr}
+  .casa-row img{min-height:230px;max-height:280px}
+  .why{min-height:0}
+  .board{padding:3rem 0 4rem}
+  .board-head{display:block;margin-bottom:1.6rem}
+  .board-head p{margin-top:.6rem;font-size:1rem}
+  .board-grid{grid-template-columns:1fr;gap:2.4rem}
+  .items h3{font-size:1.6rem}
+  .items li.info h3{font-size:1.35rem}
+  .add{width:2.7rem;height:2.7rem;font-size:1.7rem}
+  .ticket{margin:-80px .5rem 0}
+  .ticket .row{grid-template-columns:1fr;gap:0}
+  .hero h1{padding-right:0}
+  .como .head{display:block}
+  .como .head .btn{margin-top:1.4rem}
+  .steps{grid-template-columns:1fr}
+  .steps li{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;padding:1.1rem 1.3rem;transform:none!important}
+  .steps li::before{font-size:3.4rem;margin:0}
+  .steps p{font-size:1.15rem}
+  .gal{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:150px}
+  .avaliacoes .wrap,.contacto .wrap{grid-template-columns:1fr;gap:2.4rem}
+  .score b{font-size:6.5rem}
+  .cards,.cards.n2{grid-template-columns:1fr}
+  .cards blockquote{transform:none!important;margin-top:0!important}
+  .order{padding:1.5rem}
+  footer .wrap{grid-template-columns:1fr}
+}
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Churrasqueira Bruno · pré-visualização do site">
+<meta property="og:description" content="Churrasqueira e hamburgueria na Rua da Liberdade, em Lagoa, com frango grelhado, pataniscas de polvo e comida caseira, take-away e 4,7 estrelas no Google.">
+<meta property="og:url" content="https://preview.northsoftware.pt/churrasqueira-bruno-lagoa/">
+<meta property="og:image" content="https://preview.northsoftware.pt/churrasqueira-bruno-lagoa/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<div class="demo">Pré-visualização preparada pela North Software para Churrasqueira Bruno. Ainda não está publicada; as fotografias são ilustrativas.</div>
+<header id="inicio" class="hero" data-sec="inicio">
+  <nav class="nav wrap" aria-label="Principal"><a class="brand" href="#">Churrasqueira Bruno</a>
+    <a class="l" href="#ementa">Ementa</a><a class="l" href="#galeria">Galeria</a><a class="l" href="#avaliacoes">Avaliações</a>
+    <a class="l" href="#contacto">Horário</a><a class="tel" href="tel:+351961668987">961 668 987</a></nav>
+  <div class="hero-grid wrap">
+    <div>
+      <p class="label">Churrasqueira com frango grelhado e take-away em Lagoa</p>
+      <h1 style="--h1:4.2rem">Frango grelhado e comida caseira, para comer cá ou levar, em Lagoa.</h1>
+      <p class="hero-p">Na Rua da Liberdade, em Lagoa. Frango bem grelhado com batata frita, pataniscas de polvo e pratos caseiros, para comer na sala ou levar para casa, com 4,7 estrelas no Google. Ligue e encomende.</p>
+      <div class="cta"><button type="button" class="btn btn-red" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma encomenda.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg><span>Encomendar pelo WhatsApp</span></button><a class="btn btn-white" href="tel:+351961668987">Ligar 961 668 987</a></div>
+      <p class="today"><span class="dot"></span><span data-open>12:00 – 14:30 · 19:00 – 21:00</span></p>
+    </div>
+    <div class="pic"><div class="frame"><img src="../assets/stock/restaurantes-frango-01.jpg" alt="Whole chickens roasting on a rustic wooden spit over an open fire outdoors, sunlit trees softly blurred behind." fetchpriority="high"></div><div class="sticker st-rate"><b>4,7</b><span class="stars " style="--p:94%" role="img" aria-label="4,7 em 5 estrelas"></span>no Google<br>69 avaliações</div></div>
+  </div>
+</header>
+<div class="strip" aria-hidden="true"><p>Frango grelhado<span>●</span>Batata frita<span>●</span>Pataniscas de polvo<span>●</span>Lasanha de frango<span>●</span>Take-away<span>●</span>Frango grelhado<span>●</span>Batata frita<span>●</span>Pataniscas de polvo<span>●</span>Lasanha de frango<span>●</span>Take-away<span>●</span>Frango grelhado<span>●</span>Batata frita<span>●</span>Pataniscas de polvo<span>●</span>Lasanha de frango<span>●</span>Take-away<span>●</span>Frango grelhado<span>●</span>Batata frita<span>●</span>Pataniscas de polvo<span>●</span>Lasanha de frango<span>●</span>Take-away<span>●</span></p></div>
+<section id="casa" class="casa" data-sec="casa"><div class="wrap">
+  <div class="casa-top"><div><h2 class="h2">Porquê a Churrasqueira Bruno</h2>
+    <p class="lead">Frango na brasa e comida caseira, à mesa ou para levar.</p></div>
+    <div class="nums"><div class="num"><b>4,7</b>estrelas no Google</div><div class="num"><b>69</b>avaliações</div></div></div>
+  <div class="casa-row" style="--n:3"><img src="../assets/stock/restaurantes-grelhados-08.jpg" alt="Close-up of split logs burning down to glowing red embers and white ash."><div class="why"><i aria-hidden="true">★</i><h3>4,7 no Google</h3><p>Em 69 avaliações.</p></div><div class="why"><i aria-hidden="true">●</i><h3>Take-away</h3><p>Encomende e leve o frango para casa.</p></div><div class="why"><i aria-hidden="true">▲</i><h3>Comida caseira</h3><p>Também há pratos do dia para almoçar.</p></div></div>
+</div></section>
+<section id="ementa" class="board" data-sec="servicos"><div class="wrap">
+  <div class="board-head"><h2>A ementa</h2><p>Toque em <b>+</b> para juntar ao seu pedido. No fim, envie tudo pelo WhatsApp e nós confirmamos.</p></div>
+  <div class="board-grid">
+    <div><ul class="items"><li><div><h3>Frango grelhado<span class="tag">Especialidade da casa</span></h3><p>Bem grelhado, com batatas fritas, o mais elogiado da casa.</p></div><span class="q" aria-live="polite"></span><button type="button" class="add" data-add="Frango grelhado" aria-label="Juntar Frango grelhado ao pedido">+</button></li><li><div><h3>Pataniscas de polvo</h3><p>Descritas como divinais por quem as provou.</p></div><span class="q" aria-live="polite"></span><button type="button" class="add" data-add="Pataniscas de polvo" aria-label="Juntar Pataniscas de polvo ao pedido">+</button></li><li><div><h3>Lasanha de frango</h3><p>Um dos pratos caseiros da casa.</p></div><span class="q" aria-live="polite"></span><button type="button" class="add" data-add="Lasanha de frango" aria-label="Juntar Lasanha de frango ao pedido">+</button></li><li class=info><div><h3>Take-away</h3><p>Encomende e leve para casa.</p></div><span class="q" aria-live="polite"></span><button type="button" class="add" data-add="Take-away" aria-label="Juntar Take-away ao pedido">+</button></li></ul>
+      <p class="call">Prefere ligar? <a href="tel:+351961668987">961 668 987</a></p></div>
+    <aside class="side"><div class="ph"><img src="../assets/stock/restaurantes-frango-06.jpg" alt="Glossy red chillies in a terracotta bowl on a wooden table, soft window light and a white curtain behind."></div>
+      <div class="ticket"><h3>O seu pedido <span data-count hidden>0</span></h3>
+        <ol class="lines"><li class="empty">Ainda vazio. Toque em + na ementa.</li></ol>
+        <div class="row"><label>Como<select data-l="Como"><option>Encomenda para levar</option><option>Reserva de mesa</option></select></label><label>Hora<input data-l="Hora" placeholder="ex.: 20:00" autocomplete="off"></label></div>
+        <button type="button" class="btn btn-red" onclick="sendOrder(this)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg><span>Enviar pedido pelo WhatsApp</span></button>
+      </div></aside>
+  </div>
+</div></section>
+<section id="como" class="como" data-sec="como"><div class="wrap">
+  <div class="head"><div><h2 class="h2">Encomendar é simples</h2><p class="lead">Sem aplicações e sem comissões: fala diretamente connosco.</p></div>
+    <button type="button" class="btn btn-yolk" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma encomenda.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg><span>Encomendar pelo WhatsApp</span></button></div>
+  <ol class="steps"><li><p>Escolha o que lhe apetece.</p></li><li><p>Envie a encomenda pelo WhatsApp.</p></li><li><p>Levante à hora combinada.</p></li></ol>
+</div></section>
+<section id="galeria" class="galeria" data-sec="galeria"><div class="wrap">
+  <h2 class="h2">Da nossa cozinha</h2>
+  <div class="gal"><img class="big" src="../assets/stock/restaurantes-frango-04.jpg" alt="Butterflied chicken pieces with a red chilli marinade, charred from the grill, beside a pile of fries on a wooden board, blue background."><img src="../assets/stock/restaurantes-grelhados-06.jpg" alt="Tray of grilled steaks, sausages and chicken pieces on a grill; cook in striped apron and red glove behind, cropped at the chest."><img src="../assets/stock/restaurantes-geral-04.jpg" alt="Hands pouring red wine from an unlabelled swing-top bottle into a glass, warm low light."><img class="wide" src="../assets/stock/restaurantes-frango-05.jpg" alt="Top view of a whole golden roast chicken between a fork and a knife on a pale wooden table."></div>
+  <p class="note">Fotografias ilustrativas. No site final, as fotografias são as da casa.</p>
+</div></section>
+<section id="avaliacoes" class="avaliacoes" data-sec="avaliacoes"><div class="wrap">
+  <div class="score"><b>4,7</b><span class="stars " style="--p:94%" role="img" aria-label="4,7 em 5 estrelas"></span>
+    <h2>O que dizem os clientes</h2><p>4,7 em 5 no Google, com 69 avaliações.</p>
+    <a class="gl" href="https://www.google.com/maps/search/?api=1&query=Churrasqueira+Bruno+Rua+da+Liberdade%2C+58%2C+8400-398+Lagoa">Ver no Google</a></div>
+  <div class="cards n3"><blockquote><p>O melhor franguinho que já comi no Algarve.</p><cite>M. R., no Google</cite></blockquote><blockquote><p>O frango é bem grelhado e as batatas fritas são boas. Pessoal simpático.</p><cite>J. P. A., no Google</cite></blockquote><blockquote><p>Espaço acolhedor e tranquilo. Boa organização.</p><cite>S. G., no Google</cite></blockquote></div>
+</div></section>
+<section id="contacto" class="contacto" data-sec="contacto"><div class="wrap">
+  <div class="order"><h3>Encomendar</h3><p>Faça a encomenda para levantar. Confirmamos pelo WhatsApp.</p><form class="quote" onsubmit="return sendQuote(this)">
+  <label>Nome<input name="nome" data-l="Nome" required autocomplete="off"></label>
+  <label>Tipo<select name="s" data-l="Tipo"><option>Encomenda para levar</option><option>Reserva de mesa</option></select></label>
+  <label>O que deseja<textarea name="p" data-l="O que deseja" placeholder="ex.: 1 frango no churrasco, batata frita" required rows="3"></textarea></label>
+  <label>Hora <span class="opt">(opcional)</span><input name="h" data-l="Hora" placeholder="ex.: 20:00" autocomplete="off"></label>
+  <button type="submit">Enviar encomenda pelo WhatsApp</button>
+</form></div>
+  <div class="info"><h2>Horário</h2>
+    <p class="now"><span class="dot"></span><span data-open>Ligue para confirmar o horário</span></p>
+    <table><tr><th scope="row">Segunda a sexta</th><td>12:00 – 14:30 · 19:00 – 21:00</td></tr><tr><th scope="row">Sábado</th><td>12:00 – 15:00</td></tr><tr><th scope="row">Domingo</th><td>Encerrado</td></tr></table>
+    <div class="where"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><p>Rua da Liberdade, 58, 8400-398 Lagoa<br><a href="tel:+351961668987">961 668 987</a><br><a href="tel:+351961668987">961 668 987</a><br><a class="map" href="https://www.google.com/maps/search/?api=1&query=Rua+da+Liberdade%2C+58%2C+8400-398+Lagoa">Abrir no Google Maps</a></p></div>
+  </div>
+</div></section>
+<footer data-hide-in-shot><div class="wrap">
+  <div><div class="brand">Churrasqueira Bruno</div><p style="margin-top:.6rem">Churrasqueira e hamburgueria na Rua da Liberdade, em Lagoa, com frango grelhado, pataniscas de polvo e comida caseira, take-away e 4,7 estrelas no Google.</p>
+    </div>
+  <div><h4>Contactos</h4><p>Rua da Liberdade, 58, 8400-398 Lagoa<br><a href="tel:+351961668987">961 668 987</a><br><a href="tel:+351961668987">961 668 987</a></p></div>
+  <div><h4>Horário</h4><table><tr><th scope="row">Segunda a sexta</th><td>12:00 – 14:30 · 19:00 – 21:00</td></tr><tr><th scope="row">Sábado</th><td>12:00 – 15:00</td></tr><tr><th scope="row">Domingo</th><td>Encerrado</td></tr></table></div>
+  <div class="credit">© Churrasqueira Bruno, Lagoa. Site feito pela North Software.</div>
+</div></footer>
+<button type="button" class="fab" aria-label="Encomendar pelo WhatsApp" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma encomenda.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg></button>
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp do restaurante (961 668 987) com a mensagem:\n\n'+msg);}
+function sendQuote(f){var t="Ol\u00e1, queria fazer uma encomenda.";f.querySelectorAll('[data-l]').forEach(function(x){if(x.value)t+='\n'+x.getAttribute('data-l')+': '+x.value;});demoWA(t);return false;}
+(function(){
+  var open={"1": [["12:00", "14:30"], ["19:00", "21:00"]], "2": [["12:00", "14:30"], ["19:00", "21:00"]], "3": [["12:00", "14:30"], ["19:00", "21:00"]], "4": [["12:00", "14:30"], ["19:00", "21:00"]], "5": [["12:00", "14:30"], ["19:00", "21:00"]], "6": [["12:00", "15:00"]]}; if(!Object.keys(open).length) return;
+  function mins(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  var d=new Date(), day=d.getDay(), now=d.getHours()*60+d.getMinutes(), slots=open[day]||[], txt, on=false;
+  for(var i=0;i<slots.length;i++){ if(now>=mins(slots[i][0])&&now<mins(slots[i][1])){on=true;txt='Aberto agora, até às '+slots[i][1];break;} }
+  if(!on){
+    var next=null;
+    for(var k=0;k<slots.length;k++){ if(now<mins(slots[k][0])){next='Abre hoje às '+slots[k][0];break;} }
+    if(!next){ for(var j=1;j<=7;j++){var dd=(day+j)%7; if(open[dd]&&open[dd].length){next='Abre '+(j==1?'amanhã':['domingo','segunda','terça','quarta','quinta','sexta','sábado'][dd])+' às '+open[dd][0][0];break;}} }
+    txt='Fechado agora. '+(next||'');
+  }
+  document.querySelectorAll('[data-open]').forEach(function(el){el.textContent=txt;el.classList.toggle('is-open',on);});
+})();
+</script>
+<script>
+(function(){
+  var cart={}, order=[];
+  function draw(){
+    var keys=order.filter(function(k){return cart[k]>0;}), n=0, ol=document.querySelector('.lines');
+    if(!ol) return;
+    ol.textContent='';
+    if(!keys.length){var li0=document.createElement('li');li0.className='empty';li0.textContent='Ainda vazio. Toque em + na ementa.';ol.appendChild(li0);}
+    keys.forEach(function(k){
+      n+=cart[k];
+      var li=document.createElement('li'), b=document.createElement('b'), r=document.createElement('button');
+      b.textContent=cart[k]+'\u00d7'; li.appendChild(b); li.appendChild(document.createTextNode(' '+k));
+      r.type='button'; r.className='rm'; r.setAttribute('data-rm',k); r.setAttribute('aria-label','Tirar '+k); r.textContent='\u2212';
+      li.appendChild(r); ol.appendChild(li);
+    });
+    document.querySelectorAll('[data-add]').forEach(function(btn){
+      var q=cart[btn.getAttribute('data-add')]||0, li=btn.closest('li');
+      li.classList.toggle('in',q>0); li.querySelector('.q').textContent=q?q+'\u00d7':'';
+    });
+    document.querySelectorAll('[data-count]').forEach(function(x){x.textContent=n;x.hidden=!n;});
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest('[data-add]'), r=ev.target.closest('[data-rm]');
+    if(a){var k=a.getAttribute('data-add'); if(!(k in cart)){order.push(k);cart[k]=0;} cart[k]++; draw();}
+    if(r){var k2=r.getAttribute('data-rm'); cart[k2]=Math.max(0,(cart[k2]||0)-1); draw();}
+  });
+  window.sendOrder=function(t){
+    var box=t.closest('.ticket'), msg="Ol\u00e1, queria fazer uma encomenda.";
+    order.filter(function(k){return cart[k]>0;}).forEach(function(k){msg+='\n'+cart[k]+'\u00d7 '+k;});
+    box.querySelectorAll('[data-l]').forEach(function(x){if(x.value)msg+='\n'+x.getAttribute('data-l')+': '+x.value;});
+    demoWA(msg);
+  };
+})();
+</script>
+<script>
+document.querySelectorAll('[data-open].is-open').forEach(function(x){var d=x.previousElementSibling;if(d&&d.classList.contains('dot'))d.classList.add('on');});
+(function(){var m=location.hash.match(/^#shot-([a-z]+)$/);if(!m)return;var t=document.querySelector('[data-sec="'+m[1]+'"]');if(!t)return;
+document.documentElement.classList.add('shot');
+document.querySelectorAll('[data-sec]').forEach(function(s){if(s!==t)s.style.display='none';});})();
+</script>
+</body></html>

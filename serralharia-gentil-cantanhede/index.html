@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serralharia Gentil – Serralharia em Cantanhede</title>
+<meta name="description" content="Serralharia Gentil, em Vila Nova de Outil, Cantanhede, desde 2006: serralharia decorativa, automatismos, estruturas metálicas e caleiras. Peça o seu orçamento.">
+<style>@font-face{font-family:'Big Shoulders Display';src:url('../assets/fonts/big-shoulders-display-800.woff2') format('woff2');font-weight:800;font-display:swap;}@font-face{font-family:'Archivo';src:url('../assets/fonts/archivo-var.woff2') format('woff2');font-weight:100 900;font-display:swap;}@font-face{font-family:'Instrument Serif';src:url('../assets/fonts/instrument-serif-400.woff2') format('woff2');font-weight:400;font-display:swap;}@font-face{font-family:'Instrument Serif';src:url('../assets/fonts/instrument-serif-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}@font-face{font-family:'Inter Tight';src:url('../assets/fonts/inter-tight-var.woff2') format('woff2');font-weight:100 900;font-display:swap;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus,#1a73e8);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.demo{background:#ffd84d;color:#3a2e00;text-align:center;font:500 .82rem/1.4 system-ui,sans-serif;padding:.45rem 1rem}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+:root{--cal:#f4f3ee;--cal2:#e8e6dd;--betao:#cdcabd;--graf:#1e2227;--graf2:#292d31;--pedra:#5c6168;--terra:#8c5800;
+  --terra2:#9f6704;--line:#d5d2c5;--focus:#9f6704;--serif:'Big Shoulders Display',Georgia,serif;--sans:'Archivo',system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{font:400 1.06rem/1.6 var(--sans);color:var(--graf);background:var(--cal)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:.98;letter-spacing:-.012em}
+em{font-family:var(--serif);font-style:italic}
+.wrap{max-width:1240px;margin:0 auto;padding:0 2rem}
+.btn{display:inline-flex;align-items:center;gap:.65rem;border:0;border-radius:2px;padding:1.05rem 1.5rem;
+  font:600 .98rem/1 var(--sans);cursor:pointer;text-decoration:none;transition:background .15s,transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:1.2rem;height:1.2rem;flex:none}
+.btn-terra{background:var(--terra);color:#fff}.btn-terra:hover{background:var(--terra2)}
+.btn-line{background:transparent;color:var(--graf);box-shadow:inset 0 0 0 1.5px var(--graf)}
+.btn-inv{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
+.kicker{display:flex;align-items:center;gap:.9rem;font-size:.95rem;font-weight:600;color:var(--terra);margin-bottom:1.3rem}
+.kicker::before{content:"";width:2.6rem;height:1px;background:currentColor}
+
+/* nav + hero */
+.nav{display:flex;align-items:center;gap:2.2rem;padding-top:1.25rem;padding-bottom:1.25rem}
+.brand{font:400 1.95rem/1 var(--serif);text-decoration:none;margin-right:auto;letter-spacing:-.01em}
+.nav a.l{text-decoration:none;font-size:.95rem;color:var(--pedra)}
+.nav a.l:hover{color:var(--graf)}
+.nav .tel{display:flex;align-items:center;gap:.5rem;font-weight:600;text-decoration:none;padding:.65rem 1rem;
+  box-shadow:inset 0 0 0 1.5px var(--graf);border-radius:2px}
+.nav .tel svg{width:1rem;height:1rem;color:var(--terra)}
+.stage{position:relative;height:600px}
+.stage>img{position:absolute;top:0;right:0;width:53%;height:100%;object-fit:cover}
+.stage .wrap{position:relative;height:100%;display:flex;align-items:center}
+.card{position:relative;width:min(600px,44%)}
+.hero h1{font-size:clamp(3rem,6.1vw,5.5rem);max-width:12.5ch}
+.hero h1 em{color:var(--terra)}
+.hero-p{margin-top:1.3rem;font-size:1.1rem;color:var(--pedra);max-width:47ch}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.9rem}
+.tag{position:absolute;right:2rem;bottom:1.4rem;color:#fff;font-size:.8rem;opacity:.85;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.ficha{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--graf);margin-top:2.2rem}
+.ficha>div{padding:1rem 1rem 1.2rem 0;min-width:0}
+.ficha>div+div{padding-left:1.4rem;border-left:1px solid var(--line)}
+.ficha dt{font-size:.8rem;color:var(--pedra);margin-bottom:.3rem}
+.ficha dd{font:400 1.42rem/1.2 var(--serif)}
+.ficha a{text-decoration:none}
+
+section{padding:7rem 0}
+.h2{font-size:clamp(2.7rem,5.2vw,4.6rem)}
+.lead{font-size:1.12rem;color:var(--pedra);max-width:50ch;margin-top:1.1rem}
+
+/* empresa */
+.statement{font:400 clamp(1.9rem,3.4vw,3rem)/1.12 var(--serif);max-width:30ch;letter-spacing:-.01em}
+.statement em{color:var(--terra)}
+.emp{display:grid;grid-template-columns:7fr 5fr;gap:1.5rem;margin-top:4rem;align-items:end}
+.emp img{width:100%;object-fit:cover}
+.emp .p1{height:520px}
+.emp .p2{height:360px}
+.nums{display:flex;gap:3rem;margin-top:2rem}
+.nums b{display:block;font:400 4.2rem/1 var(--serif);color:var(--terra)}
+.nums span{font-size:.92rem;color:var(--pedra)}
+.percurso{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4.5rem;border-top:1px solid var(--graf);padding-top:1.6rem;list-style:none}
+.percurso h3{font-size:1.9rem;margin-bottom:.4rem}
+.percurso p{color:var(--pedra);font-size:.98rem}
+
+/* servicos: index + before/after */
+.servicos{background:var(--graf);color:#f1ede6;padding:6rem 0}
+.sv{display:grid;grid-template-columns:1fr minmax(0,560px);grid-template-areas:"head media" "list media";grid-template-rows:auto 1fr;column-gap:5rem;align-items:start}
+.sv-head{grid-area:head}.sv-list{grid-area:list}.sv-media{grid-area:media}
+.servicos .h2{color:#fff}
+.servicos .lead{color:#b5ada1}
+.idx{list-style:none;margin-top:2.2rem;border-bottom:1px solid rgba(255,255,255,.14)}
+.idx li{display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding:1.15rem 0;border-top:1px solid rgba(255,255,255,.14)}
+.idx .ico{width:2rem;height:2rem;color:#ffc533;margin-top:.15rem}
+.idx h3{font-size:1.85rem;color:#fff;line-height:1.05}
+.idx p{color:#b5ada1;font-size:.98rem;margin-top:.2rem}
+.servicos .cta{margin-top:2rem}
+.ba{position:relative;height:660px;overflow:hidden;background:#3b3b3b;user-select:none}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .before{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.ba .line{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;margin-left:-1px;background:#fff;pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--x,50%);width:3.4rem;height:3.4rem;margin:-1.7rem 0 0 -1.7rem;border-radius:50%;
+  background:#fff;color:var(--graf);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.35);pointer-events:none}
+.ba .knob svg{width:1.5rem;height:1.5rem}
+.ba .bt{position:absolute;top:1.1rem;padding:.35rem .75rem;background:rgba(30,34,39,.78);color:#fff;font-size:.85rem;font-weight:600;pointer-events:none}
+.ba .bt.l{left:1.1rem}.ba .bt.r{right:1.1rem;background:var(--terra)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba:focus-within .knob{outline:3px solid var(--focus);outline-offset:3px}
+.ba-cap{margin-top:.8rem;font-size:.85rem;color:#9d968b}
+.duo{position:relative;height:660px}
+.duo img{position:absolute;object-fit:cover}
+.duo .d1{inset:0 0 18% 0;width:100%;height:82%}
+.duo .d2{left:-2.5rem;bottom:0;width:58%;height:40%;border:10px solid var(--graf)}
+
+/* galeria */
+.g-head{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:3rem}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:230px;gap:1.1rem}
+.grid figure{overflow:hidden;position:relative}
+.grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.grid figure:hover img{transform:scale(1.03)}
+.grid .a{grid-column:span 7;grid-row:span 2}.grid .b{grid-column:span 5}.grid .c{grid-column:span 5}
+.grid .d{grid-column:span 4}.grid .e{grid-column:span 4}.grid .f{grid-column:span 4}
+.grid figcaption{position:absolute;left:1rem;bottom:.9rem;color:#fff;font-size:.82rem;font-weight:600;text-shadow:0 1px 8px rgba(0,0,0,.7)}
+.note{margin-top:1.1rem;font-size:.85rem;color:var(--pedra)}
+
+/* como */
+.como{background:var(--cal2)}
+.como .wrap{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--graf);padding-top:1.2rem}
+.steps li::before{content:counter(s);display:block;font:italic 400 4.6rem/1 var(--serif);color:var(--terra);margin-bottom:.8rem}
+.steps p{font:400 1.55rem/1.15 var(--serif)}
+.como .btn{margin-top:2rem}
+
+/* avaliacoes */
+.avaliacoes .wrap{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start}
+.av-side p{color:var(--pedra);margin-top:1rem}
+.av-side .count{font:400 6rem/1 var(--serif);color:var(--terra);margin-top:1.4rem}
+.big{position:relative;padding-top:3.2rem}
+.big::before{content:"\201C";position:absolute;top:-1.5rem;left:-.3rem;font:400 8rem/1 var(--serif);color:var(--terra)}
+.big p{font:400 clamp(1.9rem,3.3vw,3rem)/1.1 var(--serif);letter-spacing:-.01em}
+.big cite,.more cite{display:block;margin-top:1.1rem;font-style:normal;font-size:.9rem;font-weight:600;color:var(--pedra)}
+.more{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;border-top:1px solid var(--line);padding-top:2rem}
+.more p{font:400 1.4rem/1.2 var(--serif)}
+.av-photo{width:100%;height:420px;object-fit:cover}
+
+/* contacto */
+.contacto{background:var(--graf);color:#e9e4dc}
+.contacto .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start}
+.form-card{background:var(--cal);color:var(--graf);padding:2.6rem}
+.form-card h2{font-size:2.8rem}
+.form-card>p{color:var(--pedra);margin:.6rem 0 1.6rem}
+.quote{display:grid;gap:1rem}
+.quote label{display:grid;gap:.35rem;font-weight:600;font-size:.92rem}
+.quote .opt{font-weight:400;color:var(--pedra)}
+.quote input,.quote select,.quote textarea{font:inherit;padding:.85rem 1rem;border:1px solid var(--betao);border-radius:2px;background:#fff}
+.quote input:focus,.quote select:focus,.quote textarea:focus{border-color:var(--terra);outline:none}
+.quote button{justify-self:start;border:0;border-radius:2px;background:var(--terra);color:#fff;font:600 1rem var(--sans);padding:1rem 1.5rem;cursor:pointer}
+.info .h2{color:#fff;font-size:3.2rem}
+.now{display:block;margin:1.2rem 0 1rem;font-weight:600}
+table{border-collapse:collapse;width:100%}
+th,td{padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.14);text-align:left;font-weight:400;color:#bdb5a9}
+td{text-align:right;color:#fff}
+.addr{margin-top:2rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;line-height:1.75}
+.addr .ico{width:1.6rem;height:1.6rem;color:#ffc533}
+.addr a{text-decoration:none;color:#fff}
+.addr .map{color:#ffc533;font-weight:600}
+footer{background:#151719;color:#9b958c;padding:3.5rem 0 2rem;font-size:.93rem}
+footer .wrap{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem}
+footer .brand{color:#fff;font-size:2rem;display:block;margin-bottom:.6rem}
+footer h4{color:#fff;font-weight:600;margin-bottom:.6rem}
+footer a{text-decoration:none}
+footer table th,footer table td{color:#9b958c;border-color:#2a3037;font-size:.88rem;padding:.4rem 0}
+footer .credit{grid-column:1/-1;border-top:1px solid #2a3037;padding-top:1.4rem;margin-top:.6rem;font-size:.85rem}
+.shot [data-sec]{min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.shot [data-sec]>.wrap{width:100%}
+.fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:20;width:3.8rem;height:3.8rem;border-radius:50%;border:0;
+  background:#25d366;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 30px -8px rgba(0,0,0,.45)}
+.fab svg{width:1.9rem;height:1.9rem}
+.dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:#9b958c;margin-right:.5rem;vertical-align:1px}
+.dot.on{background:#3fbf66;box-shadow:0 0 0 4px rgba(63,191,102,.2)}
+.shot .demo,.shot .fab,.shot .strip,.shot [data-hide-in-shot]{display:none!important}
+@media (max-width:860px){
+  .wrap{padding:0 1.25rem}
+  .nav a.l{display:none}
+  .nav{gap:1rem;padding-top:1rem;padding-bottom:1rem}
+  .brand{font-size:1.55rem}
+  .nav .tel{padding:.5rem .75rem;font-size:.88rem}
+  .stage{height:auto}
+  .stage>img{position:relative;width:100%;height:290px}
+  .stage .wrap{display:block}
+  .card{width:auto;padding-top:2rem}
+  .tag{display:none}
+  .hero h1{font-size:2.85rem}
+  .hero-p{font-size:1.02rem}
+  .cta .btn{flex:1 1 100%;justify-content:center}
+  .ficha{grid-template-columns:1fr 1fr}
+  .ficha>div:nth-child(3){padding-left:0;border-left:0}
+  .ficha>div:nth-child(n+3){border-top:1px solid var(--line)}
+  .ficha dd{font-size:1.2rem}
+  section{padding:4.2rem 0}
+  .emp{grid-template-columns:1fr;margin-top:2.4rem}
+  .emp .p1{height:300px}.emp .p2{height:220px}
+  .nums{gap:1.8rem}.nums b{font-size:3rem}
+  .percurso{grid-template-columns:1fr;gap:1.2rem;margin-top:3rem}
+  .servicos{padding:4.2rem 0}
+  .sv{grid-template-columns:1fr;grid-template-areas:"head" "media" "list";grid-template-rows:auto}
+  .sv-media{margin-top:2rem}
+  .ba,.duo{height:420px}
+  .duo .d2{left:0}
+  .idx h3{font-size:1.6rem}
+  .g-head,.como .wrap,.avaliacoes .wrap,.contacto .wrap{grid-template-columns:1fr;gap:2rem}
+  .grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px;gap:.7rem}
+  .grid .a{grid-column:span 2;grid-row:span 2}
+  .grid .b,.grid .c,.grid .d,.grid .e,.grid .f{grid-column:span 1}
+  .grid .f{grid-column:span 2}
+  .steps{grid-template-columns:1fr;gap:1.4rem}
+  .steps li::before{font-size:3.4rem}
+  .av-side .count{font-size:4.4rem}
+  .more{grid-template-columns:1fr}
+  .form-card{padding:1.6rem}
+  footer .wrap{grid-template-columns:1fr}
+}
+h1,h2,h3,em,.brand,.statement,.big p,.steps p,.more p,.ficha dd,.nums b,.count,.percurso h3,.steps li::before,.big::before{font-style:normal;letter-spacing:.01em}.hero h1,.h2{text-transform:uppercase}.hero h1{font-size:clamp(3.2rem,6.6vw,6rem);max-width:13ch}.h2{font-size:clamp(2.9rem,5.6vw,5rem)}.statement{font-size:clamp(2.2rem,3.8vw,3.4rem)}@media (max-width:860px){.hero h1{font-size:3.1rem}}</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Serralharia Gentil · pré-visualização do site">
+<meta property="og:description" content="Serralharia Gentil, em Vila Nova de Outil, Cantanhede, desde 2006: serralharia decorativa, automatismos, estruturas metálicas e caleiras. Peça o seu orçamento.">
+<meta property="og:url" content="https://preview.northsoftware.pt/serralharia-gentil-cantanhede/">
+<meta property="og:image" content="https://preview.northsoftware.pt/serralharia-gentil-cantanhede/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<div class="demo">Pré-visualização preparada pela North Software para Serralharia Gentil. Ainda não está publicada; as fotografias são ilustrativas.</div>
+<header id="inicio" class="hero" data-sec="inicio">
+  <nav class="nav wrap" aria-label="Principal"><a class="brand" href="#">Serralharia Gentil</a>
+    <a class="l" href="#servicos">Serviços</a><a class="l" href="#galeria">Obras</a><a class="l" href="#avaliacoes">Clientes</a>
+    <a class="l" href="#contacto">Contacto</a><a class="tel" href="tel:+351919802393"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>919 802 393</a></nav>
+  <div class="stage"><img src="../assets/stock/obras-hero-19.jpg" alt="Fotografia ilustrativa: construção">
+    <div class="wrap"><div class="card">
+      <p class="kicker">Serralharia em Cantanhede</p>
+      <h1>Serralharia em Cantanhede, desde 2006.</h1>
+      <p class="hero-p">Serralharia decorativa, automatismos, estruturas metálicas e caleiras, a partir de Vila Nova de Outil, em Cantanhede. Envie as medidas ou uma fotografia por WhatsApp e receba o seu orçamento.</p>
+      <div class="cta"><button type="button" class="btn btn-terra" onclick='demoWA(&quot;Ol\u00e1, queria pedir um or\u00e7amento para uma obra.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg><span>Pedir orçamento pelo WhatsApp</span></button><a class="btn btn-line" href="tel:+351919802393">Ligar 919 802 393</a></div>
+    </div></div>
+  </div>
+  <dl class="ficha wrap"><div><dt>Local</dt><dd>Cantanhede</dd></div><div><dt>Desde</dt><dd>2006 · 20 anos</dd></div><div><dt>Orçamentos</dt><dd>Por foto, no WhatsApp</dd></div><div><dt>WhatsApp</dt><dd><a href="tel:+351919802393">919 802 393</a></dd></div></dl>
+</header>
+<section id="empresa" class="empresa" data-sec="empresa"><div class="wrap">
+  <p class="kicker">A empresa</p>
+  <p class="statement">Serralharia Gentil, em Vila Nova de Outil, Cantanhede, desde 2006: serralharia decorativa, automatismos, estruturas metálicas e caleiras.</p>
+  <div class="emp"><div><img class="p1" src="../assets/stock/obras-work-01.jpg" alt="Finished kitchen wall with wood-grain tall units, built-in ovens, white gloss wall cabinets and a white worktop."></div>
+    <div><img class="p2" src="../assets/stock/obras-team-04.jpg" alt="Fotografia ilustrativa: construção"><div class="nums"><div><b>20</b><span>anos de trabalho</span></div><div><b>2006</b><span>ano de fundação</span></div></div></div></div>
+  
+</div></section>
+<section id="servicos" class="servicos" data-sec="servicos"><div class="wrap sv">
+  <div class="sv-head"><h2 class="h2">O que fazemos</h2>
+    <p class="lead">Envie as medidas ou uma fotografia do trabalho e receba um orçamento.</p></div>
+  <div class="sv-media"><figure class="ba" style="--x:52%"><img src="../assets/stock/obras-after-05.jpg" alt="Depois: Fotografia ilustrativa: construção">
+      <img class="before" src="../assets/stock/obras-before-05.jpg" alt="Antes: Fotografia ilustrativa: construção"><span class="line"></span>
+      <span class="knob"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7 4 12l5 5M15 7l5 5-5 5"/></svg></span><span class="bt l">Antes</span><span class="bt r">Depois</span>
+      <input type="range" min="0" max="100" value="52" aria-label="Comparar antes e depois"
+        oninput="this.parentNode.style.setProperty('--x',this.value+'%')"></figure>
+    <p class="ba-cap">Arraste para comparar. Fotografias ilustrativas.</p></div>
+  <div class="sv-list"><ul class="idx"><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg><div><h3>Serralharia decorativa</h3><p>Trabalhos de serralharia decorativa em ferro.</p></div></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><div><h3>Automatismos</h3><p>Automatização de portões.</p></div></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V3.5h1.5M3 7.5h18M7.5 3.5 21 7.5M17.5 7.5v4"/><rect x="16" y="11.5" width="3" height="3"/><path d="M2.5 21h8"/></svg><div><h3>Estruturas metálicas</h3><p>Estruturas metálicas para a construção.</p></div></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg><div><h3>Caleiras</h3><p>Colocação de caleiras.</p></div></li></ul>
+    <div class="cta"><button type="button" class="btn btn-terra" onclick='demoWA(&quot;Ol\u00e1, queria pedir um or\u00e7amento para uma obra.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg><span>Enviar fotos pelo WhatsApp</span></button></div></div>
+</div></section>
+<section id="galeria" class="galeria" data-sec="galeria"><div class="wrap">
+  <div class="g-head"><h2 class="h2">Obras feitas</h2>
+    <p class="lead">Construção em Cantanhede. Tem uma obra parecida em mente? Envie-nos fotos e falamos.</p></div>
+  <div class="grid"><figure class="a"><img src="../assets/stock/obras-gallery-21.jpg" alt="Fotografia ilustrativa: construção"></figure><figure class="b"><img src="../assets/stock/obras-gallery-22.jpg" alt="Fotografia ilustrativa: construção"></figure><figure class="c"><img src="../assets/stock/obras-gallery-26.jpg" alt="Fotografia ilustrativa: construção"></figure><figure class="d"><img src="../assets/stock/obras-gallery-27.jpg" alt="Fotografia ilustrativa: construção"></figure><figure class="e"><img src="../assets/stock/obras-gallery-30.jpg" alt="Fotografia ilustrativa: construção"></figure><figure class="f"><img src="../assets/stock/obras-gallery-33.jpg" alt="Fotografia ilustrativa: construção"></figure></div>
+  <p class="note">Fotografias ilustrativas. No site final entram as fotografias das obras da empresa.</p>
+</div></section>
+<section id="como" class="como" data-sec="como"><div class="wrap">
+  <div><h2 class="h2">Orçamento por foto</h2><p class="lead">Comece pelo telemóvel: com as fotos e a localidade, preparamos uma primeira estimativa.</p>
+    <button type="button" class="btn btn-terra" onclick='demoWA(&quot;Ol\u00e1, queria pedir um or\u00e7amento para uma obra.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg><span>Enviar fotos pelo WhatsApp</span></button></div>
+  <ol class="steps"><li><p>Tire fotos do espaço ou do problema.</p></li><li><p>Envie-as pelo WhatsApp com a localidade.</p></li><li><p>Enviamos uma estimativa ou combinamos uma visita.</p></li></ol>
+</div></section>
+
+<section id="contacto" class="contacto" data-sec="contacto"><div class="wrap">
+  <div class="form-card"><h2>Pedir orçamento</h2><p>Diga-nos o tipo de obra e a localidade. Respondemos pelo WhatsApp.</p><form class="quote" onsubmit="return sendQuote(this)">
+  <label>Tipo de obra<select name="s" data-l="Tipo de obra"><option>Portão ou grade</option><option>Automatismo</option><option>Estrutura metálica</option><option>Caleiras</option><option>Outro</option></select></label>
+  <label>Localidade<input name="loc" data-l="Localidade" placeholder="ex.: Braga" required autocomplete="off"></label>
+  <label>Descreva o trabalho <span class="opt">(opcional)</span><textarea name="n" data-l="Descreva o trabalho" rows="3"></textarea></label>
+  <button type="submit">Enviar pedido pelo WhatsApp</button>
+</form></div>
+  <div class="info"><h2 class="h2">Horário e contactos</h2>
+    
+    <table><tr><th scope="row">Horário</th><td>Ligue para confirmar</td></tr></table>
+    <div class="addr"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><p>Rua do Forno, 15, Vila Nova, 3060-492 Outil<br><a href="tel:+351919802393">919 802 393</a><br><a href="tel:+351919802393">919 802 393</a><br><a href="mailto:geralserralhariagentil@gmail.com">geralserralhariagentil@gmail.com</a><br><a class="map" href="https://www.google.com/maps/search/?api=1&query=Rua+do+Forno,+15,+Vila+Nova,+3060-492+Outil">Abrir no Google Maps</a></p></div>
+  </div>
+</div></section>
+<footer data-hide-in-shot><div class="wrap">
+  <div><span class="brand">Serralharia Gentil</span><p>Serralharia Gentil, em Vila Nova de Outil, Cantanhede, desde 2006: serralharia decorativa, automatismos, estruturas metálicas e caleiras. Peça o seu orçamento.</p></div>
+  <div><h4>Contactos</h4><p>Rua do Forno, 15, Vila Nova, 3060-492 Outil<br><a href="tel:+351919802393">919 802 393</a><br><a href="tel:+351919802393">919 802 393</a><br><a href="mailto:geralserralhariagentil@gmail.com">geralserralhariagentil@gmail.com</a></p></div>
+  <div><h4>Horário</h4><table><tr><th scope="row">Horário</th><td>Ligue para confirmar</td></tr></table></div>
+  <div class="credit">© Serralharia Gentil, Unipessoal, Lda, Cantanhede. Site feito pela North Software.</div>
+</div></footer>
+<button type="button" class="fab" aria-label="Pedir orçamento pelo WhatsApp" onclick='demoWA(&quot;Ol\u00e1, queria pedir um or\u00e7amento para uma obra.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg></button>
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp da empresa (919 802 393) com a mensagem:\n\n'+msg);}
+function sendQuote(f){var t="Ol\u00e1, queria um or\u00e7amento.";f.querySelectorAll('[data-l]').forEach(function(x){if(x.value)t+='\n'+x.getAttribute('data-l')+': '+x.value;});demoWA(t);return false;}
+(function(){
+  var open={}; if(!Object.keys(open).length) return;
+  function mins(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  var d=new Date(), day=d.getDay(), now=d.getHours()*60+d.getMinutes(), slots=open[day]||[], txt, on=false;
+  for(var i=0;i<slots.length;i++){ if(now>=mins(slots[i][0])&&now<mins(slots[i][1])){on=true;txt='Aberto agora, até às '+slots[i][1];break;} }
+  if(!on){
+    var next=null;
+    for(var k=0;k<slots.length;k++){ if(now<mins(slots[k][0])){next='Abre hoje às '+slots[k][0];break;} }
+    if(!next){ for(var j=1;j<=7;j++){var dd=(day+j)%7; if(open[dd]&&open[dd].length){next='Abre '+(j==1?'amanhã':['domingo','segunda','terça','quarta','quinta','sexta','sábado'][dd])+' às '+open[dd][0][0];break;}} }
+    txt='Fechado agora. '+(next||'');
+  }
+  document.querySelectorAll('[data-open]').forEach(function(el){el.textContent=txt;el.classList.toggle('is-open',on);});
+})();
+</script>
+<script>
+document.querySelectorAll('[data-open].is-open').forEach(function(x){var d=x.previousElementSibling;if(d&&d.classList.contains('dot'))d.classList.add('on');});
+(function(){var m=location.hash.match(/^#shot-([a-z]+)$/);if(!m)return;var t=document.querySelector('[data-sec="'+m[1]+'"]');if(!t)return;
+document.documentElement.classList.add('shot');
+document.querySelectorAll('[data-sec]').forEach(function(s){if(s!==t)s.style.display='none';});})();
+</script>
+</body></html>
