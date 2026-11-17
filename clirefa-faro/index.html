@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clirefa – Clínica de Reabilitação de Faro, desde 1996</title>
+<meta name="description" content="Clirefa – Clínica de Reabilitação de Faro: fisioterapia e reabilitação na Rua Doutor Manuel de Arriaga, em Faro, desde 1996.">
+<style>@font-face{font-family:'Fraunces';src:url('../assets/fonts/fraunces-var.woff2') format('woff2');font-weight:100 900;font-display:swap;}@font-face{font-family:'Fraunces';src:url('../assets/fonts/fraunces-var-italic.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap;}@font-face{font-family:'Young Serif';src:url('../assets/fonts/young-serif-400.woff2') format('woff2');font-weight:400;font-display:swap;}@font-face{font-family:'Nunito Sans';src:url('../assets/fonts/nunito-sans-var.woff2') format('woff2');font-weight:300 900;font-display:swap;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus,#1a73e8);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.demo{background:#ffd84d;color:#3a2e00;text-align:center;font:500 .82rem/1.4 system-ui,sans-serif;padding:.45rem 1rem}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+:root{--cream:#f3f7f6;--paper:#f9fcfb;--terra:#1f6b7a;--terra2:#2b99b4;--brown:#1f2d33;--muted:#576871;--line:#dae3e0;
+  --peach:#cfe8e4;--sage:#f7dcc6;--sky:#d9e6f2;--butter:#f9e8b8;--focus:#1f6b7a;
+  --serif:'Fraunces',Georgia,serif;--sans:'Nunito Sans',system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{font:400 1.06rem/1.65 var(--sans);color:var(--brown);background:var(--cream)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.015em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;border:0;border-radius:999px;padding:1rem 1.5rem;cursor:pointer;
+  font:800 1rem/1 var(--sans);text-decoration:none;white-space:nowrap;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:1.2rem;height:1.2rem}
+.btn-terra{background:var(--terra);color:#fff;box-shadow:0 10px 24px -12px rgba(31,107,122,.8)}
+.btn-terra:hover{background:#185c69}
+.btn-line{background:var(--paper);color:var(--brown);box-shadow:inset 0 0 0 2px var(--brown)}
+.btn-white{background:#fff;color:var(--brown)}
+.stars{--p:100%;display:inline-block;width:5.6rem;height:1.05rem;vertical-align:-2px;
+  background:linear-gradient(90deg,#e0a03a var(--p),#d3dcda var(--p));
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 20'%3E%3Cg%3E%3Cpath id='s' d='M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z'/%3E%3Cuse href='%23s' x='22.5'/%3E%3Cuse href='%23s' x='45'/%3E%3Cuse href='%23s' x='67.5'/%3E%3Cuse href='%23s' x='90'/%3E%3C/g%3E%3C/svg%3E") 0 0/100% 100% no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 20'%3E%3Cg%3E%3Cpath id='s' d='M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z'/%3E%3Cuse href='%23s' x='22.5'/%3E%3Cuse href='%23s' x='45'/%3E%3Cuse href='%23s' x='67.5'/%3E%3Cuse href='%23s' x='90'/%3E%3C/g%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+.dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:#b1b9b6;margin-right:.5rem;vertical-align:1px}
+.dot.on{background:#3fae68;box-shadow:0 0 0 4px rgba(63,174,104,.18)}
+.pill{display:inline-flex;align-items:center;gap:.5rem;background:var(--peach);color:var(--terra);border-radius:999px;
+  padding:.45rem 1rem;font:800 .85rem/1.2 var(--sans)}
+.ico{width:1.3rem;height:1.3rem}
+.chip{display:grid;place-items:center;width:3rem;height:3rem;border-radius:50%;background:#fff;color:var(--terra);flex:none}
+.chip .ico{width:1.45rem;height:1.45rem}
+
+/* nav */
+.nav{display:flex;align-items:center;gap:2rem;padding-top:1.4rem;padding-bottom:1.4rem}
+.brand{display:flex;align-items:center;gap:.65rem;font:400 1.6rem/1 var(--serif);text-decoration:none;margin-right:auto}
+.brand i{width:1.6rem;height:1.6rem;border-radius:50%;background:radial-gradient(circle at 50% 120%,var(--terra) 0 55%,var(--terra2) 56% 100%);flex:none}
+.nav a.l{text-decoration:none;font-weight:700;font-size:.95rem;color:var(--muted)}
+.nav a.l:hover{color:var(--terra)}
+.nav .tel{text-decoration:none;font-weight:800;font-size:.95rem;padding:.7rem 1.15rem;border-radius:999px;background:var(--brown);color:#fff;white-space:nowrap}
+
+/* hero */
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:4rem;align-items:center;padding-top:1.6rem;padding-bottom:5rem}
+.hero h1{font-size:clamp(3rem,5.6vw,4.9rem);margin:1.3rem 0 0;max-width:13ch}
+.hero h1.long{font-size:clamp(2.7rem,4.6vw,4rem);max-width:15ch}
+.hero h1 span{color:var(--terra)}
+.hero-p{margin-top:1.4rem;font-size:1.14rem;color:var(--muted);max-width:44ch}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.rate{display:inline-flex;align-items:center;gap:.7rem;margin-top:1.7rem;background:var(--paper);border-radius:999px;padding:.55rem 1.1rem;
+  font-size:.95rem;color:var(--muted);box-shadow:0 6px 20px -12px rgba(31,45,51,.35)}
+.rate b{color:var(--brown);font-weight:800}
+.collage{position:relative;height:580px}
+.collage::before{content:"";position:absolute;right:-3rem;top:-2rem;width:440px;height:440px;border-radius:50%;background:var(--peach)}
+.collage::after{content:"";position:absolute;left:1rem;bottom:3rem;width:120px;height:120px;border-radius:50%;background:var(--sage)}
+.collage .main{position:absolute;right:0;top:0;width:86%;height:470px;border-radius:200px 200px 32px 32px;overflow:hidden;
+  box-shadow:0 30px 60px -30px rgba(31,45,51,.45)}
+.collage img{width:100%;height:100%;object-fit:cover}
+/* the appointment card */
+.cartao{position:absolute;left:0;bottom:0;width:20.5rem;background:#fcfdfd;border-radius:14px;padding:1.3rem 1.4rem 1.2rem;z-index:2;
+  transform:rotate(-4deg);box-shadow:0 26px 50px -22px rgba(31,45,51,.55),0 2px 0 #e0e7e5}
+.cartao::before{content:"";position:absolute;inset:.45rem;border:1.5px dashed #cbd6d2;border-radius:10px;pointer-events:none}
+.cartao::after{content:"";position:absolute;top:-.75rem;left:50%;width:2.6rem;height:1.5rem;margin-left:-1.3rem;background:rgba(43,153,180,.55);
+  transform:rotate(3deg);border-radius:2px}
+.cartao .t{display:flex;justify-content:space-between;align-items:center;font:800 .68rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--terra)}
+.cartao .t i{width:1.1rem;height:1.1rem;border-radius:50%;background:var(--terra2)}
+.cartao .nm{font:400 1.45rem/1.15 var(--serif);margin:.55rem 0 .8rem}
+.cartao .ln{display:flex;gap:.6rem;align-items:baseline;font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:.55rem}
+.cartao .ln span{flex:1;border-bottom:1.5px dotted #b5c0bc;min-height:1.1rem;font:400 1.05rem/1 var(--serif);color:var(--terra);padding-left:.3rem}
+.cartao .hr{font-size:.82rem;color:var(--muted);margin:.8rem 0 .9rem;line-height:1.45}
+.cartao .hr b{color:var(--brown)}
+.cartao button{width:100%;justify-content:center;padding:.8rem 1rem;font-size:.92rem}
+
+/* ribbon */
+.ribbon{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ribbon ul{list-style:none;display:grid;grid-template-columns:repeat(var(--n),1fr);gap:2rem;padding:2.2rem 0}
+.ribbon li{display:flex;gap:1rem;align-items:flex-start}
+.ribbon .chip{background:var(--peach)}
+.ribbon b{display:block;font:400 1.2rem/1.25 var(--serif);margin-bottom:.15rem}
+.ribbon span{font-size:.94rem;color:var(--muted);line-height:1.5}
+
+section{padding:6.5rem 0}
+.h2{font-size:clamp(2.5rem,4.4vw,3.6rem);margin-bottom:1rem}
+.lead{font-size:1.12rem;color:var(--muted);max-width:50ch}
+.center{text-align:center}
+.center .lead{margin:0 auto}
+
+/* tratamentos */
+.trat{background:var(--cream)}
+.tiles{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:1.4rem;margin-top:3rem;align-items:stretch}
+.tile{border-radius:30px;padding:1.1rem 1.1rem 1.6rem;display:flex;flex-direction:column}
+.tile .ph{border-radius:22px;overflow:hidden;aspect-ratio:4/3;margin-bottom:1.3rem}
+.tile .ph img{width:100%;height:100%;object-fit:cover}
+.tile .row{display:flex;gap:.8rem;align-items:center;padding:0 .5rem;margin-bottom:.6rem}
+.tile h3{font-size:1.65rem}
+.tile p{padding:0 .5rem;color:#425158;font-size:.98rem;margin-bottom:1.3rem}
+.tile .btn{margin:auto .5rem 0;align-self:flex-start;padding:.8rem 1.2rem;font-size:.92rem}
+.peach{background:var(--peach)}.sage{background:var(--sage)}.sky{background:var(--sky)}.butter{background:var(--butter)}
+.tile.book{background:var(--terra);color:#fff;padding:2.2rem 2rem}
+.tile.book h3{font-size:2rem;color:#fff;margin-bottom:1.2rem}
+.tile.book ol{list-style:none;counter-reset:s;display:grid;gap:1rem;margin-bottom:1.8rem}
+.tile.book li{counter-increment:s;display:grid;grid-template-columns:2.4rem 1fr;gap:.8rem;align-items:center;font-weight:700;line-height:1.35}
+.tile.book li::before{content:counter(s);display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:#fff;color:var(--terra);font:400 1.1rem/1 var(--serif)}
+.tile.book .btn{margin:auto 0 0}
+.tiles.two{grid-template-columns:1.45fr 1fr}
+.tiles.two .tile .ph{aspect-ratio:16/9}
+.tiles.two .tile.book{justify-content:space-between}
+.tiles.two .tile.book ol{gap:1.5rem}
+.tiles.two .tile.book li{font-size:1.1rem}
+.tile.book small{display:block;margin-top:1rem;font-size:.88rem;color:#caeefa}
+
+/* clinica */
+.clinica{background:var(--paper)}
+.clinica .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:5rem;align-items:center}
+.photo-b{position:relative;height:560px}
+.photo-b .a{position:absolute;inset:0 18% 0 0;border-radius:32px;overflow:hidden}
+.photo-b .b{position:absolute;right:0;bottom:-2rem;width:46%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:10px solid var(--paper)}
+.photo-b img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:-1.5rem;top:2rem;background:var(--butter);border-radius:24px;padding:1rem 1.3rem;transform:rotate(-5deg);
+  box-shadow:0 18px 30px -18px rgba(31,45,51,.5);text-align:center}
+.badge small{display:block;font-weight:800;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.badge b{display:block;font:400 2.4rem/1.05 var(--serif);color:var(--terra)}
+.nums{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.2rem}
+.nums>div{background:var(--cream);border-radius:22px;padding:1.1rem 1.4rem;min-width:9rem}
+.nums b{display:block;font:400 2.3rem/1.05 var(--serif);color:var(--terra)}
+.nums span{font-size:.9rem;color:var(--muted)}
+.clinica blockquote{margin-top:2rem;padding-left:1.2rem;border-left:4px solid var(--peach);font:400 1.25rem/1.4 var(--serif)}
+.clinica blockquote cite{display:block;font:700 .88rem var(--sans);font-style:normal;color:var(--muted);margin-top:.4rem}
+
+/* como */
+.como{background:var(--sage)}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;counter-reset:s;margin-top:3rem;position:relative}
+.steps::before{content:"";position:absolute;left:12%;right:12%;top:2.4rem;border-top:3px dashed rgba(31,45,51,.3)}
+.steps li{counter-increment:s;text-align:center;position:relative}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:4.8rem;height:4.8rem;margin:0 auto 1.2rem;border-radius:50%;
+  background:var(--paper);color:var(--terra);font:400 2rem/1 var(--serif);box-shadow:0 12px 24px -14px rgba(31,45,51,.5)}
+.steps p{font:400 1.3rem/1.3 var(--serif);max-width:17ch;margin:0 auto}
+.como .btn{margin-top:2.8rem}
+
+/* galeria */
+.gal{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:260px 260px;gap:1.2rem;margin-top:2.8rem}
+.gal>*{min-height:0}
+.gal img{width:100%;height:100%;object-fit:cover;border-radius:28px}
+.gal .tall{grid-row:span 2;border-radius:200px 200px 28px 28px}
+.gal .round{border-radius:50%;aspect-ratio:1;width:auto;justify-self:center}
+.note{margin-top:1.2rem;font-size:.85rem;color:var(--muted)}
+
+/* avaliacoes: speech bubbles */
+.aval{background:var(--butter)}
+.aval .score{display:inline-flex;align-items:center;gap:.7rem;background:var(--paper);border-radius:999px;padding:.6rem 1.2rem;margin-top:.4rem;font-size:.95rem;color:var(--muted)}
+.aval .score b{color:var(--brown);font-weight:800;font-size:1.1rem}
+.bubbles{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:1.6rem;margin-top:3rem;align-items:start}
+.bub{position:relative}
+.bub .say{background:var(--paper);border-radius:28px;padding:1.7rem 1.8rem;position:relative;box-shadow:0 18px 36px -24px rgba(31,45,51,.45)}
+.bub .say::after{content:"";position:absolute;left:2.4rem;bottom:-14px;width:28px;height:28px;background:inherit;transform:rotate(45deg);border-radius:0 0 6px 0}
+.bub:nth-child(2) .say{background:#f1f8f7}
+.bub p{font:400 1.18rem/1.45 var(--serif)}
+.bub.first p{font-size:1.32rem}
+.who{display:flex;align-items:center;gap:.8rem;margin:1.5rem 0 0 1.2rem;font-weight:800;font-size:.95rem}
+.who i{display:grid;place-items:center;width:2.8rem;height:2.8rem;border-radius:50%;background:var(--terra);color:#fff;font:400 .95rem/1 var(--serif);font-style:normal}
+.bub:nth-child(2) .who i{background:#ad623b}.bub:nth-child(3) .who i{background:#4f7299}
+.who small{display:block;font-weight:600;color:var(--muted);font-size:.82rem}
+
+/* contacto */
+.contacto .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:start}
+.form{background:var(--paper);border-radius:30px;padding:2.6rem;box-shadow:0 24px 50px -34px rgba(31,45,51,.5)}
+.form h2{font-size:2.5rem;margin-bottom:.4rem}
+.form>p{color:var(--muted);margin-bottom:1.6rem}
+.quote{display:grid;gap:1.1rem}
+.quote label{display:grid;gap:.4rem;font-weight:800;font-size:.92rem}
+.quote .opt{font-weight:400;color:var(--muted)}
+.quote input,.quote select{font:inherit;padding:.95rem 1.1rem;border:2px solid var(--line);border-radius:16px;background:#fff;color:var(--brown)}
+.quote input:focus,.quote select:focus{border-color:var(--terra2);outline:3px solid var(--peach)}
+.quote button{justify-self:start;border:0;border-radius:999px;background:var(--terra);color:#fff;font:800 1rem var(--sans);padding:1.05rem 1.6rem;cursor:pointer}
+.info{background:var(--sky);border-radius:30px;padding:2.4rem}
+.info h2{font-size:2.4rem;margin-bottom:1rem}
+.now{display:inline-flex;align-items:center;font-weight:800;background:var(--paper);border-radius:999px;padding:.55rem 1rem;margin-bottom:1.2rem}
+table{border-collapse:collapse;width:100%}
+th,td{padding:.7rem 0;border-bottom:1.5px dotted rgba(31,45,51,.25);text-align:left;font-weight:600;color:var(--muted)}
+td{text-align:right;color:var(--brown);font-weight:800}
+.where{margin-top:1.8rem;display:grid;grid-template-columns:auto 1fr;gap:1rem}
+.where svg{width:1.9rem;height:1.9rem;color:var(--terra)}
+.where p{line-height:1.8}
+.where a{text-decoration:none;font-weight:800}
+.where .map{color:var(--terra);text-decoration:underline;text-underline-offset:.3em}
+footer{background:#13353d;color:#beddec;padding:4rem 0 2rem;font-size:.94rem}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+footer .brand{color:#fff}
+footer h4{font:400 1.15rem var(--serif);color:#fff;margin-bottom:.6rem}
+footer a{text-decoration:none}
+footer table th,footer table td{color:#beddec;border-color:rgba(255,255,255,.15);padding:.45rem 0;font-weight:400}
+footer .credit{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:1.4rem;margin-top:1rem;font-size:.85rem}
+.fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:20;width:3.7rem;height:3.7rem;border-radius:50%;border:0;
+  background:#25d366;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 30px -8px rgba(0,0,0,.4)}
+.fab svg{width:1.85rem;height:1.85rem}
+.shot .demo,.shot .fab,.shot .strip,.shot [data-hide-in-shot]{display:none!important}
+@media (max-width:860px){
+  .wrap{padding:0 1.3rem}
+  .nav{gap:1rem;padding-top:1.1rem;padding-bottom:1.1rem}
+  .nav a.l{display:none}
+  .brand{font-size:1.35rem}
+  .nav .tel{font-size:.85rem;padding:.6rem .9rem}
+  .hero-grid{grid-template-columns:1fr;gap:2.4rem;padding-top:.8rem;padding-bottom:3.5rem}
+  .hero h1,.hero h1.long{font-size:2.55rem}
+  .hero-p{font-size:1.02rem}
+  .collage{height:470px}
+  .collage::before{width:300px;height:300px;right:-4rem}
+  .collage .main{width:92%;height:360px}
+  .cartao{width:17.5rem;padding:1.1rem 1.2rem}
+  .ribbon ul{grid-template-columns:1fr;gap:1.2rem;padding:1.8rem 0}
+  section{padding:4.3rem 0}
+  .h2{font-size:2.35rem}
+  .tiles,.tiles.two{grid-template-columns:1fr;margin-top:2rem}
+  .clinica .wrap,.contacto .wrap{grid-template-columns:1fr;gap:3rem}
+  .photo-b{height:380px}
+  .badge{left:0}
+  .steps{grid-template-columns:1fr;gap:1.6rem}
+  .steps::before{display:none}
+  .steps li{display:grid;grid-template-columns:4rem 1fr;gap:1rem;align-items:center;text-align:left}
+  .steps li::before{width:4rem;height:4rem;margin:0;font-size:1.6rem}
+  .steps p{margin:0;font-size:1.2rem}
+  .gal{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:170px}
+  .gal .tall{grid-row:span 2}
+  .bubbles{grid-template-columns:1fr;margin-top:2rem}
+  .form,.info{padding:1.6rem;border-radius:24px}
+  footer .wrap{grid-template-columns:1fr}
+}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em}.hero-grid{grid-template-columns:.98fr 1.02fr}.hero-grid>div:first-child{order:2}.collage::before{right:auto;left:-3rem}.collage::after{left:auto;right:1rem}.collage .main{right:auto;left:0}.cartao{left:auto;right:0;transform:rotate(4deg)}@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-grid>div:first-child{order:0}.collage::before{left:-4rem}}</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Clirefa · pré-visualização do site">
+<meta property="og:description" content="Clirefa – Clínica de Reabilitação de Faro: fisioterapia e reabilitação na Rua Doutor Manuel de Arriaga, em Faro, desde 1996.">
+<meta property="og:url" content="https://preview.northsoftware.pt/clirefa-faro/">
+<meta property="og:image" content="https://preview.northsoftware.pt/clirefa-faro/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<div class="demo">Pré-visualização preparada pela North Software para Clirefa. Ainda não está publicada; as fotografias são ilustrativas.</div>
+<header id="inicio" class="hero" data-sec="inicio">
+  <nav class="nav wrap" aria-label="Principal"><a class="brand" href="#"><i></i>Clirefa</a>
+    <a class="l" href="#tratamentos">Tratamentos</a><a class="l" href="#clinica">A clínica</a>
+    <a class="l" href="#avaliacoes">Opiniões</a><a class="l" href="#contacto">Contactos</a>
+    <a class="tel" href="tel:+351289801802">289 801 802</a></nav>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill">Fisioterapia · Reabilitação</span>
+      <h1>Reabilitação em <span>Faro</span>, desde 1996</h1>
+      <p class="hero-p">Fisioterapia e reabilitação na Rua Doutor Manuel de Arriaga há 30 anos. Quem cá vem fala de «staff impecável» e de um «atendimento personalizado».</p>
+      <div class="cta"><button type="button" class="btn btn-terra" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'>Marcar pelo WhatsApp</button><a class="btn btn-line" href="tel:+351289801802">Ligar 289 801 802</a></div>
+      <div class="rate"><span class="stars " style="--p:86%" role="img" aria-label="4,3 em 5 estrelas"></span><span><b>4,3</b> no Google · 19 avaliações</span></div>
+    </div>
+    <div class="collage"><div class="main"><img src="../assets/stock/fisio-team-06.jpg" alt="Terapeuta de pé avalia os ombros de uma paciente sentada na marquesa, junto à janela." fetchpriority="high"></div><div class="cartao" aria-label="Cartão de marcação">
+      <div class="t">Cartão de marcação<i></i></div>
+      <div class="nm">Clirefa</div>
+      <div class="ln">Tratamento<span>Fisioterapia</span></div>
+      <div class="ln">Dia<span></span>Hora<span></span></div>
+      <p class="hr"><b>Segunda a sexta</b> 08:00–20:00<br><b>Sábado</b> Encerrado</p>
+      <button type="button" class="btn btn-terra" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'>Marcar pelo WhatsApp</button>
+    </div></div>
+  </div>
+</header>
+<div class="ribbon" data-hide-in-shot><ul class="wrap" style="--n:3"><li><span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><div><b>Aberto até às 20:00</b><span>De segunda a sexta, das 08:00 às 20:00.</span></div></li><li><span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><b>Marcações por WhatsApp</b><span>Peça a sua marcação a qualquer hora; a clínica confirma o dia e a hora consigo.</span></div></li><li><span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><div><b>Em Faro</b><span>Rua Doutor Manuel de Arriaga, 17A R/C, 8000-334 Faro</span></div></li></ul></div>
+<section id="tratamentos" class="trat" data-sec="servicos"><div class="wrap">
+  <div class="center"><span class="pill">Tratamentos</span><h2 class="h2" style="margin-top:1rem">Em que podemos ajudar</h2>
+    <p class="lead">Escolha o tratamento e peça a marcação pelo WhatsApp. A clínica confirma consigo o dia e a hora.</p></div>
+  <div class="tiles" style="--n:3"><article class="tile peach"><div class="ph"><img src="../assets/stock/fisio-team-02.jpg" alt="Terapeuta de camisa branca faz terapia manual a uma paciente deitada, numa sala clara."></div><div class="row"><span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12M11 11V4.5a1.5 1.5 0 0 1 3 0V12M14 11.5V6a1.5 1.5 0 0 1 3 0v8a7 7 0 0 1-7 7h-.5a6 6 0 0 1-5-2.7L3 14.6a1.5 1.5 0 0 1 2.4-1.8L8 15.5"/></svg></span><h3>Fisioterapia</h3></div><p>Sessões de fisioterapia na Rua Doutor Manuel de Arriaga, no centro de Faro.</p><button type="button" class="btn btn-white" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o: Fisioterapia.&quot;)'>Pedir marcação</button></article><article class="tile sage"><div class="ph"><img src="../assets/stock/fisio-work-02.jpg" alt="Fisioterapeuta sentada junto à marquesa a tratar uma paciente deitada de barriga para baixo."></div><div class="row"><span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.2"/><path d="M5 21v-1.5A5.5 5.5 0 0 1 10.5 14h3a5.5 5.5 0 0 1 5.5 5.5V21"/></svg></span><h3>Reabilitação</h3></div><p>Clínica de reabilitação desde 1996, com equipa de fisioterapeutas e massagistas.</p><button type="button" class="btn btn-white" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o: Reabilita\u00e7\u00e3o.&quot;)'>Pedir marcação</button></article><article class="tile book"><h3>Como marcar</h3><ol><li>Escolha o serviço.</li><li>Envie o pedido pelo WhatsApp com o horário que prefere.</li><li>Confirmamos a marcação.</li></ol><button type="button" class="btn btn-white" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'>Marcar pelo WhatsApp</button><small>Ou ligue para o 289 801 802.</small></article></div>
+</div></section>
+<section id="clinica" class="clinica" data-sec="clinica"><div class="wrap">
+  <div class="photo-b"><div class="a"><img src="../assets/stock/fisio-space-03.jpg" alt="Gabinete claro com marquesa, secretária e uma cadeira cor de laranja, sem pessoas."></div><div class="b"><img src="../assets/stock/fisio-care-04.jpg" alt="Paciente estica um elástico de exercício enquanto o terapeuta lhe apoia o braço e o ombro."></div><div class="badge"><small>Desde</small><b>1996</b></div></div>
+  <div><span class="pill">A clínica</span><h2 class="h2" style="margin-top:1rem">Quem somos</h2>
+    <p class="lead">Clirefa – Clínica de Reabilitação de Faro: fisioterapia e reabilitação na Rua Doutor Manuel de Arriaga, em Faro, desde 1996.</p>
+    <div class="nums"><div><b>1996</b><span>ano de abertura</span></div><div><b>4,3</b><span>estrelas no Google</span></div><div><b>19</b><span>avaliações</span></div><div><b>2</b><span>áreas de tratamento</span></div></div>
+    </div>
+</div></section>
+<section id="como" class="como center" data-sec="como"><div class="wrap">
+  <h2 class="h2">Como marcar</h2><p class="lead">Sem esperas ao telefone: escreva quando lhe der jeito.</p>
+  <ol class="steps"><li><p>Escolha o serviço.</p></li><li><p>Envie o pedido pelo WhatsApp com o horário que prefere.</p></li><li><p>Confirmamos a marcação.</p></li></ol>
+  <button type="button" class="btn btn-terra" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'>Marcar pelo WhatsApp</button>
+</div></section>
+<section id="galeria" class="galeria" data-sec="galeria"><div class="wrap">
+  <div class="center"><h2 class="h2">O espaço</h2></div>
+  <div class="gal"><img class="tall" src="../assets/stock/fisio-hero-02.jpg" alt="Sala de fisioterapia luminosa: a terapeuta de pé junto à marquesa onde a paciente está deitada." fetchpriority="high"><img src="../assets/stock/fisio-move-15.jpg" alt="Pé descalço sobre um tapete escuro, com luz de sol na parede."><img src="../assets/stock/fisio-space-04.jpg" alt="Cadeira branca e uma planta de folhas grandes contra uma parede verde-escura."><img src="../assets/stock/fisio-detail-01.jpg" alt="Tapetes de exercício enrolados num suporte de parede, numa sala branca."><img src="../assets/stock/fisio-move-08.jpg" alt="Pernas de uma pessoa a fazer um exercício com elástico num tapete vermelho, junto a uma parede de ripas de madeira."></div>
+  <p class="note center">Fotografias ilustrativas. No site final, as fotografias são as da clínica.</p>
+</div></section>
+<section id="avaliacoes" class="aval" data-sec="avaliacoes"><div class="wrap">
+  <div class="center"><h2 class="h2">O que dizem de nós</h2><div class="score"><span class="stars " style="--p:86%" role="img" aria-label="4,3 em 5 estrelas"></span><span><b>4,3</b> no Google · 19 avaliações</span></div></div>
+  <div class="bubbles" style="--n:3"><figure class="bub first"><blockquote class="say"><p>Ambiente muito profissional, super acolhedor. Sentimos que temos um atendimento personalizado.</p></blockquote><figcaption class="who"><i>MP</i><span>M. P.<small>no Google</small></span></figcaption></figure><figure class="bub"><blockquote class="say"><p>Staff impecável. Muito profissionalismo. Excelente escolha.</p></blockquote><figcaption class="who"><i>CP</i><span>C. P.<small>no Google</small></span></figcaption></figure><figure class="bub"><blockquote class="say"><p>O atendimento foi incrível.</p></blockquote><figcaption class="who"><i>SN</i><span>S. N.<small>no Google</small></span></figcaption></figure></div>
+</div></section>
+<section id="contacto" class="contacto" data-sec="contacto"><div class="wrap">
+  <div class="form"><h2>Pedir marcação</h2><p>Escolha o serviço e o horário que prefere. Confirmamos pelo WhatsApp.</p><form class="quote" onsubmit="return sendQuote(this)">
+  <label>Nome<input name="nome" data-l="Nome" required autocomplete="off"></label>
+  <label>Serviço<select name="s" data-l="Serviço"><option>Fisioterapia</option><option>Reabilitação</option><option>Outro</option></select></label>
+  <label>Dia e hora preferidos <span class="opt">(opcional)</span><input name="h" data-l="Dia e hora preferidos" placeholder="ex.: terça ao fim da tarde" autocomplete="off"></label>
+  <button type="submit">Pedir marcação pelo WhatsApp</button>
+</form></div>
+  <div class="info"><h2>Horário</h2>
+    <span class="now"><span class="dot"></span><span data-open>Segunda a sexta: 08:00–20:00</span></span>
+    <table><tr><th scope="row">Segunda a sexta</th><td>08:00–20:00</td></tr><tr><th scope="row">Sábado</th><td>Encerrado</td></tr><tr><th scope="row">Domingo</th><td>Encerrado</td></tr></table>
+    <div class="where"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><p>Rua Doutor Manuel de Arriaga, 17A R/C, 8000-334 Faro<br><a href="tel:+351289801802">289 801 802</a><br><a href="mailto:clirefa@gmail.com">clirefa@gmail.com</a><br><a class="map" href="https://www.google.com/maps/search/?api=1&query=Rua+Doutor+Manuel+de+Arriaga,+17A+R/C,+8000-334+Faro">Abrir no Google Maps</a></p></div>
+  </div>
+</div></section>
+<footer data-hide-in-shot><div class="wrap">
+  <div><div class="brand"><i></i>Clirefa</div><p style="margin-top:.8rem;max-width:40ch">Clirefa – Clínica de Reabilitação de Faro: fisioterapia e reabilitação na Rua Doutor Manuel de Arriaga, em Faro, desde 1996.</p></div>
+  <div><h4>Contactos</h4><p>Rua Doutor Manuel de Arriaga, 17A R/C, 8000-334 Faro<br><a href="tel:+351289801802">289 801 802</a><br><a href="mailto:clirefa@gmail.com">clirefa@gmail.com</a></p></div>
+  <div><h4>Horário</h4><table><tr><th scope="row">Segunda a sexta</th><td>08:00–20:00</td></tr><tr><th scope="row">Sábado</th><td>Encerrado</td></tr><tr><th scope="row">Domingo</th><td>Encerrado</td></tr></table></div>
+  <div class="credit">© Clínica de Reabilitação de Faro, Clirefa, Lda, Faro. Site feito pela North Software.</div>
+</div></footer>
+<button type="button" class="fab" aria-label="Marcar pelo WhatsApp" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg></button>
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp da clínica com a mensagem:\n\n'+msg);}
+function sendQuote(f){var t="Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.";f.querySelectorAll('[data-l]').forEach(function(x){if(x.value)t+='\n'+x.getAttribute('data-l')+': '+x.value;});demoWA(t);return false;}
+(function(){
+  var open={"1": [["08:00", "20:00"]], "2": [["08:00", "20:00"]], "3": [["08:00", "20:00"]], "4": [["08:00", "20:00"]], "5": [["08:00", "20:00"]]}; if(!Object.keys(open).length) return;
+  function mins(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  var d=new Date(), day=d.getDay(), now=d.getHours()*60+d.getMinutes(), slots=open[day]||[], txt, on=false;
+  for(var i=0;i<slots.length;i++){ if(now>=mins(slots[i][0])&&now<mins(slots[i][1])){on=true;txt='Aberto agora, até às '+slots[i][1];break;} }
+  if(!on){
+    var next=null;
+    for(var k=0;k<slots.length;k++){ if(now<mins(slots[k][0])){next='Abre hoje às '+slots[k][0];break;} }
+    if(!next){ for(var j=1;j<=7;j++){var dd=(day+j)%7; if(open[dd]&&open[dd].length){next='Abre '+(j==1?'amanhã':['domingo','segunda','terça','quarta','quinta','sexta','sábado'][dd])+' às '+open[dd][0][0];break;}} }
+    txt='Fechado agora. '+(next||'');
+  }
+  document.querySelectorAll('[data-open]').forEach(function(el){el.textContent=txt;el.classList.toggle('is-open',on);});
+})();
+</script>
+<script>
+document.querySelectorAll('[data-open].is-open').forEach(function(x){var d=x.previousElementSibling;if(d&&d.classList.contains('dot'))d.classList.add('on');});
+(function(){var m=location.hash.match(/^#shot-([a-z]+)$/);if(!m)return;var t=document.querySelector('[data-sec="'+m[1]+'"]');if(!t)return;
+document.documentElement.classList.add('shot');
+document.querySelectorAll('[data-sec]').forEach(function(s){if(s!==t)s.style.display='none';});})();
+</script>
+</body></html>
