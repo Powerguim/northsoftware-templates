@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Move2Balance – Saúde e Bem-Estar em Viana do Castelo</title>
+<meta name="description" content="Move2Balance – Espaço de Saúde e Bem Estar: reabilitação, exercício e artigos ortopédicos na Rua de São Sebastião, em Viana do Castelo, desde 2014.">
+<style>@font-face{font-family:'Archivo';src:url('../assets/fonts/archivo-var.woff2') format('woff2');font-weight:100 900;font-display:swap;}@font-face{font-family:'Bricolage Grotesque';src:url('../assets/fonts/bricolage-grotesque-var.woff2') format('woff2');font-weight:200 800;font-display:swap;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus,#1a73e8);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.demo{background:#ffd84d;color:#3a2e00;text-align:center;font:500 .82rem/1.4 system-ui,sans-serif;padding:.45rem 1rem}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+:root{--ink:#0e2430;--ink2:#143343;--chalk:#eef3f4;--paper:#f8fbfc;--coral:#2ec4b6;--blue:#2a6fdb;--muted:#58707c;
+  --line:#d2dcde;--soft:#a8b0b8;--focus:#2a6fdb;--f:'Archivo',system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{font:400 1.04rem/1.6 var(--f);color:var(--ink);background:var(--chalk)}
+h1,h2,h3{font-weight:800;line-height:.94;letter-spacing:-.035em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 2rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;border:0;border-radius:6px;padding:1.05rem 1.5rem;cursor:pointer;
+  font:700 1rem/1 var(--f);text-decoration:none;transition:transform .15s,background .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:1.2rem;height:1.2rem}
+.btn-coral{background:var(--coral);color:var(--ink)}
+.btn-ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.75)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-blue{background:var(--blue);color:#fff}
+.stars{--p:100%;display:inline-block;width:5.4rem;height:1rem;vertical-align:-1px;
+  background:linear-gradient(90deg,var(--coral) var(--p),rgba(255,255,255,.28) var(--p));
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 20'%3E%3Cg%3E%3Cpath id='s' d='M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z'/%3E%3Cuse href='%23s' x='22.5'/%3E%3Cuse href='%23s' x='45'/%3E%3Cuse href='%23s' x='67.5'/%3E%3Cuse href='%23s' x='90'/%3E%3C/g%3E%3C/svg%3E") 0 0/100% 100% no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 20'%3E%3Cg%3E%3Cpath id='s' d='M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z'/%3E%3Cuse href='%23s' x='22.5'/%3E%3Cuse href='%23s' x='45'/%3E%3Cuse href='%23s' x='67.5'/%3E%3Cuse href='%23s' x='90'/%3E%3C/g%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+.light .stars{background:linear-gradient(90deg,var(--ink) var(--p),rgba(14,36,48,.2) var(--p))}
+.dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:var(--soft);margin-right:.5rem;vertical-align:1px}
+.dot.on{background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.2)}
+.eyebrow{display:inline-block;font:700 .82rem/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1.1rem}
+/* tape pieces stuck on photos */
+.taped{position:relative}
+.taped::before,.taped::after{content:"";position:absolute;z-index:2;width:7.5rem;height:1.7rem;background:var(--coral);opacity:.92;
+  box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.taped::before{left:-1.6rem;top:1.4rem;transform:rotate(-38deg)}
+.taped::after{right:-1.6rem;bottom:1.6rem;transform:rotate(-38deg);background:var(--blue)}
+.taped img{width:100%;height:100%;object-fit:cover;border-radius:4px}
+
+/* hero */
+.hero{position:relative;color:#fff;background:var(--ink);min-height:min(860px,calc(100vh - 2rem));display:flex;flex-direction:column;overflow:hidden}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(14,36,48,.92) 0%,rgba(14,36,48,.72) 38%,rgba(14,36,48,.18) 72%,rgba(14,36,48,.05) 100%),
+             linear-gradient(0deg,rgba(14,36,48,.85) 0%,rgba(14,36,48,0) 32%)}
+.nav{position:relative;z-index:3;display:flex;align-items:center;gap:2rem;padding-top:1.5rem;padding-bottom:1.5rem;width:100%}
+.brand{font:800 1.6rem/1 var(--f);letter-spacing:-.03em;text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:.6rem}
+.brand i{display:inline-block;width:1.5rem;height:.55rem;background:var(--coral);transform:rotate(-30deg)}
+.nav a.l{text-decoration:none;font-weight:600;font-size:.95rem;color:rgba(255,255,255,.8)}
+.nav a.l:hover{color:#fff}
+.nav .tel{text-decoration:none;font-weight:700;font-size:.95rem;padding:.7rem 1.1rem;border-radius:6px;background:#fff;color:var(--ink);white-space:nowrap}
+.hero-in{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:1rem;padding-bottom:3rem;width:100%}
+.tag{display:inline-flex;align-self:flex-start;gap:.7rem;align-items:center;background:var(--coral);color:var(--ink);
+  font:700 .85rem/1 var(--f);letter-spacing:.12em;text-transform:uppercase;padding:.6rem .95rem;transform:rotate(-2deg);margin-bottom:1.8rem}
+.hero h1{font-size:clamp(3.2rem,7vw,6.6rem);max-width:11.5ch}
+.hero h1.long{font-size:clamp(2.9rem,5.6vw,5.2rem);max-width:13ch}
+.hero-p{margin-top:1.5rem;font-size:1.15rem;color:rgba(255,255,255,.82);max-width:44ch}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.2rem}
+.board{position:relative;z-index:2;display:grid;grid-template-columns:repeat(var(--n),1fr);background:var(--ink);
+  border-top:4px solid var(--coral)}
+.board>div{padding:1.35rem 1.6rem 1.5rem;border-right:1px solid #234353;min-width:0}
+.board>div:last-child{border-right:0}
+.board small{display:block;font:700 .74rem/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:.55rem}
+.board strong{display:block;font:800 1.55rem/1.1 var(--f);letter-spacing:-.02em}
+.board strong.sm{font-size:1.08rem;font-weight:700;line-height:1.3;letter-spacing:0}
+.board span.sub{display:block;margin-top:.35rem;font-size:.85rem;color:var(--soft)}
+.board a{text-decoration:none}
+
+/* tape strips */
+.tapes{position:relative;height:9.5rem;margin-top:-1.2rem;overflow:hidden;z-index:4;pointer-events:none}
+.strip-t{position:absolute;left:-5%;width:110%;white-space:nowrap;overflow:hidden;font:800 1.35rem/1 var(--f);
+  letter-spacing:.02em;text-transform:uppercase;padding:1.05rem 0;box-shadow:0 8px 20px -10px rgba(0,0,0,.35)}
+.strip-t span{display:inline-block;padding-right:1.2rem}
+.strip-t.a{top:2.2rem;background:var(--coral);color:var(--ink);transform:rotate(-2.6deg)}
+.strip-t.b{top:4.2rem;background:var(--blue);color:#fff;transform:rotate(1.8deg)}
+
+section{padding:6.5rem 0}
+.h2{font-size:clamp(2.7rem,5.4vw,4.6rem);margin-bottom:1.2rem}
+.lead{font-size:1.12rem;color:var(--muted);max-width:46ch}
+
+/* tratamentos: numbered plan */
+.trat{padding-top:3.5rem;background:var(--chalk)}
+.trat .wrap{display:grid;grid-template-columns:.92fr 1.08fr;gap:4.5rem;align-items:start}
+.side .taped{height:400px;margin-top:2.4rem}
+.plan{list-style:none;border-top:2px solid var(--ink)}
+.plan>li{display:grid;grid-template-columns:5.2rem 1fr auto;gap:1.4rem;align-items:start;padding:1.6rem 0;border-bottom:1px solid var(--line)}
+.plan .n{font:800 3.1rem/.9 var(--f);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.plan h3{font-size:2rem;margin-bottom:.45rem}
+.plan p{color:var(--muted);max-width:40ch}
+.plan .go{align-self:center;white-space:nowrap;border:0;border-radius:6px;background:var(--ink);color:#fff;padding:.8rem 1.05rem;
+  font:700 .9rem/1 var(--f);cursor:pointer}
+.plan .go:hover{background:var(--blue)}
+.plan .go b{color:var(--coral);margin-left:.35rem}
+.plan li.plus .n{font-size:2.2rem;-webkit-text-stroke:0;color:var(--coral)}
+.plan li.plus h3{font-size:1.45rem}
+.callout{margin-top:1.8rem;background:var(--ink);color:#fff;border-radius:6px;padding:1.6rem 1.8rem;display:flex;
+  align-items:center;justify-content:space-between;gap:1.5rem;border-left:8px solid var(--coral)}
+.callout b{display:block;font:800 1.45rem/1.1 var(--f);letter-spacing:-.02em}
+.callout span{font-size:.95rem;color:var(--soft)}
+
+/* clinica */
+.clinica{background:var(--ink);color:#e9ecef}
+.clinica .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:5rem;align-items:center}
+.clinica .h2{color:#fff}
+.clinica .lead{color:#b9c1c9}
+.clinica .eyebrow{color:var(--coral)}
+.nums{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:2.6rem;border-top:1px solid #244757}
+.nums>div{padding:1.5rem 0 1.3rem;border-bottom:1px solid #244757}
+.nums>div:nth-child(odd){padding-right:1.5rem;border-right:1px solid #244757}
+.nums>div:nth-child(even){padding-left:1.8rem}
+.nums b{display:block;font:800 3.6rem/1 var(--f);letter-spacing:-.04em;color:#fff}
+.nums b em{font-style:normal;color:var(--coral)}
+.nums span{font-size:.92rem;color:var(--soft)}
+.perks{list-style:none;display:grid;gap:1rem;margin-top:2.2rem}
+.perks li{display:grid;grid-template-columns:2.4rem 1fr;gap:.9rem}
+.perks .ico{width:2.4rem;height:2.4rem;padding:.5rem;border-radius:6px;background:var(--ink2);color:var(--coral)}
+.perks b{display:block;font-weight:700;color:#fff}
+.perks span{font-size:.94rem;color:#b9c1c9}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;height:560px}
+.pair .taped:first-child{margin-top:4rem}
+.pair .taped:last-child{margin-bottom:4rem}
+
+/* como */
+.como{background:var(--paper)}
+.como .head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3.2rem}
+.track{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;counter-reset:s;position:relative}
+.track::before{content:"";position:absolute;left:0;right:0;top:1.6rem;height:4px;
+  background:repeating-linear-gradient(90deg,var(--ink) 0 18px,transparent 18px 30px)}
+.track li{counter-increment:s;position:relative}
+.track li::before{content:counter(s);display:grid;place-items:center;width:3.4rem;height:3.4rem;border-radius:50%;
+  background:var(--coral);color:var(--ink);font:800 1.5rem/1 var(--f);margin-bottom:1.4rem;position:relative;box-shadow:0 0 0 8px var(--paper)}
+.track li:last-child::before{background:var(--blue);color:#fff}
+.track p{font:700 1.45rem/1.2 var(--f);letter-spacing:-.02em;max-width:18ch}
+
+/* galeria */
+.galeria{background:var(--chalk)}
+.gal{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:280px 280px;gap:1rem;margin-top:2.6rem}
+.gal>*{min-height:0}
+.gal img{width:100%;height:100%;object-fit:cover;border-radius:4px}
+.gal .big{grid-row:span 2}
+.gal .wide{grid-column:span 2}
+.note{margin-top:1rem;font-size:.85rem;color:var(--muted)}
+
+/* avaliacoes */
+.aval{background:var(--coral);color:var(--ink)}
+.aval .head{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end;margin-bottom:3rem}
+.aval .h2{margin-bottom:0;max-width:12ch}
+.score{background:var(--ink);color:#fff;border-radius:6px;padding:1.2rem 1.5rem;text-align:left}
+.score b{display:block;font:800 3rem/1 var(--f);letter-spacing:-.04em}
+.score span{font-size:.88rem;color:var(--soft)}
+.light .score .stars{background:linear-gradient(90deg,var(--coral) var(--p),rgba(255,255,255,.28) var(--p))}
+.revs{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:1.2rem;align-items:start}
+.rev{background:var(--paper);border-radius:6px;padding:2rem 1.9rem 1.7rem;position:relative;box-shadow:0 18px 40px -24px rgba(14,36,48,.5)}
+.rev::before{content:"\201C";display:block;font:800 4.5rem/.6 var(--f);color:var(--blue);margin:.6rem 0 .4rem}
+.rev p{font:600 1.22rem/1.45 var(--f);letter-spacing:-.01em}
+.rev.first p{font-size:1.45rem;line-height:1.35}
+.rev cite{display:block;margin-top:1.2rem;font:700 .82rem/1 var(--f);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* contacto */
+.contacto{background:var(--ink);color:#e9ecef}
+.contacto .wrap{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
+.contacto .h2{color:#fff}
+.now{display:inline-flex;align-items:center;font-weight:700;background:var(--ink2);border-radius:6px;padding:.7rem 1rem;margin-bottom:1.6rem}
+table{border-collapse:collapse;width:100%}
+th,td{padding:.8rem 0;border-bottom:1px solid #244757;text-align:left;font-weight:400;color:var(--soft)}
+td{text-align:right;color:#fff;font-weight:600}
+.where{margin-top:2rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;color:#cfd5db}
+.where svg{width:1.8rem;height:1.8rem;color:var(--coral)}
+.where p{line-height:1.8}
+.where a{text-decoration:none;font-weight:700;color:#fff}
+.where .map{color:var(--coral);text-decoration:underline;text-underline-offset:.3em}
+.form{background:var(--paper);color:var(--ink);border-radius:6px;padding:2.6rem;border-top:8px solid var(--coral)}
+.form h3{font-size:2.3rem;margin-bottom:.5rem}
+.form>p{color:var(--muted);margin-bottom:1.5rem}
+.quote{display:grid;gap:1.1rem}
+.quote label{display:grid;gap:.4rem;font-weight:700;font-size:.9rem}
+.quote .opt{font-weight:400;color:var(--muted)}
+.quote input,.quote select{font:inherit;padding:.9rem 1rem;border:1.5px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.quote input:focus,.quote select:focus{border-color:var(--blue);outline:2px solid rgba(42,111,219,.2)}
+.quote button{justify-self:start;border:0;border-radius:6px;background:var(--coral);color:var(--ink);font:700 1rem var(--f);padding:1.05rem 1.5rem;cursor:pointer}
+footer{background:#081921;color:#9aa3ac;padding:4rem 0 2rem;font-size:.93rem}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+footer .brand{color:#fff}
+footer h4{font:700 .8rem var(--f);letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:.7rem}
+footer a{text-decoration:none}
+footer table th,footer table td{color:#9aa3ac;border-color:#193744;padding:.45rem 0;font-weight:400}
+footer .credit{grid-column:1/-1;border-top:1px solid #193744;padding-top:1.4rem;margin-top:1rem;font-size:.85rem}
+.fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:20;width:3.7rem;height:3.7rem;border-radius:50%;border:0;
+  background:#25d366;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 30px -8px rgba(0,0,0,.45)}
+.fab svg{width:1.85rem;height:1.85rem}
+.shot .demo,.shot .fab,.shot .strip,.shot [data-hide-in-shot]{display:none!important}
+@media (max-width:860px){
+  .wrap{padding:0 1.3rem}
+  .nav{gap:1rem;padding-top:1.1rem;padding-bottom:1.1rem}
+  .nav a.l{display:none}
+  .brand{font-size:1.35rem}
+  .nav .tel{font-size:.85rem;padding:.6rem .85rem}
+  .hero{min-height:0}
+  .hero .bg::after{background:linear-gradient(0deg,rgba(14,36,48,.96) 0%,rgba(14,36,48,.8) 50%,rgba(14,36,48,.35) 100%)}
+  .hero-in{padding-top:4.5rem;padding-bottom:2.4rem}
+  .tag{font-size:.74rem;margin-bottom:1.3rem}
+  .hero h1,.hero h1.long{font-size:2.85rem}
+  .hero-p{font-size:1.02rem;margin-top:1.1rem}
+  .cta{margin-top:1.6rem}
+  .board{grid-template-columns:1fr 1fr}
+  .board>div{padding:1rem 1.1rem;border-bottom:1px solid #234353}
+  .board>div:nth-child(2n){border-right:0}
+  .board strong{font-size:1.2rem}
+  .board strong.sm{font-size:.95rem}
+  .tapes{height:6.5rem;margin-top:-.6rem}
+  .strip-t{font-size:1rem;padding:.8rem 0}
+  .strip-t.a{top:1.2rem}.strip-t.b{top:2.8rem}
+  section{padding:4.2rem 0}
+  .h2{font-size:2.7rem}
+  .trat{padding-top:2rem}
+  .trat .wrap,.clinica .wrap,.contacto .wrap{grid-template-columns:1fr;gap:2.4rem}
+  .side .taped{height:240px;margin-top:1.6rem}
+  .plan>li{grid-template-columns:3.4rem 1fr;gap:.9rem;padding:1.3rem 0}
+  .plan .n{font-size:2.3rem}
+  .plan h3{font-size:1.6rem}
+  .plan .go{grid-column:2;justify-self:start;margin-top:.2rem}
+  .callout{flex-direction:column;align-items:flex-start}
+  .nums b{font-size:2.6rem}
+  .pair{height:340px}
+  .pair .taped:first-child{margin-top:2rem}.pair .taped:last-child{margin-bottom:2rem}
+  .como .head{flex-direction:column;align-items:flex-start;margin-bottom:2.2rem}
+  .track{grid-template-columns:1fr;gap:1.6rem}
+  .track::before{left:1.6rem;right:auto;top:0;bottom:0;width:4px;height:auto;
+    background:repeating-linear-gradient(180deg,var(--ink) 0 14px,transparent 14px 24px)}
+  .track li{display:grid;grid-template-columns:3.4rem 1fr;gap:1rem;align-items:center}
+  .track li::before{margin-bottom:0}
+  .track p{font-size:1.2rem}
+  .gal{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:160px}
+  .gal .big{grid-row:span 2}
+  .aval .head{grid-template-columns:1fr;gap:1.4rem;margin-bottom:2rem}
+  .score{justify-self:start}
+  .revs{grid-template-columns:1fr}
+  .rev{padding:1.6rem 1.4rem 1.4rem}
+  .rev.first p{font-size:1.25rem}
+  .form{padding:1.6rem}
+  footer .wrap{grid-template-columns:1fr}
+}
+h1,h2,h3{letter-spacing:-.03em}@media (min-width:861px){.hero .bg::after{background:linear-gradient(0deg,rgba(17,22,28,.88) 0%,rgba(17,22,28,.55) 45%,rgba(17,22,28,.5) 100%)}.hero-in{align-items:center;text-align:center}.tag{align-self:center}.hero h1,.hero h1.long{max-width:15ch}.hero-p{margin-left:auto;margin-right:auto}.cta{justify-content:center}}</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Move2Balance · pré-visualização do site">
+<meta property="og:description" content="Move2Balance – Espaço de Saúde e Bem Estar: reabilitação, exercício e artigos ortopédicos na Rua de São Sebastião, em Viana do Castelo, desde 2014.">
+<meta property="og:url" content="https://preview.northsoftware.pt/move2balance-viana-do-castelo/">
+<meta property="og:image" content="https://preview.northsoftware.pt/move2balance-viana-do-castelo/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<div class="demo">Pré-visualização preparada pela North Software para Move2Balance. Ainda não está publicada; as fotografias são ilustrativas.</div>
+<header id="inicio" class="hero" data-sec="inicio">
+  <div class="bg"><img src="../assets/stock/fisio-care-06.jpg" alt="Terapeuta segura o pulso e o cotovelo de uma paciente para acompanhar o movimento do braço." fetchpriority="high"></div>
+  <nav class="nav wrap" aria-label="Principal"><a class="brand" href="#"><i></i>Move2Balance</a>
+    <a class="l" href="#tratamentos">Tratamentos</a><a class="l" href="#clinica">A clínica</a>
+    <a class="l" href="#avaliacoes">Avaliações</a><a class="l" href="#contacto">Contactos</a>
+    <a class="tel" href="tel:+351258821084">258 821 084</a></nav>
+  <div class="wrap hero-in">
+    <p class="tag">Desde 2014</p>
+    <h1>Saúde e movimento em Viana do Castelo</h1>
+    <p class="hero-p">Espaço de saúde e bem-estar na Rua de São Sebastião desde 2014, com reabilitação, exercício e artigos ortopédicos no mesmo sítio.</p>
+    <div class="cta"><button type="button" class="btn btn-coral" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'>Marcar pelo WhatsApp</button><a class="btn btn-ghost" href="tel:+351258821084">Ligar 258 821 084</a></div>
+  </div>
+  <div class="wrap" style="width:100%"><div class="board" style="--n:3"><div><small>Desde</small><strong>2014</strong><span class="sub">em Viana do Castelo</span></div><div><small>Marcações</small><strong><a href="tel:+351258821084">258 821 084</a></strong></div><div><small>Onde</small><strong class="sm">Rua de São Sebastião, 97</strong></div></div></div>
+</header>
+<div class="tapes" aria-hidden="true" data-hide-in-shot>
+  <div class="strip-t a"><span>Reabilitação ✕</span><span>Exercício e bem-estar ✕</span><span>Artigos ortopédicos ✕</span><span>Reabilitação ✕</span><span>Exercício e bem-estar ✕</span><span>Artigos ortopédicos ✕</span><span>Reabilitação ✕</span><span>Exercício e bem-estar ✕</span><span>Artigos ortopédicos ✕</span><span>Reabilitação ✕</span><span>Exercício e bem-estar ✕</span><span>Artigos ortopédicos ✕</span><span>Reabilitação ✕</span><span>Exercício e bem-estar ✕</span><span>Artigos ortopédicos ✕</span><span>Reabilitação ✕</span><span>Exercício e bem-estar ✕</span><span>Artigos ortopédicos ✕</span></div>
+  <div class="strip-t b"><span>Viana do Castelo ✕</span><span>Marcações pelo WhatsApp ✕</span><span>258 821 084 ✕</span><span>Viana do Castelo ✕</span><span>Marcações pelo WhatsApp ✕</span><span>258 821 084 ✕</span><span>Viana do Castelo ✕</span><span>Marcações pelo WhatsApp ✕</span><span>258 821 084 ✕</span><span>Viana do Castelo ✕</span><span>Marcações pelo WhatsApp ✕</span><span>258 821 084 ✕</span><span>Viana do Castelo ✕</span><span>Marcações pelo WhatsApp ✕</span><span>258 821 084 ✕</span><span>Viana do Castelo ✕</span><span>Marcações pelo WhatsApp ✕</span><span>258 821 084 ✕</span></div>
+</div>
+<section id="tratamentos" class="trat" data-sec="servicos"><div class="wrap">
+  <div class="side"><span class="eyebrow">Tratamentos</span>
+    <h2 class="h2">O seu plano começa aqui</h2>
+    <p class="lead">Escolha o tratamento e peça a marcação pelo WhatsApp. Sem esperas ao telefone.</p>
+    <div class="taped"><img src="../assets/stock/fisio-pilates-07.jpg" alt="Estúdio de pilates luminoso com cadillacs e reformers de madeira clara, sem pessoas, com uma planta em primeiro plano."></div></div>
+  <div><ol class="plan"><li><span class="n">01</span><div><h3>Reabilitação</h3><p>Serviços de reabilitação no espaço da Rua de São Sebastião.</p></div><button type="button" class="go" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o: Reabilita\u00e7\u00e3o.&quot;)'>Marcar</button></li><li><span class="n">02</span><div><h3>Exercício e bem-estar</h3><p>Atividades de manutenção e bem-estar físico.</p></div><button type="button" class="go" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o: Exerc\u00edcio e bem-estar.&quot;)'>Marcar</button></li><li><span class="n">03</span><div><h3>Artigos ortopédicos</h3><p>Venda de produtos médicos e ortopédicos.</p></div><button type="button" class="go" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o: Artigos ortop\u00e9dicos.&quot;)'>Marcar</button></li></ol><div class="callout"><div><b>Marque quando lhe der jeito.</b><span>Escreva pelo WhatsApp; a clínica confirma o dia e a hora consigo.</span></div><button type="button" class="btn btn-coral" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'>Marcar pelo WhatsApp</button></div></div>
+</div></section>
+<section id="clinica" class="clinica" data-sec="clinica"><div class="wrap">
+  <div><span class="eyebrow">A clínica</span><h2 class="h2">Quem somos</h2>
+    <p class="lead">Move2Balance – Espaço de Saúde e Bem Estar: reabilitação, exercício e artigos ortopédicos na Rua de São Sebastião, em Viana do Castelo, desde 2014.</p>
+    <div class="nums"><div><b>2014</b><span>ano de abertura</span></div><div><b>3</b><span>áreas de tratamento</span></div></div>
+    <ul class="perks"><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><div><b>Marcações por WhatsApp</b><span>Peça a sua marcação a qualquer hora; o espaço confirma o dia e a hora consigo.</span></div></li></ul></div>
+  <div class="pair"><div class="taped"><img src="../assets/stock/fisio-space-05.jpg" alt="Cadeirão e plantas junto a uma janela com estores de madeira."></div><div class="taped"><img src="../assets/stock/fisio-detail-02.jpg" alt="Tapete lilás enrolado e uma garrafa de água."></div></div>
+</div></section>
+<section id="como" class="como" data-sec="como"><div class="wrap">
+  <div class="head"><div><span class="eyebrow">Marcações</span><h2 class="h2">Como marcar</h2></div>
+    <button type="button" class="btn btn-ink" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'>Marcar pelo WhatsApp</button></div>
+  <ol class="track"><li><p>Escolha o serviço.</p></li><li><p>Envie o pedido pelo WhatsApp com o horário que prefere.</p></li><li><p>Confirmamos a marcação.</p></li></ol>
+</div></section>
+<section id="galeria" class="galeria" data-sec="galeria"><div class="wrap">
+  <span class="eyebrow">Galeria</span><h2 class="h2">O espaço</h2>
+  <div class="gal"><img class="big" src="../assets/stock/fisio-pilates-09.jpg" alt="Fila de reformers de pilates junto a janelas grandes, num estúdio com tijolo à vista e luz da manhã."><img src="../assets/stock/fisio-hero-04.jpg" alt="Estúdio de pilates junto a janelas grandes: duas alunas a fazer um exercício em reformers." fetchpriority="high"><img src="../assets/stock/fisio-detail-09.jpg" alt="Material de exercício: elástico com pegas, halteres leves, faixa elástica e bola dupla de massagem."><img class="wide" src="../assets/stock/fisio-move-17.jpg" alt="Pés de uma pessoa num tapete, numa aula de grupo em que ninguém mostra a cara."></div>
+  <p class="note">Fotografias ilustrativas. No site final, as fotografias são as da clínica.</p>
+</div></section>
+
+<section id="contacto" class="contacto" data-sec="contacto"><div class="wrap">
+  <div><span class="eyebrow" style="color:var(--coral)">Contactos</span><h2 class="h2">Horário</h2>
+    <span class="now"><span class="dot"></span><span data-open>Ligue para confirmar o horário</span></span>
+    <table><tr><th scope="row">Horário</th><td>Ligue para confirmar</td></tr></table>
+    <div class="where"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><p>Rua de São Sebastião, 97, 4900-903 Viana do Castelo<br><a href="tel:+351258821084">258 821 084</a><br><a href="mailto:move2balance@outlook.pt">move2balance@outlook.pt</a><br><a class="map" href="https://www.google.com/maps/search/?api=1&query=Rua+de+São+Sebastião,+97,+4900-903+Viana+do+Castelo">Abrir no Google Maps</a></p></div></div>
+  <div class="form"><h3>Pedir marcação</h3><p>Escolha o serviço e o horário que prefere. Confirmamos pelo WhatsApp.</p><form class="quote" onsubmit="return sendQuote(this)">
+  <label>Nome<input name="nome" data-l="Nome" required autocomplete="off"></label>
+  <label>Serviço<select name="s" data-l="Serviço"><option>Reabilitação</option><option>Exercício</option><option>Artigos ortopédicos</option><option>Outro</option></select></label>
+  <label>Dia e hora preferidos <span class="opt">(opcional)</span><input name="h" data-l="Dia e hora preferidos" placeholder="ex.: terça ao fim da tarde" autocomplete="off"></label>
+  <button type="submit">Pedir marcação pelo WhatsApp</button>
+</form></div>
+</div></section>
+<footer data-hide-in-shot><div class="wrap">
+  <div><div class="brand"><i></i>Move2Balance</div><p style="margin-top:.8rem;max-width:40ch">Move2Balance – Espaço de Saúde e Bem Estar: reabilitação, exercício e artigos ortopédicos na Rua de São Sebastião, em Viana do Castelo, desde 2014.</p></div>
+  <div><h4>Contactos</h4><p>Rua de São Sebastião, 97, 4900-903 Viana do Castelo<br><a href="tel:+351258821084">258 821 084</a><br><a href="mailto:move2balance@outlook.pt">move2balance@outlook.pt</a></p></div>
+  <div><h4>Horário</h4><table><tr><th scope="row">Horário</th><td>Ligue para confirmar</td></tr></table></div>
+  <div class="credit">© Move2Balance - Espaço de Saúde e Bem Estar, Unipessoal, Lda, Viana do Castelo. Site feito pela North Software.</div>
+</div></footer>
+<button type="button" class="fab" aria-label="Marcar pelo WhatsApp" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.1-.4-.2z"/></svg></button>
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp da clínica com a mensagem:\n\n'+msg);}
+function sendQuote(f){var t="Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.";f.querySelectorAll('[data-l]').forEach(function(x){if(x.value)t+='\n'+x.getAttribute('data-l')+': '+x.value;});demoWA(t);return false;}
+(function(){
+  var open={}; if(!Object.keys(open).length) return;
+  function mins(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  var d=new Date(), day=d.getDay(), now=d.getHours()*60+d.getMinutes(), slots=open[day]||[], txt, on=false;
+  for(var i=0;i<slots.length;i++){ if(now>=mins(slots[i][0])&&now<mins(slots[i][1])){on=true;txt='Aberto agora, até às '+slots[i][1];break;} }
+  if(!on){
+    var next=null;
+    for(var k=0;k<slots.length;k++){ if(now<mins(slots[k][0])){next='Abre hoje às '+slots[k][0];break;} }
+    if(!next){ for(var j=1;j<=7;j++){var dd=(day+j)%7; if(open[dd]&&open[dd].length){next='Abre '+(j==1?'amanhã':['domingo','segunda','terça','quarta','quinta','sexta','sábado'][dd])+' às '+open[dd][0][0];break;}} }
+    txt='Fechado agora. '+(next||'');
+  }
+  document.querySelectorAll('[data-open]').forEach(function(el){el.textContent=txt;el.classList.toggle('is-open',on);});
+})();
+</script>
+<script>
+document.querySelectorAll('[data-open].is-open').forEach(function(x){var d=x.previousElementSibling;if(d&&d.classList.contains('dot'))d.classList.add('on');});
+(function(){var m=location.hash.match(/^#shot-([a-z]+)$/);if(!m)return;var t=document.querySelector('[data-sec="'+m[1]+'"]');if(!t)return;
+document.documentElement.classList.add('shot');
+document.querySelectorAll('[data-sec]').forEach(function(s){if(s!==t)s.style.display='none';});})();
+</script>
+</body></html>
