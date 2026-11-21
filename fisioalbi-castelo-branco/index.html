@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fisioalbi – Fisioterapia e Material Ortopédico em Castelo Branco</title>
+<meta name="description" content="Fisioalbi: fisioterapia, consultas de fisiatria e material ortopédico na Rua Doutor Manuel Lopes Louro, em Castelo Branco, desde 2006.">
+<style>@font-face{font-family:'Figtree';src:url('../assets/fonts/figtree-var.woff2') format('woff2');font-weight:300 900;font-display:swap;}@font-face{font-family:'Jost';src:url('../assets/fonts/jost-var.woff2') format('woff2');font-weight:100 900;font-display:swap;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus,#1a73e8);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.demo{background:#ffd84d;color:#3a2e00;text-align:center;font:500 .82rem/1.4 system-ui,sans-serif;padding:.45rem 1rem}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+:root{--primary:#771d3e;--accent:#942e50;--paper:#fff7f9;--soft:#f6e0e7;--petal:#ffd2df;
+ --ink:#281530;--muted:#594c61;--focus:#942e50;--body:'Figtree',system-ui,sans-serif;--display:'Figtree',system-ui,sans-serif}
+
+html{scroll-behavior:smooth}body{font:400 1rem/1.65 var(--body);color:var(--ink);background:var(--paper)}
+h1,h2,h3{font-family:var(--display);line-height:1.08;font-weight:600;letter-spacing:-.035em;overflow-wrap:anywhere}
+h1{font-size:clamp(2.4rem,5vw,4.8rem)}h2{font-size:clamp(2rem,3.5vw,3.5rem)}h3{font-size:1.5rem}
+p,li,a,button,td,th,span{overflow-wrap:anywhere}.wrap{width:min(100% - 2.5rem,1160px);margin-inline:auto}
+section{padding-block:4rem}section h2{margin-bottom:1.25rem}.eyebrow{font-weight:700;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.8rem}
+.lead{max-width:56ch}.muted,.note{color:var(--muted)}.note{font-size:.8rem;margin-top:1rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}.btn,.quote button{display:inline-flex;align-items:center;justify-content:center;
+ min-height:48px;padding:.85rem 1.2rem;border:0;background:var(--accent);color:#ffffff;font:600 .96rem/1.4 var(--body);cursor:pointer;text-decoration:none;text-align:center}
+.btn-line{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}.btn:hover,.quote button:hover{filter:brightness(.93)}
+.brand{font:600 1.35rem/1.15 var(--display);letter-spacing:-.03em;text-decoration:none;max-width:22ch}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1.3rem;padding-block:1.3rem}.nav-links{display:none}
+.nav .call{font-size:.85rem;font-weight:700;flex-shrink:0;text-underline-offset:4px}
+.status{display:inline-flex;gap:.6rem;align-items:baseline;font-size:.86rem;font-weight:600;margin-block:1rem}
+.dot{display:inline-block;width:.55rem;height:.55rem;flex-shrink:0;border-radius:50%;background:currentColor}.dot.on{background:currentColor}
+.facts{display:flex;flex-wrap:wrap;gap:1rem 2rem;margin-block:1.4rem}.facts b,.facts span{display:block}.facts b{font:600 1.8rem/1.2 var(--display)}.facts span{font-size:.8rem}
+.perks{list-style:none;display:grid;gap:1rem;margin-top:1.5rem}.perks b,.perks span{display:block}.perks span{font-size:.94rem;color:var(--muted)}
+.quotes{display:grid;gap:1.2rem;margin-top:2rem}.quotes blockquote{min-width:0}.quotes p{font-size:1.15rem}.quotes cite{display:block;margin-top:1rem;font-size:.82rem;font-style:normal}
+.contact{background:var(--soft)}.contact-grid{display:grid;gap:2.5rem}.contact table{width:100%;border-collapse:collapse;margin:.5rem 0 1.5rem}
+th,td{text-align:left;vertical-align:top;padding:.7rem .3rem;border-bottom:1px solid var(--muted);font-size:.9rem;font-weight:400}th{width:42%}td{text-align:right}
+address{font-style:normal;line-height:1.9}.form-panel{padding:1.5rem;background:#ffffff;min-width:0}.form-panel>p{margin-block:.8rem 1.5rem;color:var(--muted)}
+.quote{display:grid;gap:1rem}.quote label{display:grid;gap:.4rem;font-weight:600;font-size:.9rem}.quote .opt{font-weight:400;color:var(--muted)}
+.quote input,.quote select{min-width:0;width:100%;padding:.8rem;font:inherit;color:var(--ink);background:#ffffff;border:1px solid var(--muted);border-radius:0}
+.quote button{width:100%}footer{padding:2rem 0 5.5rem;font-size:.83rem}footer p{margin-top:.5rem}
+.fab{position:fixed;right:1rem;bottom:1rem;z-index:20;padding:.85rem 1rem;border:2px solid #ffffff;background:var(--accent);color:#ffffff;font:700 .9rem var(--body);cursor:pointer;box-shadow:0 4px 20px #00000030}
+.skip{position:absolute;left:1rem;top:-10rem;z-index:50;background:#ffffff;color:var(--ink);padding:1rem}.skip:focus{top:1rem}
+@media(min-width:850px){section{padding-block:5.5rem}.nav-links{display:flex;gap:1.5rem;font-size:.9rem}.nav-links a{text-decoration:none}.contact-grid{grid-template-columns:1fr 1fr;gap:5rem}.form-panel{padding:2.5rem}}
+
+.hero{background:var(--primary);color:#ffffff}.hero .nav{border-bottom:1px solid var(--petal)}
+.hero :focus-visible{outline-color:var(--petal)}
+.hero-layout{display:grid;gap:2.5rem;padding-block:2.2rem 3.5rem}.hero h1{max-width:17ch;font-weight:500}
+.hero .eyebrow,.hero .status{color:var(--petal)}.hero .lead{margin-top:1.3rem}.hero .btn{background:var(--petal);color:var(--ink)}
+.hero .btn-line{background:transparent;color:#ffffff}.orbit{width:min(88%,420px);aspect-ratio:1;margin:1rem auto;position:relative;isolation:isolate}
+.orbit>img{width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:1}
+.orbit::before,.orbit::after{content:"";position:absolute;border:1px solid var(--petal);border-radius:50%;inset:-5%;transform:rotate(-28deg)}
+.orbit::before{inset:12% -10%;transform:rotate(-28deg)}.orbit::after{inset:-10% 12%;transform:rotate(-28deg);z-index:2;pointer-events:none}
+.orb-label{margin-top:2rem;text-align:center;font-size:.8rem;color:var(--petal)}
+.directory-head{display:grid;gap:1rem;margin-bottom:2rem}.directory-head h2{margin-bottom:0}
+.directory{border-top:2px solid var(--accent)}details{border-bottom:1px solid var(--muted)}
+summary{padding:1.2rem 2.5rem 1.2rem 0;cursor:pointer;position:relative;font:500 1.35rem/1.25 var(--display);list-style:none;min-height:56px}
+summary::-webkit-details-marker{display:none}summary::after{content:"+";position:absolute;right:.5rem;top:1.1rem;color:var(--accent);font-size:1.7rem}
+details[open] summary::after{content:"−"}summary h3{font:inherit;display:inline}summary:hover{color:var(--accent)}
+.treatment-body{display:grid;gap:1.2rem;padding-bottom:1.7rem}.treatment-body img{width:100%;height:210px;object-fit:cover;border-radius:0 65px 0 0}
+.treatment-body .btn{margin-top:1.3rem;border-radius:99px}.directory-note{background:var(--soft);padding:1.3rem;margin-top:2rem;border-radius:0 35px 0 0}
+.story{background:var(--soft)}.story-grid{display:grid;gap:2rem}.story-picture img{width:100%;height:300px;object-fit:cover;border-radius:50% 50% 0 0}
+.process-layout{display:grid;gap:2rem}.process ol{list-style:none;display:grid;gap:0;border-left:1px solid var(--accent);margin-left:.8rem}
+.process li{position:relative;padding:0 0 2rem 2rem}.process li:last-child{padding-bottom:0}
+.process li::before{content:"";position:absolute;left:-.5rem;top:.35rem;width:1rem;height:1rem;border-radius:50%;background:var(--accent);border:3px solid var(--paper)}
+.gallery{background:var(--primary);color:#ffffff}.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.gallery-grid img{height:200px;width:100%;object-fit:cover;border-radius:50% 50% 0 0}.gallery-grid img:last-child{grid-column:1/-1;height:240px;border-radius:0 0 90px 0}
+.gallery .note{color:var(--petal)}.reviews .quotes{gap:0}.reviews blockquote{padding:1.6rem 0;border-top:1px solid var(--muted)}
+.reviews blockquote p{max-width:55ch}.reviews cite{color:var(--muted)}.reviews .facts{color:var(--accent)}
+.contact .form-panel{border-radius:40px 0 40px 0}.btn{border-radius:99px}
+@media(min-width:850px){.hero-layout{grid-template-columns:1.15fr 1fr;align-items:center;gap:4rem;padding-block:3rem 4rem}
+ .orbit{width:84%}.directory-head{grid-template-columns:1fr 1fr;align-items:end;gap:4rem}
+ .treatment-body{grid-template-columns:250px 1fr;align-items:center;gap:2rem}.treatment-body img{height:200px}
+ summary{font-size:1.75rem;padding-block:1.4rem}.story-grid{grid-template-columns:.8fr 1.2fr;gap:5rem;align-items:center}.story-picture img{height:440px}
+ .process-layout{grid-template-columns:1fr 1fr;gap:5rem}.gallery-grid{grid-template-columns:1fr 1fr 1.6fr;align-items:center;gap:1.5rem}
+ .gallery-grid img{height:320px}.gallery-grid img:last-child{grid-column:auto;height:400px}.reviews blockquote{display:grid;grid-template-columns:2fr 1fr;gap:4rem}
+ .reviews cite{margin-top:.3rem;justify-self:end}}
+@media(max-width:849px){
+ .hero-layout{padding-block:1.4rem 2.5rem;gap:1.5rem}.hero h1{font-size:2.1rem;max-width:19ch}
+ .hero .lead{font-size:.94rem;line-height:1.55;margin-top:1rem}.hero .eyebrow{margin-bottom:.65rem}
+ .hero .status{margin-block:.85rem .25rem}.hero .actions{margin-top:1rem}
+ .hero .facts{margin-block:1rem 0;gap:.65rem 1.5rem}.hero .facts>div{display:flex;align-items:baseline;gap:.6rem}
+ .hero .facts b{font-size:1.3rem}.orbit{width:min(76%,300px);margin-block:1.2rem .5rem}.orb-label{margin-top:1.5rem}
+}
+.shot .demo,.shot .fab,.shot .strip,.shot [data-hide-in-shot]{display:none!important}</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fisioalbi · pré-visualização do site">
+<meta property="og:description" content="Fisioalbi: fisioterapia, consultas de fisiatria e material ortopédico na Rua Doutor Manuel Lopes Louro, em Castelo Branco, desde 2006.">
+<meta property="og:url" content="https://preview.northsoftware.pt/fisioalbi-castelo-branco/">
+<meta property="og:image" content="https://preview.northsoftware.pt/fisioalbi-castelo-branco/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head><body><div class="demo">Pré-visualização preparada pela North Software para Fisioalbi. Ainda não está publicada; as fotografias são ilustrativas.</div>
+    <a class="skip" href="#conteudo">Saltar para o conteúdo</a><header class="hero" id="inicio" data-sec="inicio">
+    <nav class="nav wrap" aria-label="Principal"><a class="brand" href="#inicio">Fisioalbi</a>
+    <div class="nav-links"><a href="#contacto">Marcações</a><a href="#clinica">A clínica</a></div>
+    <a class="call" href="tel:+351272085986">272 085 986</a></nav>
+    <div class="wrap hero-layout"><div><p class="eyebrow">Castelo Branco</p>
+    <h1>Fisioterapia em Castelo Branco</h1><p class="lead">Fisioterapia, consultas de fisiatria e material ortopédico na Rua Doutor Manuel Lopes Louro, desde 2006. Quem cá vem fala de «um atendimento 5 estrelas».</p><span class="status"><span class="dot" aria-hidden="true"></span><span data-open>Segunda, quarta e quinta: 09:00–20:00</span></span>
+    <div class="actions"><button type="button" class="btn" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'>Marcar pelo WhatsApp</button><a class="btn btn-line" href="tel:+351272085986">Ligar</a></div><div class="facts"><div><b>2006</b><span>ano de abertura</span></div></div></div>
+    <figure><div class="orbit"><img src="../assets/stock/fisio-hero-01.jpg" alt="Fisioterapeuta acompanha uma paciente deitada numa marquesa, numa sala clara com janelas grandes." fetchpriority="high"></div><figcaption class="orb-label">Fotografia ilustrativa · Fisioalbi</figcaption></figure></div></header><main id="conteudo"><section id="tratamentos" class="treatments" data-sec="servicos"><div class="wrap">
+    <div class="directory-head"><div><p class="eyebrow">Tratamentos</p><h2>Encontre o seu cuidado</h2></div>
+    <p>Abra uma área para saber mais e pedir a marcação. A clínica confirma consigo o dia e a hora.</p></div>
+    <div class="directory"><details open><summary><h3>Fisioterapia</h3></summary>
+        <div class="treatment-body"><img src="../assets/stock/fisio-team-01.jpg" alt="Fisioterapeuta inclinada sobre a marquesa a mobilizar a perna de uma paciente deitada."><div><p>Tratamentos de fisioterapia no centro da Rua Doutor Manuel Lopes Louro.</p>
+        <button type="button" class="btn" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o: Fisioterapia.&quot;)'>Pedir marcação</button></div></div></details><details><summary><h3>Material ortopédico</h3></summary>
+        <div class="treatment-body"><img src="../assets/stock/fisio-team-02.jpg" alt="Terapeuta de camisa branca faz terapia manual a uma paciente deitada, numa sala clara."><div><p>Venda de material ortopédico no centro.</p>
+        <button type="button" class="btn" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o: Material ortop\u00e9dico.&quot;)'>Pedir marcação</button></div></div></details></div><p class="directory-note">Prefere falar connosco? <a href="tel:+351272085986">Ligue 272 085 986</a>.</p>
+    </div></section><section id="clinica" class="story" data-sec="clinica"><div class="wrap story-grid">
+    <div class="story-picture"><img src="../assets/stock/fisio-care-02.jpg" alt="Terapeuta com as mãos nas costas de uma paciente sentada e vestida, vista de costas."></div><div><p class="eyebrow">A clínica</p><h2>Fisioalbi</h2>
+    <p>Fisioalbi: fisioterapia, consultas de fisiatria e material ortopédico na Rua Doutor Manuel Lopes Louro, em Castelo Branco, desde 2006.</p><ul class="perks"><li><b>Consultas de fisiatria</b><span>Consulta com médico fisiatra no mesmo espaço.</span></li><li><b>Outras especialidades</b><span>Consultas médicas de outras especialidades.</span></li><li><b>Marcações por WhatsApp</b><span>Peça a sua marcação a qualquer hora; o centro confirma o dia e a hora consigo.</span></li></ul></div></div></section><section class="process" data-sec="como"><div class="wrap process-layout"><div><p class="eyebrow">O próximo passo</p>
+    <h2>Como marcar</h2><button type="button" class="btn" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'>Marcar pelo WhatsApp</button></div><ol><li>Escolha o serviço.</li><li>Envie o pedido pelo WhatsApp com o horário que prefere.</li><li>Confirmamos a marcação.</li></ol></div></section><section class="gallery" data-sec="galeria"><div class="wrap"><p class="eyebrow">Em imagens</p><h2>O espaço</h2>
+    <div class="gallery-grid"><img src="../assets/stock/fisio-space-02.jpg" alt="Sala de tratamento com marquesa azul-petróleo, secretária e cadeiras, sem pessoas."><img src="../assets/stock/fisio-move-14.jpg" alt="Pés descalços num tapete de exercício, com um calcanhar levantado."><img src="../assets/stock/fisio-move-02.jpg" alt="Duas pessoas em postura de alongamento num tapete, de cabeça baixa, numa sala de treino."></div><p class="note">Fotografias ilustrativas. No site final, serão usadas fotografias da clínica.</p></div></section><section id="avaliacoes" class="reviews" data-sec="avaliacoes"><div class="wrap"><p class="eyebrow">Avaliações</p><h2>O que dizem de nós</h2><div class="quotes"><blockquote><p>Um atendimento 5 estrelas e um grande profissionalismo com uma boa técnica de trabalho. Adorei e recomendo vivamente.</p><cite>T. L. · Google</cite></blockquote><blockquote><p>Muito atenciosos.</p><cite>N. S. · Google</cite></blockquote></div></div></section><section id="contacto" class="contact" data-sec="contacto"><div class="wrap contact-grid">
+    <div class="contact-info"><p class="eyebrow">Contactos</p><h2>Vamos marcar?</h2><span class="status"><span class="dot" aria-hidden="true"></span><span data-open>Segunda, quarta e quinta: 09:00–20:00</span></span>
+    <table><caption class="vh">Horário da clínica</caption><tr><th scope="row">Segunda, quarta e quinta</th><td>09:00–20:00</td></tr><tr><th scope="row">Terça e sexta</th><td>08:30–19:00</td></tr><tr><th scope="row">Sábado</th><td>09:00–13:00</td></tr><tr><th scope="row">Domingo</th><td>Encerrado</td></tr></table>
+    <address>Rua Doutor Manuel Lopes Louro, Torre 2, Cave, 6000-764 Castelo Branco<br><a href="tel:+351272085986">272 085 986</a><br><a href="tel:+351969490435">969 490 435</a><br><a href="mailto:geral@fisioalbi.pt">geral@fisioalbi.pt</a><br><a href="https://www.google.com/maps/search/?api=1&query=Rua+Doutor+Manuel+Lopes+Louro,+Torre+2,+Cave,+6000-764+Castelo+Branco">Abrir no Google Maps</a></address></div>
+    <div class="form-panel"><h3>Pedir marcação</h3><p>Escolha o serviço e o horário que prefere. Confirmamos pelo WhatsApp.</p><form class="quote" onsubmit="return sendQuote(this)">
+  <label>Nome<input name="nome" data-l="Nome" required autocomplete="off"></label>
+  <label>Serviço<select name="s" data-l="Serviço"><option>Fisioterapia</option><option>Consulta de fisiatria</option><option>Material ortopédico</option><option>Outro</option></select></label>
+  <label>Dia e hora preferidos <span class="opt">(opcional)</span><input name="h" data-l="Dia e hora preferidos" placeholder="ex.: terça ao fim da tarde" autocomplete="off"></label>
+  <button type="submit">Pedir marcação pelo WhatsApp</button>
+</form></div>
+    </div></section></main>
+    <footer data-hide-in-shot><div class="wrap"><b>Fisioalbi</b><p>© Fisioalbi - Centro de Fisioterapia &amp; Material Ortopédico, Lda, Castelo Branco. Site feito pela North Software.</p></div></footer>
+    <button type="button" class="fab" onclick='demoWA(&quot;Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.&quot;)'>WhatsApp</button>
+    <script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp da clínica (969 490 435) com a mensagem:\n\n'+msg);}
+function sendQuote(f){var t="Ol\u00e1, queria fazer uma marca\u00e7\u00e3o.";f.querySelectorAll('[data-l]').forEach(function(x){if(x.value)t+='\n'+x.getAttribute('data-l')+': '+x.value;});demoWA(t);return false;}
+(function(){
+  var open={"1": [["09:00", "20:00"]], "2": [["08:30", "19:00"]], "3": [["09:00", "20:00"]], "4": [["09:00", "20:00"]], "5": [["08:30", "19:00"]], "6": [["09:00", "13:00"]]}; if(!Object.keys(open).length) return;
+  function mins(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  var d=new Date(), day=d.getDay(), now=d.getHours()*60+d.getMinutes(), slots=open[day]||[], txt, on=false;
+  for(var i=0;i<slots.length;i++){ if(now>=mins(slots[i][0])&&now<mins(slots[i][1])){on=true;txt='Aberto agora, até às '+slots[i][1];break;} }
+  if(!on){
+    var next=null;
+    for(var k=0;k<slots.length;k++){ if(now<mins(slots[k][0])){next='Abre hoje às '+slots[k][0];break;} }
+    if(!next){ for(var j=1;j<=7;j++){var dd=(day+j)%7; if(open[dd]&&open[dd].length){next='Abre '+(j==1?'amanhã':['domingo','segunda','terça','quarta','quinta','sexta','sábado'][dd])+' às '+open[dd][0][0];break;}} }
+    txt='Fechado agora. '+(next||'');
+  }
+  document.querySelectorAll('[data-open]').forEach(function(el){el.textContent=txt;el.classList.toggle('is-open',on);});
+})();
+</script><script>
+document.querySelectorAll('[data-open].is-open').forEach(function(x){var d=x.previousElementSibling;if(d&&d.classList.contains('dot'))d.classList.add('on');});
+(function(){var m=location.hash.match(/^#shot-([a-z]+)$/);if(!m)return;var t=document.querySelector('[data-sec="'+m[1]+'"]');if(!t)return;
+document.documentElement.classList.add('shot');
+document.querySelectorAll('[data-sec]').forEach(function(s){if(s!==t)s.style.display='none';});})();
+</script></body></html>
