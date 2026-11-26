@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novafisio, Clínica de Reabilitação em Águas Santas, Maia</title>
+<meta name="description" content="Clínica de reabilitação em Águas Santas, Maia: consultas de Fisiatria e tratamentos de Fisioterapia e Terapia Ocupacional. Acordos com o SNS, a ADSE e vários seguros.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;family=Schibsted+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+/* Novafisio, proposal "Casa Sete" (v4 health template, client version: no booking, no WhatsApp; contact by phone + map) */
+:root{
+  --indigo:#243d63; --peach:#FFC6A0; --mist:#EEF2F8; --ink:#1A2236;
+  --muted:#565F78; --line:#D8DEEB;
+  --serif:"Newsreader", Georgia, serif; --sans:"Schibsted Grotesk", "Segoe UI", sans-serif;
+  --wrap:1240px; --pad:clamp(20px,4.5vw,56px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17px/1.65 var(--sans);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img,iframe{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.015em;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px solid var(--indigo);outline-offset:3px}
+section{scroll-margin-top:80px}
+.ic{width:24px;height:24px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:12px;font:600 16px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:background .2s,transform .2s}
+.btn .ic{width:18px;height:18px}
+.btn-indigo{background:var(--indigo);color:#fff}
+.btn-indigo:hover{background:#172a47;transform:translateY(-1px)}
+.btn-line{box-shadow:inset 0 0 0 1.5px var(--indigo);color:var(--indigo)}
+.btn-line:hover{background:var(--mist)}
+
+.top{position:sticky;top:0;z-index:40;background:#ffffffeb;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mono{width:42px;height:42px;border-radius:12px;background:var(--peach);color:var(--indigo);display:grid;place-items:center;font:500 25px/1 var(--serif)}
+.brand b{display:block;font:500 24px/1 var(--serif);color:var(--indigo);letter-spacing:-.01em}
+.brand small{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.nav{display:flex;gap:28px;align-items:center;font-size:15.5px;font-weight:500}
+.nav a:not(.btn){text-decoration:none}
+.nav a:not(.btn):hover{color:var(--indigo);text-decoration:underline;text-underline-offset:6px}
+.nav .btn{padding:11px 16px;font-size:15px}
+.mtools{display:none;align-items:center;gap:4px}
+.callm{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--indigo);color:#fff}
+.callm .ic{width:20px;height:20px}
+.burger{background:none;border:0;padding:8px;cursor:pointer;color:var(--indigo)}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{padding:56px 0 80px;background:linear-gradient(180deg,#fff 0 62%,var(--mist) 62%)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.hero .spec{font-size:15px;color:var(--muted);margin-bottom:18px;display:flex;gap:10px;align-items:center}
+.hero .spec .ic{color:var(--indigo);flex:none}
+.hero h1{font-size:clamp(44px,5.6vw,84px);color:var(--indigo);line-height:1;letter-spacing:-.03em}
+.hero .lead{font-size:clamp(18px,1.5vw,21px);max-width:44ch;color:#3a4361;margin:24px 0 0}
+.callcard{margin-top:38px;background:#fff;border-radius:22px;padding:26px;box-shadow:0 30px 60px -40px rgba(36,61,99,.55);border:1px solid var(--line)}
+.callcard h2{font:600 17px var(--sans);color:var(--ink);margin-bottom:16px;letter-spacing:0}
+.phones{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.phone{display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:16px;background:var(--mist);text-decoration:none;transition:background .2s,transform .2s}
+.phone:hover{background:#e1e7f3;transform:translateY(-1px)}
+.phone .ic{width:22px;height:22px;color:var(--indigo);flex:none}
+.phone small{display:block;font-size:13px;color:var(--muted)}
+.phone b{display:block;font:500 26px/1.15 var(--serif);color:var(--indigo);white-space:nowrap}
+.phone i{display:block;font-style:normal;font-size:12px;color:var(--muted)}
+.where{display:flex;gap:10px;align-items:flex-start;margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);font-size:15.5px;color:#3a4361}
+.where .ic{width:20px;height:20px;color:var(--indigo);flex:none;margin-top:2px}
+.where a{font-weight:600;color:var(--indigo);white-space:nowrap}
+.hero-pic{position:relative;margin-top:10px}
+.hero-pic img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 60%;border-radius:220px 220px 28px 28px}
+.hero-pic .cap{position:absolute;left:-30px;bottom:40px;background:var(--indigo);color:#fff;border-radius:18px;padding:16px 20px;max-width:280px;box-shadow:0 24px 40px -24px rgba(0,0,0,.6)}
+.hero-pic .cap span{display:block;font-size:14px;color:#d6dcef}
+.hero-pic .cap b{display:block;font:500 26px/1.1 var(--serif);color:var(--peach)}
+
+/* services */
+.services{padding:110px 0;background:#fff}
+.services .head{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:56px}
+.h2{font-size:clamp(36px,4.4vw,62px);color:var(--indigo)}
+.services .head p{color:var(--muted);max-width:46ch;margin:0;justify-self:end}
+.spread{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;align-items:start}
+.feature img{width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:center 62%;border-radius:20px;transition:border-radius .5s;margin-bottom:24px}
+.feature:hover img{border-radius:160px 160px 20px 20px}
+.feature .ic{width:34px;height:34px;color:var(--indigo);stroke-width:1.4;margin-bottom:12px}
+.feature h3{font-size:30px;color:var(--indigo);margin-bottom:10px}
+.feature p{color:#3a4361;font-size:16px;margin:0;max-width:36ch}
+.feature:nth-child(2){margin-top:70px}
+
+/* tour (sticky photo follows the step in view) */
+.story{padding:110px 0;background:var(--mist)}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.story .stick{position:sticky;top:110px;height:min(74vh,660px)}
+.story .frames{position:relative;height:100%;border-radius:28px;overflow:hidden;background:var(--indigo)}
+.story .frames img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.05);transition:opacity .8s,transform 1.2s}
+.story .frames img.on{opacity:1;transform:none}
+.story .frames .count{position:absolute;right:18px;top:18px;background:#fff;border-radius:99px;padding:6px 14px;font:600 14px var(--sans);color:var(--indigo)}
+.story h2{margin-bottom:20px}
+.story .intro{color:#3a4361;max-width:46ch}
+.steps{list-style:none;padding:0;margin:40px 0 0}
+.steps li{padding:34px 0 120px;border-top:1px solid #cdd5e6;opacity:.45;transition:opacity .5s}
+.steps li.on{opacity:1}
+.steps li:last-child{padding-bottom:20px}
+.steps .n{font:400 52px/1 var(--serif);color:var(--peach);-webkit-text-stroke:1px var(--indigo)}
+.steps h3{font-size:30px;color:var(--indigo);margin:12px 0 10px}
+.steps p{color:#3a4361;max-width:46ch}
+.steps .mpic{display:none}
+
+/* agreements + director */
+.practical{padding:110px 0;background:#fff}
+.practical .grid{display:grid;grid-template-columns:2fr 1fr;gap:22px}
+.pcard{background:var(--mist);border-radius:22px;padding:32px}
+.pcard h2{font-size:clamp(30px,3vw,42px);color:var(--indigo);margin-bottom:10px;display:flex;gap:12px;align-items:center}
+.pcard h2 .ic{width:30px;height:30px;stroke-width:1.6;flex:none}
+.pcard>p{color:#3a4361}
+.deals{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.deals li{background:#fff;border-radius:12px;padding:12px 14px;font-weight:600;font-size:15.5px;color:var(--indigo);text-align:center}
+.pcard .note{font-size:14px;color:var(--muted);margin:16px 0 0}
+.dir{background:var(--indigo);color:#fff;display:flex;flex-direction:column}
+.dir h2{color:#fff}
+.dir .who{font:400 34px/1.15 var(--serif);color:var(--peach);margin:auto 0 8px}
+.dir p{color:#d6dcef;margin:0}
+
+/* contact */
+.book{padding:110px 0;background:var(--mist)}
+.book .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:stretch}
+.book .lead{color:#3a4361;margin:18px 0 26px;max-width:44ch}
+.book .phones{grid-template-columns:1fr 1fr}
+.book .phone{background:#fff}
+.addr{display:flex;gap:12px;align-items:flex-start;margin:24px 0 18px;font-size:17px}
+.addr .ic{width:22px;height:22px;color:var(--indigo);flex:none;margin-top:3px}
+.acts{display:flex;flex-wrap:wrap;gap:10px}
+.door{margin-top:28px;border-radius:20px;overflow:hidden}
+.door img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 30%}
+.mapbox{border-radius:24px;overflow:hidden;background:#dfe4ee;min-height:520px;box-shadow:0 30px 60px -44px rgba(36,61,99,.6)}
+.mapbox{position:relative}
+.mapbox iframe{position:relative;z-index:1;width:100%;height:100%;min-height:520px;border:0}
+.mapfb{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:6px;text-align:center;color:var(--indigo);padding:24px}
+.mapfb .ic{width:40px;height:40px}.mapfb b{font:500 26px var(--serif)}.mapfb span{color:var(--muted)}.mapfb a{font-weight:600}
+
+footer{background:var(--ink);color:#c7cde0;padding:64px 0 30px;font-size:15px}
+.fcols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:36px}
+footer h3{font:500 19px var(--serif);color:#fff;margin-bottom:12px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+footer .brand b{color:#fff}
+footer .brand small{color:#c7cde0}
+footer .brand{margin-bottom:14px}
+.flag{background:#ffd84d;color:#3a2e00;padding:1px 7px;border-radius:4px;font-weight:600}
+.legal{border-top:1px solid #ffffff1f;margin-top:44px;padding-top:22px;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:13.5px}
+
+@media (max-width:1000px){
+  .hero .wrap,.services .head,.story .wrap,.book .wrap,.practical .grid{grid-template-columns:1fr}
+  .hero{background:linear-gradient(180deg,#fff 0 72%,var(--mist) 72%)}
+  .hero-pic{max-width:520px}
+  .services .head p{justify-self:start}
+  .spread{grid-template-columns:1fr 1fr}
+  .feature:nth-child(2){margin-top:0}
+  .story .stick{display:none}
+  .steps .mpic{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;margin:0 0 18px}
+  .steps li{padding-bottom:36px;opacity:1}
+  .fcols{grid-template-columns:1fr 1fr}
+  .mapbox,.mapbox iframe{min-height:380px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .nav{display:none}
+  .mtools{display:flex}
+  .nav.open{display:flex;position:fixed;inset:68px 0 0;background:#fff;flex-direction:column;align-items:flex-start;padding:28px var(--pad);gap:22px;font-size:20px}
+  .top .wrap{height:68px}
+  .brand small{display:none}
+  .hero{padding:30px 0 60px}
+  .callcard{padding:18px}
+  .phones,.book .phones{grid-template-columns:1fr}
+  .hero-pic .cap{left:12px;bottom:14px}
+  .spread{grid-template-columns:1fr}
+  .deals{grid-template-columns:1fr 1fr}
+  .pcard{padding:24px}
+  .fcols{grid-template-columns:1fr}
+  .services,.story,.practical,.book{padding:72px 0}
+  .mapbox,.mapbox iframe{min-height:320px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .steps li{opacity:1}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.capture .steps li{opacity:1}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:76px}
+@media (max-width:760px){.shot-mode main{padding-top:68px}}
+</style>
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Novafisio, início">
+      <span class="mono" aria-hidden="true">N</span>
+      <span><b>Novafisio</b><small>Clínica de Reabilitação</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Valências</a><a href="#clinica">A clínica</a><a href="#acordos">Acordos</a><a href="#contacto">Contactos</a>
+      <a class="btn btn-indigo" href="tel:+351229773130"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>229 773 130</a>
+    </nav>
+    <div class="mtools">
+      <a class="callm" href="tel:+351229773130" aria-label="Ligar para 229 773 130"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg></a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <p class="spec"><svg class="ic ic-stethoscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3v5a5 5 0 0 0 10 0V3M5 3H4M15 3h1"/><path d="M10 13v1.5a5.5 5.5 0 0 0 11 0V12"/><circle cx="21" cy="10" r="2"/></svg>Fisiatria · Fisioterapia · Terapia Ocupacional</p>
+      <h1>Da consulta de Fisiatria ao tratamento, no mesmo espaço.</h1>
+      <p class="lead">Clínica de reabilitação em Águas Santas, na Maia. Acordos com o SNS, a ADSE e vários seguros de saúde.</p>
+      <div class="callcard">
+        <h2>Fale connosco</h2>
+        <div class="phones">
+          <a class="phone" href="tel:+351229773130"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span><small>Telefone</small><b>229 773 130</b><i>Chamada para a rede fixa nacional</i></span></a>
+          <a class="phone" href="tel:+351936102584"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span><small>Telemóvel</small><b>936 102 584</b><i>Chamada para a rede móvel nacional</i></span></a>
+        </div>
+        <p class="where"><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Rua Afonso Henriques 3031, 4425-057 Águas Santas (Maia) · <a href="#contacto">Ver no mapa</a></span></p>
+      </div>
+    </div>
+    <div class="hero-pic">
+      <img src="assets/novafisio-ginasio-marquesas.jpg" alt="Ginásio de reabilitação da Novafisio, com marquesas e equipamento de exercício" fetchpriority="high">
+      <div class="cap"><span>Direção clínica</span><b>Dra. Anabela Roque</b></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="head"><h2 class="h2">Valências</h2><p>Para saber mais sobre cada valência, ligue para a clínica.</p></div>
+    <div class="spread">
+      
+      <article class="feature">
+        <img src="assets/novafisio-consultorio.jpg" alt="Gabinete de consulta com secretária">
+        <svg class="ic ic-stethoscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3v5a5 5 0 0 0 10 0V3M5 3H4M15 3h1"/><path d="M10 13v1.5a5.5 5.5 0 0 0 11 0V12"/><circle cx="21" cy="10" r="2"/></svg><h3>Consultas de Fisiatria</h3><p>Consulta médica de Medicina Física e de Reabilitação, para avaliar cada caso e orientar o plano de tratamento.</p>
+      </article>
+      
+      <article class="feature">
+        <img src="assets/novafisio-ginasio.jpg" alt="Ginásio com barras paralelas, espaldares e marquesas">
+        <svg class="ic ic-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><h3>Fisioterapia</h3><p>Tratamentos de fisioterapia no ginásio de reabilitação e nos gabinetes de tratamento da clínica.</p>
+      </article>
+      
+      <article class="feature">
+        <img src="assets/novafisio-sala-terapia.jpg" alt="Sala de trabalho com mesa, cadeiras e bola de exercício">
+        <svg class="ic ic-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 11V6.5a1.8 1.8 0 0 0-3.5 0V11M14.5 10V4.5a1.8 1.8 0 0 0-3.5 0V10M11 10.5V6a1.8 1.8 0 0 0-3.5 0v8"/><path d="M18 8.5a1.8 1.8 0 0 1 3.5 0V14a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.3l-3.6-3.6a1.9 1.9 0 0 1 2.8-2.7L7.5 16"/></svg><h3>Terapia Ocupacional</h3><p>Intervenção orientada para a autonomia nas atividades do dia a dia.</p>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<section class="story" id="clinica">
+  <div class="wrap">
+    <div class="stick"><div class="frames" id="frames"><img src="assets/novafisio-rececao.jpg" alt="Receção e sala de espera da Novafisio" class="on"><img src="assets/novafisio-ginasio-bicicletas.jpg" alt="Bicicletas de exercício no ginásio da clínica" class=""><img src="assets/novafisio-gabinetes.jpg" alt="Corredor dos gabinetes de tratamento numerados" class=""><img src="assets/novafisio-gabinete-tratamento.jpg" alt="Gabinete de tratamento com marquesa e equipamento de eletroterapia" class=""><span class="count" id="frameNo">1 de 4</span></div></div>
+    <div>
+      <h2 class="h2">Conheça a clínica</h2>
+      <p class="intro">Fotografias do espaço da Novafisio, em Águas Santas.</p>
+      <ol class="steps" id="steps"><li class="on"><img class="mpic" src="assets/novafisio-rececao.jpg" alt="Receção e sala de espera da Novafisio" loading="lazy"><span class="n" aria-hidden="true">1</span><h3>Receção e sala de espera</h3><p>À entrada, a receção e uma sala de espera ampla.</p></li><li class=""><img class="mpic" src="assets/novafisio-ginasio-bicicletas.jpg" alt="Bicicletas de exercício no ginásio da clínica" loading="lazy"><span class="n" aria-hidden="true">2</span><h3>Ginásio de reabilitação</h3><p>Um espaço amplo e luminoso, com barras paralelas, espaldares, marquesas e bicicletas de exercício.</p></li><li class=""><img class="mpic" src="assets/novafisio-gabinetes.jpg" alt="Corredor dos gabinetes de tratamento numerados" loading="lazy"><span class="n" aria-hidden="true">3</span><h3>Gabinetes de tratamento</h3><p>Uma fila de gabinetes numerados, ao longo do corredor.</p></li><li class=""><img class="mpic" src="assets/novafisio-gabinete-tratamento.jpg" alt="Gabinete de tratamento com marquesa e equipamento de eletroterapia" loading="lazy"><span class="n" aria-hidden="true">4</span><h3>Em cada gabinete</h3><p>Marquesa e equipamento de eletroterapia.</p></li></ol>
+    </div>
+  </div>
+</section>
+
+
+<section class="practical" id="acordos">
+  <div class="wrap grid">
+    <div class="pcard">
+      <h2><svg class="ic ic-handshake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m11 17 2 2a1.4 1.4 0 0 0 2-2"/><path d="m14 14 2.5 2.5a1.4 1.4 0 0 0 2-2l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1.4 1.4 0 0 1-2-2l2.8-2.8a5.8 5.8 0 0 1 7-.9l.5.3a2 2 0 0 0 1.4.3L21 4"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1.4 1.4 0 0 0 2-2M3 4h8"/></svg>Acordos</h2>
+      <p>A Novafisio tem acordo com as seguintes entidades.</p>
+      <ul class="deals"><li>SNS</li><li>ADSE</li><li>Médis</li><li>Multicare</li><li>Medicare</li><li>Seguros Tranquilidade</li><li>Seguros Trust</li><li>Ageas</li><li>Ocidental</li></ul>
+      <p class="note">Para confirmar as condições do seu acordo ou seguro, ligue para a clínica.</p>
+    </div>
+    <div class="pcard dir">
+      <h2><svg class="ic ic-stethoscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3v5a5 5 0 0 0 10 0V3M5 3H4M15 3h1"/><path d="M10 13v1.5a5.5 5.5 0 0 0 11 0V12"/><circle cx="21" cy="10" r="2"/></svg>Direção clínica</h2>
+      <p class="who">Dra. Anabela Roque</p>
+      <p>Novafisio Clínica de Reabilitação Lda</p>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2 class="h2">Contactos</h2>
+      <p class="lead">Para informações, ligue para a clínica. Estamos na Rua Afonso Henriques, em Águas Santas.</p>
+      <div class="phones">
+        <a class="phone" href="tel:+351229773130"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span><small>Telefone</small><b>229 773 130</b><i>Chamada para a rede fixa nacional</i></span></a>
+        <a class="phone" href="tel:+351936102584"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span><small>Telemóvel</small><b>936 102 584</b><i>Chamada para a rede móvel nacional</i></span></a>
+      </div>
+      <p class="addr"><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Rua Afonso Henriques 3031<br>4425-057 Águas Santas (Maia)<br></span></p>
+      <div class="acts"><a class="btn btn-indigo" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20Afonso%20Henriques%203031%2C%204425-057%20%C3%81guas%20Santas%2C%20Maia" rel="noopener"><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Como chegar</a><a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Afonso%20Henriques%203031%2C%204425-057%20%C3%81guas%20Santas%2C%20Maia" rel="noopener">Abrir no Google Maps</a></div>
+      <div class="door"><img src="assets/novafisio-fachada.jpg" alt="Entrada da clínica, com a inscrição Clínica Fisiátrica"></div>
+    </div>
+    <div class="mapbox"><div class="mapfb"><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><b>Novafisio</b><span>Rua Afonso Henriques 3031<br>4425-057 Águas Santas (Maia)<br></span><a href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Afonso%20Henriques%203031%2C%204425-057%20%C3%81guas%20Santas%2C%20Maia" rel="noopener">Abrir no Google Maps</a></div><iframe src="https://www.google.com/maps?q=Rua%20Afonso%20Henriques%203031%2C%204425-057%20%C3%81guas%20Santas%2C%20Maia&amp;output=embed" title="Mapa com a localização da Novafisio" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <a class="brand" href="#"><span class="mono" aria-hidden="true">N</span><span><b>Novafisio</b><small>Clínica de Reabilitação</small></span></a>
+        <p>Consultas de Fisiatria e tratamentos de Fisioterapia e Terapia Ocupacional em Águas Santas, Maia.</p>
+      </div>
+      <div><h3>Valências</h3><ul><li><a href="#servicos">Consultas de Fisiatria</a></li><li><a href="#servicos">Fisioterapia</a></li><li><a href="#servicos">Terapia Ocupacional</a></li></ul></div>
+      <div><h3>Contactos</h3><ul><li>Rua Afonso Henriques 3031</li><li>4425-057 Águas Santas (Maia)</li><li><a href="tel:+351229773130">229 773 130</a> (rede fixa)</li><li><a href="tel:+351936102584">936 102 584</a> (rede móvel)</li></ul></div>
+      <div><h3>Informação legal</h3><ul>
+        <li>Novafisio Clínica de Reabilitação Lda</li>
+        <li>NIF 502645040</li>
+        <li>Direção clínica: Dra. Anabela Roque</li>
+        <li><span class="flag">Registo ERS n.º — a confirmar</span></li>
+        <li><a href="https://www.livroreclamacoes.pt" rel="noopener">Livro de Reclamações</a></li>
+      </ul></div>
+    </div>
+    <div class="legal"><span>© Novafisio Clínica de Reabilitação Lda</span><span>Site feito pela North Software.</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  var capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture) root.classList.add('capture');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);burger.setAttribute('aria-label','Abrir menu');}});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);burger.focus();}});
+
+  // tour: the photo follows the step in view (desktop)
+  var steps=[].slice.call(d.querySelectorAll('#steps li')), frames=[].slice.call(d.querySelectorAll('#frames img')), no=d.getElementById('frameNo');
+  if(steps.length && 'IntersectionObserver' in window && !still){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting)return; var k=steps.indexOf(e.target);
+      steps.forEach(function(s,j){s.classList.toggle('on',j===k)}); frames.forEach(function(f,j){f.classList.toggle('on',j===k)}); if(no) no.textContent=(k+1)+' de '+steps.length; }); },{rootMargin:'-45% 0px -45% 0px'});
+    steps.forEach(function(s){io.observe(s)});
+  }
+  var mm=location.hash.match(/^#shot-(.+)/), sh=mm&&d.getElementById(mm[1]);
+  if(sh){ root.classList.add('shot-mode'); [].forEach.call(d.querySelectorAll('main > *, footer'),function(s){ if(s!==sh) s.style.display='none'; }); }
+})();
+</script>
+</body>
+</html>
