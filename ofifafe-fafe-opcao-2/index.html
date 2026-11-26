@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ofifafe — Contabilidade em Fafe</title>
+<meta name="description" content="Ofifafe: contabilidade, consultoria fiscal em Fafe.">
+
+
+
+<style>
+@font-face{font-family:"Young Serif";src:url("assets/fonts/young-serif-400.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Figtree";src:url("assets/fonts/figtree-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Caveat";src:url("assets/fonts/caveat-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --paper:#EDF1E7; --card:#FAFBF6; --ink:#5b2e1f; --red:#56803f;
+  --rule:#dea89b; --ochre:#C99A3E; --muted:#5C6672;
+  --serif:"Young Serif", Georgia, sans-serif; --sans:"Figtree", sans-serif; --hand:"Caveat", cursive;
+  --wrap:1220px; --pad:clamp(20px,4.5vw,56px);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17px/1.65 var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad);position:relative}
+:focus-visible{outline:3px solid var(--ochre);outline-offset:3px}
+section{scroll-margin-top:80px;position:relative}
+.ic{width:24px;height:24px}
+.ph{background:#f6e3b4;color:#5b4300;padding:0 5px;border-radius:3px;font-size:.92em}
+.hand{font-family:var(--hand);font-weight:600}
+/* ledger paper: blue rules + red double margin */
+.ledger{background:linear-gradient(90deg,transparent calc(var(--margin,64px) - 6px),var(--red) calc(var(--margin,64px) - 6px),var(--red) calc(var(--margin,64px) - 4.5px),transparent calc(var(--margin,64px) - 4.5px),transparent calc(var(--margin,64px) - 1.5px),var(--red) calc(var(--margin,64px) - 1.5px),var(--red) var(--margin,64px),transparent var(--margin,64px)) ,repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper)}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid color-mix(in srgb,var(--rule) 70%,transparent)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.seal{width:48px;height:48px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font:400 15px/1 var(--serif);letter-spacing:-.03em;box-shadow:inset 0 0 0 3px var(--red),inset 0 0 0 4.5px #fff6}
+.brand b{display:block;font:400 22px/1 var(--serif)}
+.brand small{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+.nav{display:flex;gap:28px;align-items:center;font-size:15.5px;font-weight:500}
+.nav a{text-decoration:none}
+.nav a:hover{text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:6px;text-decoration-thickness:2px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:6px;font:600 16px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn .ic{width:18px;height:18px}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 3px 0 #7d211b}
+.btn-red:hover{transform:translateY(-2px);box-shadow:0 5px 0 #7d211b}
+.btn-ink{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-ink:hover{background:var(--ink);color:#fff}
+.nav .btn{padding:11px 16px;font-size:15px}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--ink)}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{padding:64px 0 90px;--margin:max(24px,calc((100vw - var(--wrap))/2 + 8px))}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.08fr;gap:64px;align-items:center}
+.since{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:var(--red);font-weight:600;margin-bottom:22px}
+.since .hand{font-size:26px;line-height:1}
+.hero h1{font-size:clamp(42px,5.6vw,80px);line-height:1.02}
+.hero .lead{font-size:clamp(18px,1.5vw,20px);color:#3a4656;max-width:44ch;margin:24px 0 32px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.sig{display:flex;align-items:center;gap:14px;margin-top:34px;color:var(--muted);font-size:15px}
+.sig .hand{font-size:30px;color:var(--ink);line-height:1}
+/* compare */
+.compare-box{position:relative}
+.compare{position:relative;aspect-ratio:4/4.3;background:#fff;padding:14px 14px 58px;box-shadow:0 2px 0 #0000000d,0 30px 50px -30px rgba(30,42,58,.55);transform:rotate(1.2deg)}
+.frame{position:relative;width:100%;height:100%;overflow:hidden;--x:50%;cursor:ew-resize;touch-action:pan-y}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame .old{filter:sepia(.75) grayscale(.35) contrast(1.12) brightness(.94);clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.frame .old-grain{position:absolute;inset:0;background:var(--grain);mix-blend-mode:multiply;opacity:.5;clip-path:inset(0 calc(100% - var(--x)) 0 0);pointer-events:none}
+.handle{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px #0002;pointer-events:none}
+.handle::after{content:"";position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231E2A3A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 7-5 5 5 5M15 7l5 5-5 5'/%3E%3C/svg%3E") center/22px no-repeat;box-shadow:0 6px 16px -6px rgba(0,0,0,.5)}
+.frame input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.frame:has(input:focus-visible) .handle::after{outline:3px solid var(--ochre);outline-offset:2px}
+.yr{position:absolute;bottom:14px;font:600 30px/1 var(--hand);color:var(--ink)}
+.yr.l{left:22px}.yr.r{right:22px}
+.compare-note{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:13px;color:var(--muted)}
+.stamp{position:absolute;right:-26px;top:-34px;width:138px;height:138px;color:var(--red);z-index:3;animation:spin 40s linear infinite}
+.stamp text{font:700 9.6px var(--sans);letter-spacing:.11em;fill:currentColor}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stamp-c{position:absolute;right:-26px;top:-34px;width:138px;height:138px;display:grid;place-items:center;z-index:4;font:400 34px/1 var(--serif);color:var(--red);pointer-events:none}
+.tape{position:absolute;width:110px;height:30px;background:color-mix(in srgb,var(--ochre) 40%,#fff8);top:-12px;left:34px;transform:rotate(-6deg);z-index:3;box-shadow:0 1px 2px #0001}
+
+/* history ledger */
+.history{padding:96px 0;background:var(--card)}
+.history .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+.history h2{font-size:clamp(32px,3.6vw,50px)}
+.history .intro p{color:#3a4656;margin-top:20px;max-width:48ch}
+.book{border:1.5px solid var(--ink);background:var(--card);box-shadow:8px 8px 0 color-mix(in srgb,var(--rule) 60%,transparent)}
+.book table{width:100%;border-collapse:collapse;font-size:16px}
+.book th{font:600 13px var(--sans);text-align:left;padding:12px 16px;border-bottom:1.5px solid var(--ink);color:var(--muted);letter-spacing:.02em}
+.book th:last-child,.book td:last-child{text-align:right}
+.book td{padding:16px;border-bottom:1px solid color-mix(in srgb,var(--rule) 70%,transparent);vertical-align:top}
+.book td:first-child{font:400 22px/1.2 var(--serif);color:var(--red);width:90px;border-right:1.5px solid color-mix(in srgb,var(--red) 50%,transparent)}
+.book td:last-child{font:400 26px/1.1 var(--serif);white-space:nowrap;font-variant-numeric:tabular-nums}
+.book td small{display:block;font:400 13px var(--sans);color:var(--muted)}
+.book tr:last-child td{border-bottom:0}
+.book tfoot td{border-top:3px double var(--ink);font:600 15px var(--sans)!important;color:var(--ink)!important}
+.book tbody tr{transition:background .3s}
+.book tbody tr:hover{background:color-mix(in srgb,var(--ochre) 12%,transparent)}
+
+/* life-stage navigator */
+.stages{padding:100px 0 110px}
+.stages .head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px}
+.stages h2{font-size:clamp(34px,4.2vw,58px);max-width:15ch}
+.stages .head p{max-width:42ch;color:#3a4656;margin:0}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:30px}
+.tab{all:unset;box-sizing:border-box;cursor:pointer;background:var(--card);border:1.5px solid color-mix(in srgb,var(--ink) 18%,transparent);border-radius:10px;padding:18px 18px 16px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center;transition:transform .2s,border-color .2s,background .2s}
+.tab .ic{grid-row:span 2;width:38px;height:38px;color:var(--red);stroke-width:1.5}
+.tab b{font:400 20px/1.15 var(--serif)}
+.tab span{font-size:13.5px;color:var(--muted);line-height:1.35}
+.tab:hover{transform:translateY(-2px);border-color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab[aria-selected="true"] .ic{color:var(--ochre)}
+.tab[aria-selected="true"] span{color:#c6d0dc}
+.tab:focus-visible{outline:3px solid var(--ochre);outline-offset:3px}
+.panel{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center;background:var(--card);border-radius:14px;padding:40px;box-shadow:0 24px 50px -40px rgba(30,42,58,.6)}
+.panel[hidden]{display:none}
+.panel.in .print{animation:drop .6s cubic-bezier(.2,.8,.2,1.1) both}
+.panel.in .copy > *{animation:fadeup .5s both}
+.panel.in .copy > *:nth-child(2){animation-delay:.06s}.panel.in .copy > *:nth-child(3){animation-delay:.12s}.panel.in .copy > *:nth-child(4){animation-delay:.18s}
+@keyframes drop{from{opacity:0;transform:rotate(-8deg) translateY(-20px)}}
+@keyframes fadeup{from{opacity:0;transform:translateY(10px)}}
+.print{position:relative;background:#fff;padding:12px 12px 48px;box-shadow:0 18px 36px -22px rgba(0,0,0,.5);transform:rotate(-2deg)}
+.print img{width:100%;aspect-ratio:4/3.2;object-fit:cover}
+.print .hand{position:absolute;left:16px;bottom:10px;font-size:25px;color:var(--ink)}
+.copy h3{font-size:clamp(26px,2.6vw,36px);margin-bottom:12px}
+.copy > p{color:#3a4656}
+.copy ul{list-style:none;padding:0;margin:18px 0 24px;display:grid;gap:10px}
+.copy li{display:flex;gap:12px;align-items:flex-start}
+.copy li .ic{width:20px;height:20px;color:var(--red);flex:none;margin-top:4px}
+.docs{font-size:14.5px;color:var(--muted);border-top:1px dashed color-mix(in srgb,var(--ink) 30%,transparent);padding-top:14px;margin-bottom:22px}
+.docs b{color:var(--ink);font-weight:600}
+.all{margin-top:44px}
+.all h3{font:600 15px var(--sans);color:var(--muted);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.chips li{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid color-mix(in srgb,var(--ink) 16%,transparent);padding:9px 14px;border-radius:99px;font-size:15px}
+.chips .ic{width:18px;height:18px;color:var(--red)}
+
+/* family */
+.family{padding:100px 0;background:var(--ink);color:#fff;overflow:hidden}
+.family h2{font-size:clamp(34px,4.2vw,58px);max-width:17ch}
+.family .lead{color:#c6d0dc;max-width:56ch;margin:18px 0 56px}
+.album{display:grid;grid-template-columns:repeat(3,1fr);gap:44px}
+.pol{background:#fbfbf7;color:var(--ink);padding:14px 14px 18px;box-shadow:0 26px 40px -26px #000;transition:transform .35s}
+.pol:nth-child(1){transform:rotate(-2.5deg)}.pol:nth-child(2){transform:rotate(1.5deg) translateY(26px)}.pol:nth-child(3){transform:rotate(-1deg)}
+.pol:hover{transform:rotate(0) translateY(-6px)}
+.pol .ph-wrap{position:relative;aspect-ratio:1;overflow:hidden}
+.pol img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.pol.archival img{filter:sepia(.7) grayscale(.35) contrast(1.1)}
+.pol.archival .ph-wrap::after{content:"";position:absolute;inset:0;background:var(--grain);mix-blend-mode:multiply;opacity:.45}
+.pol .yr2{font:600 26px/1 var(--hand);color:var(--red);margin:14px 0 4px}
+.pol h3{font-size:24px}
+.pol .role{color:var(--muted);font-size:15px;margin:2px 0 10px}
+.pol .cred{font-size:13.5px;display:flex;gap:8px;align-items:flex-start;margin:0}
+.pol .cred .ic{width:17px;height:17px;color:var(--red);flex:none;margin-top:2px}
+
+/* letters */
+.letters{padding:100px 0}
+.letters h2{font-size:clamp(32px,3.8vw,52px);margin-bottom:10px}
+.letters .note{color:var(--muted);margin-bottom:46px}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.letter{position:relative;background:var(--card);padding:34px 28px 26px;border-radius:4px;box-shadow:0 16px 30px -24px rgba(30,42,58,.6)}
+.letter::before{content:"";position:absolute;top:-10px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--red);box-shadow:inset -3px -3px 0 #0003,0 3px 4px #0003}
+.letter:nth-child(2){transform:rotate(1deg)}.letter:nth-child(3){transform:rotate(-1deg)}
+.letter blockquote{margin:0 0 18px;font:400 20px/1.45 var(--serif)}
+.letter .who{font-size:14.5px;color:var(--muted)}
+.letter .who b{color:var(--ink);font-weight:600}
+.ex{display:inline-block;font-size:12px;font-weight:600;background:#f6e3b4;color:#5b4300;padding:1px 8px;border-radius:99px;margin-left:6px}
+
+/* faq */
+.faq{padding:0 0 100px}
+.faq .wrap{max-width:900px}
+.faq h2{font-size:clamp(30px,3.4vw,46px);margin-bottom:24px}
+.faq details{border-top:1.5px solid color-mix(in srgb,var(--ink) 25%,transparent);padding:4px 0}
+.faq summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font:400 21px/1.3 var(--serif);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:12px;font:400 30px var(--serif);color:var(--red)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{color:#3a4656;max-width:64ch}
+
+/* contact */
+.contact{padding:100px 0;background:var(--card);--margin:max(24px,calc((100vw - var(--wrap))/2 + 8px))}
+.contact .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:start}
+.contact h2{font-size:clamp(34px,4.2vw,58px)}
+.contact .lead{color:#3a4656;margin:16px 0 30px;max-width:46ch}
+.door{display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap}
+.sign{position:relative;width:200px;padding-top:34px;flex:none}
+.sign::before{content:"";position:absolute;top:0;left:50%;width:120px;height:44px;margin-left:-60px;border:2px solid #8a7a5e;border-bottom:0;border-radius:60px 60px 0 0}
+.sign .board{position:relative;background:var(--red);color:#fff;border-radius:8px;padding:16px 10px 14px;text-align:center;box-shadow:0 14px 24px -14px rgba(0,0,0,.6);transform-origin:50% -34px;animation:swing 3.2s ease-in-out 1}
+.sign.closed .board{background:#5c6672}
+.sign .board b{display:block;font:400 34px/1 var(--serif)}
+.sign .board span{display:block;font-size:13px;margin-top:6px;opacity:.9}
+@keyframes swing{0%{transform:rotate(7deg)}25%{transform:rotate(-5deg)}50%{transform:rotate(3deg)}75%{transform:rotate(-1.5deg)}100%{transform:rotate(0)}}
+.hours{flex:1;min-width:230px}
+.hours h3,.addr h3{font:600 15px var(--sans);color:var(--muted);margin-bottom:8px}
+.hours table{border-collapse:collapse;font-size:15.5px}
+.hours td{padding:4px 18px 4px 0;vertical-align:top}
+.hours tr.today td{color:var(--red);font-weight:600}
+.addr{margin-top:30px;display:grid;gap:12px}
+.addr div{display:flex;gap:12px;align-items:flex-start}
+.addr .ic{width:20px;height:20px;color:var(--red);flex:none;margin-top:3px}
+.form{background:var(--paper);border-radius:12px;padding:36px;border:1.5px solid color-mix(in srgb,var(--ink) 12%,transparent)}
+.form h3{font-size:28px;margin-bottom:6px}
+.form > p{color:var(--muted);margin-bottom:22px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.full{grid-column:1/-1}
+.f{display:block;font-size:14px;font-weight:600}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:6px;padding:13px 14px;border-radius:8px;border:1.5px solid color-mix(in srgb,var(--ink) 22%,transparent);background:#fff;font:inherit;font-weight:400;font-size:16px;color:var(--ink)}
+.f textarea{min-height:110px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px color-mix(in srgb,var(--red) 18%,transparent)}
+.consent{display:flex;gap:10px;font-size:14px;color:var(--muted);margin:18px 0 22px;align-items:flex-start}
+.consent input{margin-top:4px;accent-color:var(--red)}
+.sent{display:none;margin-top:14px;background:#e3efe3;border-radius:8px;padding:12px 14px;font-size:15px}
+.sent.on{display:block}
+
+footer{background:var(--ink);color:#c6d0dc;padding:64px 0 30px;font-size:15px}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+footer h3{font:600 15px var(--sans);color:#fff;margin-bottom:14px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+footer .brand{color:#fff;margin-bottom:14px}
+footer .brand small{color:#c6d0dc}
+.social{display:flex;gap:10px;margin-top:14px}
+.social a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#ffffff14}
+.social .ic{width:18px;height:18px}
+.legal{border-top:1px solid #ffffff1f;margin-top:46px;padding-top:22px;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:13.5px}
+.ids{display:flex;flex-wrap:wrap;gap:6px 22px}
+
+@media (max-width:980px){
+  .hero .wrap,.history .wrap,.panel,.contact .wrap{grid-template-columns:1fr}
+  .tabs{grid-template-columns:1fr 1fr}
+  .album,.notes{grid-template-columns:1fr 1fr}
+  .fcols{grid-template-columns:1fr 1fr}
+  .compare-box{max-width:560px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:70px 0 0;background:var(--paper);flex-direction:column;align-items:flex-start;padding:28px var(--pad);gap:22px;font-size:21px}
+  .top .wrap{height:70px}
+  .seal{width:42px;height:42px;font-size:13px}
+  .hero{padding:34px 0 64px;--margin:14px}
+  .hero .wrap{gap:46px}
+  .stamp,.stamp-c{width:104px;height:104px;right:-6px;top:-30px;font-size:26px}
+  .stages .head{flex-direction:column;align-items:flex-start}
+  .tabs{grid-template-columns:1fr 1fr;gap:8px}
+  .tab{padding:14px;grid-template-columns:1fr;gap:6px}
+  .tab .ic{grid-row:auto;width:30px;height:30px}
+  .tab b{font-size:17px}
+  .tab span{display:none}
+  .panel{padding:22px;gap:30px}
+  .album,.notes{grid-template-columns:1fr}
+  .pol:nth-child(2){transform:rotate(1.5deg)}
+  .fields{grid-template-columns:1fr}
+  .form{padding:24px}
+  .fcols{grid-template-columns:1fr}
+  .history,.stages,.family,.letters,.contact{padding:72px 0}
+  .contact{--margin:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:78px}
+@media (max-width:760px){.shot-mode main{padding-top:70px}}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ofifafe (opção 2) · pré-visualização do site">
+<meta property="og:description" content="Ofifafe: contabilidade, consultoria fiscal em Fafe.">
+<meta property="og:url" content="https://preview.northsoftware.pt/ofifafe-fafe-opcao-2/">
+<meta property="og:image" content="https://preview.northsoftware.pt/ofifafe-fafe-opcao-2/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 v4-e" data-service-count="2" style="--service-columns:2">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"do gabinete"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de falar sobre a contabilidade da minha empresa.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de falar sobre a contabilidade da minha empresa.");}
+},true);
+</script>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Ofifafe, início">
+      <span class="seal" aria-hidden="true">O</span>
+      <span><b>Ofifafe</b><small>Contabilidade</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a class="btn btn-red" href="#contacto">Pedir contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero ledger" id="inicio">
+  <div class="wrap">
+    <div>
+      
+      <h1>Ofifafe</h1>
+      <p class="lead">Contabilidade e consultoria fiscal em Fafe</p>
+      <div class="ctas">
+        <a class="btn btn-red" href="#contacto">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ink" href="#servicos">Ver serviços</a>
+      </div>
+      
+    </div>
+<figure class="lead-hero-photo heritage-print"><span class="tape" aria-hidden="true"></span><img src="assets/neutral/bright-office.jpg" alt="Fotografia ilustrativa de um escritório"><figcaption>Imagem ilustrativa</figcaption><span class="print-stamp" aria-hidden="true">O</span></figure>
+  </div>
+</section>
+
+
+
+
+<section class="stages ledger" id="servicos">
+  <div class="wrap">
+    <div class="head"><h2>Serviços</h2><p></p></div>
+    <div class="tabs" role="tablist" aria-label="Serviços">
+      <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0"><svg class="ic ic-ledger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v16H5.5A1.5 1.5 0 0 0 4 20.5z"/><path d="M4 20.5A1.5 1.5 0 0 0 5.5 22H19v-3M8 7h7M8 10.5h7M8 14h4"/></svg><b>Contabilidade</b><span></span></button><button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1"><svg class="ic ic-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18M7 21h10M4 7h16M6 7l-3 7a3.2 3.2 0 0 0 6 0zM18 7l-3 7a3.2 3.2 0 0 0 6 0z"/></svg><b>Consultoria fiscal</b><span></span></button>
+    </div>
+    
+    <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+      <div class="print"><img src="assets/fase-empresa.jpg" alt="Imagem ilustrativa"><span class="hand"></span></div>
+      <div class="copy">
+        <h3>Contabilidade</h3>
+        <p>Organização e registo da informação contabilística de uma atividade. Esta informação serve de base à leitura das contas e ao cumprimento das obrigações aplicáveis.</p>
+        <ul></ul>
+        
+        <a class="btn btn-red" href="#contacto" data-subject="Contabilidade">Pedir informações <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    
+    <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+      <div class="print"><img src="assets/fase-empresa.jpg" alt="Imagem ilustrativa"><span class="hand"></span></div>
+      <div class="copy">
+        <h3>Consultoria fiscal</h3>
+        <p>Análise do enquadramento fiscal de uma atividade e das obrigações que lhe estão associadas. Os temas são considerados de acordo com a situação concreta de cada negócio.</p>
+        <ul></ul>
+        
+        <a class="btn btn-red" href="#contacto" data-subject="Consultoria fiscal">Pedir informações <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    
+    
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2>Pedir contacto</h2>
+      <p class="lead">Diga-nos qual o assunto que pretende tratar.</p>
+      
+      <div class="addr">
+        <h3>Onde estamos</h3>
+        <div><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Rua do Retiro, 328, 4820-239 Fafe<br><br><a href="https://maps.app.goo.gl/1wLUy8K68nFbaTNQ7" rel="noopener">Abrir no mapa</a></span></div>
+        <div><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span><a href="tel:+351253490700">253 490 700</a></span></div>
+        
+        <div><svg class="ic ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span><a href="mailto:ofifafe@ofifafe.pt">ofifafe@ofifafe.pt</a></span></div>
+      </div>
+    </div>
+    <form class="form" id="form" novalidate>
+      <h3>Como podemos ajudar?</h3>
+      <p>Indique o assunto e os seus contactos.</p>
+      <div class="fields">
+        <label class="f">Nome<input name="nome" autocomplete="name" required></label>
+        <label class="f">Telefone<input name="tel" type="tel" autocomplete="tel"></label>
+        <label class="f full">Email<input name="email" type="email" autocomplete="email" required></label>
+        <label class="f full">Assunto<select name="assunto" id="subject"><option>Contabilidade</option><option>Consultoria fiscal</option></select></label>
+        <label class="f full">Mensagem<textarea name="msg"></textarea></label>
+      </div>
+      <label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+      <button class="btn btn-red" type="submit">Pedir contacto pelo WhatsApp <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="sent" id="sent" role="status">Pré-visualização: pedido não enviado. Use os contactos publicados para falar com o negócio.</p>
+    </form>
+  </div>
+</section>
+<section class="extra-facts" id="sobre"><h2>Sobre Ofifafe</h2><p>Serviços de contabilidade e consultoria fiscal em Fafe.</p></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <a class="brand" href="#"><span class="seal" aria-hidden="true">O</span><span><b>Ofifafe</b><small>Contabilidade</small></span></a>
+        <p>Contabilidade e consultoria fiscal em Fafe</p>
+        
+      </div>
+      <div><h3>Fases</h3><ul><li><a href="#servicos">Contabilidade</a></li><li><a href="#servicos">Consultoria fiscal</a></li></ul></div>
+      <div><h3>Escritório</h3><ul><li>Rua do Retiro, 328, 4820-239 Fafe</li><li><a href="tel:+351253490700">253 490 700</a></li><li><a href="mailto:ofifafe@ofifafe.pt">ofifafe@ofifafe.pt</a></li></ul></div>
+      <div><h3>Informação legal</h3><ul></ul></div>
+    </div>
+    <div class="legal">
+      <span class="ids"><span>Ofifafe - Contabilidade, Unipessoal, Lda</span><span>NIF <span class="ph">504165429</span></span></span>
+      <span>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  var capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture) root.classList.add('capture');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});
+
+  // Historic comparison: range input drives --x; one sweep on load
+  var frame=d.getElementById('frame'), cmp=d.getElementById('cmp');
+  function setX(v){ frame.style.setProperty('--x',v+'%'); }
+  if(cmp){
+  cmp.addEventListener('input',function(){ setX(cmp.value); });
+  if(!still){ var t0=null; function sweep(t){ if(!t0)t0=t; var p=Math.min(1,(t-t0)/1600), e=1-Math.pow(1-p,3), v=92-42*e; setX(v); cmp.value=v; if(p<1)requestAnimationFrame(sweep);} setTimeout(function(){requestAnimationFrame(sweep)},500); }
+
+  }
+  // ledger counters
+  var counts=[].slice.call(d.querySelectorAll('[data-count]'));
+  function fmt(n){ return Math.round(n).toLocaleString('pt-PT').replace(/\./g,' '); }
+  if(!still && 'IntersectionObserver' in window){
+    counts.forEach(function(el){el.textContent='0'});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(!e.isIntersecting)return; io.unobserve(e.target); var el=e.target,end=+el.dataset.count,s=null; (function step(t){ if(!s)s=t; var p=Math.min(1,(t-s)/1400); el.textContent=fmt(end*(1-Math.pow(1-p,3))); if(p<1)requestAnimationFrame(step);} )(performance.now()); });},{threshold:.6});
+    counts.forEach(function(el){io.observe(el)});
+  }
+
+  // life-stage tabs (arrow keys move between tabs)
+  var tabs=[].slice.call(d.querySelectorAll('.tab')), panels=[].slice.call(d.querySelectorAll('.panel'));
+  function pick(i,focus){ tabs.forEach(function(t,k){ var on=k===i; t.setAttribute('aria-selected',on); t.tabIndex=on?0:-1; panels[k].hidden=!on; panels[k].classList.toggle('in',on); }); if(focus)tabs[i].focus(); }
+  tabs.forEach(function(t,i){ t.addEventListener('click',function(){pick(i)}); t.addEventListener('keydown',function(e){ var n=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:null; if(n===null)return; e.preventDefault(); pick((n+tabs.length)%tabs.length,true); }); });
+  var subject=d.getElementById('subject');
+  [].forEach.call(d.querySelectorAll('[data-subject]'),function(a){ a.addEventListener('click',function(){ var s=a.dataset.subject; [].forEach.call(subject.options,function(o){ if(o.text===s) subject.value=s; }); }); });
+
+  // door sign: open or closed now, from the hours rows (days: 1=Mon..7=Sun; ranges "HH:MM")
+  var rows=[].slice.call(d.querySelectorAll('.hours tr[data-days]')), sign=d.getElementById('sign');
+  if(sign && rows.length){
+    var hours=[], now=new Date(), wd=((now.getDay()+6)%7)+1, mins=now.getHours()*60+now.getMinutes(), open=false, next=null;
+    function m(s){ var p=s.split(':'); return +p[0]*60+ +p[1]; }
+    hours.forEach(function(h,k){ if(h.days.indexOf(wd)<0)return; rows[k].classList.add('today'); (h.ranges||[]).forEach(function(r){ if(mins>=m(r[0])&&mins<m(r[1])){open=true; next=r[1];} }); });
+    if(!open){ sign.classList.add('closed'); d.getElementById('signWord').textContent='Fechado'; d.getElementById('signNote').textContent="Consulte o horário publicado"; }
+    else { d.getElementById('signNote').textContent=("fecha às")+' '+next.replace(':','h'); }
+  }
+
+  d.getElementById('form').addEventListener('submit',function(e){e.preventDefault();d.getElementById('sent').classList.add('on');});
+  var mm=location.hash.match(/^#shot-(.+)/), t=mm&&d.getElementById(mm[1]);
+  if(t && !t.hidden){ root.classList.add('shot-mode');
+    [].forEach.call(d.querySelectorAll('main > *, footer'),function(s){ if(s!==t) s.style.display='none'; }); }
+})();
+</script>
+</body>
+</html>
