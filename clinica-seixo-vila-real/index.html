@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clínica do Seixo | Vila Real</title>
+<meta name="description" content="Consulta de nutrição — Vila Real. Contactos e pedidos de marcação.">
+
+
+
+<style>
+@font-face{font-family:"Unbounded";src:url("assets/fonts/of-unbounded-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Manrope";src:url("assets/fonts/of-manrope-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --sun:#FFD23F; --slate:#1D2B3A; --sky:#DCEEFF; --ink:#16212D;
+  --muted:#5B6B7C; --soft:#EEF2F6;
+  --display:"Unbounded", Georgia, sans-serif; --body:"Manrope", sans-serif;
+  --wrap:1240px; --pad:clamp(18px,4.5vw,52px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:500 17px/1.6 var(--body);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.05;letter-spacing:-.02em;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px solid var(--slate);outline-offset:3px;border-radius:4px}
+section{scroll-margin-top:110px}
+.ic{width:24px;height:24px}
+.ph{background:#fff1b8;color:#5a4500;padding:0 5px;border-radius:4px;font-size:.92em}
+.ex{display:inline-block;font-size:12px;font-weight:700;background:#fff1b8;color:#5a4500;padding:1px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border-radius:14px;font:700 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn .ic{width:19px;height:19px}
+.btn-sun{background:var(--sun);color:var(--slate);box-shadow:0 4px 0 #c79f12}
+.btn-sun:hover{transform:translateY(-2px);box-shadow:0 6px 0 #c79f12}
+.btn-sun:active{transform:translateY(2px);box-shadow:0 2px 0 #c79f12}
+.btn-slate{background:var(--slate);color:#fff;box-shadow:0 4px 0 #0c141d}
+.btn-slate:hover{transform:translateY(-2px);box-shadow:0 6px 0 #0c141d}
+.btn-white{background:#fff;color:var(--slate);box-shadow:0 4px 0 #0003}
+
+/* live bar + header */
+.live{background:var(--slate);color:#fff;font-size:14px}
+.live .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;height:40px}
+.live .st{display:inline-flex;align-items:center;gap:8px;font-weight:700}
+.live .st i{width:9px;height:9px;border-radius:50%;background:#46d38a;box-shadow:0 0 0 0 #46d38a99;animation:ping 1.8s infinite}
+.live .st.closed i{background:#ff7a6b;animation:none}
+@keyframes ping{70%{box-shadow:0 0 0 9px transparent}}
+.live a{color:var(--sun);font-weight:700;text-decoration:none}
+.top{position:sticky;top:0;z-index:40;background:#fff;box-shadow:0 1px 0 #e7ebf0}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo{width:44px;height:44px;border-radius:12px;background:var(--sun);display:grid;place-items:center;font:700 19px/1 var(--display);color:var(--slate);transform:rotate(-6deg)}
+.brand b{display:block;font:700 19px/1 var(--display)}
+.brand small{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}
+.nav{display:flex;gap:26px;align-items:center;font-weight:700;font-size:15px}
+.nav a:not(.btn){text-decoration:none}
+.nav a:not(.btn):hover{box-shadow:inset 0 -8px 0 var(--sun)}
+.nav .btn{padding:11px 16px;font-size:15px}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{position:relative;background:var(--slate);color:#fff;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 88%,0 100%)}
+.hero .media{position:absolute;inset:0 0 0 38%;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%)}
+.hero .media img,.hero .media video{width:100%;height:100%;object-fit:cover}
+.hero .media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--slate) 0,transparent 30%)}
+.hero .wrap{position:relative;z-index:2;padding-top:84px;padding-bottom:170px;min-height:640px}
+.hero .tag{display:inline-flex;gap:8px;align-items:center;background:var(--sun);color:var(--slate);font-weight:800;font-size:14px;border-radius:99px;padding:7px 14px 7px 10px;margin-bottom:24px}
+.hero .tag .ic{width:20px;height:20px;stroke-width:2.2}
+.hero h1{font-size:clamp(38px,5vw,72px);max-width:12ch;line-height:1.02}
+.hero h1 span{background:var(--sun);color:var(--slate);padding:0 .14em;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:6px}
+.hero .lead{font-size:clamp(17px,1.4vw,20px);max-width:40ch;margin:24px 0 32px;color:#dfe6ee}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px}
+.stat{background:#ffffff14;backdrop-filter:blur(6px);border-radius:16px;padding:12px 16px;min-width:130px}
+.stat b{display:block;font:700 26px/1 var(--display);color:var(--sun)}
+.stat span{font-size:13.5px;color:#dfe6ee}
+.hero .ers{position:absolute;right:var(--pad);bottom:96px;z-index:2;background:#fff;color:var(--slate);border-radius:14px;padding:10px 14px;font-size:13.5px;display:flex;gap:8px;align-items:center;font-weight:700}
+.hero .ers .ic{width:20px;height:20px}
+.hero .playbtn{position:absolute;right:var(--pad);top:24px;z-index:3;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--slate);display:grid;place-items:center;cursor:pointer}
+.hero .playbtn .ic{width:18px;height:18px}
+.playbtn .ic-play,.playbtn.paused .ic-pause{display:none}
+.playbtn.paused .ic-play{display:block}
+
+/* services carousel */
+.services{padding:70px 0 90px}
+.svc-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
+.svc-head h2,.h2{font-size:clamp(32px,4vw,54px)}
+.svc-head p{max-width:42ch;color:var(--muted);margin:10px 0 0}
+.arrows{display:flex;gap:10px}
+.arrows button{width:52px;height:52px;border-radius:14px;border:2px solid var(--slate);background:#fff;cursor:pointer;display:grid;place-items:center;color:var(--slate)}
+.arrows button:hover{background:var(--sun)}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,calc((100% - 66px)/4));gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px var(--pad) 20px;margin:0 calc(var(--pad) * -1);scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.tile{scroll-snap-align:start;position:relative;border-radius:24px;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:var(--slate)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(16,26,38,.9))}
+.tile:hover img{transform:scale(1.05)}
+.tile .in{position:relative;z-index:2;padding:22px}
+.tile .bubble{width:52px;height:52px;border-radius:16px;background:var(--sun);color:var(--slate);display:grid;place-items:center;margin-bottom:14px;transform:rotate(-6deg);transition:transform .3s}
+.tile:hover .bubble{transform:rotate(6deg) scale(1.06)}
+.tile .bubble .ic{width:28px;height:28px;stroke-width:2}
+.tile h3{font-size:22px;margin-bottom:8px}
+.tile p{font-size:15px;color:#dfe6ee;margin:0}
+.tile .dur{display:inline-block;margin-top:12px;font-size:13px;font-weight:800;background:#ffffff26;border-radius:99px;padding:4px 10px}
+
+/* week */
+.week{background:var(--sky);padding:90px 0}
+.week .wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:56px;align-items:center}
+.week p.lead{color:#34465a;margin:16px 0 0;max-width:40ch}
+.chart{background:#fff;border-radius:24px;padding:26px 26px 18px;box-shadow:0 24px 40px -30px rgba(29,43,58,.5)}
+.axis{display:grid;grid-template-columns:54px 1fr;font-size:12px;color:var(--muted);margin-bottom:6px}
+.axis div{display:flex;justify-content:space-between}
+.day{display:grid;grid-template-columns:54px 1fr;align-items:center;gap:0;height:40px}
+.day b{font-size:14px}
+.day.today b{color:var(--slate);background:var(--sun);border-radius:8px;padding:2px 8px;width:max-content}
+.lane{position:relative;height:22px;background:var(--soft);border-radius:8px;overflow:visible}
+.lane i{position:absolute;top:0;bottom:0;border-radius:8px;background:var(--slate);transform-origin:left;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.js .chart:not(.seen) .lane i{transform:scaleX(0)}
+.day.today .lane i{background:var(--sun);box-shadow:inset 0 0 0 2px var(--slate)}
+.nowline{position:absolute;top:-8px;bottom:-8px;width:3px;margin-left:-1.5px;background:#ff5a45;border-radius:3px;z-index:2}
+.nowline::before{content:attr(data-t);position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:11.5px;font-weight:800;color:#ff5a45;white-space:nowrap}
+.legend{display:flex;gap:18px;margin-top:14px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.legend i{width:14px;height:10px;border-radius:3px;background:var(--slate)}
+.legend i.n{width:3px;height:14px;background:#ff5a45}
+.htable{margin-top:22px;display:grid;gap:6px;font-size:15px}
+.htable div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed #b5c8dc;padding-bottom:6px}
+
+/* team flip */
+.team{padding:100px 0}
+.team .h2{margin-bottom:10px}
+.team .sub{color:var(--muted);margin-bottom:40px;max-width:60ch}
+.flips{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.flip{perspective:1200px;min-height:440px}
+.flip button{all:unset;display:block;width:100%;height:100%;cursor:pointer;position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1);min-height:440px}
+.flip.on button,.flip:hover button{transform:rotateY(180deg)}
+.flip button:focus-visible{outline:3px solid var(--slate);outline-offset:4px;border-radius:24px}
+.face{position:absolute;inset:0;border-radius:24px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.front img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.front .name{position:absolute;left:14px;right:14px;bottom:14px;background:#fff;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.front .name b{display:block;font:700 18px/1.15 var(--display)}
+.front .name span{font-size:14px;color:var(--muted)}
+.front .name .ic{width:30px;height:30px;padding:6px;border-radius:50%;background:var(--sun);flex:none}
+.front .dir{position:absolute;left:14px;top:14px;background:var(--slate);color:#fff;font-size:13px;font-weight:800;border-radius:99px;padding:6px 12px}
+.back{transform:rotateY(180deg);background:var(--sun);color:var(--slate);padding:28px;display:flex;flex-direction:column}
+.back h3{font-size:24px;margin-bottom:4px}
+.back .role{font-weight:700;margin-bottom:18px}
+.back ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.back li{display:flex;gap:10px;align-items:flex-start;background:#ffffff8c;border-radius:12px;padding:10px 12px;font-size:15px}
+.back li .ic{width:22px;height:22px;flex:none}
+.back p{margin-top:auto;font-size:14.5px}
+
+/* steps */
+.how{background:var(--sun);padding:90px 0}
+.how .h2{color:var(--slate);margin-bottom:40px}
+.how ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.how li{background:#fff;border-radius:22px;padding:24px;counter-increment:s;box-shadow:0 6px 0 #c79f12}
+.how li::before{content:counter(s);display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--slate);color:var(--sun);font:700 20px var(--display);margin-bottom:16px}
+.how h3{font-size:19px;margin-bottom:8px}
+.how p{font-size:15.5px;color:#34465a;margin:0}
+
+/* practical */
+.practical{padding:90px 0}
+.practical .wrap{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.pbox{border-radius:24px;padding:30px;background:var(--soft)}
+.pbox h3{font-size:22px;margin-bottom:16px;display:flex;gap:10px;align-items:center}
+.pbox ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.pbox li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
+.pbox li .ic{width:26px;height:26px;padding:4px;border-radius:8px;background:#fff;flex:none;color:var(--slate)}
+.deals{display:flex;flex-wrap:wrap;gap:10px}
+.deals span{background:#fff;border:2px solid var(--slate);border-radius:12px;padding:10px 14px;font:700 15px var(--display)}
+.pbox .note{font-size:13.5px;color:var(--muted);margin:14px 0 0}
+.voices{display:grid;gap:14px}
+.voice{background:#fff;border-radius:18px;padding:18px 20px}
+.voice blockquote{margin:0 0 8px;font-size:16.5px}
+.voice figcaption{font-size:14px;color:var(--muted)}
+
+/* faq */
+.faq{padding:0 0 90px}
+.faq .wrap{max-width:900px}
+.faq .h2{margin-bottom:24px}
+.faq details{border:2px solid var(--soft);border-radius:18px;margin-bottom:10px;padding:0 20px}
+.faq details[open]{border-color:var(--slate)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font:600 18px/1.35 var(--display);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:12px;width:30px;height:30px;border-radius:9px;background:var(--sun);display:grid;place-items:center;font:700 20px/30px var(--display);text-align:center}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{color:#34465a}
+
+/* booking */
+.book{background:var(--slate);color:#fff;padding:100px 0}
+.book .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+.book .lead{color:#dfe6ee;margin:16px 0 26px;max-width:42ch}
+.quick{display:grid;gap:12px}
+.quick a{display:flex;gap:14px;align-items:center;background:#ffffff12;border-radius:16px;padding:14px 16px;text-decoration:none;font-weight:700}
+.quick a:hover{background:#ffffff22}
+.quick .ic{width:40px;height:40px;padding:9px;border-radius:12px;background:var(--sun);color:var(--slate);flex:none}
+.quick small{display:block;font-weight:500;color:#c8d3de}
+.addr{margin-top:22px;color:#dfe6ee;font-size:15px}
+.addr a{color:var(--sun)}
+.form{background:#fff;color:var(--ink);border-radius:26px;padding:34px}
+.form h3{font-size:26px;margin-bottom:18px}
+.pick{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}
+.pick label{position:relative}
+.pick input{position:absolute;opacity:0}
+.pick span{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:2px solid var(--soft);font-weight:700;font-size:15px;cursor:pointer;transition:background .15s,border-color .15s}
+.pick span .ic{width:20px;height:20px}
+.pick input:checked + span{background:var(--sun);border-color:var(--slate)}
+.pick input:focus-visible + span{outline:3px solid var(--slate);outline-offset:2px}
+.lbl{font-size:14.5px;font-weight:800}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields > *{min-width:0}
+.full{grid-column:1/-1}
+.f{display:block;font-size:14.5px;font-weight:800}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:6px;padding:14px;border-radius:12px;border:2px solid var(--soft);background:#fff;font:inherit;font-weight:500;font-size:16px;color:var(--ink)}
+.f textarea{min-height:90px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--slate)}
+.consent{display:flex;gap:10px;font-size:14px;color:var(--muted);margin:16px 0 20px;align-items:flex-start}
+.consent input{margin-top:4px;accent-color:var(--slate)}
+.sent{display:none;margin-top:14px;background:#e3f6ea;border-radius:12px;padding:12px 14px;font-size:15px}
+.sent.on{display:block}
+.form .note{font-size:13.5px;color:var(--muted);margin:14px 0 0}
+
+/* sticky phone bar */
+.dock{display:none}
+
+footer{background:#101a26;color:#c8d3de;padding:60px 0 30px;font-size:15px}
+.fcols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:36px}
+footer h3{font:700 16px var(--display);color:#fff;margin-bottom:12px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+footer .brand{color:#fff;margin-bottom:14px}
+footer .brand small{color:#c8d3de}
+.social{display:flex;gap:10px;margin-top:14px}
+.social a{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#ffffff14}
+.social .ic{width:18px;height:18px}
+.legal{border-top:1px solid #ffffff1f;margin-top:44px;padding-top:22px;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:13.5px}
+.ids{display:flex;flex-wrap:wrap;gap:6px 22px}
+
+@media (max-width:1000px){
+  .week .wrap,.book .wrap,.practical .wrap{grid-template-columns:1fr}
+  .flips{grid-template-columns:1fr 1fr}
+  .how ol{grid-template-columns:1fr 1fr}
+  .fcols{grid-template-columns:1fr 1fr}
+  .track{grid-auto-columns:minmax(260px,46%)}
+}
+@media (max-width:760px){
+  body{font-size:16px;padding-bottom:76px}
+  .live .wrap{height:36px;font-size:13px}
+  .live .wrap > a{display:none}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:108px 0 0;background:#fff;flex-direction:column;align-items:flex-start;padding:28px var(--pad);gap:22px;font-size:20px}
+  .top .wrap{height:66px}
+  .hero{clip-path:polygon(0 0,100% 0,100% 94%,0 100%)}
+  .hero .media{inset:0;clip-path:none}
+  .hero .media::after{background:linear-gradient(180deg,rgba(29,43,58,.55),rgba(29,43,58,.92) 62%)}
+  .hero .wrap{padding-top:150px;padding-bottom:90px;min-height:0}
+  .hero .ers{position:static;display:inline-flex;margin-top:20px}
+  .stats{margin-top:26px}
+  .stat{min-width:0;flex:1}
+  .svc-head{flex-direction:column;align-items:flex-start}
+  .arrows{display:none}
+  .track{grid-auto-columns:82%}
+  .tile{min-height:380px}
+  .flips{grid-template-columns:1fr}
+  .flip,.flip button{min-height:400px}
+  .how ol{grid-template-columns:1fr}
+  .fields{grid-template-columns:1fr}
+  .form{padding:22px}
+  .fcols{grid-template-columns:1fr}
+  .services,.team,.week,.how,.practical,.book{padding:64px 0}
+  .dock{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:#fff;box-shadow:0 -10px 24px -14px rgba(0,0,0,.35)}
+  .dock .btn{justify-content:center;padding:14px 10px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.shot-mode .live{display:none}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:72px}
+.shot-mode .dock{display:none}
+@media (max-width:760px){.shot-mode main{padding-top:66px}}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Clínica do Seixo · pré-visualização do site">
+<meta property="og:description" content="Consulta de nutrição — Vila Real. Contactos e pedidos de marcação.">
+<meta property="og:url" content="https://preview.northsoftware.pt/clinica-seixo-vila-real/">
+<meta property="og:image" content="https://preview.northsoftware.pt/clinica-seixo-vila-real/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 v4-h" data-service-count="1" style="--service-columns:1">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"da clínica"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, queria fazer uma marcação.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, queria fazer uma marcação.");}
+},true);
+</script>
+
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Clínica do Seixo, início">
+      <span class="logo" aria-hidden="true">CD</span>
+      <span><b>Clínica do Seixo</b><small>Nutrição</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a class="btn btn-sun" href="#contacto">Pedir contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="media">
+    <video id="heroVideo" muted loop playsinline preload="none" poster="assets/nutri-s3.jpg" aria-hidden="true" data-src="assets/nutri-hero-360.mp4" data-small="assets/nutri-hero-360.mp4"></video>
+    
+  </div>
+  <button class="playbtn" id="playBtn" type="button" aria-label="Pausar vídeo"><svg class="ic ic-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 5v14M16 5v14"/></svg><svg class="ic ic-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 4.5v15l12-7.5z"/></svg></button>
+  <div class="wrap">
+    <span class="tag"><svg class="ic ic-apple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20.9c1.5 0 2.8 1.1 4 1.1 3 0 6-8 6-12.2A4.9 4.9 0 0 0 17 5c-2.2 0-4 1.4-5 2-1-.6-2.8-2-5-2a4.9 4.9 0 0 0-5 4.8C2 14 5 22 8 22c1.2 0 2.5-1.1 4-1.1z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Nutrição em Vila Real</span>
+    <h1>Clínica do Seixo <span>Nutrição</span></h1>
+    <p class="lead">Nutrição · Vila Real</p>
+    <div class="ctas">
+      <a class="btn btn-sun" href="#contacto">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      
+    </div>
+    
+    
+  </div>
+</section>
+
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="svc-head">
+      <div><h2>Serviços</h2><p></p></div>
+      <div class="arrows"><button type="button" id="svcPrev" aria-label="Anterior"><svg class="ic ic-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="svcNext" aria-label="Seguinte"><svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="track" id="track" tabindex="0" aria-label="Serviços">
+      
+      <article class="tile">
+        <img src="assets/nutri-s1.jpg" alt="" loading="lazy">
+        <div class="in"><span class="bubble"><svg class="ic ic-apple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20.9c1.5 0 2.8 1.1 4 1.1 3 0 6-8 6-12.2A4.9 4.9 0 0 0 17 5c-2.2 0-4 1.4-5 2-1-.6-2.8-2-5-2a4.9 4.9 0 0 0-5 4.8C2 14 5 22 8 22c1.2 0 2.5-1.1 4-1.1z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span><h3>Consulta de nutrição</h3><p>Análise dos hábitos alimentares e das necessidades nutricionais de cada pessoa. O enquadramento considera o contexto de vida e as questões apresentadas em consulta.</p></div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="book" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2 class="h2">Pedir contacto</h2>
+      <p class="lead">Escolha o serviço e indique como prefere ser contactado.</p>
+      <div class="quick">
+        <a href="tel:+351259326038"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span>259 326 038<small></small></span></a>
+        
+        <a href="mailto:clinicadoseixo@gmail.com"><svg class="ic ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>clinicadoseixo@gmail.com<small></small></span></a>
+      </div>
+      <p class="addr">Rua Dr. Francisco Sales da Costa Lobo, lote 5, loja 7B, 5000-260 Vila Real<br></p>
+    </div>
+    <form class="form" id="form" novalidate>
+      <h3>Como podemos ajudar?</h3>
+      <span class="lbl">Serviço</span>
+      <div class="pick"><label><input type="radio" name="servico" value="Consulta de nutrição" checked><span><svg class="ic ic-apple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20.9c1.5 0 2.8 1.1 4 1.1 3 0 6-8 6-12.2A4.9 4.9 0 0 0 17 5c-2.2 0-4 1.4-5 2-1-.6-2.8-2-5-2a4.9 4.9 0 0 0-5 4.8C2 14 5 22 8 22c1.2 0 2.5-1.1 4-1.1z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Consulta de nutrição</span></label></div>
+      <div class="fields">
+        <label class="f">Melhor altura<select name="periodo"><option>Sem preferência</option><option>Manhã</option><option>Tarde</option></select></label>
+        
+        <label class="f">Nome<input name="nome" autocomplete="name" required></label>
+        <label class="f">Telemóvel<input name="tel" type="tel" autocomplete="tel" required></label>
+        
+      </div>
+      <label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+      <button class="btn btn-slate" type="submit">Pedir marcação pelo WhatsApp <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="sent" id="sent" role="status">Pré-visualização: pedido não enviado. Use os contactos publicados para falar com o negócio.</p>
+      
+    </form>
+  </div>
+</section>
+
+</main>
+
+<div class="dock" id="dock">
+  <a class="btn btn-white" style="box-shadow:inset 0 0 0 2px var(--slate)" href="tel:+351259326038"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> Ligar</a>
+  <a class="btn btn-sun" href="#contacto"><svg class="ic ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg> Pedir contacto</a>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <a class="brand" href="#"><span class="logo" aria-hidden="true">CD</span><span><b>Clínica do Seixo</b><small>Nutrição</small></span></a>
+        <p>Nutrição · Vila Real</p>
+        
+      </div>
+      <div><h3>Nutrição</h3><ul><li><a href="#servicos">Consulta de nutrição</a></li></ul></div>
+      <div><h3>Clínica</h3><ul><li>Rua Dr. Francisco Sales da Costa Lobo, lote 5, loja 7B, 5000-260 Vila Real</li><li><a href="tel:+351259326038">259 326 038</a></li><li><a href="mailto:clinicadoseixo@gmail.com">clinicadoseixo@gmail.com</a></li></ul></div>
+      <div><h3>Informação legal</h3><ul>
+        
+        
+        
+        
+      </ul></div>
+    </div>
+    <div class="legal">
+      <span class="ids"><span>Isabel Roçadas Pires Lda</span><span>NIF <span class="ph">505436442</span></span></span>
+      <span>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  root.classList.add('js');
+  var capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture) root.classList.add('capture');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});
+
+  // hero video with a pause button (WCAG 2.2.2)
+  var v=d.getElementById('heroVideo'), pb=d.getElementById('playBtn');
+  if(v){ if(still){ if(pb) pb.style.display='none'; } else { v.src=innerWidth<=760&&v.dataset.small?v.dataset.small:v.dataset.src; v.play().catch(function(){});
+    pb.addEventListener('click',function(){ if(v.paused){v.play();pb.classList.remove('paused');pb.setAttribute('aria-label','Pausar vídeo');} else {v.pause();pb.classList.add('paused');pb.setAttribute('aria-label','Reproduzir vídeo');} }); } }
+
+  // services carousel arrows
+  var track=d.getElementById('track');
+  function slide(dir){ var t=track.querySelector('.tile'); track.scrollBy({left:dir*(t.offsetWidth+22),behavior:still?'auto':'smooth'}); }
+  if(track){ d.getElementById('svcPrev').onclick=function(){slide(-1)}; d.getElementById('svcNext').onclick=function(){slide(1)}; }
+
+  // hours: live bar + week chart with a "now" line (days 1=Mon..7=Sun; ranges "HH:MM")
+  var hours=[]||[], names=['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
+  var now=new Date(), wd=((now.getDay()+6)%7)+1, mins=now.getHours()*60+now.getMinutes(), open=null, START=7*60, END=22*60;
+  function m(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  function pct(x){return Math.max(0,Math.min(100,(x-START)/(END-START)*100));}
+  var html='';
+  for(var day=1;day<=7;day++){
+    var lane='';
+    hours.forEach(function(h){ if((h.days||[]).indexOf(day)<0)return; (h.ranges||[]).forEach(function(r){ var a=m(r[0]),b=m(r[1]); lane+='<i style="left:'+pct(a)+'%;width:'+(pct(b)-pct(a))+'%"></i>'; if(day===wd&&mins>=a&&mins<b) open=r[1]; }); });
+    if(day===wd) lane+='<span class="nowline" style="left:'+pct(mins)+'%" data-t="'+String(now.getHours()).padStart(2,'0')+'h'+String(now.getMinutes()).padStart(2,'0')+'"></span>';
+    html+='<div class="day'+(day===wd?' today':'')+'"><b>'+names[day-1]+'</b><div class="lane">'+lane+'</div></div>';
+  }
+  var days=d.getElementById('days'); if(days) days.innerHTML=html;
+  var lt=d.getElementById('liveText'), ls=d.getElementById('liveSt');
+  if(lt && ls){ if(open) lt.textContent='Aberto agora, até às '+open.replace(':','h');
+  else { ls.classList.add('closed'); var nxt=null; for(var k=0;k<8&&!nxt;k++){ var dd=((wd-1+k)%7)+1; hours.forEach(function(h){ if(nxt||(h.days||[]).indexOf(dd)<0)return; (h.ranges||[]).forEach(function(r){ if(!nxt&&(k>0||m(r[0])>mins)) nxt=(k===0?'hoje':k===1?'amanhã':names[dd-1])+' às '+r[0].replace(':','h'); }); }); }
+    lt.textContent='Fechado agora'+(nxt?', abre '+nxt:''); }
+  }
+  var chart=d.getElementById('chart');
+  if(chart){ if(still||!('IntersectionObserver' in window)) chart.classList.add('seen'); else { var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ chart.classList.add('seen'); io.disconnect(); } },{threshold:.4}); io.observe(chart); } }
+
+  // flip cards: tap or Enter toggles
+  [].forEach.call(d.querySelectorAll('.flip button'),function(b){ b.addEventListener('click',function(){ b.parentNode.classList.toggle('on'); }); });
+
+  d.getElementById('form').addEventListener('submit',function(e){e.preventDefault();d.getElementById('sent').classList.add('on');});
+  var mm=location.hash.match(/^#shot-(.+)/), sh=mm&&d.getElementById(mm[1]);
+  if(sh && !sh.hidden){ root.classList.add('shot-mode'); [].forEach.call(d.querySelectorAll('main > *, footer'),function(s){ if(s!==sh) s.style.display='none'; }); }
+})();
+</script>
+</body>
+</html>
