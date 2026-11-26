@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Altaconta · Lisboa</title>
+<meta name="description" content="Contabilidade · Altaconta">
+
+
+
+<style>
+@font-face{font-family:"Archivo";src:url("assets/fonts/archivo-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --chalk:#F3F3F0; --graphite:#22302b; --concrete:#C9CCC8;
+  --steel:#5A666C; --accent:#bfd3c1; --accent-ink:#577559;
+  --font:"Archivo", Georgia, sans-serif;
+  --pad:clamp(20px,5vw,72px); --wrap:1320px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17px/1.6 var(--font);color:var(--graphite);background:var(--chalk);-webkit-font-smoothing:antialiased;font-variation-settings:"wdth" 100}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:600;line-height:1.02;letter-spacing:-.02em;font-variation-settings:"wdth" 118}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:4px}
+section{scroll-margin-top:70px}
+.ic{width:24px;height:24px}
+.ph{background:color-mix(in srgb,var(--accent) 45%,transparent);padding:0 4px;border-radius:3px}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:40;color:#fff;transition:background .35s,color .35s}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;max-width:none}
+.top.solid{background:var(--chalk);color:var(--graphite);box-shadow:0 1px 0 color-mix(in srgb,var(--graphite) 12%,transparent)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.mono{width:40px;height:40px;display:grid;place-items:center;border:1.5px solid currentColor;font-weight:700;font-size:15px;font-variation-settings:"wdth" 125;letter-spacing:.04em}
+.brand b{display:block;font-size:19px;font-weight:650;font-variation-settings:"wdth" 120;letter-spacing:.01em}
+.brand small{display:block;font-size:12.5px;opacity:.75}
+.nav{display:flex;gap:34px;align-items:center;font-size:15px}
+.nav a{text-decoration:none;position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1.5px;background:currentColor;transition:right .3s}
+.nav a:hover::after{right:0}
+.nav .cta{border:1.5px solid currentColor;padding:10px 18px}
+.nav .cta::after{display:none}
+.nav .cta:hover{background:var(--accent);border-color:var(--accent);color:var(--graphite)}
+.burger{display:none;background:none;border:0;color:inherit;padding:8px;cursor:pointer}
+.burger .ic{width:28px;height:28px}
+
+/* hero slider */
+.hero{position:relative;height:100svh;min-height:620px;color:#fff;overflow:hidden;background:var(--graphite)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
+.slide.on{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.02)}
+.slide.on img{animation:kb 9s linear forwards}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.14) translate(-1.5%,-1%)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,26,.45) 0%,rgba(20,23,26,0) 30%,rgba(20,23,26,0) 45%,rgba(20,23,26,.72) 100%);pointer-events:none}
+.hero-copy{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:0 var(--pad) 54px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end}
+.hero h1{font-size:clamp(44px,7.4vw,118px);font-weight:500;font-variation-settings:"wdth" 125;letter-spacing:-.035em;max-width:12ch;line-height:.95}
+.hero .lead{max-width:44ch;font-size:clamp(17px,1.4vw,20px);margin:24px 0 0;color:#eceeec}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 24px;font:600 15.5px/1 var(--font);text-decoration:none;border:0;cursor:pointer;letter-spacing:.01em;transition:background .25s,color .25s}
+.btn .ic{width:18px;height:18px}
+.btn-accent{background:var(--accent);color:var(--graphite)}
+.btn-accent:hover{background:#fff}
+.btn-line{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7);color:#fff}
+.btn-line:hover{background:rgba(255,255,255,.14)}
+.btn-dark{background:var(--graphite);color:#fff}
+.btn-dark:hover{background:var(--steel)}
+.ctrl{display:grid;gap:14px;justify-items:end;min-width:260px}
+.cap{font-size:14px;text-align:right;color:#e6e8e6;min-height:1.6em}
+.cap b{font-weight:600}
+.bars{display:flex;gap:8px;align-items:center}
+.bars button{all:unset;cursor:pointer;width:52px;height:20px;display:grid;align-items:center}
+.bars button i{display:block;height:2px;background:rgba(255,255,255,.35);position:relative;overflow:hidden}
+.bars button i::after{content:"";position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left}
+.bars button.done i::after{transform:scaleX(1)}
+.bars button.on i::after{animation:fill var(--dur,6.5s) linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+.bars button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.count-no{font-variation-settings:"wdth" 125;font-weight:300;font-size:15px;letter-spacing:.06em;margin-left:10px}
+.arrows{display:flex;gap:8px}
+.arrows button{all:unset;cursor:pointer;width:46px;height:46px;display:grid;place-items:center;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5)}
+.arrows button:hover{background:rgba(255,255,255,.15)}
+.arrows .ic{width:20px;height:20px}
+
+/* numbers */
+.numbers{padding:clamp(80px,11vw,150px) 0 clamp(60px,8vw,110px)}
+.numbers .intro{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;margin-bottom:clamp(50px,7vw,90px)}
+.numbers h2{font-size:clamp(30px,3.6vw,52px);max-width:16ch}
+.numbers .intro p{color:var(--steel);max-width:58ch;font-size:18px}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.num{padding:0 24px 0 0}
+.num + .num{padding-left:24px;border-left:1.5px solid var(--concrete)}
+.num b{display:block;font-weight:200;font-variation-settings:"wdth" 125;font-size:clamp(64px,9.6vw,150px);line-height:.9;letter-spacing:-.05em;font-feature-settings:"tnum"}
+.num b sup{font-size:.36em;font-weight:400;vertical-align:top;margin-left:4px;color:var(--accent-ink);letter-spacing:0}
+.num span{display:block;margin-top:16px;color:var(--steel);font-size:15.5px;max-width:22ch}
+
+/* statement band */
+.band{position:relative;min-height:78vh;display:grid;align-items:end;color:#fff;overflow:hidden}
+.band img{position:absolute;inset:0;width:100%;height:120%;object-fit:cover;top:-10%;will-change:transform}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,23,26,.78),rgba(20,23,26,.2) 70%)}
+.band .wrap{position:relative;z-index:2;padding-top:120px;padding-bottom:90px;width:100%}
+.band blockquote{margin:0;font-size:clamp(30px,4.2vw,64px);font-weight:400;font-variation-settings:"wdth" 112;line-height:1.05;letter-spacing:-.02em;max-width:18ch}
+.band p{margin:28px 0 0;color:#e2e4e2;max-width:50ch}
+.band cite{display:block;font-style:normal;font-size:15px;margin-top:26px;color:var(--accent)}
+
+/* services index */
+.services{padding:clamp(80px,10vw,140px) 0;background:#fff}
+.svc-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px}
+.svc-head h2{font-size:clamp(36px,5vw,76px);font-variation-settings:"wdth" 125;font-weight:500}
+.svc-head p{color:var(--steel);max-width:50ch;margin:0}
+.rows{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--graphite)}
+.row{border-bottom:1.5px solid var(--concrete)}
+.row button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:56px minmax(0,1.1fr) minmax(0,1fr) 40px;gap:24px;align-items:center;padding:30px 0;transition:padding .35s}
+.row button:focus-visible{outline:2px solid var(--accent-ink);outline-offset:-2px}
+.row .ic{width:34px;height:34px;stroke-width:1.4;color:var(--steel)}
+.row h3{font-size:clamp(24px,2.6vw,38px);font-weight:500;font-variation-settings:"wdth" 120}
+.row .sum{color:var(--steel);font-size:16px}
+.row .pm{width:40px;height:40px;display:grid;place-items:center;border:1.5px solid var(--concrete);transition:transform .35s,background .35s}
+.row .pm .ic{width:18px;height:18px;color:var(--graphite)}
+.row:hover button{padding-left:14px}
+.row:hover .pm{background:var(--accent);border-color:var(--accent)}
+.row .pm .ic{transition:transform .35s}
+.row.open .pm{background:var(--graphite);border-color:var(--graphite)}
+.row.open .pm .ic{color:#fff;transform:rotate(45deg)}
+.more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
+.row.open .more{grid-template-rows:1fr}
+.more > div{overflow:hidden}
+.more .in{display:grid;grid-template-columns:56px minmax(0,1.1fr) minmax(0,1fr) 40px;gap:24px;padding:0 0 34px}
+.more ul{grid-column:3;margin:0;padding:0;list-style:none;display:grid;gap:12px;align-content:start}
+.more li{display:flex;gap:10px;align-items:flex-start}
+.more li .ic{width:18px;height:18px;color:var(--accent-ink);margin-top:4px;flex:none}
+.more img{grid-column:2;width:100%;aspect-ratio:16/10;object-fit:cover;filter:grayscale(.25)}
+.peek{position:fixed;left:0;top:0;width:300px;aspect-ratio:4/3;pointer-events:none;z-index:30;opacity:0;transition:opacity .25s;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.peek img{width:100%;height:100%;object-fit:cover}
+.peek.on{opacity:1}
+
+/* team */
+.team{padding:clamp(80px,10vw,140px) 0}
+.team-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:54px}
+.team-head h2{font-size:clamp(34px,4.4vw,64px);font-variation-settings:"wdth" 122;font-weight:500;max-width:14ch}
+.team-head p{max-width:44ch;color:var(--steel);margin:0}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.person:nth-child(2){margin-top:70px}
+.shot{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--graphite)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:grayscale(1) contrast(1.08) brightness(1.05);mix-blend-mode:luminosity;transition:transform .8s}
+.shot::after{content:"";position:absolute;inset:0;background:var(--accent);mix-blend-mode:multiply;opacity:.55;transition:opacity .5s}
+.person:hover .shot::after{opacity:.15}
+.person:hover .shot img{transform:scale(1.03)}
+.person h3{font-size:24px;margin-top:20px;font-variation-settings:"wdth" 115}
+.person .role{color:var(--steel);margin:4px 0 14px}
+.spec{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14.5px;border-top:1.5px solid var(--concrete);padding-top:14px}
+.spec dt{color:var(--steel)}
+.spec dd{margin:0}
+
+/* process */
+.process{background:var(--graphite);color:#fff;padding:clamp(80px,10vw,140px) 0;overflow:hidden}
+.process h2{font-size:clamp(34px,4.4vw,64px);font-variation-settings:"wdth" 122;font-weight:500;max-width:18ch;margin-bottom:70px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative}
+.steps::before{content:"";position:absolute;left:0;right:0;top:27px;height:1.5px;background:rgba(255,255,255,.18)}
+.steps::after{content:"";position:absolute;left:0;top:27px;height:1.5px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 1.8s cubic-bezier(.6,0,.2,1)}
+.steps.seen::after{transform:scaleX(1)}
+.steps li{position:relative;padding-top:80px}
+.steps li b{position:absolute;top:0;left:0;width:56px;height:56px;display:grid;place-items:center;background:var(--graphite);border:1.5px solid var(--accent);font-weight:300;font-variation-settings:"wdth" 125;font-size:20px;color:var(--accent)}
+.steps h3{font-size:22px;font-variation-settings:"wdth" 112;margin-bottom:10px}
+.steps p{color:#c4c8c8;font-size:15.5px;margin:0}
+
+/* faq */
+.faq{padding:clamp(80px,10vw,130px) 0}
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+.faq h2{font-size:clamp(32px,3.8vw,54px);font-variation-settings:"wdth" 122;font-weight:500}
+.faq details{border-bottom:1.5px solid var(--concrete)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 50px 24px 0;font-size:19px;font-weight:550;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:14px;height:14px;margin-top:-9px;border-right:1.5px solid;border-bottom:1.5px solid;transform:rotate(45deg);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(225deg);margin-top:-3px}
+.faq details p{color:var(--steel);max-width:62ch;padding-bottom:20px;margin:0}
+
+/* contact */
+.contact{background:#fff;padding:clamp(80px,10vw,130px) 0}
+.contact .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,90px)}
+.contact h2{font-size:clamp(36px,5vw,74px);font-variation-settings:"wdth" 125;font-weight:500;margin-bottom:34px}
+.big-links{display:grid;gap:8px;margin-bottom:40px}
+.big-links a{font-size:clamp(22px,2.4vw,34px);font-weight:300;font-variation-settings:"wdth" 120;text-decoration:none;letter-spacing:-.01em;width:max-content;max-width:100%;overflow-wrap:anywhere;background:linear-gradient(var(--accent),var(--accent)) 0 92%/0 8px no-repeat;transition:background-size .35s}
+.big-links a:hover{background-size:100% 8px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:30px;border-top:1.5px solid var(--graphite);padding-top:26px}
+.facts h3{font-size:14px;font-weight:600;font-variation-settings:"wdth" 110;color:var(--steel);margin-bottom:10px;letter-spacing:.02em}
+.facts p,.facts table{font-size:15.5px;margin:0}
+.facts table{border-collapse:collapse}
+.facts td{padding:2px 14px 2px 0;vertical-align:top}
+.facts a.map{display:inline-flex;gap:8px;align-items:center;margin-top:12px;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--accent)}
+.facts a.map .ic{width:16px;height:16px}
+.plan{margin-top:34px;background:var(--chalk);position:relative;aspect-ratio:16/7;overflow:hidden}
+.plan svg{width:100%;height:100%;display:block}
+.form{background:var(--chalk);padding:clamp(28px,4vw,48px)}
+.form h3{font-size:26px;font-variation-settings:"wdth" 115;margin-bottom:8px}
+.form > p{color:var(--steel);margin-bottom:24px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.full{grid-column:1/-1}
+.f{display:block;font-size:14px;font-weight:550}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:6px;padding:14px 0;border:0;border-bottom:1.5px solid var(--concrete);background:transparent;font:inherit;font-size:16px;font-weight:400;color:var(--graphite);border-radius:0}
+.f select{padding-right:10px}
+.f textarea{min-height:100px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-bottom-color:var(--graphite)}
+.consent{display:flex;gap:10px;font-size:14px;color:var(--steel);margin:20px 0 24px;align-items:flex-start}
+.consent input{margin-top:4px;accent-color:var(--graphite)}
+.sent{display:none;margin-top:16px;padding:12px 14px;background:color-mix(in srgb,var(--accent) 40%,#fff);font-size:15px}
+.sent.on{display:block}
+
+/* footer */
+footer{background:var(--graphite);color:#bfc4c4;padding:70px 0 34px;font-size:14.5px}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+footer h3{font-size:14px;color:#fff;margin-bottom:14px;font-variation-settings:"wdth" 110;letter-spacing:.02em}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+footer .brand{color:#fff;margin-bottom:16px}
+.social{display:flex;gap:10px;margin-top:14px}
+.social a{width:40px;height:40px;display:grid;place-items:center;border:1.5px solid rgba(255,255,255,.25)}
+.social .ic{width:18px;height:18px}
+.legal{border-top:1px solid rgba(255,255,255,.12);margin-top:50px;padding-top:22px;display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between;font-size:13px}
+.legal .ph{color:var(--graphite)}
+.ids{display:flex;flex-wrap:wrap;gap:6px 22px}
+
+@media (max-width:1000px){
+  .numbers .intro,.svc-head,.faq .wrap,.contact .wrap{grid-template-columns:1fr;gap:28px}
+  .nums{grid-template-columns:1fr 1fr;row-gap:48px}
+  .num:nth-child(3){padding-left:0;border-left:0}
+  .steps{grid-template-columns:1fr 1fr;row-gap:44px}
+  .steps::before,.steps::after{display:none}
+  .fcols{grid-template-columns:1fr 1fr}
+  .people{grid-template-columns:1fr 1fr 1fr;gap:16px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:68px 0 0;background:var(--chalk);color:var(--graphite);flex-direction:column;align-items:flex-start;padding:30px var(--pad);gap:24px;font-size:22px}
+  .top .wrap{height:68px}
+  .hero{min-height:640px}
+  .hero-copy{grid-template-columns:1fr;gap:26px;padding-bottom:34px}
+  .hero::after{background:linear-gradient(180deg,rgba(20,23,26,.5) 0%,rgba(20,23,26,.15) 22%,rgba(20,23,26,.55) 48%,rgba(20,23,26,.9) 100%)}
+  .ctrl{justify-items:start;min-width:0}
+  .cap{text-align:left}
+  .arrows{display:none}
+  .num + .num{padding-left:18px}
+  .num:nth-child(odd){padding-left:0;border-left:0}
+  .row button{grid-template-columns:40px minmax(0,1fr) 36px;gap:14px;padding:22px 0}
+  .row .sum{display:none}
+  .row .ic{width:28px;height:28px}
+  .row .pm{width:36px;height:36px}
+  .row:hover button{padding-left:0}
+  .more .in{grid-template-columns:1fr;padding-bottom:26px}
+  .more ul,.more img{grid-column:1}
+  .people{grid-template-columns:1fr;gap:44px}
+  .person:nth-child(2){margin-top:0}
+  .shot{aspect-ratio:4/4.4}
+  .steps{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr}
+  .fields{grid-template-columns:1fr}
+  .fcols{grid-template-columns:1fr}
+  .team-head{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.capture .bars button.on i::after{transform:scaleX(.35)}
+.shot-mode main{padding-top:76px}
+@media (max-width:760px){.shot-mode main{padding-top:68px}}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Altaconta (opção 2) · pré-visualização do site">
+<meta property="og:description" content="Contabilidade · Altaconta">
+<meta property="og:url" content="https://preview.northsoftware.pt/altaconta-lisboa-opcao-2/">
+<meta property="og:image" content="https://preview.northsoftware.pt/altaconta-lisboa-opcao-2/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 v4-d" data-service-count="8" style="--service-columns:3">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"do gabinete"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de falar sobre a contabilidade da minha empresa.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de falar sobre a contabilidade da minha empresa.");}
+},true);
+</script>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Altaconta, início">
+      <span class="mono" aria-hidden="true">A</span>
+      <span><b>Altaconta</b><small>Contabilidade</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a class="cta" href="#contacto">Pedir contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio" aria-roledescription="carrossel" aria-label="Apresentação">
+  
+  <div class="slide on" data-cap="" data-sub="" aria-hidden="false">
+    <img src="assets/slide-1.jpg" alt="Fotografia ilustrativa">
+  </div>
+  
+  <div class="slide" data-cap="" data-sub="" aria-hidden="true">
+    <img src="assets/slide-2.jpg" alt="Fotografia ilustrativa" loading="lazy">
+  </div>
+  
+  <div class="hero-copy">
+    <div>
+      <h1>Altaconta</h1>
+      <p class="lead">Contabilidade, fiscalidade e salários em Lisboa</p>
+      <div class="hero-ctas">
+        <a class="btn btn-accent" href="#contacto">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-line" href="tel:+351218110850"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> 218 110 850</a>
+      </div>
+    </div>
+    <div class="ctrl">
+      <p class="cap" id="cap" aria-live="polite"><b></b><br></p>
+      <div class="bars" id="bars">
+        <button type="button" class="on" aria-label="Imagem 1 de 2"><i></i></button><button type="button" class="" aria-label="Imagem 2 de 2"><i></i></button>
+        <span class="count-no" id="countNo">1/2</span>
+      </div>
+      <div class="arrows"><button type="button" id="prev" aria-label="Imagem anterior"><svg class="ic ic-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="next" aria-label="Imagem seguinte"><svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="numbers" id="sobre">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Sobre Altaconta</h2>
+      <div><p>A Altaconta presta serviços contabilísticos e fiscais a empresas e particulares, incluindo o apoio a IPSS, associações e outras entidades sem fins lucrativos.</p></div>
+    </div>
+    <div class="nums">
+      
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="svc-head"><h2>Serviços</h2><p></p></div>
+    <ul class="rows" id="rows">
+      
+      <li class="row" data-img="assets/slide-2.jpg">
+        <button type="button" aria-expanded="false" aria-controls="svc-1">
+          <svg class="ic ic-ledger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v16H5.5A1.5 1.5 0 0 0 4 20.5z"/><path d="M4 20.5A1.5 1.5 0 0 0 5.5 22H19v-3M8 7h7M8 10.5h7M8 14h4"/></svg><h3>Assistência contabilística</h3><span class="sum">O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</span><span class="pm"><svg class="ic ic-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="more" id="svc-1"><div><div class="in">
+          <span></span>
+          <img src="assets/slide-2.jpg" alt="" loading="lazy">
+          <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span>O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</span></li></ul>
+        </div></div></div>
+      </li>
+      
+      <li class="row" data-img="assets/slide-3.jpg">
+        <button type="button" aria-expanded="false" aria-controls="svc-2">
+          <svg class="ic ic-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><h3>Contabilidade analítica</h3><span class="sum">Organização da informação por áreas, atividades ou centros de custo. Esta leitura permite compreender como os recursos são utilizados no negócio.</span><span class="pm"><svg class="ic ic-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="more" id="svc-2"><div><div class="in">
+          <span></span>
+          <img src="assets/slide-3.jpg" alt="" loading="lazy">
+          <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span>Organização da informação por áreas, atividades ou centros de custo. Esta leitura permite compreender como os recursos são utilizados no negócio.</span></li></ul>
+        </div></div></div>
+      </li>
+      
+      <li class="row" data-img="assets/processo.jpg">
+        <button type="button" aria-expanded="false" aria-controls="svc-3">
+          <svg class="ic ic-ledger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v16H5.5A1.5 1.5 0 0 0 4 20.5z"/><path d="M4 20.5A1.5 1.5 0 0 0 5.5 22H19v-3M8 7h7M8 10.5h7M8 14h4"/></svg><h3>Contabilidade financeira</h3><span class="sum">O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</span><span class="pm"><svg class="ic ic-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="more" id="svc-3"><div><div class="in">
+          <span></span>
+          <img src="assets/processo.jpg" alt="" loading="lazy">
+          <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span>O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</span></li></ul>
+        </div></div></div>
+      </li>
+      
+      <li class="row" data-img="assets/slide-4.jpg">
+        <button type="button" aria-expanded="false" aria-controls="svc-4">
+          <svg class="ic ic-ledger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v16H5.5A1.5 1.5 0 0 0 4 20.5z"/><path d="M4 20.5A1.5 1.5 0 0 0 5.5 22H19v-3M8 7h7M8 10.5h7M8 14h4"/></svg><h3>Contabilidade orçamental</h3><span class="sum">O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</span><span class="pm"><svg class="ic ic-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="more" id="svc-4"><div><div class="in">
+          <span></span>
+          <img src="assets/slide-4.jpg" alt="" loading="lazy">
+          <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span>O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</span></li></ul>
+        </div></div></div>
+      </li>
+      
+      <li class="row" data-img="assets/slide-1.jpg">
+        <button type="button" aria-expanded="false" aria-controls="svc-5">
+          <svg class="ic ic-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18M7 21h10M4 7h16M6 7l-3 7a3.2 3.2 0 0 0 6 0zM18 7l-3 7a3.2 3.2 0 0 0 6 0z"/></svg><h3>Fiscalidade</h3><span class="sum">Análise do enquadramento fiscal de uma atividade e das obrigações que lhe estão associadas. Os temas são considerados de acordo com a situação concreta de cada negócio.</span><span class="pm"><svg class="ic ic-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="more" id="svc-5"><div><div class="in">
+          <span></span>
+          <img src="assets/slide-1.jpg" alt="" loading="lazy">
+          <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span>Análise do enquadramento fiscal de uma atividade e das obrigações que lhe estão associadas. Os temas são considerados de acordo com a situação concreta de cada negócio.</span></li></ul>
+        </div></div></div>
+      </li>
+      
+      <li class="row" data-img="assets/sobre.jpg">
+        <button type="button" aria-expanded="false" aria-controls="svc-6">
+          <svg class="ic ic-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3 3 0 0 1 0 6M18 14.5c1.8.8 3 2.6 3 5"/></svg><h3>Processamento de salários</h3><span class="sum">Apuramento de remunerações, descontos e elementos associados ao processamento salarial. A informação é organizada de acordo com os dados de cada relação de trabalho.</span><span class="pm"><svg class="ic ic-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="more" id="svc-6"><div><div class="in">
+          <span></span>
+          <img src="assets/sobre.jpg" alt="" loading="lazy">
+          <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span>Apuramento de remunerações, descontos e elementos associados ao processamento salarial. A informação é organizada de acordo com os dados de cada relação de trabalho.</span></li></ul>
+        </div></div></div>
+      </li>
+      
+      <li class="row" data-img="assets/slide-2.jpg">
+        <button type="button" aria-expanded="false" aria-controls="svc-7">
+          <svg class="ic ic-ledger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v16H5.5A1.5 1.5 0 0 0 4 20.5z"/><path d="M4 20.5A1.5 1.5 0 0 0 5.5 22H19v-3M8 7h7M8 10.5h7M8 14h4"/></svg><h3>Processamento de faturação</h3><span class="sum">O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</span><span class="pm"><svg class="ic ic-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="more" id="svc-7"><div><div class="in">
+          <span></span>
+          <img src="assets/slide-2.jpg" alt="" loading="lazy">
+          <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span>O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</span></li></ul>
+        </div></div></div>
+      </li>
+      
+      <li class="row" data-img="assets/slide-3.jpg">
+        <button type="button" aria-expanded="false" aria-controls="svc-8">
+          <svg class="ic ic-ledger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v16H5.5A1.5 1.5 0 0 0 4 20.5z"/><path d="M4 20.5A1.5 1.5 0 0 0 5.5 22H19v-3M8 7h7M8 10.5h7M8 14h4"/></svg><h3>Declarações de IRS</h3><span class="sum">O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</span><span class="pm"><svg class="ic ic-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="more" id="svc-8"><div><div class="in">
+          <span></span>
+          <img src="assets/slide-3.jpg" alt="" loading="lazy">
+          <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span>O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</span></li></ul>
+        </div></div></div>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="peek" id="peek" aria-hidden="true"><img alt="" id="peekImg"></div>
+</section>
+
+
+
+
+
+
+
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2>Pedir contacto</h2>
+      <div class="big-links">
+        <a href="mailto:altacontalda@gmail.com">altacontalda@gmail.com</a>
+        <a href="tel:+351218110850">218 110 850</a>
+        
+      </div>
+      <div class="facts">
+        <div>
+          <h3>Morada</h3>
+          <p>Rua Morais Soares, 25 C/v, 1900-339 Lisboa<br></p>
+          
+        </div>
+        
+      </div>
+      <div class="plan" aria-hidden="true">
+        <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice">
+          <g fill="none" stroke="var(--concrete)" stroke-width="1.5">
+            <path d="M0 120h800M0 250h800M180 0v350M470 0v350M650 0v350"/>
+            <path d="M0 40 320 350M520 0l280 230" stroke-dasharray="6 6"/>
+            <rect x="200" y="140" width="250" height="90"/><rect x="490" y="140" width="140" height="90"/><rect x="20" y="140" width="140" height="90"/><rect x="200" y="20" width="250" height="80"/><rect x="490" y="270" width="140" height="70"/>
+          </g>
+          <g fill="none" stroke="var(--graphite)" stroke-width="2"><path d="M0 185h800" stroke-width="10" stroke="#fff"/><path d="M325 0v350" stroke-width="10" stroke="#fff"/></g>
+          <circle cx="325" cy="185" r="34" fill="var(--accent)" opacity=".5"><animate attributeName="r" values="18;40;18" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="325" cy="185" r="9" fill="var(--graphite)"/>
+        </svg>
+      </div>
+    </div>
+    <form class="form" id="form" novalidate>
+      <h3>Como podemos ajudar?</h3>
+      <p>Diga-nos qual o assunto que pretende tratar.</p>
+      <div class="fields">
+        <label class="f">Nome<input name="nome" autocomplete="name" required></label>
+        <label class="f">Telefone<input name="tel" type="tel" autocomplete="tel"></label>
+        <label class="f full">Email<input name="email" type="email" autocomplete="email" required></label>
+        <label class="f full">Assunto<select name="assunto"><option>Assistência contabilística</option><option>Contabilidade analítica</option><option>Contabilidade financeira</option><option>Contabilidade orçamental</option><option>Fiscalidade</option><option>Processamento de salários</option><option>Processamento de faturação</option><option>Declarações de IRS</option></select></label>
+        <label class="f full">Mensagem<textarea name="msg"></textarea></label>
+      </div>
+      <label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+      <button class="btn btn-dark" type="submit">Pedir contacto pelo WhatsApp <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="sent" id="sent" role="status">Pré-visualização: pedido não enviado. Use os contactos publicados para falar com o negócio.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <a class="brand" href="#"><span class="mono" aria-hidden="true">A</span><span><b>Altaconta</b><small>Contabilidade</small></span></a>
+        <p>Contabilidade, fiscalidade e salários em Lisboa</p>
+        
+      </div>
+      <div><h3>Serviços</h3><ul><li><a href="#servicos">Assistência contabilística</a></li><li><a href="#servicos">Contabilidade analítica</a></li><li><a href="#servicos">Contabilidade financeira</a></li><li><a href="#servicos">Contabilidade orçamental</a></li><li><a href="#servicos">Fiscalidade</a></li><li><a href="#servicos">Processamento de salários</a></li><li><a href="#servicos">Processamento de faturação</a></li><li><a href="#servicos">Declarações de IRS</a></li></ul></div>
+      <div><h3>Escritório</h3><ul><li>Rua Morais Soares, 25 C/v, 1900-339 Lisboa</li><li><a href="tel:+351218110850">218 110 850</a></li><li><a href="mailto:altacontalda@gmail.com">altacontalda@gmail.com</a></li></ul></div>
+      <div><h3>Informação legal</h3><ul></ul></div>
+    </div>
+    <div class="legal">
+      <span class="ids"><span>Altaconta - Contabilidade e Gestão de Empresas, Limitada</span><span>NIF <span class="ph">501130799</span></span></span>
+      <span>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  var capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture) root.classList.add('capture');
+
+  var top=d.getElementById('top'), nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  function onScroll(){ top.classList.toggle('solid', scrollY>innerHeight*0.6 || nav.classList.contains('open')); }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');onScroll();});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);onScroll();}});
+
+  // slider: Ken Burns + progress bars; pauses on hover/focus; static when motion is reduced
+  var slides=[].slice.call(d.querySelectorAll('.slide')), bars=[].slice.call(d.querySelectorAll('#bars button'));
+  var cap=d.getElementById('cap'), countNo=d.getElementById('countNo'), cur=0, timer=null, DUR=6500;
+  function go(n){
+    cur=(n+slides.length)%slides.length;
+    slides.forEach(function(s,k){s.classList.toggle('on',k===cur);s.setAttribute('aria-hidden',k!==cur);});
+    bars.forEach(function(b,k){b.classList.remove('on','done'); if(k<cur)b.classList.add('done');});
+    void bars[cur].offsetWidth; bars[cur].classList.add('on');
+    cap.innerHTML='<b></b><br><span></span>'; cap.firstChild.textContent=slides[cur].dataset.cap; cap.lastChild.textContent=slides[cur].dataset.sub;
+    countNo.textContent=(cur+1)+'/'+slides.length;
+    schedule();
+  }
+  function schedule(){ clearTimeout(timer); if(!still) timer=setTimeout(function(){go(cur+1)},DUR); }
+  bars.forEach(function(b,k){b.addEventListener('click',function(){go(k)});});
+  d.getElementById('next').onclick=function(){go(cur+1)}; d.getElementById('prev').onclick=function(){go(cur-1)};
+  d.querySelector('.hero').addEventListener('keydown',function(e){ if(e.key==='ArrowRight')go(cur+1); if(e.key==='ArrowLeft')go(cur-1); });
+  root.style.setProperty('--dur',DUR+'ms');
+  if(still){ bars[0].classList.add('on'); } else { schedule(); }
+
+  // counters
+  var counts=[].slice.call(d.querySelectorAll('[data-count]'));
+  function fmt(n){ return Math.round(n).toLocaleString('pt-PT').replace(/\./g,' '); }
+  function run(el){ var end=+el.dataset.count, t0=null; function step(t){ if(!t0)t0=t; var p=Math.min(1,(t-t0)/1800), e=1-Math.pow(1-p,4); el.textContent=fmt(end*e); if(p<1)requestAnimationFrame(step);} requestAnimationFrame(step); }
+  var steps=d.getElementById('steps');
+  if(!still && 'IntersectionObserver' in window){
+    counts.forEach(function(el){el.textContent='0'});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(!e.isIntersecting)return; io.unobserve(e.target); if(e.target===steps) steps.classList.add('seen'); else run(e.target); });},{threshold:.5});
+    counts.forEach(function(el){io.observe(el)}); if(steps) io.observe(steps);
+  } else if(steps){ steps.classList.add('seen'); }
+
+  // statement band parallax
+  var band=d.getElementById('bandImg');
+  if(band && !still){ var tick=false; addEventListener('scroll',function(){ if(tick)return; tick=true; requestAnimationFrame(function(){ var r=band.parentNode.getBoundingClientRect(); var p=(r.top+r.height/2-innerHeight/2)/innerHeight; band.style.transform='translateY('+(p*-8)+'%)'; tick=false; }); },{passive:true}); }
+
+  // services: accordion + photo that follows the pointer (fine pointers only)
+  var rows=[].slice.call(d.querySelectorAll('.row')), peek=d.getElementById('peek'), peekImg=d.getElementById('peekImg');
+  rows.forEach(function(r){ var b=r.querySelector('button'); b.addEventListener('click',function(){ var o=r.classList.toggle('open'); b.setAttribute('aria-expanded',o); }); });
+  if(peek && matchMedia('(hover:hover) and (pointer:fine)').matches && !still){
+    var px=0,py=0,tx=0,ty=0,raf=null;
+    function loop(){ px+=(tx-px)*.18; py+=(ty-py)*.18; peek.style.transform='translate('+(px+28)+'px,'+(py-110)+'px) rotate('+((tx-px)*.03)+'deg)'; raf=requestAnimationFrame(loop); }
+    rows.forEach(function(r){
+      r.addEventListener('mouseenter',function(){ if(!r.dataset.img||r.classList.contains('open'))return; peekImg.src=r.dataset.img; peek.classList.add('on'); if(!raf)raf=requestAnimationFrame(loop); });
+      r.addEventListener('mouseleave',function(){ peek.classList.remove('on'); });
+      r.addEventListener('click',function(){ peek.classList.remove('on'); });
+    });
+    addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;},{passive:true});
+  }
+
+  d.getElementById('form').addEventListener('submit',function(e){e.preventDefault();d.getElementById('sent').classList.add('on');});
+
+  var m=location.hash.match(/^#shot-(.+)/), t=m&&d.getElementById(m[1]);
+  if(t && !t.hidden){ root.classList.add('shot-mode'); top.classList.add('solid'); removeEventListener('scroll',onScroll);
+    [].forEach.call(d.querySelectorAll('main > *, footer'),function(s){ if(s!==t) s.style.display='none'; });
+    if(m[1]==='servicos' && rows[0]){ rows[0].classList.add('open'); } }
+})();
+</script>
+</body>
+</html>

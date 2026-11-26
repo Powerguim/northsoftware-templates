@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escola de Condução Portalegrense · Portalegre</title>
+<meta name="description" content="Escola de condução · Escola de Condução Portalegrense">
+
+
+
+<style>
+@font-face{font-family:"Syne";src:url("assets/fonts/of-syne-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Figtree";src:url("assets/fonts/figtree-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --asphalt:#25282d; --asphalt2:#33373d; --cone:#ff7a1a; --sign:#1E56B3;
+  --paper:#F3F4F1; --ink:#1F2226; --muted:#5C6168;
+  --display:"Syne", Georgia, sans-serif; --body:"Figtree", sans-serif;
+  --wrap:1280px; --pad:clamp(18px,4.5vw,52px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17.5px/1.6 var(--body);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:850;font-stretch:125%;line-height:.95;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px solid var(--cone);outline-offset:3px}
+section{scroll-margin-top:76px}
+.ic{width:22px;height:22px}
+.ph{background:#fff1b0;color:#4d3d00;padding:0 4px;border-radius:3px;font-size:.92em}
+.h2{font-size:clamp(40px,5.2vw,74px)}
+.lead{font-size:19px;color:var(--muted);max-width:56ch}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border-radius:12px;font:700 17px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn .ic{width:19px;height:19px}
+.btn-cone{background:var(--cone);color:#1b1206}
+.btn-cone:hover{transform:translateY(-2px);background:#ff8d3a}
+.btn-glass{background:#ffffff1f;color:#fff;backdrop-filter:blur(6px);box-shadow:inset 0 0 0 1.5px #ffffff55}
+.btn-glass:hover{background:#ffffff33}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:var(--asphalt);color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .lg{width:44px;height:44px;border-radius:10px;background:var(--sign);display:grid;place-items:center;font:900 22px var(--display);font-stretch:140%;box-shadow:inset 0 0 0 3px #fff}
+.brand b{display:block;font:850 25px/1 var(--display);font-stretch:130%}
+.brand small{display:block;font-size:13.5px;color:#b9bdc4}
+.next{display:flex;align-items:center;gap:8px;font-size:14.5px;background:var(--asphalt2);padding:8px 14px;border-radius:999px;color:#dfe2e6}
+.next i{width:8px;height:8px;border-radius:50%;background:var(--cone);box-shadow:0 0 0 4px #ff7a1a33;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.35}}
+.nav{display:flex;align-items:center;gap:24px;font-weight:600;font-size:15.5px}
+.nav a:not(.btn){text-decoration:none;color:#dfe2e6}
+.nav a:not(.btn):hover{color:var(--cone)}
+.nav .btn{padding:11px 16px;font-size:15px}
+.burger{display:none;background:none;border:0;color:#fff;padding:8px;cursor:pointer}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{position:relative;min-height:min(calc(100vh - 72px),820px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--asphalt)}
+.hero .bg{position:absolute;inset:0}
+.hero .bg video,.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#25282df2 8%,#25282d55 55%,#25282d22),linear-gradient(90deg,#25282dcc,transparent 70%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:70px}
+.hero h1{font-size:clamp(54px,7.4vw,118px);max-width:11ch}
+.hero .lead{color:#dfe2e6;margin:24px 0 32px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.lane{position:absolute;left:0;right:0;bottom:0;height:10px;z-index:3;background:repeating-linear-gradient(90deg,#fff 0 60px,transparent 60px 110px);opacity:.85;animation:lane 1.2s linear infinite}
+@keyframes lane{to{background-position:-110px 0}}
+.playbtn{position:absolute;right:var(--pad);top:22px;z-index:4;width:44px;height:44px;border-radius:50%;border:1.5px solid #ffffff77;background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer}
+.playbtn .ic{width:17px;height:17px}
+.playbtn .ic-play,.playbtn.paused .ic-pause{display:none}
+.playbtn.paused .ic-play{display:block}
+.hstats{position:absolute;right:var(--pad);bottom:70px;z-index:2;display:grid;gap:10px}
+.hstat{background:#ffffff14;backdrop-filter:blur(8px);border-radius:16px;padding:14px 18px;display:flex;align-items:center;gap:14px;min-width:250px}
+.hstat b{font:900 40px/1 var(--display);font-stretch:120%;color:var(--cone)}
+.hstat span{font-size:14px;color:#dfe2e6;line-height:1.3}
+
+/* categories */
+.cats{background:var(--paper);padding:100px 0}
+.cats .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.plates{display:flex;flex-wrap:wrap;gap:10px;margin:40px 0 24px}
+.plate{all:unset;cursor:pointer;display:flex;align-items:stretch;background:#fff;border-radius:8px;box-shadow:inset 0 0 0 2px var(--ink),0 3px 0 #c9ccc6;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.plate .eu{width:22px;background:var(--sign);color:#fff;display:grid;place-items:end center;font:700 10px var(--body);padding-bottom:5px}
+.plate .eu::before{content:"";position:absolute}
+.plate b{padding:10px 16px 8px;font:900 28px/1 var(--display);font-stretch:110%;display:flex;align-items:center;gap:10px}
+.plate b .ic{width:24px;height:24px;color:var(--muted)}
+.plate:hover{transform:translateY(-3px)}
+.plate[aria-selected="true"]{background:var(--cone);box-shadow:inset 0 0 0 2px var(--ink),0 5px 0 var(--ink)}
+.plate[aria-selected="true"] b .ic{color:var(--ink)}
+.plate:focus-visible{outline:3px solid var(--sign);outline-offset:3px}
+.cpanel{display:none;grid-template-columns:1fr 1fr;background:#fff;border-radius:22px;overflow:hidden;min-height:360px}
+.cpanel.on{display:grid;animation:in .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes in{from{opacity:0;transform:translateX(24px)}}
+.cpanel .pic{position:relative;background:var(--asphalt)}
+.cpanel .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cpanel .pic .big{position:absolute;left:24px;bottom:18px;font:900 120px/1 var(--display);font-stretch:150%;color:#fff;text-shadow:0 8px 30px #0008}
+.cpanel .pic .noimg{position:absolute;inset:0;display:grid;place-items:center;color:#ffffff33}
+.cpanel .pic .noimg .ic{width:140px;height:140px;stroke-width:1}
+.cpanel .txt{padding:36px 40px}
+.cpanel h3{font-size:40px;margin-bottom:22px}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:14px 18px;margin:0 0 26px}
+.spec dt{display:flex;gap:10px;align-items:center;font-weight:700;color:var(--muted);font-size:15px}
+.spec dt .ic{color:var(--sign)}
+.spec dd{margin:0;font-weight:500}
+
+/* journey */
+.jour{padding:110px 0 120px;background:#fff}
+.jour .head{text-align:left;max-width:760px}
+.jr{position:relative;margin-top:60px}
+.jr svg.road{position:absolute;left:50%;width:240px;margin-left:-120px;top:0;height:100%;overflow:visible}
+.jr .car{position:absolute;z-index:3;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:var(--cone);display:grid;place-items:center;box-shadow:0 8px 20px -6px #ff7a1aaa;transition:transform .1s linear}
+.jr .car .ic{width:28px;height:28px;color:var(--ink)}
+.jr ol{list-style:none;padding:0;margin:0;position:relative;z-index:2}
+.jr li{width:calc(50% - 150px);background:var(--paper);border-radius:20px;padding:22px 24px;margin-bottom:34px;position:relative}
+.jr li:nth-child(even){margin-left:calc(50% + 150px)}
+.jr li .ic{width:44px;height:44px;padding:10px;border-radius:12px;background:var(--asphalt);color:var(--cone);margin-bottom:12px}
+.jr li h3{font-size:30px;margin-bottom:8px}
+.jr li p{margin:0;color:var(--muted)}
+.jr li .when{position:absolute;right:20px;top:22px;font-size:13.5px;font-weight:700;background:#fff;border-radius:999px;padding:4px 12px}
+.jr .note{font-size:14.5px;color:var(--muted);text-align:center;margin-top:10px}
+
+/* results */
+.res{background:var(--asphalt);color:#fff;padding:100px 0}
+.res .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.res .lead{color:#c3c7cd}
+.gauges{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+.gauge{background:var(--asphalt2);border-radius:22px;padding:28px;display:flex;align-items:center;gap:22px}
+.gauge svg{width:132px;height:132px;flex:none;transform:rotate(-90deg)}
+.gauge circle{fill:none;stroke-width:12}
+.gauge .t{stroke:#ffffff18}
+.gauge .v{stroke:var(--cone);stroke-linecap:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1)}
+.gauge.on .v,.still .gauge .v{stroke-dashoffset:var(--off)}
+.gauge b{display:block;font:900 54px/1 var(--display);font-stretch:120%}
+.gauge span{color:#c3c7cd;font-size:15.5px}
+.gauge small{display:block;color:#8e949c;font-size:13px;margin-top:6px}
+.res .src{font-size:14px;color:#8e949c;margin-top:20px}
+
+/* timetable */
+.tt{padding:100px 0;background:var(--paper)}
+.tt .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.week{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:40px}
+.day{background:#fff;border-radius:16px;padding:14px;min-height:220px}
+.day h3{font:800 18px var(--display);font-stretch:110%;margin:0 0 12px;display:flex;justify-content:space-between;align-items:center}
+.day.today{box-shadow:inset 0 0 0 3px var(--sign)}
+.day.today h3::after{content:"hoje";font:700 12px var(--body);background:var(--sign);color:#fff;border-radius:999px;padding:3px 8px}
+.ses{border-radius:10px;background:var(--paper);padding:10px 12px;margin-bottom:8px;font-size:14.5px;line-height:1.35}
+.ses b{display:block;font-size:15px}
+.ses.now{background:var(--cone)}
+.ses.nexts{background:#dfe8f7}
+.ses em{display:block;font-style:normal;font-weight:700;font-size:12.5px;margin-top:4px}
+
+/* fleet */
+.fleet{padding:100px 0;overflow:hidden}
+.fleet .head{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.arrows{display:flex;gap:8px}
+.arrows button{all:unset;cursor:pointer;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:var(--paper)}
+.arrows button:hover{background:var(--cone)}
+.arrows button:focus-visible{outline:3px solid var(--sign)}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:36px;padding:0 var(--pad) 10px max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad)));scrollbar-width:none;cursor:grab}
+.rail::-webkit-scrollbar{display:none}
+.rail.drag{cursor:grabbing;scroll-snap-type:none}
+.veh{flex:none;width:min(380px,78vw);scroll-snap-align:start;user-select:none}
+.veh .pic{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3}
+.veh img{width:100%;height:100%;object-fit:cover;pointer-events:none;transition:transform .6s}
+.veh:hover img{transform:scale(1.05)}
+.veh .cat{position:absolute;left:14px;top:14px;background:#fff;border-radius:6px;box-shadow:inset 6px 0 0 var(--sign);padding:4px 10px 4px 14px;font:900 20px var(--display)}
+.veh h3{font-size:24px;margin:16px 0 4px;font-stretch:110%}
+.veh p{margin:0;color:var(--muted);font-size:15.5px}
+
+/* quiz + team */
+.qt{padding:0 0 100px}
+.qt .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
+.quiz{background:var(--sign);color:#fff;border-radius:26px;padding:36px;display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:start}
+.quiz svg{width:150px;height:150px}
+.quiz h2{font-size:38px;margin-bottom:10px}
+.quiz .q{font-weight:600;font-size:19px;margin-bottom:14px}
+.opts{display:grid;gap:8px}
+.opts button{all:unset;cursor:pointer;background:#ffffff1c;border-radius:12px;padding:12px 16px;font-size:16.5px;transition:background .2s}
+.opts button:hover{background:#ffffff33}
+.opts button.ok{background:#22a565}
+.opts button.ko{background:#d4442c}
+.opts button:focus-visible{outline:3px solid var(--cone)}
+.why{min-height:26px;margin:14px 0 0;font-size:15.5px}
+.qnav{display:flex;gap:8px;margin-top:10px}
+.qnav button{all:unset;cursor:pointer;font-weight:700;font-size:15px;color:#fff;text-decoration:underline;text-underline-offset:4px}
+.team{display:grid;gap:16px}
+.inst{display:grid;grid-template-columns:120px 1fr;gap:18px;background:var(--paper);border-radius:22px;padding:16px;align-items:center}
+.inst img{width:120px;height:120px;border-radius:16px;object-fit:cover}
+.inst h3{font-size:26px;font-stretch:110%}
+.inst .role{color:var(--muted);font-weight:600;margin:2px 0 6px;font-size:15px}
+.inst .cats{display:inline-block;background:#fff;border-radius:6px;box-shadow:inset 5px 0 0 var(--sign);padding:2px 10px 2px 12px;font-weight:800;font-size:14px;margin-bottom:6px}
+.inst p{margin:0;font-size:15.5px}
+
+/* enrol */
+.enrol{background:var(--asphalt);color:#fff;padding:100px 0}
+.enrol .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.enrol .lead{color:#c3c7cd}
+.form{background:#fff;color:var(--ink);border-radius:24px;padding:32px;margin-top:30px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields > *{min-width:0}
+.full{grid-column:1/-1}
+.f{display:block;font-weight:700;font-size:15px}
+.f input,.f select{display:block;width:100%;margin-top:6px;padding:13px;border:2px solid #dcdedb;border-radius:12px;font:400 17px var(--body);background:#fff;color:var(--ink)}
+.f input:focus,.f select:focus{outline:none;border-color:var(--sign)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.pills input{position:absolute;opacity:0}
+.pills span{display:inline-block;padding:9px 14px;border-radius:999px;background:var(--paper);font-weight:600;font-size:15.5px;cursor:pointer}
+.pills input:checked + span{background:var(--ink);color:#fff}
+.pills input:focus-visible + span{outline:3px solid var(--cone)}
+.consent{display:flex;gap:10px;font-size:14.5px;color:var(--muted);margin:18px 0 20px}
+.consent input{accent-color:var(--sign);margin-top:5px}
+.sent{display:none;margin-top:12px;font-weight:700;color:#1d8a52}
+.sent.on{display:block}
+.side .line{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid #ffffff1c;text-decoration:none}
+.side .line .ic{flex:none;color:var(--cone);margin-top:2px}
+.side .line b{display:block;font:850 30px/1 var(--display);font-stretch:115%;overflow-wrap:anywhere}
+.side small{display:block;color:#a7acb3;font-size:14px}
+.state{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-top:4px}
+.state i{width:10px;height:10px;border-radius:50%;background:#8e949c}
+.state.open i{background:#2ec27e;box-shadow:0 0 0 4px #2ec27e33}
+.lic{margin-top:22px;border:2px dashed #ffffff33;border-radius:16px;padding:16px 18px;display:flex;gap:12px;font-size:15px;color:#dfe2e6}
+.lic .ic{color:var(--cone);flex:none}
+
+footer{background:#1b1d21;color:#a7acb3;font-size:14.5px;padding:36px 0}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer a{color:#fff}
+
+@media (max-width:1100px){.next{display:none}}
+@media (max-width:1060px){
+  .cats .head,.res .head,.tt .head,.qt .wrap,.enrol .wrap{grid-template-columns:1fr}
+  .gauges{grid-template-columns:1fr}
+  .week{grid-template-columns:repeat(3,1fr)}
+  .hstats{display:none}
+}
+@media (max-width:760px){
+  body{font-size:16.5px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:66px 0 0;background:var(--asphalt);flex-direction:column;align-items:flex-start;padding:28px var(--pad);gap:22px;font-size:22px}
+  .top .wrap{height:66px}
+  .hero h1{font-size:50px}
+  .hero .wrap{padding-top:120px;padding-bottom:50px}
+  .cats,.jour,.res,.tt,.fleet,.enrol{padding:64px 0}
+  .plate b{font-size:22px;padding:8px 12px 6px}
+  .cpanel{grid-template-columns:1fr}
+  .cpanel .pic{min-height:220px}
+  .cpanel .txt{padding:24px 20px}
+  .cpanel h3{font-size:30px}
+  .spec{grid-template-columns:1fr;gap:4px}
+  .spec dd{margin-bottom:10px}
+  .jr svg.road{left:0;margin-left:-60px;width:140px}
+  .jr li,.jr li:nth-child(even){width:auto;margin-left:64px}
+  .jr li .when{position:static;display:inline-block;margin-bottom:8px}
+  .jr .car{width:42px;height:42px;margin:-21px 0 0 -21px}
+  .week{grid-template-columns:1fr 1fr}
+  .day{min-height:0}
+  .quiz{grid-template-columns:1fr;padding:24px}
+  .quiz svg{width:100px;height:100px}
+  .inst{grid-template-columns:90px 1fr}
+  .inst img{width:90px;height:90px}
+  .fields{grid-template-columns:1fr}
+  .form{padding:22px}
+  footer .wrap{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:72px}
+@media (max-width:760px){.shot-mode main{padding-top:66px}}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="E. C. Portalegrense (opção 1) · pré-visualização do site">
+<meta property="og:description" content="Escola de condução · Escola de Condução Portalegrense">
+<meta property="og:url" content="https://preview.northsoftware.pt/escola-conducao-portalegrense-opcao-1/">
+<meta property="og:image" content="https://preview.northsoftware.pt/escola-conducao-portalegrense-opcao-1/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 long-name long-hero v4-new v4-r" data-service-count="4" style="--service-columns:3">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"da escola"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de pedir informações.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de pedir informações.");}
+},true);
+</script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Escola de Condução Portalegrense, início"><span class="lg" aria-hidden="true">ED</span><span><b class="lead-brand-name" title="Escola de Condução Portalegrense">Escola de Condução Portalegrense</b><small>Escola de condução, Portalegre</small></span></a>
+    
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a class="btn btn-cone" href="#contacto">Pedir contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="bg">
+    <video id="heroVideo" muted loop playsinline preload="none" poster="assets/hero-poster.jpg" aria-hidden="true" data-src="assets/hero-360.mp4" data-small="assets/hero-360.mp4"></video>
+    
+  </div>
+  <button class="playbtn" id="playBtn" type="button" aria-label="Pausar vídeo"><svg class="ic ic-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 5v14M16 5v14"/></svg><svg class="ic ic-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 4.5v15l12-7.5z"/></svg></button>
+  <div class="wrap">
+    <h1>Escola de Condução Portalegrense</h1>
+    <p class="lead">Escola de condução em Portalegre</p>
+    <div class="ctas"><a class="btn btn-cone" href="#contacto">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-glass" href="#servicos">Ver serviços</a></div>
+  </div>
+  
+  <span class="lane" aria-hidden="true"></span>
+</section>
+
+
+<section class="cats" id="servicos">
+  <div class="wrap">
+    <div class="head"><h2 class="h2">Serviços</h2><p class="lead"></p></div>
+    <div class="plates" role="tablist" aria-label="Categorias"><button class="plate" type="button" role="tab" id="pl-Carta de mota (categoria A)" aria-controls="cp-Carta de mota (categoria A)" aria-selected="false" data-code="Carta de mota (categoria A)"><span class="eu" aria-hidden="true">P</span><b><svg class="ic ic-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 17H3.5v-4.5l2-5A2 2 0 0 1 7.4 6h9.2a2 2 0 0 1 1.9 1.5l2 5V17H19"/><path d="M3.5 12.5h17"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/></svg>Carta de mota (categoria A)</b></button><button class="plate" type="button" role="tab" id="pl-Categoria A1" aria-controls="cp-Categoria A1" aria-selected="false" data-code="Categoria A1"><span class="eu" aria-hidden="true">P</span><b><svg class="ic ic-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 17H3.5v-4.5l2-5A2 2 0 0 1 7.4 6h9.2a2 2 0 0 1 1.9 1.5l2 5V17H19"/><path d="M3.5 12.5h17"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/></svg>Categoria A1</b></button><button class="plate" type="button" role="tab" id="pl-Categoria A2" aria-controls="cp-Categoria A2" aria-selected="false" data-code="Categoria A2"><span class="eu" aria-hidden="true">P</span><b><svg class="ic ic-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 17H3.5v-4.5l2-5A2 2 0 0 1 7.4 6h9.2a2 2 0 0 1 1.9 1.5l2 5V17H19"/><path d="M3.5 12.5h17"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/></svg>Categoria A2</b></button><button class="plate" type="button" role="tab" id="pl-Aulas de código" aria-controls="cp-Aulas de código" aria-selected="false" data-code="Aulas de código"><span class="eu" aria-hidden="true">P</span><b><svg class="ic ic-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 17H3.5v-4.5l2-5A2 2 0 0 1 7.4 6h9.2a2 2 0 0 1 1.9 1.5l2 5V17H19"/><path d="M3.5 12.5h17"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/></svg>Aulas de código</b></button></div>
+    <div class="cpanel" id="cp-Carta de mota (categoria A)" role="tabpanel" aria-labelledby="pl-Carta de mota (categoria A)">
+      <div class="pic"><img src="assets/moto-2.jpg" alt="" loading="lazy"><span class="big" aria-hidden="true">Carta de mota (categoria A)</span></div>
+      <div class="txt"><h3>Carta de mota (categoria A)</h3>
+        <dl class="spec"><dt><svg class="ic ic-steering" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2"/><path d="M12 14v8"/><path d="M10 12 2.2 10.5"/><path d="m14 12 7.8-1.5"/></svg>Sobre este serviço</dt><dd>A aprendizagem da condução reúne preparação teórica e prática. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</dd></dl>
+        <a class="btn btn-cone" href="#contacto" data-cat="Carta de mota (categoria A)">Inscrever-me na Carta de mota (categoria A) <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div><div class="cpanel" id="cp-Categoria A1" role="tabpanel" aria-labelledby="pl-Categoria A1">
+      <div class="pic"><img src="assets/moto-1.jpg" alt="" loading="lazy"><span class="big" aria-hidden="true">Categoria A1</span></div>
+      <div class="txt"><h3>Categoria A1</h3>
+        <dl class="spec"><dt><svg class="ic ic-steering" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2"/><path d="M12 14v8"/><path d="M10 12 2.2 10.5"/><path d="m14 12 7.8-1.5"/></svg>Sobre este serviço</dt><dd>A aprendizagem da condução reúne preparação teórica e prática. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</dd></dl>
+        <a class="btn btn-cone" href="#contacto" data-cat="Categoria A1">Inscrever-me na Categoria A1 <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div><div class="cpanel" id="cp-Categoria A2" role="tabpanel" aria-labelledby="pl-Categoria A2">
+      <div class="pic"><img src="assets/moto-3.jpg" alt="" loading="lazy"><span class="big" aria-hidden="true">Categoria A2</span></div>
+      <div class="txt"><h3>Categoria A2</h3>
+        <dl class="spec"><dt><svg class="ic ic-steering" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2"/><path d="M12 14v8"/><path d="M10 12 2.2 10.5"/><path d="m14 12 7.8-1.5"/></svg>Sobre este serviço</dt><dd>A aprendizagem da condução reúne preparação teórica e prática. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</dd></dl>
+        <a class="btn btn-cone" href="#contacto" data-cat="Categoria A2">Inscrever-me na Categoria A2 <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div><div class="cpanel" id="cp-Aulas de código" role="tabpanel" aria-labelledby="pl-Aulas de código">
+      <div class="pic"><img src="assets/moto-3.jpg" alt="" loading="lazy"><span class="big" aria-hidden="true">Aulas de código</span></div>
+      <div class="txt"><h3>Aulas de código</h3>
+        <dl class="spec"><dt><svg class="ic ic-steering" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2"/><path d="M12 14v8"/><path d="M10 12 2.2 10.5"/><path d="m14 12 7.8-1.5"/></svg>Sobre este serviço</dt><dd>A aprendizagem da condução reúne preparação teórica e prática. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</dd></dl>
+        <a class="btn btn-cone" href="#contacto" data-cat="Aulas de código">Inscrever-me na Aulas de código <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section class="qt" id="extra">
+  <div class="wrap">
+    <div class="quiz" id="quiz"><svg id="qSign" viewBox="0 0 100 100" aria-hidden="true"></svg><div><h2>Pergunta de código</h2><p class="q" id="qQ"></p><div class="opts" id="qO"></div><p class="why" id="qW" aria-live="polite"></p><div class="qnav"><button type="button" id="qN">Outra pergunta</button></div></div></div>
+    
+  </div>
+</section>
+
+<section class="enrol" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2 class="h2">Pedir contacto</h2>
+      <p class="lead" style="margin-top:16px">Indique o seu nome e como prefere ser contactado.</p>
+      <form id="form" class="form" novalidate><h2>Pedir contacto</h2><p>Indique o seu nome e como prefere ser contactado.</p>
+<div class="fields"><label class="f">Nome<input name="nome" autocomplete="name" required></label>
+<label class="f">Telefone<input name="tel" type="tel" autocomplete="tel" required></label>
+<label class="f">Email (opcional)<input name="email" type="email" autocomplete="email"></label></div>
+<label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+<button class="btn" type="submit">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+    </div>
+    <div class="side">
+      <a class="line" href="tel:+351245201256"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span><b>245 201 256</b><small>Chamada para a rede fixa nacional</small></span></a>
+      
+      
+      <div class="line"><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Avenida do Brasil, Edifício Navio, escritório 3, Portalegre<br></span></div>
+      
+      
+    </div>
+  </div>
+</section>
+<section class="extra-facts lead-contact-data" aria-label="Informação e contactos">
+<h2>Sobre Escola de Condução Portalegrense</h2><p>A Escola de Condução Portalegrense dá formação para as categorias A, A1 e A2 e aulas de código, em Portalegre.</p>
+
+
+
+
+<p><a href="tel:+351245201256">245 201 256</a></p>
+
+
+<p><a href="https://www.facebook.com/escolaconducaoportalegrense/">Facebook</a></p>
+
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Escola de Condução Portalegrense, Portalegre. <a href="https://www.facebook.com/escolaconducaoportalegrense/" rel="noopener">Facebook</a> </p>
+    <ul>
+      <li></li>
+      
+      
+      <li>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</li>
+    </ul>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var d=document, root=d.documentElement, capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture)root.classList.add('capture');if(still)root.classList.add('still');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  if(nav&&burger){burger.addEventListener('click',function(){var on=nav.classList.toggle('open');burger.setAttribute('aria-expanded',on);});
+    nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});}
+  function m(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  function hm(s){return String(s||'').replace(':','h');}
+  function pt(n){return(n>0?'+':n<0?'−':'')+Math.abs(n).toFixed(2).replace('.',',');}
+  var hours=[]||[],now=new Date(),wd=((now.getDay()+6)%7)+1,mins=now.getHours()*60+now.getMinutes(),isOpen=false;
+  hours.forEach(function(h){if((h.days||[]).indexOf(wd)<0)return;(h.ranges||[]).forEach(function(r){if(mins>=m(r[0])&&mins<m(r[1]))isOpen=true;});});
+  if(hours.length)['state','st','chip','now','live'].forEach(function(id){var el=d.getElementById(id);if(!el)return;
+    var label=el.querySelector('span')||el;label.textContent=isOpen?'Aberto agora':'Fechado agora';el.classList.toggle('open',isOpen);});
+  var tc=d.getElementById('txtC');if(tc&&hours.length)tc.textContent=isOpen?'abertas agora':'fechadas agora';
+  function updateClock(){var clock=d.querySelector('#board .clock #clock');if(!clock)return;
+    var current=new Date(),valid=hours.length>0&&Number.isFinite(current.getTime());
+    clock.parentNode.hidden=!valid;
+    if(valid)clock.textContent=String(current.getHours()).padStart(2,'0')+':'+String(current.getMinutes()).padStart(2,'0');}
+  updateClock();if(!still&&d.querySelector('#board .clock #clock'))setInterval(updateClock,60000);
+  var finder=d.querySelector('.finder[role="search"]'),query=finder&&finder.querySelector('input'),results=finder&&finder.querySelector('ul');
+  if(query&&results)query.addEventListener('input',function(){results.innerHTML='';var term=query.value.trim().toLocaleLowerCase('pt');if(term.length<2)return;
+    var found=[].filter.call(d.querySelectorAll('.lead-chapel,.notice'),function(item){return ((item.dataset.name||'')+' '+item.textContent).toLocaleLowerCase('pt').indexOf(term)>=0;}).slice(0,5);
+    found.forEach(function(item){var li=d.createElement('li'),button=d.createElement('button');button.type='button';button.textContent=item.dataset.name;
+      button.addEventListener('click',function(){item.scrollIntoView({behavior:still?'auto':'smooth',block:'center'});});li.appendChild(button);results.appendChild(li);});
+    if(!found.length){var li=d.createElement('li');li.textContent='Sem resultados.';results.appendChild(li);}});
+  var sizes=[].slice.call(d.querySelectorAll('.fs button'));
+  function setSize(n){root.classList.remove('fs1','fs2');if(n>0)root.classList.add('fs'+n);
+    sizes.forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.fs===n);});
+    try{localStorage.setItem('v4-text-size',String(n));}catch(e){}}
+  sizes.forEach(function(b){b.addEventListener('click',function(){setSize(+b.dataset.fs);});});
+  try{var saved=+localStorage.getItem('v4-text-size');if(saved&&!capture)setSize(Math.min(2,saved));}catch(e){}
+  var flags={},names={},steps=[],lvlSel=null,langSel=null;
+  var team=[]||[],areas=null||[],pubs=null||[],byKey={};
+  team.forEach(function(t){byKey[t.key]=t;});
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  [].forEach.call(d.querySelectorAll('#flagstore span'),function(s){flags[s.dataset.k]=s.innerHTML;names[s.dataset.k]=s.dataset.n;});
+  [].forEach.call(d.querySelectorAll('video'),function(v){
+    if(still){v.pause();return;} var src=v.dataset.small||v.dataset.src;if(src)v.src=src;
+    v.play().catch(function(){});
+  });
+  var video=d.querySelector('video'), pause=d.getElementById('playBtn');
+  if(video&&pause)pause.addEventListener('click',function(){if(video.paused)video.play().catch(function(){});else video.pause();});
+  // Guarded, independent blocks from the approved prototype.
+  (function(){if(!d.querySelector("#servicos"))return;
+  var plates=[].slice.call(d.querySelectorAll('.plate')), catSel=d.getElementById('catSel');
+  function pick(b,focus){ plates.forEach(function(x){ var on=x===b; x.setAttribute('aria-selected',on); x.tabIndex=on?0:-1; d.getElementById(x.getAttribute('aria-controls')).classList.toggle('on',on); }); if(focus) b.focus(); }
+  plates.forEach(function(b,i){ b.addEventListener('click',function(){pick(b);}); b.addEventListener('keydown',function(e){ var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0; if(k){ e.preventDefault(); pick(plates[(i+k+plates.length)%plates.length],true); } }); });
+  if(plates.length){ var first=plates.filter(function(p){return p.dataset.code==='B';})[0]||plates[0]; pick(first); if(catSel) catSel.value=first.dataset.code; }
+  [].forEach.call(d.querySelectorAll('[data-cat]'),function(a){ a.addEventListener('click',function(){ if(catSel) catSel.value=a.dataset.cat; }); });
+})();
+(function(){if(!d.querySelector("#extra"))return;
+  var qs=[{"sign": "stop", "q": "Perante este sinal, o condutor deve:", "options": ["Abrandar e ceder passagem só se vierem carros", "Parar sempre antes de entrar no cruzamento e ceder passagem", "Parar apenas se o semáforo estiver vermelho"], "answer": 1, "why": "O sinal STOP obriga a parar sempre, mesmo que não venha ninguém."}, {"sign": "yield", "q": "Este sinal indica:", "options": ["Cedência de passagem", "Fim de prioridade", "Estrada com prioridade"], "answer": 0, "why": "O triângulo invertido obriga a ceder passagem aos veículos da via onde vai entrar."}, {"sign": "noentry", "q": "Este sinal significa:", "options": ["Estacionamento proibido", "Sentido proibido", "Trânsito proibido a pesados"], "answer": 1, "why": "Disco vermelho com barra branca horizontal: sentido proibido."}]||[], qi=new Date().getDate()%Math.max(1,qs.length);
+  var signs={stop:'<path d="M30 4h40l26 26v40L70 96H30L4 70V30z" fill="#D7261E" stroke="#fff" stroke-width="4"/><text x="50" y="60" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="26" fill="#fff">STOP</text>',
+    yield:'<path d="M50 94 4 10h92z" fill="#fff" stroke="#D7261E" stroke-width="9" stroke-linejoin="round"/>',
+    noentry:'<circle cx="50" cy="50" r="46" fill="#D7261E" stroke="#fff" stroke-width="4"/><rect x="20" y="42" width="60" height="16" rx="2" fill="#fff"/>'};
+  function showQ(){ var q=qs[qi]; if(!q) return; d.getElementById('qSign').innerHTML=signs[q.sign]||''; d.getElementById('qQ').textContent=q.q; var o=d.getElementById('qO'), w=d.getElementById('qW'); o.innerHTML=''; w.textContent='';
+    q.options.forEach(function(t,i){ var b=d.createElement('button'); b.type='button'; b.textContent=t; b.addEventListener('click',function(){ [].forEach.call(o.children,function(x,j){ x.classList.toggle('ok',j===q.answer); x.classList.toggle('ko',x===b&&j!==q.answer); }); w.textContent=(i===q.answer?'Certo. ':'Ainda não. ')+q.why; }); o.appendChild(b); }); }
+  if(d.getElementById('quiz')){ showQ(); d.getElementById('qN').addEventListener('click',function(){ qi=(qi+1)%qs.length; showQ(); }); }
+})();
+  var mm=location.hash.match(/^#shot-(.+)/), sh=mm&&d.getElementById(mm[1]);
+  if(sh&&!sh.hidden){root.classList.add('shot-mode');[].forEach.call(d.querySelectorAll('main > *, footer'),function(s){if(s!==sh)s.style.display='none';});}
+})();
+</script>
+</body>
+</html>

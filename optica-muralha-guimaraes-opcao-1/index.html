@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Óptica Muralha · Guimarães</title>
+<meta name="description" content="Ótica · Óptica Muralha">
+
+
+
+<style>
+@font-face{font-family:"Instrument Sans";src:url("assets/fonts/of-instrument-sans-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Instrument Sans";src:url("assets/fonts/of-instrument-sans-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --gr:#22282e; --cy:#00808b; --cyi:#005e67; --paper:#F4F6F7;
+  --r:#E94F37; --y:#F2C14E; --g:#3BB273; --b:#2F6FDE; --muted:#5C6670;
+  --display:"Instrument Sans", Georgia, sans-serif; --body:"Instrument Sans", sans-serif;
+  --wrap:1240px; --pad:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 18px/1.6 var(--body);color:var(--gr);background:#fff;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:650;font-stretch:78%;line-height:1;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px solid var(--cy);outline-offset:3px}
+section{scroll-margin-top:84px}
+.ic{width:22px;height:22px}
+.ph{background:#fff2c4;color:#4d3b00;padding:0 5px;border-radius:4px;font-size:.85em}
+.h2{font-size:clamp(42px,5vw,70px)}
+.lead{font-size:19px;color:var(--muted);max-width:56ch}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:10px;font:600 17px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:background .2s}
+.btn .ic{width:19px;height:19px}
+.btn-cy{background:var(--cy);color:#fff}
+.btn-cy:hover{background:var(--cyi)}
+.btn-gr{background:var(--gr);color:#fff}
+.spec{height:4px;background:linear-gradient(90deg,var(--r) 0 25%,var(--y) 25% 50%,var(--g) 50% 75%,var(--b) 75%)}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:40px;height:40px}
+.brand b{display:block;font:700 30px/1 var(--display);font-stretch:75%}
+.brand small{display:block;font-size:14px;color:var(--muted)}
+.nav{display:flex;align-items:center;gap:26px;font-weight:500;font-size:16px}
+.nav a:not(.btn){text-decoration:none}
+.nav a:not(.btn):hover{color:var(--cyi)}
+.nav .btn{padding:11px 18px}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{background:var(--paper);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;max-width:none;padding:0}
+.hero .copy{padding:80px var(--pad) 70px max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad)))}
+.hero h1{font-size:clamp(52px,6.6vw,104px);font-stretch:75%}
+.hero .lead{margin:26px 0 30px}
+.facts{display:flex;gap:0;margin-top:46px;border-top:1px solid #d6dce0}
+.facts div{flex:1;padding:18px 18px 0 0}
+.facts div+div{padding-left:18px;border-left:1px solid #d6dce0}
+.facts b{display:block;font:650 40px/1 var(--display);font-stretch:75%;color:var(--cyi)}
+.facts span{font-size:15px;color:var(--muted)}
+.visual{position:relative;min-height:620px}
+.visual>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.chart{position:absolute;left:-60px;bottom:50px;width:300px;background:#fff;border-radius:16px;padding:22px 22px 18px;box-shadow:0 30px 60px -30px #22282e88}
+.letters{text-align:center;font:700 22px/1.25 var(--display);letter-spacing:.18em;filter:blur(var(--blur,4px));transition:filter .25s;user-select:none}
+.letters div:nth-child(1){font-size:46px}.letters div:nth-child(2){font-size:36px}.letters div:nth-child(3){font-size:28px}.letters div:nth-child(4){font-size:22px}.letters div:nth-child(5){font-size:17px}.letters div:nth-child(6){font-size:13px}
+.dial{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:14px;color:var(--muted)}
+.dial input{flex:1;accent-color:var(--cy)}
+.dial output{font-weight:700;color:var(--gr);min-width:50px;text-align:right}
+.sharp{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:14.5px;font-weight:600;color:var(--muted)}
+.sharp i{width:10px;height:10px;border-radius:50%;background:#c3cad0;transition:background .3s}
+.sharp.on{color:var(--g)}.sharp.on i{background:var(--g);box-shadow:0 0 0 4px #3bb27333}
+
+/* services */
+.svc{padding:100px 0}
+.svc .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:40px}
+.rows{border-top:2px solid var(--gr)}
+.row{display:grid;grid-template-columns:56px 1.1fr 1.4fr 180px auto;gap:24px;align-items:center;padding:22px 0;border-bottom:1px solid #dfe4e7}
+.row .ic{width:52px;height:52px;padding:13px;border-radius:12px;background:var(--paper);color:var(--cyi)}
+.row h3{font-size:30px}
+.row p{margin:0;color:var(--muted);font-size:16.5px}
+.dur{font-size:14px;color:var(--muted)}
+.dur b{font:650 22px var(--display);font-stretch:75%;color:var(--gr)}
+.bar{height:6px;border-radius:99px;background:#e6eaed;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--cy);border-radius:99px;width:0;transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.on .bar i{width:var(--w)}
+.row a{white-space:nowrap;font-weight:600;color:var(--cyi);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.row a:hover{text-decoration:underline}
+.svnote{margin-top:22px;display:flex;gap:10px;color:var(--muted);font-size:16px}
+.svnote .ic{flex:none;color:var(--cyi)}
+
+/* rx */
+.rx{background:var(--gr);color:#fff;padding:100px 0}
+.rx .lead{color:#b9c2c9}
+.rx .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;margin-top:40px;align-items:start}
+.rxcard{background:#fff;color:var(--gr);border-radius:18px;padding:24px}
+.rxt{width:100%;border-collapse:collapse}
+.rxt th{font-size:13.5px;color:var(--muted);font-weight:600;text-align:left;padding:0 6px 8px}
+.rxt td{padding:4px}
+.rxt td:first-child{font:650 24px var(--display);font-stretch:75%;padding-right:10px;white-space:nowrap}
+.rxt input{width:100%;min-width:0;padding:10px 8px;border:2px solid #dfe4e7;border-radius:10px;font:600 17px var(--body);text-align:center;color:var(--gr)}
+.rxt input:focus{outline:none;border-color:var(--cy)}
+.rxhelp{font-size:14.5px;color:var(--muted);margin:14px 0 0}
+.eyes{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.eye{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:18px;padding:20px}
+.eye h3{font-size:26px;margin-bottom:10px}
+.eye ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15.5px;color:#dfe5e9}
+.eye li{display:flex;gap:8px}
+.eye li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;margin-top:8px;background:var(--cy)}
+.axis{width:100%;max-width:200px;margin:12px auto 0;display:block}
+.axis text{font:600 10px var(--body);fill:#b9c2c9}
+.thick{grid-column:1/-1;background:#ffffff0d;border:1px solid #ffffff1f;border-radius:18px;padding:20px}
+.thick h3{font-size:24px;margin-bottom:12px}
+.tb{display:grid;grid-template-columns:60px 1fr 80px;gap:12px;align-items:center;margin:8px 0;font-size:15px}
+.tb .t{height:16px;border-radius:4px;background:linear-gradient(90deg,var(--cy),#7fd9e0);transition:width .5s}
+.tb b{text-align:right}
+.rxnote{font-size:14px;color:#9aa5ad;margin-top:16px}
+
+/* equipment */
+.equip{padding:100px 0;background:var(--paper)}
+.egrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.eq{background:#fff;border-radius:16px;overflow:hidden}
+.eq .p{aspect-ratio:4/3;overflow:hidden;position:relative}
+.eq img{width:100%;height:100%;object-fit:cover;filter:saturate(.9);transition:transform .8s}
+.eq:hover img{transform:scale(1.06)}
+.eq .p::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--r),var(--y),var(--g),var(--b));transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.eq:hover .p::after{transform:scaleX(1)}
+.eq div.t{padding:18px}
+.eq h3{font-size:24px;margin-bottom:6px}
+.eq p{margin:0;font-size:15.5px;color:var(--muted)}
+
+/* first visit ruler */
+.visit{padding:100px 0}
+.ruler{position:relative;margin:70px 0 0;height:300px}
+.ruler .line{position:absolute;left:0;right:0;top:26px;height:2px;background:var(--gr)}
+.ruler .ticks{position:absolute;left:0;right:0;top:20px;height:14px;background:repeating-linear-gradient(90deg,var(--gr) 0 1px,transparent 1px 2%)}
+.stop{position:absolute;top:0;width:19%;transform:translateX(-2px)}
+.stop b{display:inline-block;font:650 15px var(--body);background:var(--cy);color:#fff;border-radius:6px;padding:3px 8px;margin-bottom:34px}
+.stop h3{font-size:25px;margin-bottom:6px}
+.stop p{font-size:15.5px;color:var(--muted);margin:0}
+.stop:last-child b{background:var(--gr)}
+
+/* team */
+.team{padding:0 0 100px}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+.mate{display:grid;grid-template-columns:200px 1fr;background:var(--paper);border-radius:18px;overflow:hidden}
+.mate img{width:100%;height:100%;object-fit:cover;min-height:260px}
+.mate .t{padding:24px}
+.mate h3{font-size:32px}
+.mate .role{color:var(--cyi);font-weight:600;margin:4px 0 12px}
+.mate ul{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:6px;font-size:15.5px}
+.mate li{display:flex;gap:8px}
+.mate li .ic{flex:none;width:18px;height:18px;color:var(--g);margin-top:3px}
+.mate .focus{font-size:15px;color:var(--muted)}
+
+/* shop */
+.shop{padding:0 0 100px}
+.shop .wrap>div{display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--cy);color:#fff;border-radius:22px;overflow:hidden}
+.shop img{width:100%;height:100%;object-fit:cover;min-height:300px}
+.shop .t{padding:40px}
+.shop h2{font-size:48px;margin-bottom:12px}
+
+/* contact */
+.contact{background:var(--paper);padding:100px 0}
+.contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+.ers{display:flex;gap:14px;align-items:center;background:#fff;border-radius:14px;padding:16px 18px;margin:24px 0;border-left:4px solid var(--cy)}
+.ers .ic{width:30px;height:30px;color:var(--cyi);flex:none}
+.info{display:grid;gap:12px;font-size:16.5px}
+.info>div{display:flex;gap:12px}
+.info .ic{flex:none;color:var(--cyi);margin-top:3px}
+.state{display:inline-flex;align-items:center;gap:8px;font-weight:600;margin-top:4px}
+.state i{width:9px;height:9px;border-radius:50%;background:#aab3ba}
+.state.open i{background:var(--g);box-shadow:0 0 0 4px #3bb27333}
+.map{margin-top:22px;position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden}
+.map svg{width:100%;height:100%;display:block}
+.map a{position:absolute;right:12px;bottom:12px;background:#fff;border-radius:8px;padding:7px 12px;font-weight:600;font-size:14.5px;text-decoration:none}
+.form{background:#fff;border-radius:20px;padding:32px;box-shadow:0 30px 60px -40px #22282e66}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.fields>*{min-width:0}
+.full{grid-column:1/-1}
+.f{display:block;font-weight:600;font-size:15px}
+.f input,.f select{display:block;width:100%;margin-top:6px;padding:12px 14px;border:2px solid #dfe4e7;border-radius:10px;font:400 17px var(--body);color:var(--gr)}
+.f input:focus,.f select:focus{outline:none;border-color:var(--cy)}
+.dinfo{font-size:14.5px;color:var(--muted);margin-top:6px}
+.daychips,.slotchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.daychips label,.slotchips label{cursor:pointer}
+.daychips input,.slotchips input{position:absolute;opacity:0}
+.daychips span,.slotchips span{display:block;padding:8px 12px;border-radius:8px;border:2px solid #dfe4e7;font-size:14.5px;font-weight:600}
+.daychips input:checked+span,.slotchips input:checked+span{background:var(--gr);border-color:var(--gr);color:#fff}
+.daychips input:focus-visible+span,.slotchips input:focus-visible+span{outline:3px solid var(--cy)}
+.consent{display:flex;gap:10px;font-size:14.5px;color:var(--muted);margin:14px 0 18px}
+.consent input{accent-color:var(--cy);margin-top:5px}
+.sent{display:none;margin-top:12px;font-weight:600;color:var(--cyi)}
+.sent.on{display:block}
+footer{background:var(--gr);color:#b9c2c9;font-size:14.5px;padding:36px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+footer a{color:#fff}
+
+@media (max-width:1040px){
+  .hero .wrap,.svc .head,.rx .grid,.contact .wrap{grid-template-columns:1fr}
+  .hero .copy{padding:60px var(--pad)}
+  .visual{min-height:480px}
+  .chart{left:var(--pad);bottom:24px}
+  .row{grid-template-columns:52px 1fr;gap:14px}
+  .row p,.row .dur,.row a{grid-column:2}
+  .egrid{grid-template-columns:1fr 1fr}
+  .tgrid,.shop .wrap>div{grid-template-columns:1fr}
+  .ruler{height:auto;margin-top:40px}
+  .ruler .line,.ruler .ticks{display:none}
+  .stop,.stop:last-child{position:static;width:auto;transform:none;margin-bottom:22px}
+  .stop b{margin-bottom:8px}
+}
+@media (max-width:760px){
+  body{font-size:17px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:70px 0 0;background:#fff;flex-direction:column;align-items:flex-start;padding:28px var(--pad);gap:20px;font-size:22px}
+  .top .wrap{height:70px}
+  .hero h1{font-size:54px}
+  .facts b{font-size:30px;white-space:nowrap}
+  .facts span{font-size:13.5px}
+  .visual{min-height:440px}
+  .chart{width:auto;right:var(--pad)}
+  .svc,.rx,.equip,.visit,.contact{padding:60px 0}
+  .team,.shop{padding-bottom:60px}
+  .eyes,.egrid,.fields{grid-template-columns:1fr}
+  .rxt th{font-size:12px}
+  .rxt td:first-child{font-size:18px}
+  .rxt input{padding:9px 4px;font-size:15px}
+  .mate{grid-template-columns:1fr}
+  .mate img{aspect-ratio:4/3;min-height:0}
+  .shop .t{padding:26px}
+  .form{padding:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:78px}
+@media (max-width:760px){.shot-mode main{padding-top:74px}}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Óptica Muralha (opção 1) · pré-visualização do site">
+<meta property="og:description" content="Ótica · Óptica Muralha">
+<meta property="og:url" content="https://preview.northsoftware.pt/optica-muralha-guimaraes-opcao-1/">
+<meta property="og:image" content="https://preview.northsoftware.pt/optica-muralha-guimaraes-opcao-1/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 v4-new v4-z" data-service-count="5" style="--service-columns:3">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"da ótica"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de pedir informações.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de pedir informações.");}
+},true);
+</script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Óptica Muralha, início"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="#22282e" stroke-width="3"/><circle cx="20" cy="20" r="10" fill="none" stroke="#00808b" stroke-width="3"/><circle cx="20" cy="20" r="3.5" fill="#E94F37"/></svg><span><b class="lead-brand-name" title="Óptica Muralha">Óptica Muralha</b><small>Ótica</small></span></a>
+    <nav class="nav" id="nav" aria-label="Principal"><a href="#servicos">Serviços</a><a href="#equipa">Equipa</a><a class="btn btn-cy" href="#contacto">Pedir contacto</a></nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="spec" aria-hidden="true"></div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="copy">
+      <h1>Óptica Muralha</h1>
+      <p class="lead">Ótica, optometria e contactologia em Guimarães</p>
+      <a class="btn btn-cy" href="#contacto">Pedir contacto <svg class="ic ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg></a>
+      
+    </div>
+    <div class="visual">
+      <img src="assets/foroptero.jpg" alt="Fotografia ilustrativa de banco de imagens">
+      <div class="chart">
+        <div class="letters" id="letters" aria-hidden="true"><div>E</div><div>F P</div><div>T O Z</div><div>L P E D</div><div>P E C F D</div></div>
+        <label class="dial"><span>Lente</span><input type="range" id="lensr" min="-3" max="3" step="0.25" value="-2" aria-describedby="sharp"><output id="lensv">-2,00</output></label>
+        <p class="sharp" id="sharp"><i></i><span>Ilustração, sem valor diagnóstico</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="svc" id="servicos">
+  <div class="wrap">
+    <div class="head"><h2 class="h2">Serviços</h2><p class="lead" style="margin:0"></p></div>
+    <div class="rows" id="rows"><article class="row"><svg class="ic ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg><h3>Optometria</h3><p>Avaliação da função visual no âmbito das competências do profissional.</p><a href="#contacto" data-svc="service-1">Marcar <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article><article class="row"><svg class="ic ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg><h3>Contactologia</h3><p>As soluções de ótica dependem das necessidades visuais de cada pessoa. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p><a href="#contacto" data-svc="service-2">Marcar <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article><article class="row"><svg class="ic ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg><h3>Tonometria</h3><p>As soluções de ótica dependem das necessidades visuais de cada pessoa. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p><a href="#contacto" data-svc="service-3">Marcar <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article><article class="row"><svg class="ic ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg><h3>Óculos de sol</h3><p>As soluções de ótica dependem das necessidades visuais de cada pessoa. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p><a href="#contacto" data-svc="service-4">Marcar <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article><article class="row"><svg class="ic ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg><h3>Armações</h3><p>As soluções de ótica dependem das necessidades visuais de cada pessoa. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p><a href="#contacto" data-svc="service-5">Marcar <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article></div>
+    
+  </div>
+</section>
+
+
+<section class="rx" id="receita">
+  <div class="wrap">
+    <h2 class="h2">Leia a sua receita</h2>
+    <p class="lead" style="margin-top:14px">Copie os valores da sua receita de óculos. Explicamos o que significam, em português claro.</p>
+    <div class="grid">
+      <div class="rxcard">
+        <table class="rxt">
+          <thead><tr><th></th><th>ESF</th><th>CIL</th><th>EIXO</th><th>ADD</th></tr></thead>
+          <tbody>
+            <tr><td>OD</td><td><input id="od-esf" value="" inputmode="decimal" aria-label="Olho direito, esfera"></td><td><input id="od-cil" value="" inputmode="decimal" aria-label="Olho direito, cilindro"></td><td><input id="od-eixo" value="" inputmode="numeric" aria-label="Olho direito, eixo"></td><td><input id="od-add" value="" inputmode="decimal" aria-label="Olho direito, adição"></td></tr>
+            <tr><td>OE</td><td><input id="oe-esf" value="" inputmode="decimal" aria-label="Olho esquerdo, esfera"></td><td><input id="oe-cil" value="" inputmode="decimal" aria-label="Olho esquerdo, cilindro"></td><td><input id="oe-eixo" value="" inputmode="numeric" aria-label="Olho esquerdo, eixo"></td><td><input id="oe-add" value="" inputmode="decimal" aria-label="Olho esquerdo, adição"></td></tr>
+          </tbody>
+        </table>
+        <p class="rxhelp">OD é o olho direito, OE o esquerdo. ESF corrige miopia (−) ou hipermetropia (+); CIL e EIXO corrigem o astigmatismo; ADD é a ajuda extra para ler ao perto.</p>
+      </div>
+      <div class="eyes" aria-live="polite">
+        <div class="eye"><h3>Olho direito</h3><ul id="od-out"><li>Introduza os valores da receita.</li></ul><svg class="axis" viewBox="0 0 200 116" aria-hidden="true"><path d="M10 100a90 90 0 0 1 180 0" fill="none" stroke="#ffffff33" stroke-width="2"/><text x="2" y="114">180°</text><text x="92" y="8">90°</text><text x="186" y="114">0°</text><line id="od-ax" x1="100" y1="100" x2="190" y2="100" stroke="#00808b" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="100" r="5" fill="#fff"/></svg></div>
+        <div class="eye"><h3>Olho esquerdo</h3><ul id="oe-out"><li>Introduza os valores da receita.</li></ul><svg class="axis" viewBox="0 0 200 116" aria-hidden="true"><path d="M10 100a90 90 0 0 1 180 0" fill="none" stroke="#ffffff33" stroke-width="2"/><text x="2" y="114">180°</text><text x="92" y="8">90°</text><text x="186" y="114">0°</text><line id="oe-ax" x1="100" y1="100" x2="190" y2="100" stroke="#00808b" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="100" r="5" fill="#fff"/></svg></div>
+        <div class="thick"><h3>Espessura estimada da lente mais forte</h3><div id="thick"></div></div>
+      </div>
+    </div>
+    <p class="rxnote">Explicação geral, para perceber a receita. Não substitui o exame nem serve para fazer óculos.</p>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="team" id="equipa">
+  <div class="wrap">
+    <h2 class="h2">Equipa</h2>
+    <div class="tgrid"><article class="mate"><div class="t"><h3>Fernando Jorge Pires</h3><p class="role">Optometrista</p><ul></ul></div></article></div>
+  </div>
+</section>
+
+
+
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2 class="h2">Onde estamos</h2>
+      <p class="ers"><svg class="ic ic-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span>Registo ERS <span class="ph">E144802</span></span></p>
+      <div class="info">
+        <div><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Rua Dr. José Sampaio, 2, R/C, 4810-275 Guimarães<br></span></div>
+        
+        
+        <div><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><a href="tel:+351253053458">253 053 458</a></div>
+        <div><svg class="ic ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><a href="mailto:opticamuralha@gmail.com">opticamuralha@gmail.com</a></div>
+      </div>
+      <div class="map"></div>
+    </div>
+    <form id="form" class="form" novalidate><h2>Pedir contacto</h2><p>Indique o seu nome e como prefere ser contactado.</p>
+<div class="fields"><label class="f">Nome<input name="nome" autocomplete="name" required></label>
+<label class="f">Telefone<input name="tel" type="tel" autocomplete="tel" required></label>
+<label class="f">Email (opcional)<input name="email" type="email" autocomplete="email"></label></div>
+<label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+<button class="btn" type="submit">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+  </div>
+</section>
+<section class="extra-facts lead-contact-data" aria-label="Informação e contactos">
+<h2>Sobre Óptica Muralha</h2><p>A Óptica Muralha, em Guimarães, faz optometria, contactologia e tonometria, e trabalha óculos de sol e armações, com o optometrista Fernando Jorge Pires.</p>
+<p>Registo ERS: E144802</p>
+
+
+
+<p><a href="tel:+351253053458">253 053 458</a></p>
+<p><a href="mailto:opticamuralha@gmail.com">opticamuralha@gmail.com</a></p>
+
+
+
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Óptica Muralha, Ótica. Guimarães.</p>
+    <ul>
+      <li>Óptica Muralha, Lda</li>
+      <li>Registo ERS <span class="ph">E144802</span></li>
+      <li>Fernando Jorge Pires, Optometrista</li>
+      <li>NIF <span class="ph">514345365</span></li>
+      
+      <li>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</li>
+    </ul>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var d=document, root=d.documentElement, capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture)root.classList.add('capture');if(still)root.classList.add('still');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  if(nav&&burger){burger.addEventListener('click',function(){var on=nav.classList.toggle('open');burger.setAttribute('aria-expanded',on);});
+    nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});}
+  function m(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  function hm(s){return String(s||'').replace(':','h');}
+  function pt(n){return(n>0?'+':n<0?'−':'')+Math.abs(n).toFixed(2).replace('.',',');}
+  var hours=[]||[],now=new Date(),wd=((now.getDay()+6)%7)+1,mins=now.getHours()*60+now.getMinutes(),isOpen=false;
+  hours.forEach(function(h){if((h.days||[]).indexOf(wd)<0)return;(h.ranges||[]).forEach(function(r){if(mins>=m(r[0])&&mins<m(r[1]))isOpen=true;});});
+  if(hours.length)['state','st','chip','now','live'].forEach(function(id){var el=d.getElementById(id);if(!el)return;
+    var label=el.querySelector('span')||el;label.textContent=isOpen?'Aberto agora':'Fechado agora';el.classList.toggle('open',isOpen);});
+  var tc=d.getElementById('txtC');if(tc&&hours.length)tc.textContent=isOpen?'abertas agora':'fechadas agora';
+  function updateClock(){var clock=d.querySelector('#board .clock #clock');if(!clock)return;
+    var current=new Date(),valid=hours.length>0&&Number.isFinite(current.getTime());
+    clock.parentNode.hidden=!valid;
+    if(valid)clock.textContent=String(current.getHours()).padStart(2,'0')+':'+String(current.getMinutes()).padStart(2,'0');}
+  updateClock();if(!still&&d.querySelector('#board .clock #clock'))setInterval(updateClock,60000);
+  var finder=d.querySelector('.finder[role="search"]'),query=finder&&finder.querySelector('input'),results=finder&&finder.querySelector('ul');
+  if(query&&results)query.addEventListener('input',function(){results.innerHTML='';var term=query.value.trim().toLocaleLowerCase('pt');if(term.length<2)return;
+    var found=[].filter.call(d.querySelectorAll('.lead-chapel,.notice'),function(item){return ((item.dataset.name||'')+' '+item.textContent).toLocaleLowerCase('pt').indexOf(term)>=0;}).slice(0,5);
+    found.forEach(function(item){var li=d.createElement('li'),button=d.createElement('button');button.type='button';button.textContent=item.dataset.name;
+      button.addEventListener('click',function(){item.scrollIntoView({behavior:still?'auto':'smooth',block:'center'});});li.appendChild(button);results.appendChild(li);});
+    if(!found.length){var li=d.createElement('li');li.textContent='Sem resultados.';results.appendChild(li);}});
+  var sizes=[].slice.call(d.querySelectorAll('.fs button'));
+  function setSize(n){root.classList.remove('fs1','fs2');if(n>0)root.classList.add('fs'+n);
+    sizes.forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.fs===n);});
+    try{localStorage.setItem('v4-text-size',String(n));}catch(e){}}
+  sizes.forEach(function(b){b.addEventListener('click',function(){setSize(+b.dataset.fs);});});
+  try{var saved=+localStorage.getItem('v4-text-size');if(saved&&!capture)setSize(Math.min(2,saved));}catch(e){}
+  var flags={},names={},steps=[],lvlSel=null,langSel=null;
+  var team=[{"name": "Fernando Jorge Pires", "role": "Optometrista", "photo": "", "bio": "", "director": false, "credential": "", "credentials": [], "text": "Optometrista", "key": "person-20-0", "cedula": "", "omd": "", "osae": "", "line": "", "mobile": "", "teaches": "Optometrista", "subjects": "Optometrista", "langs": "", "areas": "", "languages": "", "flag": "flag-pt"}]||[],areas=null||[],pubs=null||[],byKey={};
+  team.forEach(function(t){byKey[t.key]=t;});
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  [].forEach.call(d.querySelectorAll('#flagstore span'),function(s){flags[s.dataset.k]=s.innerHTML;names[s.dataset.k]=s.dataset.n;});
+  [].forEach.call(d.querySelectorAll('video'),function(v){
+    if(still){v.pause();return;} var src=v.dataset.small||v.dataset.src;if(src)v.src=src;
+    v.play().catch(function(){});
+  });
+  var video=d.querySelector('video'), pause=d.getElementById('playBtn');
+  if(video&&pause)pause.addEventListener('click',function(){if(video.paused)video.play().catch(function(){});else video.pause();});
+  // Guarded, independent blocks from the approved prototype.
+  (function(){if(!d.querySelector("#lensr"))return;
+  var lr=d.getElementById('lensr'), target=0.75;
+  function focus(){ if(!lr)return; var v=+lr.value, b=Math.min(6,Math.abs(v-target)*2.4); d.getElementById('letters').style.setProperty('--blur',b.toFixed(2)+'px'); d.getElementById('lensv').textContent=pt(v); var ok=Math.abs(v-target)<.3, s=d.getElementById('sharp'); s.classList.toggle('on',ok); s.querySelector('span').textContent=ok?'Nítido. É isto que afinamos no foróptero.':'Ilustração, sem valor diagnóstico'; }
+  if(lr){ if(capture) lr.value=target; lr.addEventListener('input',focus); focus(); }
+})();
+(function(){if(!d.querySelector("#rows"))return;
+  var rows=d.getElementById('rows');
+  if(rows){ if(still||!('IntersectionObserver' in window)) rows.classList.add('on'); else { var o=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ rows.classList.add('on'); o.disconnect(); } },{threshold:.2}); o.observe(rows); } }
+})();
+(function(){if(!d.querySelector("#receita"))return;
+  function num(id){ var v=(d.getElementById(id)||{}).value||''; v=v.replace(',','.').replace('−','-').trim(); var n=parseFloat(v); return isNaN(n)?0:n; }
+  function grade(s){ var a=Math.abs(s); if(!s) return ''; if(s<0) return 'Miopia '+(a<=3?'ligeira':a<=6?'moderada':'elevada')+' ('+pt(s)+'): vê pior ao longe.'; return 'Hipermetropia '+(a<=2?'ligeira':a<=5?'moderada':'elevada')+' ('+pt(s)+'): esforça-se mais ao perto.'; }
+  function eye(p){ var s=num(p+'-esf'), c=num(p+'-cil'), ax=num(p+'-eixo'), ad=num(p+'-add'), out=[];
+    if(grade(s)) out.push(grade(s)); else out.push('Sem miopia nem hipermetropia relevante.');
+    if(Math.abs(c)>=.25){ var a=Math.abs(c); out.push('Astigmatismo '+(a<=1?'ligeiro':a<=2?'moderado':'elevado')+' ('+pt(c)+'), com eixo a '+Math.round(ax)+'°: a imagem fica esticada nessa direção.'); }
+    if(ad>0) out.push('Adição de '+pt(ad)+': precisa de ajuda extra para ler. Lentes progressivas ou óculos de leitura.');
+    var ul=d.getElementById(p+'-out'); ul.innerHTML=''; out.forEach(function(t){ var li=d.createElement('li'); li.textContent=t; ul.appendChild(li); });
+    var r=(ax%180)*Math.PI/180, line=d.getElementById(p+'-ax'); line.setAttribute('x2',100+90*Math.cos(r)); line.setAttribute('y2',100-90*Math.sin(r)); line.style.opacity=Math.abs(c)>=.25?1:.25;
+    return Math.max(Math.abs(s),Math.abs(s+c)); }
+  function rx(){ if(!d.getElementById('od-esf'))return;if(![].some.call(d.querySelectorAll('#receita input'),function(i){return i.value.trim();})){['od','oe'].forEach(function(p){d.getElementById(p+'-out').innerHTML='<li>Introduza os valores da receita.</li>';});d.getElementById('thick').innerHTML='';return;} var p=Math.max(eye('od'),eye('oe')), box=d.getElementById('thick'); box.innerHTML='';
+    [1.5,1.6,1.67,1.74].forEach(function(n){ var mm=1.6+p*625/(2000*(n-1)), max=1.6+p*625/1000; var row=d.createElement('div'); row.className='tb'; row.innerHTML='<span>Índice '+String(n).replace('.',',')+'</span><span class="t" style="width:'+(100*mm/Math.max(max,2)).toFixed(0)+'%"></span><b>≈ '+mm.toFixed(1).replace('.',',')+' mm</b>'; box.appendChild(row); }); }
+  [].forEach.call(d.querySelectorAll('.rxt input'),function(i){ i.addEventListener('input',rx); }); rx();
+})();
+  var mm=location.hash.match(/^#shot-(.+)/), sh=mm&&d.getElementById(mm[1]);
+  if(sh&&!sh.hidden){root.classList.add('shot-mode');[].forEach.call(d.querySelectorAll('main > *, footer'),function(s){if(s!==sh)s.style.display='none';});}
+})();
+</script>
+</body>
+</html>

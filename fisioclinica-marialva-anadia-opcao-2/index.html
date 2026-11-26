@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fisioclínica Marialva – Fisioterapia em Anadia</title>
+<meta name="description" content="Fisioclínica Marialva: clínica de fisioterapia na Avenida das Laranjeiras, em Anadia, aberta também ao sábado de manhã.">
+
+
+
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url("assets/fonts/bricolage-grotesque-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url("assets/fonts/atkinson-hyperlegible-400.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --ground:#ebf5f3; --plum:#1e3a4c; --ink:#2A1E2F; --apricot:#8fd0c9;
+  --sage:#A9C0A5; --muted:#6E5F72; --white:#fff;
+  --display:"Bricolage Grotesque", Georgia, sans-serif; --body:"Atkinson Hyperlegible", sans-serif;
+  --wrap:1200px; --pad:clamp(20px,4.5vw,48px); --arch:999px 999px 18px 18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17.5px/1.65 var(--body);color:var(--ink);background:var(--ground);-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.1;letter-spacing:-.02em;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px solid var(--plum);outline-offset:3px;border-radius:6px}
+section{scroll-margin-top:84px}
+.ic{width:24px;height:24px}
+.ph{background:#fff3c4;color:#5a4500;padding:0 5px;border-radius:4px;font-size:.92em}
+.ex{display:inline-block;font-size:12px;font-weight:700;background:#fff3c4;color:#5a4500;padding:1px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border-radius:999px;font:700 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s}
+.btn .ic{width:19px;height:19px}
+.btn-plum{background:var(--plum);color:#fff}
+.btn-plum:hover{transform:translateY(-2px);box-shadow:0 12px 24px -12px var(--plum)}
+.btn-apricot{background:var(--apricot);color:var(--ink)}
+.btn-apricot:hover{transform:translateY(-2px);box-shadow:0 12px 24px -12px #b8613a}
+.btn-soft{background:#fff;color:var(--plum)}
+.btn-soft:hover{background:#fff8f4}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--ground) 90%,transparent);backdrop-filter:blur(10px)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:80px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mark{width:40px;height:48px;border-radius:999px 999px 6px 6px;background:var(--plum);color:var(--apricot);display:grid;place-items:end center;padding-bottom:8px;font:600 18px/1 var(--display)}
+.brand b{display:block;font:600 20px/1.1 var(--display)}
+.brand small{display:block;font-size:13px;color:var(--muted)}
+.nav{display:flex;gap:26px;align-items:center;font-weight:700;font-size:15.5px}
+.nav a:not(.btn){text-decoration:none;color:var(--plum)}
+.nav a:not(.btn):hover{text-decoration:underline;text-underline-offset:6px;text-decoration-color:var(--apricot);text-decoration-thickness:3px}
+.nav .btn{padding:12px 18px;font-size:15px}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--plum)}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{padding:40px 0 0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:50px;align-items:end}
+.hero .copy{padding-bottom:70px}
+.kicker{display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:99px;padding:8px 16px 8px 10px;font-size:14.5px;font-weight:700;color:var(--plum);margin-bottom:24px}
+.kicker .ic{width:22px;height:22px;color:var(--apricot);stroke-width:2}
+.hero h1{font-size:clamp(40px,5.2vw,70px);color:var(--plum);font-weight:600}
+.hero .lead{font-size:clamp(18px,1.5vw,20.5px);max-width:42ch;margin:22px 0 30px;color:#4b3c50}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;font-size:14px;color:var(--muted)}
+.trust span{display:inline-flex;gap:8px;align-items:center}
+.trust .ic{width:18px;height:18px;color:var(--plum)}
+.arches{position:relative;height:clamp(420px,46vw,600px);display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;align-items:end}
+.arches::before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;background:var(--apricot);opacity:.55;left:19%;top:2%;z-index:0}
+.arch{position:relative;z-index:1;border-radius:var(--arch);overflow:hidden;background:var(--sage)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.arch:nth-child(1){height:68%}.arch:nth-child(2){height:94%}.arch:nth-child(3){height:58%}
+.js .arch{transform:translateY(105%)}
+.js .ready .arch{transform:none;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.js .ready .arch:nth-child(1){transition-delay:.15s}.js .ready .arch:nth-child(3){transition-delay:.3s}
+.float-card{position:absolute;z-index:3;left:-26px;bottom:52px;background:#fff;border-radius:18px;padding:14px 18px;display:flex;gap:12px;align-items:center;box-shadow:0 20px 40px -22px rgba(61,38,69,.55);max-width:270px;animation:bob 5s ease-in-out infinite}
+.float-card .ic{width:40px;height:40px;padding:8px;border-radius:12px;background:var(--ground);color:var(--plum);flex:none}
+.float-card b{display:block;font:600 15.5px/1.25 var(--display);color:var(--plum)}
+.float-card span{font-size:13.5px;color:var(--muted)}
+@keyframes bob{50%{transform:translateY(-8px)}}
+
+/* numbers band with scalloped top */
+.band{background:var(--plum);color:#fff;position:relative;padding:64px 0 60px}
+.band::before{content:"";position:absolute;left:0;right:0;top:-22px;height:24px;background:radial-gradient(circle at 24px 24px,var(--plum) 23px,transparent 24px) 0 0/48px 24px repeat-x}
+.counters{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.counter b{display:block;font:600 clamp(38px,4vw,54px)/1 var(--display);color:var(--apricot)}
+.counter > span{display:block;margin-top:8px;color:#e9dcec;font-size:15.5px;max-width:22ch}
+.counter b small{font-size:.5em;margin-left:4px}
+.btn,.side .contacts a,.trust{font-family:var(--display)}
+.book .wrap > *,.fields > *,.hero .wrap > *{min-width:0}
+
+/* about */
+.about{padding:110px 0}
+.about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.about .pic{position:relative}
+.about .pic img{border-radius:var(--arch);aspect-ratio:4/5;object-fit:cover;width:100%}
+.about .pic .sun{position:absolute;right:-18px;top:40px;width:110px;height:110px;border-radius:50%;background:var(--sage);display:grid;place-items:center;text-align:center;font:600 14px/1.2 var(--display);color:var(--plum);padding:12px;animation:bob 6s ease-in-out infinite}
+.about h2,.h2{font-size:clamp(32px,3.6vw,48px);color:var(--plum);font-weight:600}
+.about p{color:#4b3c50;max-width:56ch}
+.about h2{margin-bottom:20px}
+.hl{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hl li{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:16px;padding:14px 16px;font-weight:700;font-size:15.5px;color:var(--plum)}
+.hl .ic{width:26px;height:26px;color:var(--apricot);flex:none;stroke-width:2}
+
+/* services */
+.services{padding:100px 0 110px;background:#fff;border-radius:48px 48px 0 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:48px}
+.head p{max-width:44ch;color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{display:flex;flex-direction:column}
+.card .ph-arch{position:relative;border-radius:var(--arch);overflow:hidden;aspect-ratio:3/3.6;background:var(--ground)}
+.card .ph-arch img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.card:hover .ph-arch img{transform:scale(1.06)}
+.card .chip{position:absolute;left:14px;bottom:14px;width:52px;height:52px;border-radius:50%;background:#fff;color:var(--plum);display:grid;place-items:center;box-shadow:0 8px 18px -10px rgba(0,0,0,.4)}
+.card .chip .ic{width:28px;height:28px;stroke-width:1.8}
+.card h3{font-size:22px;color:var(--plum);margin:20px 0 8px;font-weight:600}
+.card p{color:#4b3c50;font-size:16px;margin:0 0 12px}
+.card .dur{margin-top:auto;font-size:14px;font-weight:700;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+.card .dur .ic{width:17px;height:17px}
+
+/* first visit */
+.visit{padding:100px 0;background:#fff}
+.visit .h2{margin-bottom:44px;max-width:22ch}
+.path{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
+.path::before{content:"";position:absolute;left:30px;right:30px;top:29px;border-top:3px dotted var(--sage)}
+.path li{position:relative}
+.path b{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--ground);color:var(--plum);font:600 22px var(--display);border:3px solid #fff;box-shadow:0 0 0 2px var(--sage);position:relative;margin-bottom:18px}
+.path h3{font-size:20px;color:var(--plum);margin-bottom:6px;font-weight:600}
+.path p{color:#4b3c50;font-size:16px;margin:0}
+
+/* team */
+.team{padding:110px 0;background:var(--ground)}
+.director{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center;background:#fff;border-radius:32px;padding:34px;margin-bottom:28px}
+.director img{border-radius:var(--arch);aspect-ratio:4/4.6;object-fit:cover;width:100%}
+.director .tag{display:inline-block;background:var(--plum);color:#fff;border-radius:99px;padding:6px 14px;font-size:13.5px;font-weight:700;margin-bottom:14px}
+.director h3{font-size:clamp(28px,3vw,40px);color:var(--plum);font-weight:600}
+.director .role{color:var(--muted);margin:6px 0 16px}
+.director .bio{color:#4b3c50;max-width:54ch}
+.creds{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px}
+.creds li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px}
+.creds .ic{width:20px;height:20px;color:var(--apricot);flex:none;margin-top:2px;stroke-width:2}
+.creds b{font-weight:700}
+.others{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.mini{background:#fff;border-radius:26px;padding:16px;display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center}
+.mini img{width:96px;height:120px;object-fit:cover;border-radius:999px 999px 12px 12px}
+.mini h3{font-size:19px;color:var(--plum);font-weight:600}
+.mini .role{margin:2px 0 6px;color:var(--muted);font-size:14.5px}
+.mini .creds li{font-size:13.5px}
+
+/* agreements */
+.deals{padding:70px 0;background:#fff}
+.deals .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
+.deals h2{font-size:clamp(26px,2.6vw,34px);color:var(--plum);font-weight:600}
+.deals p{color:var(--muted);margin:10px 0 0;font-size:15px}
+.deal-list{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.deal-list li{border:2px solid var(--ground);border-radius:14px;padding:12px 18px;font:600 16px var(--display);color:var(--plum);background:#fff}
+
+/* visit info */
+.info{padding:100px 0;background:var(--plum);color:#fff}
+.info .h2{color:#fff;margin-bottom:40px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.box{background:#ffffff12;border-radius:24px;padding:28px}
+.box h3{font-size:20px;display:flex;gap:10px;align-items:center;margin-bottom:16px;font-weight:600}
+.box h3 .ic{color:var(--apricot);stroke-width:2}
+.box p,.box li,.box td{color:#eadfee;font-size:15.5px}
+.box ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.box li{display:flex;gap:10px;align-items:flex-start}
+.box li .ic{width:20px;height:20px;color:var(--sage);flex:none;margin-top:3px}
+.box table{border-collapse:collapse;width:100%}
+.box td{padding:5px 0;vertical-align:top}
+.box td + td{text-align:right;padding-left:12px}
+.box tr.today td{color:#fff;font-weight:700}
+.status{display:inline-flex;align-items:center;gap:8px;border-radius:99px;padding:6px 12px;font-size:14px;font-weight:700;background:#ffffff1f;margin-bottom:14px}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--sage);box-shadow:0 0 0 0 var(--sage);animation:pulse 2s infinite}
+.status.closed i{background:#e8a0a0;animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 10px transparent}}
+.box a{color:#fff;font-weight:700}
+
+/* voices */
+.voices{padding:100px 0}
+.voices .note{color:var(--muted);margin:10px 0 40px}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.q{background:#fff;border-radius:28px 28px 28px 6px;padding:30px}
+.q blockquote{margin:0 0 16px;font:400 20px/1.5 var(--display);color:var(--plum)}
+.q figcaption{font-size:15px;color:var(--muted)}
+.q figcaption b{color:var(--ink)}
+
+/* faq */
+.faq{padding:0 0 100px}
+.faq .wrap{max-width:880px}
+.faq .h2{margin-bottom:26px}
+.faq details{background:#fff;border-radius:18px;margin-bottom:10px;padding:2px 22px}
+.faq summary{cursor:pointer;list-style:none;padding:18px 36px 18px 0;font:600 18px/1.35 var(--display);color:var(--plum);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:0;top:50%;width:12px;height:12px;margin-top:-8px;border-right:2.5px solid var(--apricot);border-bottom:2.5px solid var(--apricot);transform:rotate(45deg);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(225deg);margin-top:-2px}
+.faq details p{color:#4b3c50}
+
+/* booking wizard */
+.book{padding:110px 0;background:#fff;border-radius:48px 48px 0 0}
+.book .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+.book .side p{color:#4b3c50;max-width:44ch;margin-top:16px}
+.side .contacts{display:grid;gap:12px;margin-top:26px}
+.side .contacts a{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:700;color:var(--plum)}
+.side .contacts .ic{width:40px;height:40px;padding:9px;border-radius:50%;background:var(--ground);flex:none}
+.side .contacts a:hover span{text-decoration:underline}
+.wiz{background:var(--ground);border-radius:32px;padding:34px}
+.steps-bar{display:flex;gap:10px;margin-bottom:26px;list-style:none;padding:0}
+.steps-bar li{flex:1;font-size:13.5px;font-weight:700;color:var(--muted)}
+.steps-bar li i{display:block;height:6px;border-radius:9px;background:#fff;margin-bottom:8px;overflow:hidden;position:relative}
+.steps-bar li i::after{content:"";position:absolute;inset:0;background:var(--plum);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.steps-bar li.done i::after,.steps-bar li.on i::after{transform:scaleX(1)}
+.steps-bar li.on{color:var(--plum)}
+.pane{border:0;margin:0;padding:0;min-width:0}
+.pane[hidden]{display:none}
+.pane legend{font:600 22px/1.2 var(--display);color:var(--plum);margin-bottom:18px;padding:0}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0}
+.opt span{display:flex;gap:12px;align-items:center;background:#fff;border:2px solid transparent;border-radius:16px;padding:14px 16px;font-weight:700;color:var(--plum);cursor:pointer;transition:border-color .2s,transform .2s;height:100%}
+.opt span .ic{width:28px;height:28px;color:var(--apricot);flex:none;stroke-width:1.9}
+.opt input:checked + span{border-color:var(--plum);transform:translateY(-2px)}
+.opt input:focus-visible + span{outline:3px solid var(--plum);outline-offset:2px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.pills .opt span{padding:10px 16px;border-radius:99px}
+.f{display:block;font-size:14.5px;font-weight:700;color:var(--plum)}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:6px;padding:14px 16px;border-radius:14px;border:2px solid transparent;background:#fff;font:inherit;font-weight:400;font-size:16px;color:var(--ink)}
+.f textarea{min-height:90px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--plum)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.full{grid-column:1/-1}
+.consent{display:flex;gap:10px;font-size:14px;color:var(--muted);margin:16px 0 4px;align-items:flex-start}
+.consent input{margin-top:4px;accent-color:var(--plum)}
+.nav-btns{display:flex;justify-content:space-between;gap:10px;margin-top:24px}
+.nav-btns .back{background:none;border:0;font:700 15px var(--body);color:var(--plum);cursor:pointer;padding:12px 4px}
+.nav-btns .back[hidden]{visibility:hidden;display:block}
+.done-msg{display:none;text-align:center;padding:30px 10px}
+.done-msg .ic{width:64px;height:64px;color:var(--plum);margin:0 auto 14px;stroke-width:1.6}
+.done-msg h3{font-size:26px;color:var(--plum);margin-bottom:8px}
+.wiz.sent .done-msg{display:block}
+.wiz.sent form{display:none}
+.wiz .note{font-size:13.5px;color:var(--muted);margin:16px 0 0}
+
+footer{background:var(--ink);color:#d9ccdc;padding:64px 0 30px;font-size:15px}
+.fcols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:36px}
+footer h3{font:600 16px var(--display);color:#fff;margin-bottom:12px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+footer .brand{color:#fff;margin-bottom:14px}
+footer .brand small{color:#d9ccdc}
+.social{display:flex;gap:10px;margin-top:14px}
+.social a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#ffffff17}
+.social .ic{width:18px;height:18px}
+.legal{border-top:1px solid #ffffff1f;margin-top:44px;padding-top:22px;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:13.5px}
+.ids{display:flex;flex-wrap:wrap;gap:6px 22px}
+
+@media (max-width:1000px){
+  .hero .wrap,.about .wrap,.director,.book .wrap,.deals .wrap{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .counters{grid-template-columns:1fr 1fr}
+  .path{grid-template-columns:1fr 1fr;row-gap:34px}
+  .path::before{display:none}
+  .trio{grid-template-columns:1fr}
+  .fcols{grid-template-columns:1fr 1fr}
+  .hero .copy{padding-bottom:20px}
+}
+@media (max-width:760px){
+  body{font-size:16.5px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:72px 0 0;background:var(--ground);flex-direction:column;align-items:flex-start;padding:28px var(--pad);gap:22px;font-size:20px}
+  .top .wrap{height:72px}
+  .hero{padding-top:20px}
+  .arches{height:330px;gap:8px}
+  .float-card{left:8px;bottom:16px;max-width:230px;padding:10px 14px}
+  .float-card .ic{width:34px;height:34px;padding:6px}
+  .head{flex-direction:column;align-items:flex-start}
+  .cards{grid-template-columns:1fr;gap:30px}
+  .card .ph-arch{aspect-ratio:4/3.4}
+  .hl{grid-template-columns:1fr}
+  .quotes{grid-template-columns:1fr}
+  .about,.services,.visit,.team,.info,.voices,.book{padding:72px 0}
+  .services,.book{border-radius:32px 32px 0 0}
+  .about .pic .sun{right:6px;top:16px;width:96px;height:96px;font-size:12.5px}
+  .director{padding:18px;gap:22px}
+  .opts{grid-template-columns:1fr}
+  .fields{grid-template-columns:1fr}
+  .wiz{padding:22px}
+  .path{grid-template-columns:1fr}
+  .fcols{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .arch{transform:none}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.capture .arch{transform:none!important}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:80px}
+.shot-mode .services,.shot-mode .book{border-radius:0}
+@media (max-width:760px){.shot-mode main{padding-top:72px}}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fisioclínica Marialva (opção 2) · pré-visualização do site">
+<meta property="og:description" content="Fisioclínica Marialva: clínica de fisioterapia na Avenida das Laranjeiras, em Anadia, aberta também ao sábado de manhã.">
+<meta property="og:url" content="https://preview.northsoftware.pt/fisioclinica-marialva-anadia-opcao-2/">
+<meta property="og:image" content="https://preview.northsoftware.pt/fisioclinica-marialva-anadia-opcao-2/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 v4-f" data-service-count="1" style="--service-columns:1">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"da clínica"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, queria fazer uma marcação.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, queria fazer uma marcação.");}
+},true);
+</script>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Fisioclínica Marialva, início">
+      <span class="mark" aria-hidden="true">FM</span>
+      <span><b>Fisioclínica Marialva</b><small>Fisioterapia</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a class="btn btn-apricot" href="#contacto">Pedir contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="copy">
+      <span class="kicker"><svg class="ic ic-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Fisioterapia em Anadia</span>
+      <h1>Fisioterapia em Anadia</h1>
+      <p class="lead">Clínica de fisioterapia na Avenida das Laranjeiras, em Anadia, aberta até às 20:00 nos dias úteis e ao sábado de manhã. Quem cá vem fala de «técnicos muito competentes, interessados e disponíveis».</p>
+      <div class="ctas">
+        <a class="btn btn-plum" href="#contacto">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-soft" href="tel:+351231525585"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> 231 525 585</a>
+      </div>
+      <div class="trust">
+        
+        
+      </div>
+    </div>
+    <div class="arches" id="arches">
+      <div class="arch"><img src="assets/fisio-arco-1.jpg" alt="Fotografia ilustrativa de banco de imagens"></div><div class="arch"><img src="assets/fisio-arco-2.jpg" alt="Fotografia ilustrativa de banco de imagens"></div><div class="arch"><img src="assets/fisio-arco-3.jpg" alt="Fotografia ilustrativa de banco de imagens"></div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="about" id="clinica">
+  <div class="wrap">
+    <div class="pic"></div>
+    <div>
+      <h2>Sobre Fisioclínica Marialva</h2>
+      <p>A Fisioclínica Marialva é uma clínica de fisioterapia na Avenida das Laranjeiras, em Anadia, aberta até às 20:00 nos dias úteis e ao sábado de manhã.</p>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="head"><h2 class="h2">Serviços</h2><p></p></div>
+    <div class="cards">
+      
+      <article class="card">
+        <div class="ph-arch"><img src="assets/fisio-s1.jpg" alt="" loading="lazy"><span class="chip"><svg class="ic ic-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span></div>
+        <h3>Fisioterapia</h3>
+        <p>Sessões de fisioterapia com a equipa de técnicos da clínica.</p>
+        
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="info" id="visita">
+  <div class="wrap">
+    <h2 class="h2">Localização e horário</h2>
+    <div class="trio">
+      <div class="box">
+        <h3><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Como chegar</h3>
+        <p>Avenida das Laranjeiras, 43, 3780-236 Anadia<br></p>
+        
+        
+      </div>
+      
+      <div class="box">
+        <h3><svg class="ic ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Horário</h3>
+        <span class="status" id="status"><i></i><span id="statusText">Aberto agora</span></span>
+        <table><tr><td>Segunda a sexta</td><td>08:00–20:00</td></tr><tr><td>Sábado</td><td>08:00–13:00</td></tr><tr><td>Domingo</td><td>Encerrado</td></tr></table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="book" id="contacto">
+  <div class="wrap">
+    <div class="side">
+      <h2 class="h2">Pedir contacto</h2>
+      <p>Escolha o serviço e indique como prefere ser contactado.</p>
+      <div class="contacts">
+        <a href="tel:+351231525585"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span>231 525 585</span></a>
+        
+        <a href="mailto:fisioclinicamarialva@hotmail.com"><svg class="ic ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>fisioclinicamarialva@hotmail.com</span></a>
+      </div>
+    </div>
+    <div class="wiz" id="wiz">
+      <ol class="steps-bar" aria-hidden="true"><li class="on"><i></i>Serviço</li><li><i></i>Quando</li><li><i></i>Contacto</li></ol>
+      <form id="form" novalidate>
+        <fieldset class="pane" data-step="1">
+          <legend>Serviço</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="servico" value="Fisioterapia" checked><span><svg class="ic ic-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Fisioterapia</span></label>
+            <label class="opt"><input type="radio" name="servico" value="Não sei, preciso de orientação"><span><svg class="ic ic-chat-bubbles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 9a2 2 0 0 1-2 2H6l-3 3V4a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2z"/><path d="M18 9h1a2 2 0 0 1 2 2v10l-3-3h-6a2 2 0 0 1-2-2v-1"/></svg>Não sei, quero orientação</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="pane" data-step="2" hidden>
+          <legend>Preferência de dia</legend>
+          <div class="pills"><label class="opt"><input type="checkbox" name="periodo" value="Sem preferência"><span>Sem preferência</span></label><label class="opt"><input type="checkbox" name="periodo" value="Manhã"><span>Manhã</span></label><label class="opt"><input type="checkbox" name="periodo" value="Tarde"><span>Tarde</span></label></div>
+          <div class="fields">
+            <label class="f">Dia preferido<input type="date" name="dia"></label>
+            
+            
+          </div>
+        </fieldset>
+        <fieldset class="pane" data-step="3" hidden>
+          <legend>Contacto</legend>
+          <div class="fields">
+            <label class="f">Nome<input name="nome" autocomplete="name" required></label>
+            <label class="f">Telemóvel<input name="tel" type="tel" autocomplete="tel" required></label>
+            <label class="f full">Email<input name="email" type="email" autocomplete="email"></label>
+          </div>
+          <label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+        </fieldset>
+        <div class="nav-btns">
+          <button type="button" class="back" id="back" hidden>Voltar</button>
+          <button type="button" class="btn btn-plum" id="nextStep">Continuar <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button type="submit" class="btn btn-plum" id="send" hidden>Pedir marcação pelo WhatsApp <svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></button>
+        </div>
+      </form>
+      <div class="done-msg" role="status"><svg class="ic ic-calendar-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 10h18M9 15.5l2 2 4-4"/></svg><h3>Pedido não enviado</h3><p>Pré-visualização: pedido não enviado. Use os contactos publicados para falar com o negócio.</p></div>
+      
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <a class="brand" href="#"><span class="mark" aria-hidden="true">FM</span><span><b>Fisioclínica Marialva</b><small>Fisioterapia</small></span></a>
+        <p>Fisioterapia em Anadia</p>
+        
+      </div>
+      <div><h3>Fisioterapia</h3><ul><li><a href="#servicos">Fisioterapia</a></li></ul></div>
+      <div><h3>Clínica</h3><ul><li>Avenida das Laranjeiras, 43, 3780-236 Anadia</li><li><a href="tel:+351231525585">231 525 585</a></li><li><a href="mailto:fisioclinicamarialva@hotmail.com">fisioclinicamarialva@hotmail.com</a></li></ul></div>
+      <div><h3>Informação legal</h3><ul>
+        
+        
+        
+        
+      </ul></div>
+    </div>
+    <div class="legal">
+      <span class="ids"><span>Fisioclínica Marialva, Lda</span><span>NIF <span class="ph">508177693</span></span></span>
+      <span>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  root.classList.add('js');
+  var capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture) root.classList.add('capture');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});
+
+  // hero arches rise once
+  var arches=d.getElementById('arches');
+  if(still) arches.classList.add('ready'); else requestAnimationFrame(function(){requestAnimationFrame(function(){arches.classList.add('ready')})});
+
+  // counters
+  var counts=[].slice.call(d.querySelectorAll('[data-count]'));
+  function fmt(n){ return Math.round(n).toLocaleString('pt-PT').replace(/\./g,' '); }
+  if(!still && 'IntersectionObserver' in window){
+    counts.forEach(function(el){el.textContent='0'});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(!e.isIntersecting)return; io.unobserve(e.target); var el=e.target,end=+el.dataset.count,s=null; function step(t){ if(!s)s=t; var p=Math.min(1,(t-s)/1500); el.textContent=fmt(end*(1-Math.pow(1-p,3))); if(p<1)requestAnimationFrame(step);} requestAnimationFrame(step); });},{threshold:.6});
+    counts.forEach(function(el){io.observe(el)});
+  }
+
+  // open now (days 1=Mon..7=Sun, ranges "HH:MM")
+  var hours=[{"days": [1], "ranges": [["08:00", "20:00"]]}, {"days": [2], "ranges": [["08:00", "20:00"]]}, {"days": [3], "ranges": [["08:00", "20:00"]]}, {"days": [4], "ranges": [["08:00", "20:00"]]}, {"days": [5], "ranges": [["08:00", "20:00"]]}, {"days": [6], "ranges": [["08:00", "13:00"]]}], st=d.getElementById('status');
+  if(st && hours){
+    var now=new Date(), wd=((now.getDay()+6)%7)+1, mins=now.getHours()*60+now.getMinutes(), open=null, rows=st.parentNode.querySelectorAll('tr');
+    function m(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+    hours.forEach(function(h,k){ if((h.days||[]).indexOf(wd)<0)return; if(rows[k])rows[k].classList.add('today'); (h.ranges||[]).forEach(function(r){ if(mins>=m(r[0])&&mins<m(r[1])) open=r[1]; }); });
+    if(open){ d.getElementById('statusText').textContent='Aberto agora, até às '+open.replace(':','h'); }
+    else { st.classList.add('closed'); d.getElementById('statusText').textContent='Fechado agora'; }
+  }
+
+  // booking wizard
+  var wiz=d.getElementById('wiz'), form=d.getElementById('form'), panes=[].slice.call(form.querySelectorAll('.pane')), bar=[].slice.call(wiz.querySelectorAll('.steps-bar li'));
+  var back=d.getElementById('back'), next=d.getElementById('nextStep'), send=d.getElementById('send'), step=0;
+  function show(n){ step=n; panes.forEach(function(p,k){p.hidden=k!==n}); bar.forEach(function(b,k){b.className=k<n?'done':k===n?'on':''}); back.hidden=n===0; next.hidden=n===panes.length-1; send.hidden=n!==panes.length-1; var l=panes[n].querySelector('legend'); if(l&&!still&&n>0){ l.setAttribute('tabindex','-1'); l.focus(); } }
+  next.addEventListener('click',function(){show(Math.min(step+1,panes.length-1))});
+  back.addEventListener('click',function(){show(Math.max(step-1,0))});
+  form.addEventListener('submit',function(e){e.preventDefault(); var req=[].slice.call(panes[2].querySelectorAll('[required]')).filter(function(i){return i.type==='checkbox'?!i.checked:!i.value.trim();}); if(req.length){req[0].focus();return;} wiz.classList.add('sent');});
+
+  var mm=location.hash.match(/^#shot-(.+)/), t=mm&&d.getElementById(mm[1]);
+  if(t && !t.hidden){ root.classList.add('shot-mode'); [].forEach.call(d.querySelectorAll('main > *, footer'),function(s){ if(s!==t) s.style.display='none'; }); }
+})();
+</script>
+</body>
+</html>

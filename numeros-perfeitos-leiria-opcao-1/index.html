@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Números Perfeitos · Leiria</title>
+<meta name="description" content="Contabilidade · Números Perfeitos">
+
+
+
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url("assets/fonts/bricolage-grotesque-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"DM Sans";src:url("assets/fonts/of-dm-sans-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --blue:#3550FF; --blue-d:#2438C9; --sun:#FFCB47; --mint:#1FBF8F; --coral:#FF7A66; --ink:#191B3D; --muted:#585B7A;
+  --lilac:#F1EFFF; --lilac-2:#E2DDFF; --white:#fff; --line:#E4E2F2;
+  --display:"Bricolage Grotesque", Georgia, sans-serif; --body:"DM Sans", sans-serif;
+  --wrap:1180px; --pad:clamp(18px,4vw,40px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17px/1.6 var(--body);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;margin:0;letter-spacing:-.015em}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+section{scroll-margin-top:80px}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--body);padding:16px 22px;border-radius:14px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s, box-shadow .15s, background .2s}
+.btn svg{width:20px;height:20px}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 4px 0 var(--blue-d)}
+.btn-blue:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--blue-d)}
+.btn-blue:active{transform:translateY(2px);box-shadow:0 2px 0 var(--blue-d)}
+.btn-soft{background:var(--lilac);color:var(--ink)}
+.btn-soft:hover{background:var(--lilac-2)}
+.note{font-size:13px;color:var(--muted)}
+.ex{display:inline-block;font-size:12px;font-weight:600;background:#FFF2CC;color:#7A5600;padding:2px 8px;border-radius:99px;vertical-align:middle}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);transition:box-shadow .3s}
+.top.solid{box-shadow:0 1px 0 var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 23px/1 var(--display);letter-spacing:-.02em}
+.logo svg{width:40px;height:40px}
+.nav{display:flex;gap:26px;align-items:center;font-weight:500;font-size:15.5px}
+.nav a{text-decoration:none}
+.nav a:not(.btn):hover{color:var(--blue)}
+.nav .btn{padding:12px 18px;font-size:15px}
+.burger{display:none;background:var(--lilac);border:0;border-radius:12px;padding:9px;cursor:pointer;color:var(--ink)}
+.burger svg{width:24px;height:24px;display:block}
+
+/* hero */
+.hero{padding:56px 0 40px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.02fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(42px,5.6vw,70px);font-weight:800}
+.hero .lead{font-size:clamp(17px,1.5vw,20px);color:var(--muted);max-width:44ch;margin:22px 0 30px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.proof{display:flex;align-items:center;gap:14px;margin-top:34px}
+.faces{display:flex;flex:none}
+.faces img,.faces span{width:44px;height:44px;border-radius:50%;border:3px solid #fff;margin-left:-10px;object-fit:cover}
+.faces > :first-child{margin-left:0}
+.faces span{display:grid;place-items:center;background:var(--sun);font:700 14px var(--display)}
+.proof p{margin:0;font-size:15px;color:var(--muted)}
+.proof b{color:var(--ink)}
+
+/* illustration */
+.scene{position:relative;aspect-ratio:1/0.92;max-width:600px;justify-self:end;width:100%}
+.scene > *{position:absolute}
+.disc{inset:6% 4% 4% 10%;border-radius:46% 54% 50% 50%/52% 46% 54% 48%;background:var(--lilac)}
+.sunball{width:23%;aspect-ratio:1;border-radius:50%;background:var(--sun);right:6%;top:2%}
+.float{animation:bob 6s ease-in-out infinite alternate}
+@keyframes bob{from{translate:0 -8px}to{translate:0 10px}}
+.doc{left:12%;top:13%;width:49%;background:#fff;border-radius:20px;padding:20px 20px 18px;box-shadow:0 30px 50px -24px rgba(25,27,61,.35), 0 0 0 1px var(--line);rotate:-6deg}
+.doc .h{display:flex;justify-content:space-between;align-items:center;font:700 14px var(--display)}
+.doc .h i{width:28px;height:28px;border-radius:8px;background:var(--blue);display:block}
+.doc .meta{font-size:12px;color:var(--muted);margin:4px 0 14px}
+.doc .ln{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;padding:7px 0;border-top:1px dashed var(--line)}
+.doc .ln s{flex:1;height:8px;border-radius:9px;background:var(--lilac-2);text-decoration:none;align-self:center}
+.doc .tot{display:flex;justify-content:space-between;font:700 18px var(--display);border-top:2px solid var(--ink);padding-top:10px;margin-top:6px}
+.stamp{right:-18px;top:-16px;position:absolute;background:var(--mint);color:#fff;font:700 13px var(--display);padding:8px 12px;border-radius:12px;rotate:8deg;display:flex;gap:6px;align-items:center;box-shadow:0 8px 16px -8px rgba(31,191,143,.8)}
+.stamp svg{width:16px;height:16px}
+.calc{right:9%;top:31%;width:31%;background:var(--ink);border-radius:22px;padding:14px;rotate:7deg;box-shadow:0 30px 40px -20px rgba(25,27,61,.55);animation-delay:-2s}
+.calc .screen{background:#DDF7EE;color:var(--ink);border-radius:10px;padding:8px 10px;text-align:right;font:700 19px/1.1 var(--display);margin-bottom:10px;font-variant-numeric:tabular-nums}
+.calc .screen small{display:block;font:500 10px var(--body);color:#3b6c5d}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.keys i{aspect-ratio:1;border-radius:8px;background:#2D3060;display:block}
+.keys i.o{background:var(--sun)}
+.keys i.b{background:var(--blue)}
+.cal{left:6%;bottom:6%;width:25%;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 24px 40px -22px rgba(25,27,61,.45), 0 0 0 1px var(--line);rotate:-3deg;text-align:center;animation-delay:-4s}
+.cal b{display:block;background:var(--coral);color:#fff;font:700 14px var(--display);padding:7px 0}
+.cal strong{display:block;font:800 46px/1 var(--display);padding:10px 0 2px}
+.cal span{display:block;font-size:11.5px;color:var(--muted);padding:0 8px 12px;line-height:1.3}
+.chip{left:40%;bottom:12%;background:#fff;border-radius:99px;padding:10px 16px 10px 10px;display:flex;align-items:center;gap:10px;font:600 14px var(--body);box-shadow:0 18px 30px -18px rgba(25,27,61,.5), 0 0 0 1px var(--line);animation-delay:-1s}
+.chip i{width:30px;height:30px;border-radius:50%;background:var(--mint);display:grid;place-items:center;color:#fff}
+.chip i svg{width:16px;height:16px}
+.pie{right:12%;bottom:8%;width:15%;aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--blue) 0 58%, var(--sun) 0 82%, var(--mint) 0);box-shadow:0 0 0 6px #fff, 0 20px 30px -16px rgba(25,27,61,.5);animation-delay:-3s}
+.coins{left:2%;top:46%;width:12%}
+.coins i{display:block;height:12px;border-radius:50%;background:var(--sun);box-shadow:inset 0 -3px 0 #E0A821;margin-top:-4px}
+
+/* sectors marquee */
+.sectors{padding:30px 0 60px}
+.sectors p{text-align:center;color:var(--muted);font-size:15px;margin-bottom:18px}
+.marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee ul{display:flex;gap:14px;list-style:none;margin:0;padding:0;width:max-content;animation:slide 40s linear infinite}
+.marquee:hover ul{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.marquee li{display:flex;align-items:center;gap:10px;background:var(--lilac);border-radius:16px;padding:12px 18px 12px 12px;font-weight:600;white-space:nowrap}
+.marquee li svg{width:34px;height:34px;padding:7px;border-radius:10px;background:#fff;color:var(--blue)}
+
+/* services bento */
+.services{padding:90px 0;background:var(--lilac)}
+.head{max-width:640px;margin-bottom:40px}
+.head h2,.est h2,.faq h2,.deadlines h2,.contact h2{font-size:clamp(32px,3.6vw,48px)}
+.head p{color:var(--muted);margin-top:14px}
+.bento{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
+.tile{background:#fff;border-radius:26px;padding:28px;position:relative;overflow:hidden}
+.tile h3{font-size:24px;margin:16px 0 8px}
+.tile p{color:var(--muted);font-size:16px;margin:0}
+.tile .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center}
+.tile .ic svg{width:28px;height:28px}
+.tile.big{grid-row:span 2;padding:0;display:flex;flex-direction:column;background:var(--blue);color:#fff}
+.tile.big img{height:300px;object-fit:cover;width:100%}
+.tile.big .in{padding:28px}
+.tile.big p{color:#dfe4ff}
+.tile.big ul{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.tile.big li{background:rgba(255,255,255,.14);border-radius:99px;padding:6px 12px;font-size:14px;font-weight:500}
+.tile.photo{padding:0;min-height:240px}
+.tile.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile.photo .lab{position:absolute;left:16px;bottom:16px;right:16px;background:#fff;border-radius:16px;padding:14px 16px;display:flex;gap:12px;align-items:center}
+.tile.photo .lab b{font-family:var(--display);font-size:18px}
+.tile.photo .lab span{display:block;font-size:14px;color:var(--muted)}
+.i-sun{background:#FFF2CC;color:#9A6B00}.i-mint{background:#D6F5EB;color:#0E7A59}.i-coral{background:#FFE3DE;color:#B23A27}.i-blue{background:var(--lilac-2);color:var(--blue)}
+
+/* deadlines widget */
+.deadlines{padding:100px 0}
+.deadlines .wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:center}
+.deadlines .txt p{color:var(--muted);margin-top:16px;max-width:42ch}
+.widget{background:var(--ink);color:#fff;border-radius:28px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px;box-shadow:0 40px 60px -40px rgba(25,27,61,.8)}
+.wbar{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center}
+.wbar h3{font-size:22px;text-transform:none}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#b9bce0}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(31,191,143,.7);animation:pulse 2s infinite}
+@keyframes pulse{to{box-shadow:0 0 0 10px rgba(31,191,143,0)}}
+.grid7{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:13px}
+.grid7 .dn{color:#8D90BE;font-size:12px;padding-bottom:4px}
+.grid7 .d{aspect-ratio:1;display:grid;place-items:center;border-radius:10px;position:relative;color:#d5d7f2}
+.grid7 .d.past{color:#5d608f}
+.grid7 .d.dl{background:#2D3060;color:#fff;font-weight:700}
+.grid7 .d.dl::after{content:"";position:absolute;bottom:5px;width:5px;height:5px;border-radius:50%;background:var(--sun)}
+.grid7 .d.today{background:var(--sun);color:var(--ink);font-weight:800}
+.grid7 .d.today::after{background:var(--ink)}
+.list{display:grid;gap:10px;align-content:start}
+.item{background:#24275A;border-radius:16px;padding:12px 14px;display:grid;grid-template-columns:46px 1fr;gap:12px;align-items:center}
+.item .day{background:#fff;color:var(--ink);border-radius:12px;text-align:center;padding:4px 0;font:800 20px/1 var(--display)}
+.item .day small{display:block;font:600 10px var(--body);color:var(--muted)}
+.item b{display:block;font-size:14.5px;font-weight:600;line-height:1.3}
+.item span{font-size:12.5px;color:#b9bce0}
+.item.done{opacity:.45}
+.item.next{background:var(--blue)}
+.item.next span{color:#fff}
+.wfoot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid #34386c;padding-top:16px;font-size:13px;color:#b9bce0}
+.switch{display:flex;align-items:center;gap:10px;font-weight:600;color:#fff;cursor:pointer}
+.switch input{appearance:none;width:44px;height:26px;border-radius:99px;background:#3a3e78;position:relative;cursor:pointer;transition:background .2s;margin:0}
+.switch input::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .2s}
+.switch input:checked{background:var(--mint)}
+.switch input:checked::after{left:21px}
+
+/* estimator */
+.est{padding:100px 0;background:linear-gradient(var(--sun),var(--sun)) top/100% 52% no-repeat}
+.est .box{background:#fff;border-radius:30px;box-shadow:0 40px 70px -40px rgba(25,27,61,.45);display:grid;grid-template-columns:1.3fr 1fr;overflow:hidden}
+.est .form{padding:40px}
+.est .form > p{color:var(--muted);margin:12px 0 28px}
+.q{margin-bottom:24px;border:0;padding:0}
+.q legend,.q > label{display:block;font-weight:600;margin-bottom:10px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;padding:11px 16px;border-radius:12px;background:var(--lilac);font-weight:500;cursor:pointer;border:2px solid transparent;transition:background .2s, border-color .2s}
+.seg input:checked + span{background:#fff;border-color:var(--blue);color:var(--blue)}
+.seg input:focus-visible + span{outline:3px solid var(--blue);outline-offset:2px}
+.seg input:disabled + span{opacity:.4;cursor:not-allowed}
+.range{display:flex;align-items:center;gap:16px}
+.range input{flex:1;accent-color:var(--blue);height:6px}
+.range output{min-width:56px;text-align:center;font:800 22px var(--display);background:var(--lilac);border-radius:12px;padding:6px 8px}
+.result{background:var(--ink);color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:center}
+.result .lab{color:#b9bce0;font-size:15px}
+.price{font:800 clamp(54px,6vw,76px)/1 var(--display);letter-spacing:-.03em;margin:8px 0 4px;font-variant-numeric:tabular-nums}
+.price small{font-size:20px;font-weight:600;color:#b9bce0;letter-spacing:0}
+.break{list-style:none;padding:0;margin:20px 0 26px;display:grid;gap:8px;font-size:14.5px;color:#d5d7f2}
+.break li{display:flex;justify-content:space-between;border-bottom:1px dashed #3a3e78;padding-bottom:6px}
+.result .btn{align-self:flex-start}
+
+/* chat + faq */
+.faq{padding:100px 0}
+.faq .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}
+.chat{margin-top:30px;background:#E9F7F1;border-radius:24px;padding:20px;display:grid;gap:10px;max-width:420px}
+.chat .row{display:flex;gap:10px;align-items:flex-end}
+.chat .row img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.bub{background:#fff;border-radius:16px 16px 16px 4px;padding:10px 14px;font-size:15px;max-width:290px;box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.row.me{justify-content:flex-end}
+.row.me .bub{background:#D6F5C6;border-radius:16px 16px 4px 16px}
+.bub time{display:block;font-size:11px;color:var(--muted);text-align:right;margin-top:2px}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font:600 19px/1.3 var(--display)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary i{flex:none;width:36px;height:36px;border-radius:50%;background:var(--lilac);display:grid;place-items:center;transition:transform .3s, background .3s}
+.acc summary i svg{width:18px;height:18px}
+.acc details[open] summary i{transform:rotate(45deg);background:var(--sun)}
+.acc .ans{color:var(--muted);padding:0 50px 22px 0}
+.acc .ans p{margin:0}
+
+/* contact */
+.contact{padding:0 0 100px}
+.contact .box{background:var(--blue);color:#fff;border-radius:32px;padding:56px;display:grid;grid-template-columns:1fr 1.1fr;gap:50px;position:relative;overflow:hidden}
+.contact .box::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:var(--sun);right:-120px;top:-150px;opacity:.95}
+.contact .box > *{position:relative}
+.contact p.l{color:#dfe4ff;margin:16px 0 26px}
+.ways{display:grid;gap:12px}
+.ways a,.ways div{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.12);border-radius:16px;padding:14px 16px;text-decoration:none;font-weight:500}
+.ways a:hover{background:rgba(255,255,255,.2)}
+.ways svg{width:22px;height:22px;flex:none}
+.cform{background:#fff;color:var(--ink);border-radius:24px;padding:30px}
+.cform label{display:block;font-weight:600;font-size:14.5px;margin-bottom:14px}
+.cform input,.cform textarea,.cform select{display:block;width:100%;margin-top:6px;border:2px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;background:#fff;color:var(--ink)}
+.cform input:focus,.cform textarea:focus,.cform select:focus{outline:none;border-color:var(--blue)}
+.cform textarea{min-height:96px;resize:vertical}
+.cform .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sent{display:none;margin:12px 0 0;color:#0E7A59;font-weight:600}
+.sent.on{display:block}
+
+/* whatsapp */
+.wa{position:fixed;right:22px;bottom:22px;z-index:60;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(37,211,102,.8);text-decoration:none;transition:transform .2s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:32px;height:32px}
+.wa span{position:absolute;right:74px;background:var(--ink);color:#fff;font-size:14px;font-weight:600;white-space:nowrap;padding:8px 12px;border-radius:10px;opacity:0;translate:8px 0;transition:opacity .2s, translate .2s;pointer-events:none}
+.wa:hover span,.wa:focus-visible span{opacity:1;translate:0 0}
+
+footer{background:var(--ink);color:#b9bce0;padding:60px 0 30px;font-size:15px}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px}
+footer h3{font-size:16px;color:#fff;margin-bottom:12px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+footer .logo{color:#fff;margin-bottom:14px}
+.legal{margin-top:40px;padding-top:22px;border-top:1px solid #34386c;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 28px;font-size:13.5px}
+.ph{color:var(--sun)}
+
+@media (max-width:980px){
+  .hero .wrap,.deadlines .wrap,.faq .wrap,.contact .box,.est .box{grid-template-columns:1fr}
+  .scene{justify-self:center;max-width:520px}
+  .bento{grid-template-columns:1fr 1fr}
+  .tile.big{grid-row:auto;grid-column:1/-1}
+  footer .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:68px 0 auto;background:#fff;flex-direction:column;align-items:stretch;padding:20px var(--pad) 28px;gap:16px;font-size:19px;box-shadow:0 20px 30px -20px rgba(25,27,61,.3)}
+  .top .wrap{height:68px}
+  .logo{font-size:21px}
+  .hero{padding:30px 0 10px}
+  .hero h1{font-size:clamp(38px,10.5vw,52px)}
+  .hero .lead{margin:16px 0 22px}
+  .hero .ctas .btn{flex:1;justify-content:center}
+  .proof{margin-top:22px}
+  .scene{margin-top:4px}
+  .doc{padding:14px 14px 12px;border-radius:16px}
+  .doc .ln{font-size:10.5px;padding:5px 0}
+  .doc .meta{margin-bottom:8px;font-size:10.5px}
+  .doc .tot{font-size:14px}
+  .calc{padding:9px;border-radius:16px}
+  .calc .screen{font-size:13px;padding:6px}
+  .keys{gap:4px}
+  .cal strong{font-size:30px;padding:6px 0 0}
+  .cal span{font-size:9.5px;padding-bottom:8px}
+  .cal b{font-size:12px;padding:4px 0}
+  .chip{font-size:12px;padding:6px 10px 6px 6px}
+  .chip i{width:24px;height:24px}
+  .stamp{font-size:11px;padding:6px 9px}
+  .sectors{padding:20px 0 50px}
+  .services,.deadlines,.est,.faq{padding:70px 0}
+  .bento{grid-template-columns:1fr;gap:12px}
+  .tile.big img{height:200px}
+  .widget{grid-template-columns:1fr;padding:20px;border-radius:22px}
+  .wfoot{flex-direction:column;align-items:flex-start}
+  .est .form,.result{padding:26px 22px}
+  .contact{padding-bottom:70px}
+  .contact .wrap{padding:0 10px}
+  .contact .box{padding:34px 20px;border-radius:26px;gap:30px}
+  .contact .box::before{width:180px;height:180px;right:-90px;top:-110px}
+  .cform{padding:22px 18px}
+  .cform .two{grid-template-columns:1fr}
+  .acc .ans{padding-right:0}
+  footer .cols{grid-template-columns:1fr}
+  .wa{right:16px;bottom:16px;width:58px;height:58px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *{animation:none!important;transition:none!important}
+.shot .contact{padding-top:40px}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Números Perfeitos (opção 1) · pré-visualização do site">
+<meta property="og:description" content="Contabilidade · Números Perfeitos">
+<meta property="og:url" content="https://preview.northsoftware.pt/numeros-perfeitos-leiria-opcao-1/">
+<meta property="og:image" content="https://preview.northsoftware.pt/numeros-perfeitos-leiria-opcao-1/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 v4-c" data-service-count="3" style="--service-columns:3">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"do gabinete"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de falar sobre a contabilidade da minha empresa.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de falar sobre a contabilidade da minha empresa.");}
+},true);
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 2.9 4.6 4.1 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="logo-mark" viewBox="0 0 40 40"><path d="M6 4h28a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H16l-8 6v-6H6a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z" fill="#3550FF"/><path d="M12 18.5l5 5 11-11" fill="none" stroke="#FFCB47" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Números Perfeitos, início"><svg><use href="#logo-mark"/></svg>Números Perfeitos</a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a class="btn btn-blue" href="#contacto">Pedir contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-label="Apresentação">
+  <div class="wrap">
+    <div>
+      <h1>Números Perfeitos</h1>
+      <p class="lead">Contabilidade, IRS e planeamento fiscal em Leiria</p>
+      <div class="ctas">
+        <a class="btn btn-blue" href="#contacto">Pedir contacto <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-soft" href="tel:+351965072729"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> 965 072 729</a>
+
+      </div>
+      
+    </div>
+    <div class="scene" aria-hidden="true">
+      <div class="disc"></div>
+      <div class="sunball"></div>
+      <div class="coins float"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="doc float">
+        <div class="h">Organização documental<i></i></div>
+        <div class="meta">Documentos · Contabilidade</div>
+        <div class="ln"><s></s>—</div>
+        <div class="ln"><s style="max-width:60%"></s>—</div>
+        <div class="ln"><s style="max-width:75%"></s>—</div>
+        <div class="ln"><span>Registos</span>—</div>
+        <div class="tot"><span>Total</span><span>—</span></div>
+        <div class="stamp"><svg><use href="#i-check"/></svg>Lançada</div>
+      </div>
+      <div class="calc float"><div class="screen"><small>Contabilidade</small><span id="calcNum">—</span></div><div class="keys"><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i class="b"></i></div></div>
+      <div class="cal float"><b id="calMonth">nov</b><strong id="calDay">25</strong><span id="calWhat">Pagamento do IVA</span></div>
+      <div class="chip float"><i><svg><use href="#i-check"/></svg></i>Documentos organizados</div>
+      <div class="pie float"></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="head">
+      <h2>Serviços</h2>
+      <p></p>
+    </div>
+    <div class="bento">
+      <article class="tile big">
+        <img src="assets/equipa-reuniao.jpg" alt="Imagem ilustrativa" loading="lazy">
+        <div class="in">
+          <h3>Contabilidade</h3>
+          <p>Organização e registo da informação contabilística de uma atividade. Esta informação serve de base à leitura das contas e ao cumprimento das obrigações aplicáveis.</p>
+          <ul></ul>
+        </div>
+      </article>
+      <article class="tile">
+        <span class="ic i-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v16H5.5A1.5 1.5 0 0 0 4 20.5z"/><path d="M4 20.5A1.5 1.5 0 0 0 5.5 22H19v-3M8 7h7M8 10.5h7M8 14h4"/></svg></span>
+        <h3>Planeamento fiscal</h3>
+        <p>O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</p>
+      </article>
+      <article class="tile">
+        <span class="ic i-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v16H5.5A1.5 1.5 0 0 0 4 20.5z"/><path d="M4 20.5A1.5 1.5 0 0 0 5.5 22H19v-3M8 7h7M8 10.5h7M8 14h4"/></svg></span>
+        <h3>Declarações de IRS</h3>
+        <p>O enquadramento contabilístico e fiscal depende das características de cada atividade. O âmbito deste serviço pode ser esclarecido junto do gabinete.</p>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="deadlines" id="prazos">
+  <div class="wrap">
+    <div class="txt">
+      <h2>Calendário fiscal</h2>
+      <p>Datas indicativas. Confirme os prazos no Portal das Finanças.</p>
+      <p class="note">Podem existir alterações e regras para fins de semana e feriados.</p>
+    </div>
+    <div class="widget" aria-label="Calendário de prazos fiscais deste mês">
+      <div class="wbar"><h3 id="wTitle">Prazos de novembro</h3><span class="live"><i></i>Atualizado hoje</span></div>
+      <div class="grid7" id="grid"></div>
+      <div class="list" id="list"></div>
+      <div class="wfoot"><span id="wCount">Próximo prazo em 0 dias</span><a href="https://www.portaldasfinancas.gov.pt/" rel="noopener">Confirmar datas oficiais</a></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="box">
+      <div>
+        <h2>Pedir contacto</h2>
+        <p class="l">Diga-nos qual o assunto que pretende tratar.</p>
+        <div class="ways">
+          
+          <a href="mailto:numerosperfeitos@gmail.com"><svg><use href="#i-mail"/></svg><span>numerosperfeitos@gmail.com</span></a>
+          <a href="tel:+351965072729"><svg><use href="#i-phone"/></svg><span>965 072 729</span></a>
+          <div><svg><use href="#i-pin"/></svg><span>Rua José Diogo Oliveira Júnior, Loja 4, Gândara dos Olivais, 2415-423 Leiria</span></div>
+        </div>
+      </div>
+      <form class="cform" id="cform">
+        <div class="two"><label>Nome<input name="nome" autocomplete="name" required></label><label>Telemóvel<input type="tel" name="tel" autocomplete="tel"></label></div>
+        <label>Email<input type="email" name="email" autocomplete="email" required></label>
+        <label>Atividade<select name="ativ"><option>Contabilidade</option><option>Planeamento fiscal</option><option>Declarações de IRS</option></select></label>
+        <label>Mensagem<textarea name="msg" id="msg"></textarea></label>
+        <button class="btn btn-blue" type="submit">Pedir contacto pelo WhatsApp <svg><use href="#i-arrow"/></svg></button>
+        <p class="sent" id="sent" role="status">Pré-visualização: pedido não enviado. Use os contactos publicados para falar com o negócio.</p>
+      </form>
+    </div>
+  </div>
+<div class="extra-facts">
+
+
+
+
+</div></section>
+<section class="extra-facts" id="sobre"><h2>Sobre Números Perfeitos</h2><p>A Números Perfeitos presta serviços de contabilidade e apoio fiscal a empresas e particulares, incluindo declarações de IRS e planeamento fiscal.</p></section>
+</main>
+
+
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><a class="logo" href="#"><svg><use href="#logo-mark"/></svg>Números Perfeitos</a><p>Contabilidade, IRS e planeamento fiscal em Leiria</p></div>
+      <div><h3>Serviços</h3><ul><li><a href="#servicos">Contabilidade</a></li><li><a href="#servicos">Planeamento fiscal</a></li><li><a href="#servicos">Declarações de IRS</a></li></ul></div>
+      <div><h3>Contactos</h3><ul><li>Rua José Diogo Oliveira Júnior, Loja 4, Gândara dos Olivais, 2415-423 Leiria</li><li><a href="mailto:numerosperfeitos@gmail.com">numerosperfeitos@gmail.com</a></li></ul></div>
+      <div><h3>Informação legal</h3><ul></ul></div>
+    </div>
+    <div class="legal"><span>Números Perfeitos, Unipessoal Lda <span class="ph">NIF 508274567</span></span><span>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  var capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture) root.classList.add('capture');
+
+  var top=d.getElementById('top'), nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  addEventListener('scroll',function(){top.classList.toggle('solid',scrollY>10)},{passive:true});
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});
+
+  // marquee: duplicate the list once so the loop is seamless (duplicates hidden from screen readers)
+  var ul=d.getElementById('marq');
+  if(ul) [].slice.call(ul.children).forEach(function(li){var c=li.cloneNode(true);c.setAttribute('aria-hidden','true');ul.appendChild(c);});
+
+  // deadlines calendar (rule-based, works for any month)
+  var MESES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+  var now=new Date(), y=now.getFullYear(), mo=now.getMonth(), today=now.getDate();
+  var last=new Date(y,mo+1,0).getDate();
+  var dl=[{d:10,t:'Declaração mensal de remunerações',s:'AT e Segurança Social'},
+          {d:20,t:'Contribuições e retenções na fonte',s:'Segurança Social e IRS/IRC retido'},
+          {d:20,t:'Declaração periódica de IVA',s:[1,4,7,10].indexOf(mo)>-1?'Regime mensal e trimestral':'Regime mensal'},
+          {d:25,t:'Pagamento do IVA',s:'Prazo da declaração entregue no dia 20'}];
+  if([4,7,10].indexOf(mo)>-1) dl.push({d:last,t:'Prestação do IMI',s:'Para quem paga em prestações'});
+  var days={}; dl.forEach(function(x){(days[x.d]=days[x.d]||[]).push(x)});
+  d.getElementById('wTitle').textContent='Prazos de '+MESES[mo];
+  var g=d.getElementById('grid'), html='';
+  ['S','T','Q','Q','S','S','D'].forEach(function(n){html+='<span class="dn" aria-hidden="true">'+n+'</span>'});
+  var first=(new Date(y,mo,1).getDay()+6)%7;
+  for(var i=0;i<first;i++) html+='<span></span>';
+  for(var k=1;k<=last;k++){ var c='d'+(k<today?' past':'')+(days[k]?' dl':'')+(k===today?' today':'');
+    html+='<span class="'+c+'"'+(days[k]?' title="'+days[k].map(function(x){return x.t}).join(', ')+'"':'')+'>'+k+'</span>'; }
+  g.innerHTML=html;
+  var nextFound=false, list='', nextDay=null;
+  dl.sort(function(a,b){return a.d-b.d}).forEach(function(x){
+    var cls='item'; if(x.d<today) cls+=' done'; else if(!nextFound){cls+=' next';nextFound=true;nextDay=x;}
+    var when = x.d<today?'Data decorrida': x.d===today?'Hoje': 'Faltam '+(x.d-today)+(x.d-today===1?' dia':' dias');
+    list+='<div class="'+cls+'"><div class="day">'+x.d+'<small>'+MESES[mo].slice(0,3)+'</small></div><div><b>'+x.t+'</b><span>'+x.s+'. '+when+'</span></div></div>';
+  });
+  d.getElementById('list').innerHTML=list;
+  d.getElementById('wCount').textContent = nextDay ? (nextDay.d===today?'Há um prazo a terminar hoje':'Próximo prazo daqui a '+(nextDay.d-today)+' dias') : 'Sem mais prazos este mês';
+  if(nextDay && d.getElementById('calMonth')){ d.getElementById('calMonth').textContent=MESES[mo].slice(0,3); d.getElementById('calDay').textContent=nextDay.d; d.getElementById('calWhat').textContent=nextDay.t; }
+
+  // calculator display ticks gently (decorative)
+  if(!still){ var cn=d.getElementById('calcNum'), vals=['—','+','−','=']; var vi=0;
+    setInterval(function(){ vi=(vi+1)%vals.length; if(cn)cn.textContent=vals[vi]; },2600); }
+
+  if(d.getElementById("estForm")){
+  // fee estimator
+  var f=d.getElementById('estForm'), func=d.getElementById('func'), out=d.getElementById('funcOut'), priceEl=d.getElementById('price'), shown=0, raf;
+  function val(n){ var r=f.querySelector('input[name="'+n+'"]:checked'); return r?r.value:null; }
+  function calc(){
+    var tipo=val('tipo'), simp=d.getElementById('simp');
+    simp.disabled = tipo==='emp'; if(tipo==='emp' && val('reg')==='simp') f.querySelector('input[name="reg"][value="org"]').checked=true;
+    var reg=val('reg'), n=+func.value, fat=+val('fat');
+    var P=null;
+    var base = tipo==='emp'?P.company : (reg==='org'?P.self_organised:P.self_simplified);
+    var pessoal = n*P.per_worker, total = base+pessoal+fat;
+    out.textContent=n;
+    d.getElementById('break').innerHTML='<li><span>'+(tipo==='emp'?'Empresa, contabilidade organizada':(reg==='org'?'Independente, contabilidade organizada':'Independente, regime simplificado'))+'</span><b>'+base+' €</b></li>'+
+      '<li><span>Salários de '+n+(n===1?' trabalhador':' trabalhadores')+'</span><b>'+pessoal+' €</b></li>'+
+      '<li><span>Volume de faturas</span><b>'+fat+' €</b></li>';
+    animate(total);
+    d.getElementById('msg').value='Pedido de proposta: '+(tipo==='emp'?'empresa':'trabalhador independente')+', '+(reg==='org'?'contabilidade organizada':'regime simplificado')+', '+n+' trabalhadores, mensalidade de referência '+total+' €.';
+  }
+  function animate(to){ if(still){priceEl.textContent=to;shown=to;return;} cancelAnimationFrame(raf); var from=shown, t0=null;
+    function step(t){ if(!t0)t0=t; var p=Math.min(1,(t-t0)/450); shown=Math.round(from+(to-from)*(1-Math.pow(1-p,3))); priceEl.textContent=shown; if(p<1) raf=requestAnimationFrame(step); }
+    raf=requestAnimationFrame(step); }
+  f.addEventListener('input',calc); f.addEventListener('change',calc); calc();
+  }
+
+  d.getElementById('cform').addEventListener('submit',function(e){e.preventDefault();d.getElementById('sent').classList.add('on');});
+
+  // screenshot helper: #shot-<id> shows only that section under the header
+  var m=location.hash.match(/^#shot-(.+)/), t=m&&d.getElementById(m[1]);
+  if(t && !t.hidden){ root.classList.add('shot'); [].forEach.call(d.querySelectorAll('main > *, footer'),function(s){ if(s!==t) s.style.display='none'; }); }
+})();
+</script>
+</body>
+</html>

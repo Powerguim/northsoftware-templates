@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patas &amp; Companhia · Évora</title>
+<meta name="description" content="Medicina veterinária · Patas &amp; Companhia">
+
+
+
+<style>
+@font-face{font-family:"Fraunces";src:url("assets/fonts/fraunces-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Nunito Sans";src:url("assets/fonts/nunito-sans-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --river:#254536; --deep:#193026; --mint:#e5ebe7; --granite:#EEEAE4;
+  --coral:#bfd4ae; --sun:#FFC94D; --ink:#22302F; --muted:#5A6967;
+  --display:"Fraunces", Georgia, sans-serif; --body:"Nunito Sans", sans-serif;
+  --wrap:1220px; --pad:clamp(18px,4.5vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17px/1.65 var(--body);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-variation-settings:"SOFT" 100;font-weight:650;line-height:1.06;letter-spacing:-.015em;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
+section{scroll-margin-top:96px}
+.ic{width:22px;height:22px}
+.ph{background:#fff3c4;color:#5d4600;padding:0 5px;border-radius:4px;font-size:.92em}
+.ex{display:inline-block;font:700 11.5px/1.6 var(--body);background:#fff3c4;color:#5d4600;padding:0 8px;border-radius:99px;vertical-align:middle}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:99px;font:800 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:transform .15s,background .15s}
+.btn .ic{width:19px;height:19px}
+.btn:hover{transform:translateY(-2px)}
+.btn-river{background:var(--river);color:#fff}
+.btn-river:hover{background:var(--deep)}
+.btn-line{background:#fff;color:var(--river);box-shadow:inset 0 0 0 2px var(--river)}
+.btn-coral{background:var(--coral);color:#2b0d07}
+h2.t{font-size:clamp(34px,4.2vw,56px)}
+.lead{font-size:clamp(17px,1.35vw,19.5px);color:var(--muted);max-width:52ch}
+
+/* urgency ribbon */
+.ribbon{background:var(--coral);color:#2b0d07;font-size:14.5px;font-weight:700}
+.ribbon .wrap{display:flex;align-items:center;justify-content:center;gap:10px 18px;min-height:42px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px;text-align:center}
+.ribbon .ic{width:20px;height:20px;animation:wob 2.4s ease-in-out infinite}
+@keyframes wob{0%,80%,100%{transform:rotate(0)}85%{transform:rotate(-12deg)}90%{transform:rotate(12deg)}95%{transform:rotate(-6deg)}}
+.ribbon a{background:#2b0d07;color:#fff;border-radius:99px;padding:4px 12px;text-decoration:none;white-space:nowrap}
+.ribbon small{font-weight:600;opacity:.85}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:#ffffffee;backdrop-filter:blur(8px);border-bottom:1px solid #e9eeec}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo{width:46px;height:46px;border-radius:50%;background:var(--river);color:#fff;display:grid;place-items:center;flex:none}
+.logo .ic{width:26px;height:26px;stroke-width:1.8}
+.brand small{display:block;font:700 11.5px/1 var(--body);color:var(--muted);letter-spacing:.02em;margin-bottom:4px}
+.brand b{display:block;font:650 24px/1 var(--display);font-variation-settings:"SOFT" 100;color:var(--deep)}
+.nav{display:flex;align-items:center;gap:24px;font-weight:700;font-size:15px}
+.nav a:not(.btn){text-decoration:none;padding:6px 0;background:linear-gradient(var(--coral),var(--coral)) 0 100%/0 3px no-repeat;transition:background-size .25s}
+.nav a:not(.btn):hover{background-size:100% 3px}
+.nav .btn{padding:12px 18px;font-size:15px}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--deep)}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{padding:54px 0 90px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-160px;top:-120px;width:720px;height:720px;border-radius:50%;background:var(--mint);z-index:-1}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.02fr;gap:56px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14.5px;color:var(--river);margin-bottom:18px}
+.kicker .ic{width:20px;height:20px}
+.hero h1{font-size:clamp(44px,5.6vw,82px);color:var(--deep);max-width:11ch}
+.hero .lead{margin:22px 0 30px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.proof{display:flex;align-items:center;gap:14px;margin-top:34px;font-weight:700;font-size:15px;color:var(--muted)}
+.faces{display:flex}
+.faces img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid #fff;margin-left:-12px;box-shadow:0 4px 10px -4px #0004}
+.faces img:first-child{margin-left:0}
+.stage{position:relative}
+.window{position:relative;border-radius:220px 220px 32px 32px;overflow:hidden;aspect-ratio:4/4.3;background:var(--granite);box-shadow:0 40px 60px -40px rgba(10,69,71,.55)}
+.window img,.window video{width:100%;height:100%;object-fit:cover}
+.polaroid{position:absolute;background:#fff;padding:10px 10px 14px;box-shadow:0 18px 30px -16px rgba(0,0,0,.45);font:600 15px/1.25 var(--display);font-variation-settings:"SOFT" 100;color:var(--ink)}
+.polaroid img{width:100%;aspect-ratio:1;object-fit:cover}
+.polaroid span{display:block;margin-top:9px;max-width:22ch}
+.polaroid::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:#ffd977cc;transform:rotate(-4deg)}
+.stage .polaroid{left:-48px;bottom:-34px;width:200px;transform:rotate(-7deg);animation:settle 1s .35s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes settle{from{transform:translate(-30px,40px) rotate(-20deg);opacity:0}}
+.playbtn{position:absolute;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--deep);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 16px -6px #0006}
+.playbtn .ic{width:18px;height:18px}
+.playbtn .ic-play,.playbtn.paused .ic-pause{display:none}
+.playbtn.paused .ic-play{display:block}
+.since{position:absolute;right:-14px;top:40px;width:118px;height:118px;border-radius:50%;background:var(--coral);color:#2b0d07;display:grid;place-items:center;text-align:center;font:700 13px/1.2 var(--body);transform:rotate(8deg)}
+.since b{display:block;font:700 34px/1 var(--display);font-variation-settings:"SOFT" 100}
+
+/* animals */
+.animals{background:var(--granite);padding:96px 0;border-radius:48px 48px 0 0}
+.animals .head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px;flex-wrap:wrap}
+.animals .head .lead{margin:12px 0 0}
+.pick-animal{display:flex;gap:12px;flex-wrap:wrap}
+.pick-animal button{display:flex;align-items:center;gap:12px;padding:12px 22px 12px 12px;border-radius:99px;border:2px solid transparent;background:#fff;font:800 18px/1 var(--body);color:var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.pick-animal button i{width:50px;height:50px;border-radius:50%;background:var(--mint);display:grid;place-items:center;color:var(--river);transition:transform .35s cubic-bezier(.2,.9,.3,1.4)}
+.pick-animal button i .ic{width:30px;height:30px;stroke-width:1.6}
+.pick-animal button:hover i{transform:rotate(-10deg) scale(1.06)}
+.pick-animal button[aria-selected="true"]{background:var(--deep);color:#fff}
+.pick-animal button[aria-selected="true"] i{background:var(--coral);color:#2b0d07}
+.panel{display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:center;background:#fff;border-radius:36px;padding:22px 44px 22px 22px}
+.panel[hidden]{display:none}
+.panel .ph-img{border-radius:26px;overflow:hidden;aspect-ratio:1/1.02;position:relative}
+.panel .ph-img img{width:100%;height:100%;object-fit:cover;animation:pop .6s cubic-bezier(.2,.9,.3,1) both}
+@keyframes pop{from{transform:scale(1.08);opacity:.2}}
+.panel h3{font-size:clamp(28px,2.6vw,38px);color:var(--deep);margin-bottom:12px}
+.panel > div > p{color:var(--muted);max-width:50ch}
+.svc{list-style:none;padding:0;margin:20px 0 18px;display:grid;grid-template-columns:1fr 1fr;gap:16px 22px}
+.svc li{display:flex;gap:12px;align-items:flex-start}
+.svc .ic{width:42px;height:42px;padding:9px;border-radius:14px;background:var(--mint);color:var(--river);flex:none}
+.svc b{display:block;font-size:16px}
+.svc span{font-size:14.5px;color:var(--muted);line-height:1.45;display:block}
+.tip{display:flex;gap:10px;align-items:center;background:#fff6e0;border-radius:14px;padding:12px 14px;font-weight:700;font-size:15px}
+.tip .ic{color:#b27a00;flex:none}
+
+/* team + patients */
+.crew{padding:100px 0 110px}
+.crew .lead{margin:14px 0 44px}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:70px}
+.person{display:grid;grid-template-columns:116px 1fr;gap:18px;align-items:center}
+.person .pic{width:116px;height:116px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 6px var(--mint)}
+.person .pic img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.person h3{font-size:22px;color:var(--deep)}
+.person .role{font-weight:700;font-size:15px;margin:4px 0}
+.person .cred{font-size:13.5px;color:var(--muted)}
+.person .pet{display:inline-flex;gap:6px;align-items:center;font-size:13.5px;color:var(--river);font-weight:700;margin-top:6px}
+.person .pet .ic{width:16px;height:16px}
+.dir{display:inline-block;background:var(--deep);color:#fff;font-size:12px;font-weight:800;border-radius:99px;padding:3px 10px;margin-bottom:6px}
+.wall{position:relative;height:470px;background:var(--mint);border-radius:36px;overflow:hidden}
+.wall::after{content:attr(data-note);position:absolute;right:20px;bottom:14px;font-size:12.5px;color:var(--muted)}
+.wall .polaroid{width:190px;cursor:pointer;transition:transform .35s cubic-bezier(.2,.9,.3,1.3),box-shadow .2s;border:0;text-align:left}
+.wall .polaroid:hover{box-shadow:0 26px 40px -18px rgba(0,0,0,.5)}
+.wall .polaroid small{display:block;font:600 13px/1.3 var(--body);color:var(--muted);margin-top:2px}
+.wall .polaroid:nth-child(1){left:3%;top:40px;--r:-6deg}
+.wall .polaroid:nth-child(2){left:17%;top:210px;--r:5deg}
+.wall .polaroid:nth-child(3){left:31%;top:30px;--r:-3deg}
+.wall .polaroid:nth-child(4){left:45%;top:190px;--r:7deg}
+.wall .polaroid:nth-child(5){left:59%;top:44px;--r:-8deg}
+.wall .polaroid:nth-child(6){left:72%;top:200px;--r:4deg}
+.wall .polaroid:nth-child(7){left:83%;top:30px;--r:-4deg}
+.wall .polaroid{transform:rotate(var(--r))}
+.wall .polaroid.up{transform:rotate(0) scale(1.06)}
+.js .wall:not(.seen) .polaroid{transform:translateY(-560px) rotate(calc(var(--r) * 4))}
+.wall.seen .polaroid{transition-duration:.8s}
+.wall.seen .polaroid:nth-child(2){transition-delay:.08s}.wall.seen .polaroid:nth-child(3){transition-delay:.16s}.wall.seen .polaroid:nth-child(4){transition-delay:.24s}.wall.seen .polaroid:nth-child(5){transition-delay:.32s}.wall.seen .polaroid:nth-child(6){transition-delay:.4s}.wall.seen .polaroid:nth-child(7){transition-delay:.48s}
+.wall.played .polaroid{transition-delay:0s!important;transition-duration:.35s}
+
+/* urgency */
+.urg{background:var(--deep);color:#fff;padding:96px 0;position:relative;overflow:hidden}
+.urg .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+.urg h2{color:#fff}
+.urg .lead{color:#cfe3e0;margin:16px 0 28px}
+.bigtel{display:inline-flex;align-items:center;gap:14px;background:var(--coral);color:#2b0d07;border-radius:22px;padding:16px 26px 16px 18px;text-decoration:none;font:700 clamp(26px,3vw,38px)/1 var(--display);font-variation-settings:"SOFT" 100}
+.bigtel .ic{width:44px;height:44px;padding:10px;border-radius:50%;background:#2b0d07;color:#fff}
+.bigtel small{display:block;font:700 13px/1.2 var(--body);margin-bottom:4px}
+.steps{list-style:none;padding:0;margin:34px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.steps li{counter-increment:s;border-top:2px solid #ffffff33;padding-top:14px}
+.steps li::before{content:counter(s);font:700 30px/1 var(--display);color:var(--coral);display:block;margin-bottom:8px}
+.steps b{display:block;font-size:17px;margin-bottom:4px}
+.steps span{font-size:15px;color:#cfe3e0}
+.signs{background:#ffffff10;border-radius:28px;padding:30px}
+.signs h3{font-size:24px;margin-bottom:16px;display:flex;gap:10px;align-items:center}
+.signs h3 .ic{color:var(--coral);width:26px;height:26px}
+.signs ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.signs li{background:#fff;color:var(--ink);border-radius:99px;padding:8px 14px;font-weight:700;font-size:14.5px}
+
+/* voices */
+.voices{padding:96px 0 40px}
+.voices .row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.voice{margin:0;background:var(--granite);border-radius:28px 28px 28px 6px;padding:26px}
+.voice blockquote{margin:0 0 14px;font:500 20px/1.4 var(--display);font-variation-settings:"SOFT" 100}
+.voice figcaption{font-size:14.5px;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.voice figcaption .ic{width:18px;height:18px;color:var(--river)}
+
+/* contact */
+.contact{padding:70px 0 100px}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+.form{background:var(--mint);border-radius:36px;padding:38px}
+.form h2{font-size:clamp(32px,3.4vw,46px);color:var(--deep)}
+.form > p{color:var(--muted);margin:10px 0 22px}
+.lbl{display:block;font-weight:800;font-size:14.5px;margin-bottom:8px}
+.species{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
+.species label{position:relative}
+.species input{position:absolute;opacity:0}
+.species span{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;border-radius:18px;background:#fff;border:2px solid transparent;font-weight:700;font-size:13.5px;text-align:center;cursor:pointer;line-height:1.2}
+.species .ic{width:30px;height:30px;color:var(--river)}
+.species input:checked + span{border-color:var(--river);background:#fff;box-shadow:0 6px 14px -8px rgba(10,69,71,.6)}
+.species input:focus-visible + span{outline:3px solid var(--coral);outline-offset:2px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields > *{min-width:0}
+.full{grid-column:1/-1}
+.f{display:block;font-weight:800;font-size:14.5px}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:6px;padding:13px 14px;border-radius:14px;border:2px solid #fff;background:#fff;font:inherit;font-weight:400;font-size:16px;color:var(--ink)}
+.f textarea{min-height:84px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--river)}
+.consent{display:flex;gap:10px;font-size:14px;color:var(--muted);margin:16px 0 20px;align-items:flex-start}
+.consent input{margin-top:4px;accent-color:var(--river)}
+.sent{display:none;margin-top:14px;background:#fff;border-radius:12px;padding:12px 14px;font-size:15px}
+.sent.on{display:block}
+.form .note{font-size:14px;color:var(--muted);margin:14px 0 0;display:flex;gap:8px;align-items:center}
+.form .note .ic{color:var(--coral);width:18px;height:18px}
+.side{display:grid;gap:22px}
+.card{border-radius:32px;padding:30px;background:var(--granite)}
+.card h3{font-size:24px;color:var(--deep);margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.state{font:800 13px/1 var(--body);border-radius:99px;padding:7px 12px;background:#d9f2e4;color:#11603a;display:inline-flex;gap:7px;align-items:center}
+.state i{width:8px;height:8px;border-radius:50%;background:currentColor}
+.state.closed{background:#ffe1dc;color:#9a2b1b}
+.hours{display:grid;gap:8px}
+.hours div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #c9c3ba;padding-bottom:8px;font-size:15.5px}
+.hours div.today{font-weight:800;color:var(--deep)}
+.ways{display:grid;gap:10px;margin-top:4px}
+.ways a{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:700}
+.ways .ic{width:40px;height:40px;padding:9px;border-radius:50%;background:#fff;color:var(--river);flex:none}
+.ways small{display:block;font-weight:600;color:var(--muted);font-size:13px}
+.map{position:relative;border-radius:32px;overflow:hidden;background:#dfeee9;aspect-ratio:16/9}
+.map svg{width:100%;height:100%;display:block}
+.map .addr{position:absolute;left:16px;bottom:16px;background:#fff;border-radius:18px;padding:12px 16px;font-size:14.5px;box-shadow:0 10px 20px -12px #0006;max-width:80%}
+.map .addr a{color:var(--river);font-weight:800}
+.pin{transform-origin:50% 100%;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+
+footer{background:var(--deep);color:#cfe3e0;padding:64px 0 30px;font-size:15px;border-radius:48px 48px 0 0}
+.fcols{display:grid;grid-template-columns:1.2fr 1fr 1.3fr;gap:40px}
+footer h3{font:650 19px var(--display);font-variation-settings:"SOFT" 100;color:#fff;margin-bottom:12px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+footer .brand b{color:#fff}
+footer .brand small{color:#9cc2bd}
+footer .logo{background:var(--coral);color:#2b0d07}
+.social{display:flex;gap:10px;margin-top:16px}
+.social a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#ffffff14}
+.social .ic{width:18px;height:18px}
+.legal{border-top:1px solid #ffffff24;margin-top:44px;padding-top:22px;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:13.5px}
+
+@media (max-width:1020px){
+  .hero .wrap,.urg .wrap,.contact .wrap{grid-template-columns:1fr}
+  .stage{max-width:560px;margin:10px auto 0}
+  .people{grid-template-columns:1fr}
+  .panel{grid-template-columns:1fr;padding:18px 18px 28px}
+  .voices .row{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:76px 0 0;background:#fff;flex-direction:column;align-items:flex-start;padding:28px var(--pad);gap:22px;font-size:20px}
+  .ribbon small{display:none}
+  .hero{padding:18px 0 64px}
+  .hero .wrap{gap:44px}
+  .stage{order:-1;margin:0}
+  .window{aspect-ratio:5/4;border-radius:160px 160px 26px 26px}
+  .hero::before{width:460px;height:460px;right:-220px;top:-60px}
+  .stage .polaroid{width:140px;left:-8px;bottom:-30px;padding:7px 7px 10px;font-size:13px}
+  .since{width:92px;height:92px;right:0;top:10px;font-size:11.5px}
+  .since b{font-size:26px}
+  .animals,.crew,.urg,.voices{padding:64px 0}
+  .pick-animal{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+  .pick-animal button{flex:none;font-size:16px;padding-right:16px}
+  .svc{grid-template-columns:1fr}
+  .wall{height:auto;display:flex;gap:14px;overflow-x:auto;padding:26px 18px 40px;scroll-snap-type:x mandatory}
+  .wall .polaroid{position:relative;left:auto!important;top:auto!important;flex:none;width:170px;scroll-snap-align:center}
+  .steps{grid-template-columns:1fr}
+  .species{grid-template-columns:1fr 1fr}
+  .fields{grid-template-columns:1fr}
+  .form{padding:24px}
+  .fcols{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.shot-mode .ribbon{display:none}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:76px}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Patas &amp; Companhia (opção 2) · pré-visualização do site">
+<meta property="og:description" content="Medicina veterinária · Patas &amp; Companhia">
+<meta property="og:url" content="https://preview.northsoftware.pt/patas-companhia-evora-opcao-2/">
+<meta property="og:image" content="https://preview.northsoftware.pt/patas-companhia-evora-opcao-2/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 v4-new v4-i" data-service-count="6" style="--service-columns:3">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"da clínica veterinária"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de pedir informações.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de pedir informações.");}
+},true);
+</script>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Medicina veterinária Patas &amp; Companhia, início">
+      <span class="logo" aria-hidden="true"><svg class="ic ic-paw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>
+      <span><small>Medicina veterinária</small><b class="lead-brand-name" title="Patas &amp; Companhia">Patas &amp; Companhia</b></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a class="btn btn-river" href="#contacto">Pedir contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <span class="kicker"><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Évora</span>
+      <h1>Patas &amp; Companhia</h1>
+      <p class="lead">Clínica veterinária e consultas ao domicílio em Évora</p>
+      <div class="ctas">
+        <a class="btn btn-river" href="#contacto"><svg class="ic ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg> Pedir contacto</a>
+        <a class="btn btn-line" href="tel:+351266185781"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> 266 185 781</a>
+      </div>
+      
+    </div>
+    <div class="stage">
+      <div class="window">
+        <video id="heroVideo" muted loop playsinline preload="none" poster="assets/hero-poster.jpg" aria-hidden="true" data-src="assets/hero-360.mp4" data-small="assets/hero-360.mp4"></video>
+        <button class="playbtn" id="playBtn" type="button" aria-label="Pausar vídeo"><svg class="ic ic-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 5v14M16 5v14"/></svg><svg class="ic ic-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 4.5v15l12-7.5z"/></svg></button>
+        
+      </div>
+      
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="animals" id="servicos">
+  <div class="wrap">
+    <div class="head">
+      <div><h2 class="t">Serviços</h2><p class="lead"></p></div>
+      <div class="pick-animal" role="tablist" aria-label="Serviços">
+        <button type="button" role="tab" id="tab-service-1" aria-controls="pan-service-1" aria-selected="true"><i><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg></i>Consultas</button><button type="button" role="tab" id="tab-service-2" aria-controls="pan-service-2" aria-selected="false"><i><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg></i>Consultas ao domicílio</button><button type="button" role="tab" id="tab-service-3" aria-controls="pan-service-3" aria-selected="false"><i><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg></i>Vacinações</button><button type="button" role="tab" id="tab-service-4" aria-controls="pan-service-4" aria-selected="false"><i><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg></i>Desparasitações</button><button type="button" role="tab" id="tab-service-5" aria-controls="pan-service-5" aria-selected="false"><i><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg></i>Microchips</button><button type="button" role="tab" id="tab-service-6" aria-controls="pan-service-6" aria-selected="false"><i><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg></i>Transporte de animais</button>
+      </div>
+    </div>
+    
+    <div class="panel" role="tabpanel" id="pan-service-1" aria-labelledby="tab-service-1">
+      <div class="ph-img"><img src="assets/s-caes.jpg" alt="Imagem ilustrativa" loading="lazy"></div>
+      <div>
+        <h3>Consultas</h3>
+        <p>Avaliação do estado de saúde do animal e das necessidades de acompanhamento.</p>
+        <ul class="svc"><li><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg><div><b>Consultas</b><span>Avaliação do estado de saúde do animal e das necessidades de acompanhamento.</span></div></li></ul>
+        
+      </div>
+    </div>
+    
+    <div class="panel" role="tabpanel" id="pan-service-2" aria-labelledby="tab-service-2" hidden>
+      <div class="ph-img"><img src="assets/s-gatos.jpg" alt="Imagem ilustrativa" loading="lazy"></div>
+      <div>
+        <h3>Consultas ao domicílio</h3>
+        <p>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p>
+        <ul class="svc"><li><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg><div><b>Consultas ao domicílio</b><span>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</span></div></li></ul>
+        
+      </div>
+    </div>
+    
+    <div class="panel" role="tabpanel" id="pan-service-3" aria-labelledby="tab-service-3" hidden>
+      <div class="ph-img"><img src="assets/s-exoticos.jpg" alt="Imagem ilustrativa" loading="lazy"></div>
+      <div>
+        <h3>Vacinações</h3>
+        <p>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p>
+        <ul class="svc"><li><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg><div><b>Vacinações</b><span>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</span></div></li></ul>
+        
+      </div>
+    </div>
+    
+    <div class="panel" role="tabpanel" id="pan-service-4" aria-labelledby="tab-service-4" hidden>
+      <div class="ph-img"><img src="assets/s-caes.jpg" alt="Imagem ilustrativa" loading="lazy"></div>
+      <div>
+        <h3>Desparasitações</h3>
+        <p>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p>
+        <ul class="svc"><li><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg><div><b>Desparasitações</b><span>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</span></div></li></ul>
+        
+      </div>
+    </div>
+    
+    <div class="panel" role="tabpanel" id="pan-service-5" aria-labelledby="tab-service-5" hidden>
+      <div class="ph-img"><img src="assets/s-gatos.jpg" alt="Imagem ilustrativa" loading="lazy"></div>
+      <div>
+        <h3>Microchips</h3>
+        <p>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p>
+        <ul class="svc"><li><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg><div><b>Microchips</b><span>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</span></div></li></ul>
+        
+      </div>
+    </div>
+    
+    <div class="panel" role="tabpanel" id="pan-service-6" aria-labelledby="tab-service-6" hidden>
+      <div class="ph-img"><img src="assets/s-exoticos.jpg" alt="Imagem ilustrativa" loading="lazy"></div>
+      <div>
+        <h3>Transporte de animais</h3>
+        <p>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p>
+        <ul class="svc"><li><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg><div><b>Transporte de animais</b><span>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</span></div></li></ul>
+        
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <form id="form" class="form" novalidate><h2>Pedir contacto</h2><p>Indique o seu nome e como prefere ser contactado.</p>
+<div class="fields"><label class="f">Nome<input name="nome" autocomplete="name" required></label>
+<label class="f">Telefone<input name="tel" type="tel" autocomplete="tel" required></label>
+<label class="f">Email (opcional)<input name="email" type="email" autocomplete="email"></label></div>
+<label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+<button class="btn" type="submit">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+    <div class="side">
+      <div class="card">
+        <h3>Horário </h3>
+        <div class="hours" id="hours"><div data-days="[]"><span>Segunda a sexta</span><b>10:00–13:00 / 15:00–19:30</b></div><div data-days="[]"><span>Sábado</span><b>10:00–13:00</b></div></div>
+        <div class="ways" style="margin-top:18px">
+          <a href="tel:+351266185781"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span>266 185 781<small>chamada para a rede fixa nacional</small></span></a>
+          
+          <a href="mailto:patas.companhia@gmail.com"><svg class="ic ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>patas.companhia@gmail.com<small>Email</small></span></a>
+        </div>
+      </div>
+      <div class="map">
+        
+        <p class="addr" style="margin:0">Bairro do Granito, Rua João Galopim, 2A, 7005-522 Évora<br></p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+<section class="extra-facts lead-contact-data" aria-label="Informação e contactos">
+<h2>Sobre Patas &amp; Companhia</h2><p>A Patas &amp; Companhia presta serviços veterinários a animais de companhia em Évora, com clínica, banhos e tosquias e consultas ao domicílio.</p>
+<p>Autorização DGAV: PT40025CL</p><p>CAMV: clínica</p>
+
+
+
+<p><a href="tel:+351266185781">266 185 781</a></p>
+<p><a href="mailto:patas.companhia@gmail.com">patas.companhia@gmail.com</a></p>
+<p>Segunda a sexta — 10:00–13:00 / 15:00–19:30</p><p>Sábado — 10:00–13:00</p>
+
+
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <a class="brand" href="#"><span class="logo" aria-hidden="true"><svg class="ic ic-paw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span><span><small>Medicina veterinária</small><b>Patas &amp; Companhia</b></span></a>
+        <p style="margin-top:16px">Clínica veterinária e consultas ao domicílio em Évora</p>
+        
+      </div>
+      <div><h3>Contactos</h3><ul><li>Bairro do Granito, Rua João Galopim, 2A, 7005-522 Évora</li><li><a href="tel:+351266185781">266 185 781</a></li><li><a href="mailto:patas.companhia@gmail.com">patas.companhia@gmail.com</a></li></ul></div>
+      <div><h3>Informação legal</h3><ul>
+        <li>clínica</li>
+        <li>Autorização de funcionamento DGAV <span class="ph">PT40025CL</span></li>
+        
+        
+      </ul></div>
+    </div>
+    <div class="legal"><span>Luís Galrito - Clínica Veterinária, Unipessoal Lda, NIF <span class="ph">517089971</span></span><span>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</span></div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var d=document, root=d.documentElement, capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture)root.classList.add('capture');if(still)root.classList.add('still');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  if(nav&&burger){burger.addEventListener('click',function(){var on=nav.classList.toggle('open');burger.setAttribute('aria-expanded',on);});
+    nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});}
+  function m(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  function hm(s){return String(s||'').replace(':','h');}
+  function pt(n){return(n>0?'+':n<0?'−':'')+Math.abs(n).toFixed(2).replace('.',',');}
+  var hours=[]||[],now=new Date(),wd=((now.getDay()+6)%7)+1,mins=now.getHours()*60+now.getMinutes(),isOpen=false;
+  hours.forEach(function(h){if((h.days||[]).indexOf(wd)<0)return;(h.ranges||[]).forEach(function(r){if(mins>=m(r[0])&&mins<m(r[1]))isOpen=true;});});
+  if(hours.length)['state','st','chip','now','live'].forEach(function(id){var el=d.getElementById(id);if(!el)return;
+    var label=el.querySelector('span')||el;label.textContent=isOpen?'Aberto agora':'Fechado agora';el.classList.toggle('open',isOpen);});
+  var tc=d.getElementById('txtC');if(tc&&hours.length)tc.textContent=isOpen?'abertas agora':'fechadas agora';
+  function updateClock(){var clock=d.querySelector('#board .clock #clock');if(!clock)return;
+    var current=new Date(),valid=hours.length>0&&Number.isFinite(current.getTime());
+    clock.parentNode.hidden=!valid;
+    if(valid)clock.textContent=String(current.getHours()).padStart(2,'0')+':'+String(current.getMinutes()).padStart(2,'0');}
+  updateClock();if(!still&&d.querySelector('#board .clock #clock'))setInterval(updateClock,60000);
+  var finder=d.querySelector('.finder[role="search"]'),query=finder&&finder.querySelector('input'),results=finder&&finder.querySelector('ul');
+  if(query&&results)query.addEventListener('input',function(){results.innerHTML='';var term=query.value.trim().toLocaleLowerCase('pt');if(term.length<2)return;
+    var found=[].filter.call(d.querySelectorAll('.lead-chapel,.notice'),function(item){return ((item.dataset.name||'')+' '+item.textContent).toLocaleLowerCase('pt').indexOf(term)>=0;}).slice(0,5);
+    found.forEach(function(item){var li=d.createElement('li'),button=d.createElement('button');button.type='button';button.textContent=item.dataset.name;
+      button.addEventListener('click',function(){item.scrollIntoView({behavior:still?'auto':'smooth',block:'center'});});li.appendChild(button);results.appendChild(li);});
+    if(!found.length){var li=d.createElement('li');li.textContent='Sem resultados.';results.appendChild(li);}});
+  var sizes=[].slice.call(d.querySelectorAll('.fs button'));
+  function setSize(n){root.classList.remove('fs1','fs2');if(n>0)root.classList.add('fs'+n);
+    sizes.forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.fs===n);});
+    try{localStorage.setItem('v4-text-size',String(n));}catch(e){}}
+  sizes.forEach(function(b){b.addEventListener('click',function(){setSize(+b.dataset.fs);});});
+  try{var saved=+localStorage.getItem('v4-text-size');if(saved&&!capture)setSize(Math.min(2,saved));}catch(e){}
+  var flags={},names={},steps=[],lvlSel=null,langSel=null;
+  var team=[]||[],areas=null||[],pubs=null||[],byKey={};
+  team.forEach(function(t){byKey[t.key]=t;});
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  [].forEach.call(d.querySelectorAll('#flagstore span'),function(s){flags[s.dataset.k]=s.innerHTML;names[s.dataset.k]=s.dataset.n;});
+  [].forEach.call(d.querySelectorAll('video'),function(v){
+    if(still){v.pause();return;} var src=v.dataset.small||v.dataset.src;if(src)v.src=src;
+    v.play().catch(function(){});
+  });
+  var video=d.querySelector('video'), pause=d.getElementById('playBtn');
+  if(video&&pause)pause.addEventListener('click',function(){if(video.paused)video.play().catch(function(){});else video.pause();});
+  // Guarded, independent blocks from the approved prototype.
+  (function(){if(!d.querySelector(".pick-animal"))return;
+  var tabs=[].slice.call(d.querySelectorAll('.pick-animal [role=tab]'));
+  function show(t){ tabs.forEach(function(x){ var on=x===t; x.setAttribute('aria-selected',on); x.tabIndex=on?0:-1; d.getElementById(x.getAttribute('aria-controls')).hidden=!on; }); }
+  tabs.forEach(function(t,i){ t.tabIndex=i?-1:0; t.addEventListener('click',function(){show(t);}); t.addEventListener('keydown',function(e){ var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0; if(k){ var n=tabs[(i+k+tabs.length)%tabs.length]; show(n); n.focus(); } }); });
+})();
+  var mm=location.hash.match(/^#shot-(.+)/), sh=mm&&d.getElementById(mm[1]);
+  if(sh&&!sh.hidden){root.classList.add('shot-mode');[].forEach.call(d.querySelectorAll('main > *, footer'),function(s){if(s!==sh)s.style.display='none';});}
+})();
+</script>
+</body>
+</html>
