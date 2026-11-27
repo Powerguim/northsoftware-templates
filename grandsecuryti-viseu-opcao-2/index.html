@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grandsecuryti - Mediação e Gestão de Seguros · Viseu</title>
+<meta name="description" content="Mediação de seguros · Grandsecuryti - Mediação e Gestão de Seguros">
+
+
+
+<style>
+@font-face{font-family:"Big Shoulders Display";src:url("assets/fonts/big-shoulders-display-800.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Public Sans";src:url("assets/fonts/public-sans-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --chart:#4d2945; --deep:#351b2f; --paper:#f0ecf0; --contour:#f1c2d3;
+  --buoy:#C8412F; --ink:#16222E; --muted:#566573;
+  --display:"Big Shoulders Display", Georgia, sans-serif; --body:"Public Sans", sans-serif;
+  --wrap:1280px; --pad:clamp(18px,4.5vw,56px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17px/1.65 var(--body);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.98;letter-spacing:-.005em;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px solid var(--contour);outline-offset:3px}
+section{scroll-margin-top:80px}
+.ic{width:22px;height:22px}
+.ph{background:#fff0c4;color:#5a4300;padding:0 5px;border-radius:2px;font-size:.92em}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:17px 26px;border-radius:2px;font:600 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:background .2s,color .2s,gap .2s}
+.btn .ic{width:19px;height:19px}
+.btn:hover{gap:18px}
+.btn-buoy{background:var(--buoy);color:#fff}
+.btn-buoy:hover{background:#a93422}
+.btn-line{color:#fff;box-shadow:inset 0 0 0 1.5px #ffffff80}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px #fff}
+.btn-chart{background:var(--chart);color:#fff}
+.h2{font-size:clamp(46px,6vw,88px)}
+.sub{font-size:18.5px;color:var(--muted);max-width:56ch;margin:18px 0 0}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:var(--deep);color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:40px;height:40px}
+.brand b{display:block;font:800 30px/1 var(--display);letter-spacing:.01em}
+.brand small{display:block;font-size:12.5px;color:#9fb3c4;margin-top:2px}
+.nav{display:flex;align-items:center;gap:30px;font-weight:600;font-size:15px}
+.nav a:not(.btn){text-decoration:none;color:#c9d6e0}
+.nav a:not(.btn):hover{color:#fff}
+.nav .btn{padding:12px 18px;font-size:15px}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:#fff}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{position:relative;min-height:calc(100vh - 76px);max-height:860px;color:#fff;overflow:hidden;background:var(--chart);display:flex;align-items:flex-end}
+.hero .bg{position:absolute;inset:0}
+.hero .bg video,.hero .bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(1.05)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:var(--chart);mix-blend-mode:multiply;opacity:.72}
+.hero .bg::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,var(--deep) 0,transparent 55%)}
+.contours{position:absolute;inset:0;z-index:2;width:100%;height:100%;opacity:.55}
+.contours path{fill:none;stroke:var(--contour);stroke-width:1.2;stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 3.2s cubic-bezier(.4,0,.2,1) forwards}
+.contours path:nth-child(2){animation-delay:.15s}.contours path:nth-child(3){animation-delay:.3s}.contours path:nth-child(4){animation-delay:.45s}.contours path:nth-child(5){animation-delay:.6s}.contours path:nth-child(6){animation-delay:.75s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.capture .contours path,.still .contours path{stroke-dashoffset:0}
+.hero .wrap{position:relative;z-index:3;width:100%;padding-top:60px;padding-bottom:34px}
+.hero .kick{display:inline-flex;gap:10px;align-items:center;font-weight:600;font-size:15px;color:var(--contour);margin-bottom:20px}
+.hero .kick .ic{width:20px;height:20px}
+.hero h1{font-size:clamp(56px,7vw,104px);max-width:15ch}
+.hero .lead{font-size:clamp(17px,1.4vw,20px);color:#c9d6e0;max-width:54ch;margin:26px 0 34px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #ffffff2a;margin-top:44px}
+.facts div{display:flex;gap:12px;align-items:center;padding:20px 20px 4px 0;font-weight:600;font-size:15.5px;color:#dbe5ec}
+.facts .ic{width:26px;height:26px;color:var(--contour)}
+.playbtn{position:absolute;right:var(--pad);top:24px;z-index:4;width:44px;height:44px;border-radius:50%;border:1.5px solid #ffffff66;background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer}
+.playbtn .ic{width:17px;height:17px}
+.playbtn .ic-play,.playbtn.paused .ic-pause{display:none}
+.playbtn.paused .ic-play{display:block}
+
+/* sectors */
+.sectors{padding:110px 0 100px;background:var(--paper)}
+.sectors .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:46px}
+.rail{display:flex;gap:10px;height:520px}
+.sec{position:relative;flex:1;min-width:0;overflow:hidden;color:#fff;transition:flex .6s cubic-bezier(.2,.8,.2,1);background:var(--chart)}
+.sec img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.6) brightness(.8);transition:filter .5s,transform .8s}
+.sec::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,26,40,.95) 10%,rgba(12,26,40,.15) 60%)}
+.sec .in{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px}
+.sec .ic{width:40px;height:40px;padding:8px;border:1.5px solid #ffffff66;border-radius:50%;margin-bottom:14px}
+.sec h3{font-size:34px;margin-bottom:10px;white-space:nowrap}
+.sec ul{list-style:none;padding:0;margin:0;display:grid;gap:4px;font-size:15px;color:#dbe5ec;max-height:0;opacity:0;overflow:hidden;transition:max-height .5s,opacity .4s}
+.sec li::before{content:"";display:inline-block;width:14px;height:1.5px;background:var(--contour);vertical-align:4px;margin-right:10px}
+.sec.on{flex:2.6}
+.sec.on img{filter:none;transform:scale(1.03)}
+.sec.on ul{max-height:200px;opacity:1}
+.sec:focus-visible{outline-offset:-4px}
+
+/* method */
+.method{padding:110px 0}
+.msteps{list-style:none;padding:0;margin:56px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:m;position:relative}
+.msteps::before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:var(--paper)}
+.msteps::after{content:"";position:absolute;left:0;top:27px;height:2px;width:100%;background:var(--buoy);transform-origin:left;transform:scaleX(var(--p,0));transition:transform 1.6s cubic-bezier(.4,0,.2,1)}
+.msteps.seen::after{--p:1}
+.msteps li{counter-increment:m;position:relative;z-index:1}
+.msteps li::before{content:counter(m);display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--chart);font:800 26px var(--display);color:var(--chart);margin-bottom:20px}
+.msteps h3{font-size:30px;margin-bottom:8px}
+.msteps p{color:var(--muted);margin:0}
+
+/* risk map */
+.risk{background:var(--chart);color:#fff;padding:110px 0}
+.risk .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+.risk .sub{color:#b8c8d4}
+.setbtns{display:flex;gap:8px;margin:30px 0 24px;flex-wrap:wrap}
+.setbtns button{all:unset;cursor:pointer;padding:10px 18px;border:1.5px solid #ffffff40;font-weight:600;font-size:15px;border-radius:2px}
+.setbtns button[aria-pressed="true"]{background:#fff;color:var(--chart);border-color:#fff}
+.setbtns button:focus-visible{outline:3px solid var(--contour)}
+.detail{border-left:3px solid var(--buoy);padding:6px 0 6px 20px;min-height:120px}
+.detail small{display:block;color:var(--contour);font-weight:600;font-size:14px;margin-bottom:6px}
+.detail h3{font-size:36px;margin-bottom:10px}
+.detail p{color:#dbe5ec;margin:0}
+.detail p b{color:#fff}
+.mapwrap{position:relative;padding:0 0 34px 34px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr);aspect-ratio:1/.82;gap:3px;position:relative}
+.grid5 i{display:block}
+.ylab,.xlab{position:absolute;font-weight:600;font-size:13.5px;color:#b8c8d4}
+.ylab{left:0;top:50%;transform:rotate(-90deg) translate(50%,0);transform-origin:left top}
+.xlab{bottom:0;left:50%;transform:translateX(-50%)}
+.dot{position:absolute;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;border:2px solid #fff;background:var(--deep);color:#fff;font:800 20px var(--display);cursor:pointer;display:grid;place-items:center;transition:transform .25s,background .2s;animation:pop .5s cubic-bezier(.2,.9,.3,1.4) both}
+.dot:hover{transform:scale(1.12)}
+.dot[aria-pressed="true"]{background:var(--buoy);box-shadow:0 0 0 8px #c8412f44}
+@keyframes pop{from{transform:scale(0)}}
+.risk .note{font-size:13.5px;color:#9fb3c4;margin-top:18px}
+
+/* cases */
+.cases{padding:110px 0;background:var(--paper)}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+.case{background:#fff;display:flex;flex-direction:column}
+.case .pic{height:200px;position:relative;overflow:hidden;background:var(--chart)}
+.case .pic img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);mix-blend-mode:luminosity;opacity:.75}
+.case .pic span{position:absolute;left:16px;bottom:14px;right:16px;color:#fff;font-weight:600;font-size:14.5px}
+.case .in{padding:24px;display:flex;flex-direction:column;flex:1}
+.case .lbl{font-weight:700;font-size:13.5px;color:var(--muted);margin:0 0 2px}
+.case p{font-size:16px;margin:0 0 14px}
+.case .big{margin-top:auto;border-top:1px solid var(--paper);padding-top:16px}
+.case .big b{display:block;font:800 72px/1 var(--display);color:var(--buoy)}
+.case .big span{font-size:15px;color:var(--muted)}
+
+/* team */
+.team{padding:110px 0}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:46px}
+.mate img{width:100%;aspect-ratio:4/4.4;object-fit:cover;object-position:center 20%;filter:grayscale(1);transition:filter .5s}
+.mate:hover img{filter:none}
+.mate h3{font-size:34px;margin:18px 0 4px}
+.mate .role{font-weight:600;color:var(--buoy);margin:0 0 6px}
+.mate p{color:var(--muted);margin:0;font-size:16px}
+
+/* contact */
+.contact{background:var(--deep);color:#fff;padding:110px 0}
+.contact .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:start}
+.contact .sub{color:#b8c8d4}
+.form{background:#fff;color:var(--ink);padding:34px;margin-top:34px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fields > *{min-width:0}
+.full{grid-column:1/-1}
+.f{display:block;font-weight:600;font-size:14px}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:6px;padding:13px 0;border:0;border-bottom:1.5px solid #c6d0d8;background:transparent;font:inherit;font-weight:400;font-size:16.5px;color:var(--ink);border-radius:0}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--buoy)}
+.consent{display:flex;gap:10px;font-size:14px;color:var(--muted);margin:22px 0 22px;align-items:flex-start}
+.consent input{margin-top:4px;accent-color:var(--buoy)}
+.sent{display:none;margin-top:14px;background:var(--paper);padding:12px 14px;font-size:15px}
+.sent.on{display:block}
+.side .line{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid #ffffff1f;text-decoration:none}
+.side .line .ic{width:28px;height:28px;color:var(--contour);flex:none;margin-top:2px}
+.side .line small{display:block;color:#9fb3c4;font-size:13.5px}
+.side .line b{font:700 26px/1.1 var(--display);letter-spacing:.01em;overflow-wrap:anywhere}
+.side .line span.t{font-size:16px;color:#dbe5ec}
+.asf{margin-top:26px;border:1.5px solid #ffffff33;padding:20px}
+.asf b{display:flex;gap:10px;align-items:center;font:700 22px var(--display);margin-bottom:6px}
+.asf b .ic{color:var(--contour)}
+.asf p{margin:0;color:#b8c8d4;font-size:15px}
+.asf a{color:#fff}
+
+footer{background:var(--deep);color:#9fb3c4;font-size:14.5px;padding:0 0 30px}
+.fl{border-top:1px solid #ffffff1f;padding-top:28px;display:grid;grid-template-columns:1fr 1.6fr;gap:40px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+footer a{text-decoration:none;color:#dbe5ec}
+footer a:hover{text-decoration:underline}
+
+@media (max-width:1060px){
+  .sectors .head,.risk .wrap,.contact .wrap{grid-template-columns:1fr}
+  .msteps{grid-template-columns:1fr 1fr}
+  .msteps::before,.msteps::after{display:none}
+  .cgrid,.tgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:68px 0 0;background:var(--deep);flex-direction:column;align-items:flex-start;padding:28px var(--pad);gap:22px;font-size:21px}
+  .top .wrap{height:68px}
+  .hero{min-height:0}
+  .hero .wrap{padding-top:70px;padding-bottom:20px}
+  .hero h1{font-size:64px}
+  .facts{grid-template-columns:1fr;margin-top:34px}
+  .facts div{padding:12px 0 0}
+  .rail{height:auto;flex-direction:column}
+  .sec{height:120px;flex:none!important;transition:height .5s}
+  .sec.on{height:340px}
+  .msteps,.cgrid,.tgrid{grid-template-columns:1fr}
+  .fields{grid-template-columns:1fr}
+  .form{padding:22px}
+  .sectors,.method,.risk,.cases,.team,.contact{padding:64px 0}
+  .dot{width:36px;height:36px;margin:-18px 0 0 -18px;font-size:16px}
+  .fl{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:76px}
+@media (max-width:760px){.shot-mode main{padding-top:68px}}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Grandsecuryti (opção 2) · pré-visualização do site">
+<meta property="og:description" content="Mediação de seguros · Grandsecuryti - Mediação e Gestão de Seguros">
+<meta property="og:url" content="https://preview.northsoftware.pt/grandsecuryti-viseu-opcao-2/">
+<meta property="og:image" content="https://preview.northsoftware.pt/grandsecuryti-viseu-opcao-2/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 long-name long-hero v4-new v4-n" data-service-count="5" style="--service-columns:3">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"da mediadora"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de pedir informações.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de pedir informações.");}
+},true);
+</script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Grandsecuryti - Mediação e Gestão de Seguros, início">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="20" cy="20" r="17"/><path d="M20 6v28M6 20h28" stroke-opacity=".35"/><path d="M20 9l4 11-4 11-4-11z" fill="#C8412F" stroke="none"/><path d="M20 20l4 0-4 11z" fill="#fff" stroke="none"/></svg>
+      <span><b class="lead-brand-name" title="Grandsecuryti - Mediação e Gestão de Seguros">Grandsecuryti - Mediação e Gestão de Seguros</b><small>Mediação de seguros, Viseu</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a class="btn btn-buoy" href="#contacto">Contactar</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="bg">
+    <video id="heroVideo" muted loop playsinline preload="none" poster="assets/hero-poster.jpg" aria-hidden="true" data-src="assets/hero-360.mp4" data-small="assets/hero-360.mp4"></video>
+    
+  </div>
+  <svg class="contours" viewBox="0 0 1440 860" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M-40 640C180 560 300 700 520 620S860 470 1080 540 1380 640 1500 560"/>
+    <path d="M-40 700C200 620 320 760 540 690S880 540 1100 610 1390 700 1500 630"/>
+    <path d="M-40 760C220 690 340 820 560 760S900 610 1120 680 1400 760 1500 700"/>
+    <path d="M760 120c120-40 260 10 300 100s-40 190-170 200-250-50-260-150 30-120 130-150z"/>
+    <path d="M800 170c80-26 180 6 206 70s-28 130-118 136-172-34-178-102 20-80 90-104z"/>
+    <path d="M850 220c40-14 96 4 110 38s-14 70-62 72-92-18-96-54 12-44 48-56z"/>
+  </svg>
+  <button class="playbtn" id="playBtn" type="button" aria-label="Pausar vídeo"><svg class="ic ic-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 5v14M16 5v14"/></svg><svg class="ic ic-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 4.5v15l12-7.5z"/></svg></button>
+  <div class="wrap">
+    <span class="kick"><svg class="ic ic-anchor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22V8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/></svg>Mediação de seguros em Viseu</span>
+    <h1>Grandsecuryti - Mediação e Gestão de Seguros</h1>
+    <p class="lead">Mediação de seguros auto, casa e acidentes pessoais em Viseu</p>
+    <div class="ctas">
+      <a class="btn btn-buoy" href="#contacto">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-line" href="tel:+351962827012"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> 962 827 012</a>
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="sectors" id="servicos">
+  <div class="wrap">
+    <div class="head"><h2 class="h2">Serviços</h2><p class="sub"></p></div>
+    <div class="rail" id="rail">
+      <article class="sec on" tabindex="0" aria-label="Seguro automóvel"><div class="in"><svg class="ic ic-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><h3>Seguro automóvel</h3><ul><li>As coberturas e exclusões variam de acordo com o contrato de seguro automóvel.</li></ul></div></article><article class="sec" tabindex="0" aria-label="Seguro de casa"><div class="in"><svg class="ic ic-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><h3>Seguro de casa</h3><ul><li>As necessidades de proteção variam com cada pessoa e atividade. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</li></ul></div></article><article class="sec" tabindex="0" aria-label="Acidentes pessoais"><div class="in"><svg class="ic ic-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><h3>Acidentes pessoais</h3><ul><li>As necessidades de proteção variam com cada pessoa e atividade. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</li></ul></div></article><article class="sec" tabindex="0" aria-label="Seguro de bicicleta"><div class="in"><svg class="ic ic-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><h3>Seguro de bicicleta</h3><ul><li>As necessidades de proteção variam com cada pessoa e atividade. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</li></ul></div></article><article class="sec" tabindex="0" aria-label="Seguro de moto"><div class="in"><svg class="ic ic-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><h3>Seguro de moto</h3><ul><li>As necessidades de proteção variam com cada pessoa e atividade. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</li></ul></div></article>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2 class="h2">Pedir contacto</h2>
+      <p class="sub">Indique o seu nome e como prefere ser contactado.</p>
+      <form id="form" class="form" novalidate><h2>Pedir contacto</h2><p>Indique o seu nome e como prefere ser contactado.</p>
+<div class="fields"><label class="f">Nome<input name="nome" autocomplete="name" required></label>
+<label class="f">Telefone<input name="tel" type="tel" autocomplete="tel" required></label>
+<label class="f">Email (opcional)<input name="email" type="email" autocomplete="email"></label></div>
+<label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+<button class="btn" type="submit">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+    </div>
+    <div class="side">
+      <a class="line" href="tel:+351962827012"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span><small>Escritório, chamada para a rede fixa nacional</small><b>962 827 012</b></span></a>
+      
+      <a class="line" href="mailto:medigestao.seguros@sapo.pt"><svg class="ic ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span><small>Email</small><b style="font-size:21px">medigestao.seguros@sapo.pt</b></span></a>
+      <div class="line"><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="t">Rua Capitão Silva Pereira, 12, R/C posterior, 3510-208 Viseu<br></span></div>
+      <div class="line"><svg class="ic ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="t">Segunda a sábado, 10:00–13:00 / 14:00–19:00<br>Domingo, Encerrado<br></span></div>
+      
+    </div>
+  </div>
+</section>
+<section class="extra-facts lead-contact-data" aria-label="Informação e contactos">
+<h2>Sobre Grandsecuryti - Mediação e Gestão de Seguros</h2><p>A Grandsecuryti é uma sociedade de mediação e gestão de seguros em Viseu. A sua ficha pública apresenta atendimento na Rua Capitão Silva Pereira e contacto por telemóvel e email.</p>
+
+
+
+
+<p><a href="tel:+351962827012">962 827 012</a></p>
+<p><a href="mailto:medigestao.seguros@sapo.pt">medigestao.seguros@sapo.pt</a></p>
+<p>Segunda a sábado — 10:00–13:00 / 14:00–19:00</p><p>Domingo — Encerrado</p>
+
+
+</section>
+</main>
+
+<footer>
+  <div class="wrap fl">
+    <div><p style="margin:0">Mediação de seguros auto, casa e acidentes pessoais em Viseu</p></div>
+    <ul>
+      <li>Grandsecuryti - Mediação e Gestão de Seguros, Lda, NIF <span class="ph">508664667</span></li>
+      
+      
+      
+      
+      <li>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</li>
+    </ul>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var d=document, root=d.documentElement, capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture)root.classList.add('capture');if(still)root.classList.add('still');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  if(nav&&burger){burger.addEventListener('click',function(){var on=nav.classList.toggle('open');burger.setAttribute('aria-expanded',on);});
+    nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});}
+  function m(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  function hm(s){return String(s||'').replace(':','h');}
+  function pt(n){return(n>0?'+':n<0?'−':'')+Math.abs(n).toFixed(2).replace('.',',');}
+  var hours=[]||[],now=new Date(),wd=((now.getDay()+6)%7)+1,mins=now.getHours()*60+now.getMinutes(),isOpen=false;
+  hours.forEach(function(h){if((h.days||[]).indexOf(wd)<0)return;(h.ranges||[]).forEach(function(r){if(mins>=m(r[0])&&mins<m(r[1]))isOpen=true;});});
+  if(hours.length)['state','st','chip','now','live'].forEach(function(id){var el=d.getElementById(id);if(!el)return;
+    var label=el.querySelector('span')||el;label.textContent=isOpen?'Aberto agora':'Fechado agora';el.classList.toggle('open',isOpen);});
+  var tc=d.getElementById('txtC');if(tc&&hours.length)tc.textContent=isOpen?'abertas agora':'fechadas agora';
+  function updateClock(){var clock=d.querySelector('#board .clock #clock');if(!clock)return;
+    var current=new Date(),valid=hours.length>0&&Number.isFinite(current.getTime());
+    clock.parentNode.hidden=!valid;
+    if(valid)clock.textContent=String(current.getHours()).padStart(2,'0')+':'+String(current.getMinutes()).padStart(2,'0');}
+  updateClock();if(!still&&d.querySelector('#board .clock #clock'))setInterval(updateClock,60000);
+  var finder=d.querySelector('.finder[role="search"]'),query=finder&&finder.querySelector('input'),results=finder&&finder.querySelector('ul');
+  if(query&&results)query.addEventListener('input',function(){results.innerHTML='';var term=query.value.trim().toLocaleLowerCase('pt');if(term.length<2)return;
+    var found=[].filter.call(d.querySelectorAll('.lead-chapel,.notice'),function(item){return ((item.dataset.name||'')+' '+item.textContent).toLocaleLowerCase('pt').indexOf(term)>=0;}).slice(0,5);
+    found.forEach(function(item){var li=d.createElement('li'),button=d.createElement('button');button.type='button';button.textContent=item.dataset.name;
+      button.addEventListener('click',function(){item.scrollIntoView({behavior:still?'auto':'smooth',block:'center'});});li.appendChild(button);results.appendChild(li);});
+    if(!found.length){var li=d.createElement('li');li.textContent='Sem resultados.';results.appendChild(li);}});
+  var sizes=[].slice.call(d.querySelectorAll('.fs button'));
+  function setSize(n){root.classList.remove('fs1','fs2');if(n>0)root.classList.add('fs'+n);
+    sizes.forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.fs===n);});
+    try{localStorage.setItem('v4-text-size',String(n));}catch(e){}}
+  sizes.forEach(function(b){b.addEventListener('click',function(){setSize(+b.dataset.fs);});});
+  try{var saved=+localStorage.getItem('v4-text-size');if(saved&&!capture)setSize(Math.min(2,saved));}catch(e){}
+  var flags={},names={},steps=[],lvlSel=null,langSel=null;
+  var team=[]||[],areas=null||[],pubs=null||[],byKey={};
+  team.forEach(function(t){byKey[t.key]=t;});
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  [].forEach.call(d.querySelectorAll('#flagstore span'),function(s){flags[s.dataset.k]=s.innerHTML;names[s.dataset.k]=s.dataset.n;});
+  [].forEach.call(d.querySelectorAll('video'),function(v){
+    if(still){v.pause();return;} var src=v.dataset.small||v.dataset.src;if(src)v.src=src;
+    v.play().catch(function(){});
+  });
+  var video=d.querySelector('video'), pause=d.getElementById('playBtn');
+  if(video&&pause)pause.addEventListener('click',function(){if(video.paused)video.play().catch(function(){});else video.pause();});
+  // Guarded, independent blocks from the approved prototype.
+  (function(){if(!d.querySelector("#servicos"))return;
+  var secs=[].slice.call(d.querySelectorAll('.sec'));
+  function openSec(s){ secs.forEach(function(x){ x.classList.toggle('on',x===s); }); }
+  secs.forEach(function(s){ s.addEventListener('mouseenter',function(){ if(matchMedia('(hover:hover)').matches) openSec(s); }); s.addEventListener('focus',function(){openSec(s);}); s.addEventListener('click',function(){openSec(s);}); });
+})();
+  var mm=location.hash.match(/^#shot-(.+)/), sh=mm&&d.getElementById(mm[1]);
+  if(sh&&!sh.hidden){root.classList.add('shot-mode');[].forEach.call(d.querySelectorAll('main > *, footer'),function(s){if(s!==sh)s.style.display='none';});}
+})();
+</script>
+</body>
+</html>

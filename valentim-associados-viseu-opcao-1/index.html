@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valentim &amp; Associados — Sociedade de Advogados · Viseu</title>
+<meta name="description" content="Advogados · Valentim &amp; Associados — Sociedade de Advogados">
+
+
+
+<style>
+@font-face{font-family:"Instrument Serif";src:url("assets/fonts/instrument-serif-400.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Figtree";src:url("assets/fonts/figtree-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --walnut:#231a16; --walnut2:#30251f; --stone:#ece9e4; --verd:#7fb0a5;
+  --verd-ink:#2f6359; --lacre:#9E2B25; --ink:#221B18; --muted:#6A615B;
+  --display:"Instrument Serif", Georgia, sans-serif; --body:"Figtree", sans-serif;
+  --wrap:1240px; --pad:clamp(18px,4.5vw,56px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17px/1.68 var(--body);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.06;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:2px solid var(--verd);outline-offset:3px}
+section{scroll-margin-top:84px}
+.ic{width:22px;height:22px}
+.ph{background:#f6ecc9;color:#4d3d00;padding:0 4px;font-size:.92em}
+.h2{font-size:clamp(40px,5vw,68px)}
+.lead{font-size:19px;color:var(--muted);max-width:60ch}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;font:600 15.5px/1 var(--body);text-decoration:none;border:0;cursor:pointer;border-radius:999px;transition:background .25s,color .25s,box-shadow .25s}
+.btn .ic{width:18px;height:18px;transition:transform .25s}
+.btn:hover .ic{transform:translateX(4px)}
+.btn-verd{background:var(--verd);color:var(--walnut)}
+.btn-verd:hover{background:#9cc6bc}
+.btn-ghost{color:#fff;box-shadow:inset 0 0 0 1px #ffffff55}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1px #fff}
+.btn-ink{background:var(--walnut);color:#fff}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:var(--walnut);color:#fff;border-bottom:1px solid #ffffff14}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;gap:24px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.seal{width:46px;height:46px;border-radius:50%;background:var(--lacre);display:grid;place-items:center;font:500 18px var(--display);color:#f3e6e2;box-shadow:inset 0 0 0 3px #00000022,inset 0 0 0 5px #ffffff22;letter-spacing:.02em}
+.brand b{display:block;font:500 21px/1.1 var(--display)}
+.brand small{display:block;font-size:13px;color:#bfb3ab}
+.nav{display:flex;align-items:center;gap:30px;font-size:15px;font-weight:500}
+.nav a:not(.btn){text-decoration:none;color:#d9cfc8;position:relative}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--verd);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nav a:not(.btn):hover::after{transform:scaleX(1)}
+.nav .btn{padding:12px 20px}
+.burger{display:none;background:none;border:0;color:#fff;padding:8px;cursor:pointer}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.02fr .98fr;min-height:min(calc(100vh - 78px),860px);background:var(--walnut);color:#fff;position:relative;overflow:hidden}
+.hero .copy{padding:clamp(48px,7vw,104px) var(--pad) 40px max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad)));display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(50px,5.6vw,86px);font-weight:400;max-width:12ch}
+.hero h1 .l{display:block;overflow:hidden}
+.hero h1 .l span{display:block;animation:rise 1.1s cubic-bezier(.2,.7,.1,1) both}
+.hero h1 .l:nth-child(2) span{animation-delay:.12s}
+@keyframes rise{from{transform:translateY(105%)}}
+.hero .rule{width:120px;height:1px;background:var(--verd);margin:34px 0 28px;transform-origin:left;animation:grow 1.2s .5s cubic-bezier(.2,.7,.1,1) both}
+@keyframes grow{from{transform:scaleX(0)}}
+.hero .lead{color:#cbbfb7;margin:0 0 36px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .photo{position:relative;overflow:hidden;background:var(--walnut2)}
+.hero .photo img{width:100%;height:100%;object-fit:cover;filter:sepia(.35) saturate(.75) contrast(1.05) brightness(.9);animation:kb 22s ease-out both}
+@keyframes kb{from{transform:scale(1.14)}to{transform:scale(1)}}
+.hero .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--walnut) 0,transparent 30%),linear-gradient(0deg,#231a16cc 0,transparent 40%)}
+.reg{position:absolute;right:var(--pad);bottom:34px;z-index:2;max-width:330px;background:#ece9e4f2;color:var(--ink);padding:20px 22px 18px;border-left:3px solid var(--lacre);font-size:14.5px;line-height:1.5;animation:fade 1s .9s both}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}}
+.reg b{display:block;font:500 19px/1.25 var(--display);margin-bottom:6px}
+.facts{display:flex;gap:0;margin-top:56px;border-top:1px solid #ffffff1f}
+.facts div{flex:1;padding:18px 18px 0 0}
+.facts b{display:block;font:400 44px/1 var(--display);color:var(--verd)}
+.facts span{font-size:14px;color:#bfb3ab}
+
+/* sociedade */
+.soc{padding:120px 0 110px}
+.soc .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:72px;align-items:start}
+.soc h2{font-size:clamp(34px,3.6vw,50px);max-width:20ch;margin-bottom:36px}
+.soc .cols{columns:2;column-gap:40px;color:#3c3430}
+.soc .cols p{break-inside:avoid}
+.sign{margin-top:26px;display:flex;align-items:center;gap:18px;color:var(--muted);font-size:14.5px}
+.sign svg{width:170px;height:58px}
+.sign path{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 2.6s cubic-bezier(.4,0,.2,1)}
+.sign.on path,.still .sign path{stroke-dashoffset:0}
+.soc figure{margin:0;position:relative}
+.soc figure img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:sepia(.2) saturate(.85)}
+.soc figcaption{font-size:14px;color:var(--muted);margin-top:10px}
+.soc figure::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--verd);z-index:-1}
+.langs{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.langs span{padding:6px 14px;border-radius:999px;background:var(--stone);font-size:14px;font-weight:500}
+
+/* areas: shelf of volumes */
+.areas{background:var(--stone);padding:110px 0 120px;overflow:hidden}
+.areas .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:end}
+.areas .hint{display:flex;align-items:center;gap:10px;margin-top:26px;font-size:15px;color:var(--verd-ink);font-weight:600}
+.shelf{display:flex;align-items:flex-end;gap:10px;padding:0 18px;position:relative;min-height:470px}
+.shelf::after{content:"";position:absolute;left:0;right:-200px;bottom:-22px;height:22px;background:linear-gradient(180deg,#5b4335,#3b2a21);box-shadow:0 14px 24px -10px #231a1688}
+.vol{all:unset;cursor:pointer;position:relative;width:min(108px,18%);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:22px 0 26px;color:#efe7e1;border-radius:3px 3px 0 0;box-shadow:inset 6px 0 10px -6px #00000066,inset -3px 0 6px -4px #ffffff22;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .3s;animation:slidein .8s cubic-bezier(.2,.8,.2,1) both}
+.vol:nth-child(1){height:440px;background:var(--walnut2)}
+.vol:nth-child(2){height:400px;background:var(--verd-ink);animation-delay:.08s}
+.vol:nth-child(3){height:452px;background:#6d2521;animation-delay:.16s}
+.vol:nth-child(4){height:412px;background:#d8d1c8;color:var(--ink);animation-delay:.24s}
+.vol:nth-child(5){height:430px;background:#3d4a45;animation-delay:.32s}
+.vol:nth-child(6){height:420px;background:#5a463a;animation-delay:.4s}
+@keyframes slidein{from{transform:translateY(60px);opacity:0}}
+.vol::before,.vol::after{content:"";position:absolute;left:10px;right:10px;height:5px;border-top:1px solid currentColor;border-bottom:1px solid currentColor;opacity:.45}
+.vol::before{top:84px}.vol::after{bottom:70px}
+.vol .ic{width:30px;height:30px;opacity:.9}
+.vol .t{writing-mode:vertical-rl;transform:rotate(180deg);font:500 23px/1 var(--display);letter-spacing:.01em;white-space:nowrap;max-height:300px;overflow:hidden;text-overflow:ellipsis}
+.vol .n{font:400 15px var(--display);opacity:.8}
+.vol:hover,.vol:focus-visible{transform:translateY(-26px);box-shadow:inset 6px 0 10px -6px #00000066,0 24px 30px -18px #231a16aa}
+.vol:focus-visible{outline:2px solid var(--lacre);outline-offset:4px}
+
+/* dossier (page in page) */
+.dossier{position:fixed;inset:0;z-index:80;display:none;align-items:flex-end;justify-content:center;background:#231a16b3}
+.dossier.open{display:flex}
+.dossier .pane{width:min(1180px,100%);height:min(90vh,860px);background:#fff;display:grid;grid-template-rows:auto 1fr;animation:up .55s cubic-bezier(.2,.8,.2,1);border-top:4px solid var(--lacre)}
+@keyframes up{from{transform:translateY(70px);opacity:0}}
+.dhead{display:flex;align-items:center;gap:16px;padding:18px 28px;border-bottom:1px solid #e6e1db}
+.dhead .ic{color:var(--verd-ink)}
+.dhead h3{font-size:30px;flex:1}
+.dhead button{all:unset;cursor:pointer;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px #d8d1c8}
+.dhead button:hover{background:var(--stone)}
+.dhead button:focus-visible{outline:2px solid var(--verd-ink)}
+.dbody{overflow:auto;padding:0}
+.page{display:none;grid-template-columns:.9fr 1.1fr;min-height:100%}
+.page.on{display:grid}
+.page .side{background:var(--stone);padding:30px 28px}
+.page .side img{width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:22px;filter:sepia(.2) saturate(.85)}
+.page .side p.s{font:400 24px/1.3 var(--display)}
+.page .main{padding:30px 36px 40px}
+.page h4{font:600 13.5px var(--body);color:var(--verd-ink);margin:0 0 12px;letter-spacing:.02em}
+.page ul.work{list-style:none;padding:0;margin:0 0 30px;display:grid;gap:10px}
+.page ul.work li{display:flex;gap:12px;align-items:flex-start}
+.page ul.work .ic{width:20px;height:20px;color:var(--verd-ink);flex:none;margin-top:4px}
+.qa{border-top:1px solid #e6e1db}
+.qa details{border-bottom:1px solid #e6e1db}
+.qa summary{cursor:pointer;list-style:none;padding:14px 0;font-weight:600;display:flex;justify-content:space-between;gap:16px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary .ic{transition:transform .3s;flex:none}
+.qa details[open] summary .ic{transform:rotate(180deg)}
+.qa details p{color:#4a413c;margin:0 0 16px}
+.who{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 28px}
+.who a{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:15px}
+.who img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.who small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.rel a{display:block;text-decoration:none;padding:10px 0;border-top:1px solid #e6e1db;font:500 19px/1.3 var(--display)}
+.rel a small{display:block;font:400 13.5px var(--body);color:var(--muted)}
+
+/* team */
+.team{padding:120px 0}
+.team .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.tgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:34px 28px}
+.law{grid-column:span 2}
+.law.partner{grid-column:span 3}
+.law .pic{position:relative;overflow:hidden;background:var(--stone)}
+.law img{width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:center 18%;filter:sepia(.3) saturate(.7);transition:filter .6s,transform .8s}
+.law.partner img{aspect-ratio:5/4.3}
+.law:hover img{filter:none;transform:scale(1.03)}
+.law .bio{position:absolute;left:0;right:0;bottom:0;background:#231a16e6;color:#efe7e1;padding:16px 18px;font-size:15px;transform:translateY(101%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.law:hover .bio,.law:focus-within .bio{transform:none}
+.law h3{font-size:30px;margin:18px 0 2px}
+.law .role{color:var(--lacre);font-weight:600;margin:0 0 10px;font-size:15px}
+.law dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14.5px}
+.law dt{color:var(--muted)}
+.law dd{margin:0}
+.law button.more{all:unset;cursor:pointer;font-size:14px;color:var(--verd-ink);font-weight:600;margin-top:10px;display:none}
+.verify{display:inline-flex;align-items:center;gap:8px;color:var(--verd-ink);font-weight:600;text-decoration:none;font-size:15px}
+.verify:hover{text-decoration:underline}
+
+/* process */
+.proc{background:var(--walnut);color:#fff;padding:110px 0}
+.proc ol{list-style:none;padding:0;margin:56px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.proc li{counter-increment:s;padding:0 28px 0 0;position:relative}
+.proc li::before{content:counter(s);display:block;font:400 76px/1 var(--display);color:var(--verd);margin-bottom:18px}
+.proc li::after{content:"";position:absolute;left:58px;right:20px;top:40px;height:1px;background:#ffffff26}
+.proc li:last-child::after{display:none}
+.proc h3{font-size:27px;margin-bottom:10px}
+.proc p{color:#cbbfb7;margin:0;font-size:16px}
+
+/* publications */
+.pubs{padding:120px 0}
+.pubs .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:40px 0 18px}
+.chips button{all:unset;cursor:pointer;padding:9px 18px;border-radius:999px;font-size:15px;font-weight:500;box-shadow:inset 0 0 0 1px #d8d1c8;transition:background .2s,color .2s}
+.chips button[aria-pressed="true"]{background:var(--walnut);color:#fff;box-shadow:none}
+.chips button:focus-visible{outline:2px solid var(--verd-ink)}
+.plist{border-top:1px solid var(--ink)}
+.pub{border-bottom:1px solid #ddd6cf}
+.pub.hide{display:none}
+.pub button{all:unset;cursor:pointer;display:grid;grid-template-columns:130px 170px 1fr auto;gap:24px;align-items:baseline;width:100%;padding:24px 0}
+.pub button:focus-visible{outline:2px solid var(--verd-ink)}
+.pub time{font-size:14.5px;color:var(--muted)}
+.pub .tag{font-size:13.5px;font-weight:600;color:var(--verd-ink)}
+.pub .ttl{font:500 25px/1.25 var(--display);transition:color .2s}
+.pub button:hover .ttl{color:var(--lacre)}
+.pub .min{font-size:14px;color:var(--muted);white-space:nowrap}
+.pub .abs{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}
+.pub .abs > div{overflow:hidden;padding-left:324px}
+.pub.open .abs{grid-template-rows:1fr}
+.pub .abs p{margin:0 0 24px;color:#4a413c;max-width:62ch}
+.pubs .disclaim{font-size:14px;color:var(--muted);margin-top:18px}
+
+/* history */
+.hist{background:var(--stone);padding:100px 0}
+.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:50px;position:relative}
+.tl::before{content:"";position:absolute;left:0;right:0;top:46px;height:1px;background:#c9c1b8}
+.tl::after{content:"";position:absolute;left:0;top:46px;height:1px;width:100%;background:var(--lacre);transform-origin:left;transform:scaleX(0);transition:transform 2s cubic-bezier(.4,0,.2,1)}
+.tl.on::after,.still .tl::after{transform:scaleX(1)}
+.tl div b{display:block;font:400 40px/1 var(--display);margin-bottom:26px}
+.tl div{position:relative;font-size:15.5px;color:#4a413c}
+.tl div::before{content:"";position:absolute;top:41px;left:0;width:11px;height:11px;border-radius:50%;background:var(--stone);box-shadow:inset 0 0 0 2px var(--lacre)}
+
+/* contact */
+.contact{padding:0;display:grid;grid-template-columns:1fr 1fr}
+.cinfo{padding:100px var(--pad) 90px max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad)))}
+.cinfo .line{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid #e6e1db;text-decoration:none}
+.cinfo .line .ic{color:var(--verd-ink);flex:none;margin-top:3px}
+.cinfo .line b{display:block;font:500 25px/1.2 var(--display);overflow-wrap:anywhere}
+.cinfo .line small{display:block;color:var(--muted);font-size:14px}
+.state{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;margin-top:6px}
+.state i{width:9px;height:9px;border-radius:50%;background:#b9b0a8}
+.state.open i{background:#3f9a6b;box-shadow:0 0 0 4px #3f9a6b33}
+.map{margin-top:28px;position:relative;background:var(--stone);aspect-ratio:16/8;overflow:hidden}
+.map svg{width:100%;height:100%;display:block}
+.map .pin{position:absolute;left:54%;top:44%;transform:translate(-50%,-100%);color:var(--lacre)}
+.map .pin .ic{width:36px;height:36px;fill:var(--lacre);stroke:#fff}
+.map .pin::after{content:"";position:absolute;left:50%;bottom:-6px;width:14px;height:6px;margin-left:-7px;border-radius:50%;background:#231a1655;animation:pulse 2s infinite}
+@keyframes pulse{50%{transform:scale(2);opacity:.2}}
+.map a{position:absolute;right:12px;bottom:12px;background:#fff;padding:8px 14px;font-size:14px;font-weight:600;text-decoration:none;border-radius:999px}
+.cform{background:var(--walnut);color:#fff;padding:100px max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad))) 90px var(--pad)}
+.cform .lead{color:#cbbfb7}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.fields > *{min-width:0}
+.full{grid-column:1/-1}
+.f{display:block;font-size:14px;font-weight:600;color:#d9cfc8}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:6px;padding:12px 0;border:0;border-bottom:1px solid #ffffff44;background:transparent;color:#fff;font:400 17px var(--body);border-radius:0}
+.f select option{color:var(--ink)}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--verd)}
+.note{display:flex;gap:12px;font-size:14px;color:#cbbfb7;background:#ffffff0d;padding:14px 16px;margin:22px 0 0}
+.note .ic{flex:none;color:var(--verd);width:20px;height:20px;margin-top:2px}
+.consent{display:flex;gap:10px;font-size:14px;color:#cbbfb7;margin:18px 0 24px}
+.consent input{accent-color:var(--verd);margin-top:4px}
+.sent{display:none;margin-top:14px;color:var(--verd)}
+.sent.on{display:block}
+
+footer{background:#1a1310;color:#a99d95;font-size:14px;padding:40px 0}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer a{color:#e3d9d2}
+footer .notice{max-width:56ch}
+
+@media (max-width:1060px){
+  .hero{grid-template-columns:1fr;max-height:none}
+  .hero .copy{padding:64px var(--pad) 40px}
+  .hero .photo{height:420px}
+  .hero .photo::after{background:linear-gradient(0deg,#231a16cc 0,transparent 40%)}
+  .soc .wrap,.areas .wrap,.team .head,.pubs .head{grid-template-columns:1fr}
+  .proc ol{grid-template-columns:1fr 1fr;gap:40px}
+  .proc li::after{display:none}
+  .contact{grid-template-columns:1fr}
+  .cinfo,.cform{padding:80px var(--pad)}
+  .page{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:70px 0 0;background:var(--walnut);flex-direction:column;align-items:flex-start;padding:30px var(--pad);gap:22px;font-size:21px}
+  .top .wrap{height:70px}
+  .brand b{font-size:18px}
+  .hero h1{font-size:46px}
+  .facts b{font-size:34px}
+  .reg{left:var(--pad);right:var(--pad);max-width:none;bottom:20px}
+  .soc,.team,.pubs,.proc,.areas,.hist{padding:72px 0}
+  .soc .cols{columns:1}
+  .shelf{flex-direction:column;align-items:stretch;min-height:0;padding:0;gap:8px}
+  .shelf::after{display:none}
+  .vol{width:auto;height:auto!important;flex-direction:row;padding:18px 20px;gap:16px;justify-content:flex-start;border-radius:3px}
+  .vol .t{writing-mode:horizontal-tb;transform:none;font-size:23px;flex:1;max-height:none;white-space:normal}
+  .vol::before,.vol::after{display:none}
+  .vol{border-left:6px double currentColor}
+  .vol:hover,.vol:focus-visible{transform:translateX(8px)}
+  .tgrid{grid-template-columns:1fr 1fr;gap:28px 16px}
+  .law,.law.partner{grid-column:span 1}
+  .law.partner{grid-column:span 2}
+  .law h3{font-size:24px}
+  .law dl{grid-template-columns:1fr}
+  .law dt{margin-top:4px}
+  .proc ol{grid-template-columns:1fr}
+  .pub button{grid-template-columns:1fr auto;gap:6px 16px}
+  .pub .ttl{grid-column:1/-1;font-size:22px}
+  .pub .min{display:none}
+  .pub .abs > div{padding-left:0}
+  .tl{grid-template-columns:1fr;gap:22px}
+  .tl::before,.tl::after{display:none}
+  .tl div{padding-left:28px}.tl div::before{top:12px}
+  .tl div b{margin-bottom:6px}
+  .fields{grid-template-columns:1fr}
+  .dossier .pane{height:94vh}
+  .dhead{padding:14px 16px}.dhead h3{font-size:22px}
+  .page .main,.page .side{padding:22px 18px}
+  footer .wrap{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:78px}
+@media (max-width:760px){.shot-mode main{padding-top:70px}}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Valentim &amp; Associados (opção 1) · pré-visualização do site">
+<meta property="og:description" content="Advogados · Valentim &amp; Associados — Sociedade de Advogados">
+<meta property="og:url" content="https://preview.northsoftware.pt/valentim-associados-viseu-opcao-1/">
+<meta property="og:image" content="https://preview.northsoftware.pt/valentim-associados-viseu-opcao-1/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 long-name long-hero v4-new v4-o" data-service-count="1" style="--service-columns:1">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"do escritório"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de pedir informações.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de pedir informações.");}
+},true);
+</script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Valentim &amp; Associados — Sociedade de Advogados, início"><span class="seal" aria-hidden="true">V&amp;</span><span><b class="lead-brand-name" title="Valentim &amp; Associados — Sociedade de Advogados">Valentim &amp; Associados — Sociedade de Advogados</b><small>Advogados, Viseu</small></span></a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a class="btn btn-verd" href="#contacto">Pedir contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="copy">
+    <h1><span class="l"><span>Valentim &amp; Associados — Sociedade de Advogados</span></span></h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="lead">Sociedade de advogados em Viseu</p>
+    <div class="ctas">
+      <a class="btn btn-verd" href="#contacto">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+    </div>
+    <div class="facts">
+      
+      
+      <div><b>1</b><span>área de prática</span></div>
+      
+    </div>
+  </div>
+  <div class="photo">
+    <img src="assets/a-contencioso.jpg" alt="Fotografia ilustrativa de trabalho jurídico à secretária">
+    
+  </div>
+</section>
+
+
+<section class="soc" id="sociedade">
+  <div class="wrap">
+    <div>
+      <h2>Sobre Valentim &amp; Associados — Sociedade de Advogados</h2>
+      <div class="cols"><p>Sociedade de advogados criada em Viseu, com escritórios nesta cidade e no Porto.</p></div>
+      
+      
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="areas" id="servicos">
+  <div class="wrap">
+    <div>
+      <h2 class="h2">Serviços</h2>
+      <p class="lead" style="margin-top:22px"></p>
+      <p class="hint"><svg class="ic ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v17H5.5A2.5 2.5 0 0 1 3 17.5z"/><path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H13v17h5.5a2.5 2.5 0 0 0 2.5-2.5z"/><path d="M6 8h2M6 12h2M16 8h2M16 12h2"/></svg> Escolha um volume</p>
+    </div>
+    <div class="shelf" role="list">
+      <button class="vol" type="button" role="listitem" data-key="service-1" aria-haspopup="dialog" aria-label="Advocacia: Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade."><svg class="ic ic-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18M7 21h10M4 7h16M6 7l-3 7a3.2 3.2 0 0 0 6 0zM18 7l-3 7a3.2 3.2 0 0 0 6 0z"/></svg><span class="t">Advocacia</span><span class="n" aria-hidden="true">1</span></button>
+    </div>
+  </div>
+</section>
+
+<div class="dossier" id="dossier" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <div class="pane">
+    <div class="dhead"><span id="dIcon"></span><h3 id="dTitle">Advocacia</h3>
+      <button type="button" id="dPrev" aria-label="Área anterior"><svg class="ic ic-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="dNext" aria-label="Área seguinte"><svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" id="dClose" aria-label="Fechar"><svg class="ic ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="dbody" id="dBody">
+      <article class="page" data-key="service-1" data-title="Advocacia" data-lawyers="">
+        <span class="ico" hidden><svg class="ic ic-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18M7 21h10M4 7h16M6 7l-3 7a3.2 3.2 0 0 0 6 0zM18 7l-3 7a3.2 3.2 0 0 0 6 0z"/></svg></span>
+        <div class="side"><img src="assets/a-empresas.jpg" alt="" loading="lazy"><p class="s">Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p></div>
+        <div class="main">
+          <h4>O que fazemos</h4>
+          <ul class="work"><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span>Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</span></li></ul>
+          
+          
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<section class="contact" id="contacto">
+  <div class="cinfo">
+    <h2 class="h2" style="font-size:clamp(36px,4vw,54px)">Localização e contactos</h2>
+    <div style="margin-top:26px">
+      <a class="line" href="tel:+351232426711"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span><b>232 426 711</b><small></small></span></a>
+      <a class="line" href="mailto:viseu@jvadvogados.com"><svg class="ic ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span><b style="font-size:21px">viseu@jvadvogados.com</b><small>Email</small></span></a>
+      <div class="line"><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Rua Adelino Azevedo Pinto, Lote 29, R/C, Aguieira, 3510-224 Viseu<br></span></div>
+      
+    </div>
+    <div class="map" aria-label="Mapa ilustrativo da localização">
+      
+      <span class="pin"><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+      
+    </div>
+  </div>
+  <div class="cform">
+    <h2 class="h2" style="font-size:clamp(36px,4vw,54px)">Pedir contacto</h2>
+    <p class="lead" style="margin-top:16px">Indique o seu nome e como prefere ser contactado.</p>
+    <form id="form" class="form" novalidate><h2>Pedir contacto</h2><p>Indique o seu nome e como prefere ser contactado.</p>
+<div class="fields"><label class="f">Nome<input name="nome" autocomplete="name" required></label>
+<label class="f">Telefone<input name="tel" type="tel" autocomplete="tel" required></label>
+<label class="f">Email (opcional)<input name="email" type="email" autocomplete="email"></label></div>
+<label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+<button class="btn" type="submit">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+  </div>
+</section>
+<section class="extra-facts lead-contact-data" aria-label="Informação e contactos">
+<h2>Sobre Valentim &amp; Associados — Sociedade de Advogados</h2><p>Sociedade de advogados criada em Viseu, com escritórios nesta cidade e no Porto.</p>
+
+
+
+
+<p><a href="tel:+351232426711">232 426 711</a></p>
+<p><a href="mailto:viseu@jvadvogados.com">viseu@jvadvogados.com</a></p>
+
+<p><a href="https://pt.linkedin.com/company/valentim-e-associados-sociedade-de-advogados">LinkedIn</a></p>
+
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><p class="notice"></p><p><a href="https://pt.linkedin.com/company/valentim-e-associados-sociedade-de-advogados" rel="noopener">LinkedIn</a> </p></div>
+    <ul>
+      <li>Valentim e Associados - Sociedade de Advogados, SP, RL</li>
+      
+      <li>NIF <span class="ph">510322182</span></li>
+      
+      <li>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</li>
+    </ul>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var d=document, root=d.documentElement, capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture)root.classList.add('capture');if(still)root.classList.add('still');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  if(nav&&burger){burger.addEventListener('click',function(){var on=nav.classList.toggle('open');burger.setAttribute('aria-expanded',on);});
+    nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});}
+  function m(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  function hm(s){return String(s||'').replace(':','h');}
+  function pt(n){return(n>0?'+':n<0?'−':'')+Math.abs(n).toFixed(2).replace('.',',');}
+  var hours=[]||[],now=new Date(),wd=((now.getDay()+6)%7)+1,mins=now.getHours()*60+now.getMinutes(),isOpen=false;
+  hours.forEach(function(h){if((h.days||[]).indexOf(wd)<0)return;(h.ranges||[]).forEach(function(r){if(mins>=m(r[0])&&mins<m(r[1]))isOpen=true;});});
+  if(hours.length)['state','st','chip','now','live'].forEach(function(id){var el=d.getElementById(id);if(!el)return;
+    var label=el.querySelector('span')||el;label.textContent=isOpen?'Aberto agora':'Fechado agora';el.classList.toggle('open',isOpen);});
+  var tc=d.getElementById('txtC');if(tc&&hours.length)tc.textContent=isOpen?'abertas agora':'fechadas agora';
+  function updateClock(){var clock=d.querySelector('#board .clock #clock');if(!clock)return;
+    var current=new Date(),valid=hours.length>0&&Number.isFinite(current.getTime());
+    clock.parentNode.hidden=!valid;
+    if(valid)clock.textContent=String(current.getHours()).padStart(2,'0')+':'+String(current.getMinutes()).padStart(2,'0');}
+  updateClock();if(!still&&d.querySelector('#board .clock #clock'))setInterval(updateClock,60000);
+  var finder=d.querySelector('.finder[role="search"]'),query=finder&&finder.querySelector('input'),results=finder&&finder.querySelector('ul');
+  if(query&&results)query.addEventListener('input',function(){results.innerHTML='';var term=query.value.trim().toLocaleLowerCase('pt');if(term.length<2)return;
+    var found=[].filter.call(d.querySelectorAll('.lead-chapel,.notice'),function(item){return ((item.dataset.name||'')+' '+item.textContent).toLocaleLowerCase('pt').indexOf(term)>=0;}).slice(0,5);
+    found.forEach(function(item){var li=d.createElement('li'),button=d.createElement('button');button.type='button';button.textContent=item.dataset.name;
+      button.addEventListener('click',function(){item.scrollIntoView({behavior:still?'auto':'smooth',block:'center'});});li.appendChild(button);results.appendChild(li);});
+    if(!found.length){var li=d.createElement('li');li.textContent='Sem resultados.';results.appendChild(li);}});
+  var sizes=[].slice.call(d.querySelectorAll('.fs button'));
+  function setSize(n){root.classList.remove('fs1','fs2');if(n>0)root.classList.add('fs'+n);
+    sizes.forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.fs===n);});
+    try{localStorage.setItem('v4-text-size',String(n));}catch(e){}}
+  sizes.forEach(function(b){b.addEventListener('click',function(){setSize(+b.dataset.fs);});});
+  try{var saved=+localStorage.getItem('v4-text-size');if(saved&&!capture)setSize(Math.min(2,saved));}catch(e){}
+  var flags={},names={},steps=[],lvlSel=null,langSel=null;
+  var team=[]||[],areas=[{"title": "Advocacia", "text": "Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.", "icon": "scale", "image": "assets/a-empresas.jpg", "image_alt": "Imagem ilustrativa", "hint": "", "summary": "Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.", "details": ["Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade."], "points": [], "duration": "", "link_label": "Pedir informações", "featured": true, "color": "sky", "key": "service-1", "name": "Advocacia", "label": "Advocacia", "intro": "Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.", "list": ["Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade."], "covers": ["Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade."], "risks": ["Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade."], "code": "Advocacia", "drive": "Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.", "exam": "", "age": "", "hours": "", "minutes": "", "hours_label": "horas", "minutes_label": "minutos", "steps": [], "docs": [], "who": "", "deadline": "", "work": ["Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade."], "questions": [], "lawyers": "", "months": [], "includes": ["Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade."], "seats": "", "subjects": [{"icon": "scale", "name": "Advocacia"}], "years": "", "can": ["Cada assunto jurídico depende dos seus factos e do enquadramento aplicável. O âmbito deste serviço pode ser esclarecido no contacto com a entidade."], "langs": "", "facts": []}]||[],pubs=null||[],byKey={};
+  team.forEach(function(t){byKey[t.key]=t;});
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  [].forEach.call(d.querySelectorAll('#flagstore span'),function(s){flags[s.dataset.k]=s.innerHTML;names[s.dataset.k]=s.dataset.n;});
+  [].forEach.call(d.querySelectorAll('video'),function(v){
+    if(still){v.pause();return;} var src=v.dataset.small||v.dataset.src;if(src)v.src=src;
+    v.play().catch(function(){});
+  });
+  var video=d.querySelector('video'), pause=d.getElementById('playBtn');
+  if(video&&pause)pause.addEventListener('click',function(){if(video.paused)video.play().catch(function(){});else video.pause();});
+  // Guarded, independent blocks from the approved prototype.
+  (function(){if(!d.querySelector("#servicos"))return;
+  var dz=d.getElementById('dossier'), cur=0, last=null;
+  if(dz){
+    var vols=[].slice.call(d.querySelectorAll('.vol')), dT=d.getElementById('dTitle'), dI=d.getElementById('dIcon');
+    function show(i){ cur=(i+pages.length)%pages.length; pages.forEach(function(p,j){p.classList.toggle('on',j===cur);}); dT.textContent=pages[cur].dataset.title; dI.innerHTML=pages[cur].querySelector('.ico').innerHTML; d.getElementById('dBody').scrollTop=0; }
+    function open(i){ last=d.activeElement; show(i); dz.classList.add('open'); d.body.style.overflow='hidden'; d.getElementById('dClose').focus(); }
+    function close(){ dz.classList.remove('open'); d.body.style.overflow=''; if(last) last.focus(); }
+    vols.forEach(function(v,i){ v.addEventListener('click',function(){open(i);}); });
+    d.getElementById('dClose').addEventListener('click',close);
+    d.getElementById('dPrev').addEventListener('click',function(){show(cur-1);});
+    d.getElementById('dNext').addEventListener('click',function(){show(cur+1);});
+    dz.addEventListener('click',function(e){ if(e.target===dz) close(); if(e.target.closest('[data-close]')) close(); });
+    d.addEventListener('keydown',function(e){ if(!dz.classList.contains('open')) return; if(e.key==='Escape') close(); if(e.key==='ArrowRight') show(cur+1); if(e.key==='ArrowLeft') show(cur-1); });
+  }
+})();
+(function(){if(!d.querySelector("#publicacoes"))return;
+  [].forEach.call(d.querySelectorAll('[data-areatag]'),function(s){ s.textContent=areaTitle[s.dataset.areatag]||''; });
+  var chips=[].slice.call(d.querySelectorAll('.chips button')), items=[].slice.call(d.querySelectorAll('.pub'));
+  chips.forEach(function(c){ c.addEventListener('click',function(){ chips.forEach(function(x){x.setAttribute('aria-pressed',x===c);}); items.forEach(function(it){ it.classList.toggle('hide',!!c.dataset.f&&it.dataset.area!==c.dataset.f); }); }); });
+  items.forEach(function(it){ var b=it.querySelector('button'); b.addEventListener('click',function(){ var o=it.classList.toggle('open'); b.setAttribute('aria-expanded',o); }); });
+  if(items[0]&&!capture){ items[0].classList.add('open'); items[0].querySelector('button').setAttribute('aria-expanded',true); }
+})();
+  var mm=location.hash.match(/^#shot-(.+)/), sh=mm&&d.getElementById(mm[1]);
+  if(sh&&!sh.hidden){root.classList.add('shot-mode');[].forEach.call(d.querySelectorAll('main > *, footer'),function(s){if(s!==sh)s.style.display='none';});}
+})();
+</script>
+</body>
+</html>

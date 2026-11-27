@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Funerária Lira · Vila Nova de Gaia</title>
+<meta name="description" content="Serviços funerários · Funerária Lira">
+
+
+
+<style>
+@font-face{font-family:"Barlow Semi Condensed";src:url("assets/fonts/barlow-semi-condensed-700.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Barlow";src:url("assets/fonts/barlow-400.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --slate:#4d2945; --slate2:#643a5c; --lichen:#f1c2d3; --moss:#5E6E45;
+  --paper:#F3F4F0; --ink:#1E2529; --muted:#5C666C;
+  --display:"Barlow Semi Condensed", Georgia, sans-serif; --body:"Barlow", sans-serif;
+  --wrap:1240px; --pad:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 18.5px/1.6 var(--body);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.05;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px solid var(--moss);outline-offset:2px}
+section{scroll-margin-top:110px}
+.ic{width:22px;height:22px}
+.ph{background:#e9ecc8;color:#3a4220;padding:0 5px;border-radius:3px;font-size:.86em}
+.h2{font-size:clamp(36px,4.4vw,58px)}
+.lead{font-size:20px;color:var(--muted);max-width:58ch}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:8px;font:600 17px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:background .2s,transform .2s}
+.btn .ic{width:19px;height:19px}
+.btn-lichen{background:var(--lichen);color:var(--ink)}
+.btn-lichen:hover{background:#c6d0a6}
+.btn-slate{background:var(--slate);color:#fff}
+.btn-slate:hover{background:var(--slate2)}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:60}
+.h24{background:var(--lichen);color:var(--ink);font-size:16px}
+.h24 .wrap{display:flex;justify-content:space-between;align-items:center;min-height:42px;gap:12px}
+.h24 a{display:inline-flex;gap:8px;align-items:center;font:700 19px/1 var(--display);text-decoration:none;letter-spacing:.02em}
+.h24 .ic{width:18px;height:18px}
+.bar{background:var(--slate);color:#fff}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .mk{width:42px;height:42px;border-radius:8px;background:var(--lichen);color:var(--slate);display:grid;place-items:center}
+.brand .mk .ic{width:26px;height:26px}
+.brand b{display:block;font:700 24px/1 var(--display)}
+.brand small{display:block;font-size:14px;color:#c4ccd1}
+.nav{display:flex;gap:24px;font-size:16.5px;font-weight:500}
+.nav a{text-decoration:none;opacity:.85}
+.nav a:hover{opacity:1;color:var(--lichen)}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:#fff}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{position:relative;min-height:600px;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:pan 30s ease-in-out infinite alternate}
+@keyframes pan{to{transform:scale(1.08) translateX(-1.5%)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#1e2529e6 0%,#1e252966 45%,#1e252900 75%)}
+.hero .wrap{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:end;padding-top:140px;padding-bottom:56px}
+.hero h1{font-size:clamp(44px,5.4vw,74px);max-width:16ch;text-shadow:0 2px 30px #0006}
+.hero .lead{color:#e3e8e5;margin:20px 0 0}
+.finder{background:#fff;color:var(--ink);border-radius:12px;padding:20px;box-shadow:0 30px 60px -30px #000b;position:relative}
+.finder label{display:block;font:600 20px var(--display);margin-bottom:10px}
+.finder .in{display:flex;align-items:center;gap:10px;border:2px solid var(--slate);border-radius:8px;padding:0 12px}
+.finder .in .ic{color:var(--muted);flex:none}
+.finder input{flex:1;min-width:0;border:0;padding:13px 0;font:500 18px var(--body);background:none;outline:none}
+.res{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:4px}
+.res button{all:unset;cursor:pointer;display:flex;gap:10px;align-items:center;width:100%;box-sizing:border-box;padding:9px 10px;border-radius:6px;font-size:16.5px}
+.res button:hover,.res button:focus-visible{background:var(--paper)}
+.res small{color:var(--muted);margin-left:auto;font-size:14px}
+.stats{display:flex;gap:0;margin-top:16px;border-top:1px solid #e2e5e1;padding-top:14px}
+.stats div{flex:1;text-align:center}
+.stats b{display:block;font:700 30px/1 var(--display);color:var(--moss)}
+.stats span{font-size:14px;color:var(--muted)}
+
+/* guide */
+.guide{padding:100px 0}
+.guide .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:56px}
+.prog{display:flex;align-items:center;gap:14px;margin:30px 0 18px;font-weight:600}
+.prog .b{flex:1;height:8px;border-radius:99px;background:#dfe3dc;overflow:hidden}
+.prog .b i{display:block;height:100%;width:0;background:var(--moss);transition:width .5s}
+.acc{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:10px}
+.acc li{counter-increment:s;background:#fff;border-radius:10px;border:1px solid #e1e4df}
+.acc .row{display:flex;align-items:center;gap:14px;padding:14px 16px}
+.acc .row::before{content:counter(s);flex:none;width:38px;height:38px;border-radius:8px;background:var(--slate);color:#fff;display:grid;place-items:center;font:700 20px var(--display)}
+.acc li.done .row::before{content:"✓";background:var(--moss)}
+.acc button.t{all:unset;cursor:pointer;flex:1;font:600 23px/1.15 var(--display);display:flex;align-items:center;gap:10px}
+.acc button.t:focus-visible{outline:3px solid var(--moss);outline-offset:4px;border-radius:4px}
+.acc .who{font:600 14px var(--body);padding:3px 10px;border-radius:99px;background:var(--paper);color:var(--muted);white-space:nowrap}
+.acc .who[data-w="Nós"]{background:var(--lichen);color:var(--ink)}
+.acc .tick{display:flex;align-items:center;gap:6px;font-size:14.5px;color:var(--muted);cursor:pointer;white-space:nowrap}
+.acc .tick input{width:20px;height:20px;accent-color:var(--moss)}
+.acc .body{display:none;padding:0 18px 18px 68px;color:var(--muted)}
+.acc li.open .body{display:block;animation:fade .4s both}
+@keyframes fade{from{opacity:0;transform:translateY(-6px)}}
+.guide aside{display:flex;flex-direction:column;gap:18px}
+.guide aside .pic{border-radius:12px;overflow:hidden;aspect-ratio:4/3}
+.guide aside .pic img{width:100%;height:100%;object-fit:cover}
+.docs{background:var(--slate);color:#fff;border-radius:12px;padding:24px}
+.docs h3{font-size:24px;margin-bottom:12px}
+.docs ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.docs li{display:flex;gap:10px}
+.docs .ic{color:var(--lichen);flex:none;margin-top:3px}
+.call112{display:flex;gap:12px;align-items:center;background:#fff;border-radius:12px;padding:16px 18px;border:1px solid #e1e4df;font-size:16.5px}
+.call112 b{font:700 30px/1 var(--display);color:#b23a2e}
+
+/* services */
+.svc{background:#fff;padding:100px 0}
+.svc .head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border-radius:12px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+.card .pic{position:relative;aspect-ratio:16/9;overflow:hidden}
+.card .pic img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.card:hover .pic img{transform:scale(1.05)}
+.card .pic .ic{position:absolute;left:16px;bottom:-22px;width:52px;height:52px;padding:13px;border-radius:10px;background:var(--lichen);color:var(--ink);box-shadow:0 0 0 5px var(--paper)}
+.card .txt{padding:34px 20px 22px}
+.card h3{font-size:26px;margin-bottom:6px}
+.card p{margin:0;color:var(--muted);font-size:17px}
+
+/* chapels map */
+.chap{padding:100px 0;background:var(--paper)}
+.chap .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:start}
+.chap .intro{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:10px}
+.mapbox{position:relative;border-radius:14px;overflow:hidden;background:#e4e8df;aspect-ratio:6/5}
+.mapbox>svg{position:absolute;inset:0;width:100%;height:100%}
+.mapbox .area{fill:#eef1ea;stroke:#fff;stroke-width:3;transition:fill .3s}
+.mapbox .area.on{fill:#dfe6cc}
+.mapbox .lbl{font:600 15px var(--display);fill:#7b8590;letter-spacing:.04em}
+.pin{position:absolute;transform:translate(-50%,-100%);all:unset;cursor:pointer}
+.pinb{position:absolute;transform:translate(-50%,-100%);background:none;border:0;padding:0;cursor:pointer;color:var(--slate)}
+.pinb svg{width:34px;height:34px;display:block;filter:drop-shadow(0 4px 4px #0003);transition:transform .25s}
+.pinb path{fill:var(--slate)}
+.pinb circle{fill:var(--lichen)}
+.pinb:hover svg,.pinb.on svg{transform:scale(1.3) translateY(-3px)}
+.pinb.on path{fill:var(--moss)}
+.pinb.dim{opacity:.3}
+.pinb:focus-visible{outline:3px solid var(--moss);border-radius:4px}
+.pop{position:absolute;left:16px;right:16px;bottom:16px;background:#fff;border-radius:12px;padding:16px 18px;box-shadow:0 20px 40px -20px #0006;display:none;gap:14px;align-items:center}
+.pop.on{display:flex;animation:fade .35s both}
+.pop .ic{width:44px;height:44px;padding:10px;border-radius:10px;background:var(--lichen);flex:none}
+.pop b{display:block;font:600 22px/1.1 var(--display)}
+.pop span{font-size:15.5px;color:var(--muted)}
+.pop a{margin-left:auto;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chips button{all:unset;cursor:pointer;padding:8px 14px;border-radius:99px;background:#fff;border:1px solid #d6dbd3;font-size:15.5px;font-weight:500}
+.chips button[aria-pressed="true"]{background:var(--slate);color:#fff;border-color:var(--slate)}
+.chips button:focus-visible{outline:3px solid var(--moss)}
+.clist{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-height:520px;overflow:auto}
+.clist button{all:unset;cursor:pointer;box-sizing:border-box;width:100%;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 14px;border-radius:10px;background:#fff;border:1px solid #e1e4df}
+.clist button:hover{border-color:var(--slate)}
+.clist button.on{background:var(--slate);color:#fff}
+.clist button.on small{color:#c4ccd1}
+.clist .ic{color:var(--moss)}
+.clist button.on .ic{color:var(--lichen)}
+.clist b{display:block;font:600 19px/1.15 var(--display)}
+.clist small{font-size:14.5px;color:var(--muted)}
+.clist .seats{font:700 18px var(--display);text-align:right}
+.clist .seats small{display:block;font:400 12.5px var(--body)}
+.clist li[hidden]{display:none}
+.chap .note{font-size:14.5px;color:var(--muted);margin-top:10px}
+
+/* notices */
+.obit{background:var(--slate);color:#fff;padding:100px 0;position:relative;overflow:hidden}
+.obit .lead{color:#c4ccd1}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:50px}
+.notice{position:relative;background:#fbfbf8;color:var(--ink);padding:12px;box-shadow:0 24px 40px -24px #000c;transform:rotate(var(--r,0deg));transition:transform .4s}
+.notice:nth-child(1){--r:-1.4deg}.notice:nth-child(2){--r:.9deg}.notice:nth-child(3){--r:-.6deg}
+.notice:hover{transform:rotate(0) translateY(-4px)}
+.notice::before{content:"";position:absolute;left:50%;top:-8px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#d7dfbd,var(--moss));box-shadow:0 3px 4px #0005}
+.notice .in{border:5px solid var(--ink);padding:24px 22px;text-align:center;height:100%;display:flex;flex-direction:column;gap:6px}
+.notice small.k{font:600 14px var(--body);letter-spacing:.06em;color:var(--muted)}
+.notice .cross{margin:4px auto}
+.notice h3{font:700 27px/1.1 var(--display)}
+.notice .age{color:var(--muted);margin:0}
+.notice p.t{font-size:16.5px;margin:10px 0}
+.notice .when{font-weight:600;font-size:16px}
+.notice .acts{margin-top:auto;padding-top:12px}
+.notice .acts button{all:unset;cursor:pointer;display:inline-flex;gap:8px;align-items:center;padding:9px 14px;border-radius:8px;background:var(--paper);font-weight:600;font-size:15.5px}
+.notice .acts button:hover{background:var(--lichen)}
+.notice .acts .ic{width:17px;height:17px}
+
+/* repatriation */
+.rep{padding:100px 0}
+.rep .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.route{position:relative;border-radius:14px;background:var(--slate);overflow:hidden;aspect-ratio:3/2}
+.route svg{width:100%;height:100%;display:block}
+.route .arc{fill:none;stroke:var(--lichen);stroke-width:2;stroke-dasharray:6 7;stroke-dashoffset:300;animation:fly 3s cubic-bezier(.4,0,.2,1) forwards}
+.route .arc:nth-of-type(2){animation-delay:.3s}.route .arc:nth-of-type(3){animation-delay:.6s}.route .arc:nth-of-type(4){animation-delay:.9s}
+@keyframes fly{to{stroke-dashoffset:0}}
+.route text{font:600 14px var(--body);fill:#fff}
+.route .home{fill:var(--lichen)}
+.pts{list-style:none;margin:26px 0;padding:0;counter-reset:p;display:grid;gap:12px}
+.pts li{counter-increment:p;display:flex;gap:14px;align-items:center;font-size:18px}
+.pts li::before{content:counter(p);flex:none;width:34px;height:34px;border-radius:50%;border:2px solid var(--moss);display:grid;place-items:center;font:700 17px var(--display);color:var(--moss)}
+
+/* team */
+.team{background:#fff;padding:90px 0}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.person{display:flex;gap:16px;align-items:center;padding:22px;border-radius:12px;background:var(--paper)}
+.av{flex:none;width:64px;height:64px;border-radius:50%;background:var(--slate);color:var(--lichen);display:grid;place-items:center;font:700 24px var(--display)}
+.person b{display:block;font:600 23px/1.1 var(--display)}
+.person span{font-size:15.5px;color:var(--muted);display:block}
+.person a{display:inline-flex;gap:6px;align-items:center;margin-top:6px;font-weight:600;text-decoration:none;color:var(--moss)}
+.person a .ic{width:17px;height:17px}
+
+/* faq + contact */
+.faq{padding:90px 0}
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}
+details{background:#fff;border-radius:10px;padding:18px 22px;margin-bottom:10px;border:1px solid #e1e4df}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font:600 21px/1.25 var(--display)}
+summary::-webkit-details-marker{display:none}
+summary .ic{flex:none;transition:transform .3s}
+details[open] summary .ic{transform:rotate(45deg)}
+details p{margin:10px 0 0;color:var(--muted)}
+.contact{background:var(--slate);color:#fff;padding:90px 0}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.contact .lead{color:#c4ccd1}
+.bigcall{display:flex;align-items:center;gap:16px;margin:26px 0;padding:20px 22px;border-radius:12px;background:var(--lichen);color:var(--ink);text-decoration:none}
+.bigcall .ic{width:44px;height:44px}
+.bigcall small{display:block;font-weight:600}
+.bigcall b{font:700 clamp(36px,4vw,50px)/1 var(--display)}
+.info{display:grid;gap:12px;font-size:17.5px;color:#dfe4e1}
+.info>div{display:flex;gap:12px}
+.info .ic{flex:none;color:var(--lichen);margin-top:3px}
+.state{display:inline-flex;align-items:center;gap:8px;margin-top:4px;font-weight:600}
+.state i{width:9px;height:9px;border-radius:50%;background:#8c979d}
+.state.open i{background:var(--lichen);box-shadow:0 0 0 4px #b5c08f44}
+.form{background:#fff;color:var(--ink);border-radius:12px;padding:32px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.fields>*{min-width:0}
+.full{grid-column:1/-1}
+.f{display:block;font-weight:600;font-size:15.5px}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:6px;padding:12px 14px;border:2px solid #d6dbd3;border-radius:8px;font:400 17.5px var(--body);color:var(--ink);background:#fff}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--slate)}
+.consent{display:flex;gap:10px;font-size:15px;color:var(--muted);margin:14px 0 20px}
+.consent input{accent-color:var(--moss);margin-top:5px}
+.sent{display:none;margin-top:12px;font-weight:600;color:var(--moss)}
+.sent.on{display:block}
+footer{background:#252f36;color:#c4ccd1;font-size:15.5px;padding:40px 0}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer a{color:#fff}
+.dock{display:none}
+
+@media (max-width:1040px){
+  .hero .wrap,.guide .wrap,.chap .wrap,.chap .intro,.rep .wrap,.faq .wrap,.contact .wrap{grid-template-columns:1fr}
+  .sgrid,.board,.tgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  body{font-size:17.5px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:110px 0 0;background:var(--slate);flex-direction:column;padding:28px var(--pad);gap:22px;font-size:22px}
+  .h24 .wrap>span{display:none}
+  .h24 .wrap{justify-content:center}
+  .bar .wrap{height:64px}
+  .hero{min-height:0}
+  .hero .wrap{padding-top:120px;padding-bottom:30px}
+  .hero h1{font-size:42px}
+  .guide,.svc,.chap,.obit,.rep,.faq,.contact{padding:60px 0}
+  .team{padding:60px 0}
+  .sgrid,.board,.tgrid,.fields{grid-template-columns:1fr}
+  .acc .row{flex-wrap:wrap}
+  .acc .body{padding-left:18px}
+  .acc button.t{font-size:21px}
+  .mapbox{aspect-ratio:1}
+  .pop{flex-wrap:wrap}
+  .pop a{margin-left:0}
+  .form{padding:22px}
+  footer .wrap{grid-template-columns:1fr}
+  footer{padding-bottom:100px}
+  .dock{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:70;background:var(--lichen);color:var(--ink);border-radius:10px;padding:14px;justify-content:center;gap:10px;font:700 19px var(--display);text-decoration:none;box-shadow:0 14px 30px -10px #000a}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .route .arc{stroke-dashoffset:0}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.capture .route .arc{stroke-dashoffset:0}
+.shot-mode .hdr{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:110px}
+.shot-mode .dock{display:none}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Funerária Lira (opção 2) · pré-visualização do site">
+<meta property="og:description" content="Serviços funerários · Funerária Lira">
+<meta property="og:url" content="https://preview.northsoftware.pt/funeraria-lira-vila-nova-de-gaia-opcao-2/">
+<meta property="og:image" content="https://preview.northsoftware.pt/funeraria-lira-vila-nova-de-gaia-opcao-2/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 v4-new v4-w" data-service-count="4" style="--service-columns:3">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"da agência funerária"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de pedir informações.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de pedir informações.");}
+},true);
+</script>
+
+<div class="hdr">
+  <div class="h24"><div class="wrap"><span>Em caso de falecimento, ligue a qualquer hora, todos os dias</span><a href="tel:+351915933930"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> 24 h: 915 933 930</a></div></div>
+  <header class="bar">
+    <div class="wrap">
+      <a class="brand" href="#" aria-label="Funerária Lira, início"><span class="mk"><svg class="ic ic-cypress" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22v-4"/><path d="M12 2c-2.5 4-4 8-4 11a4 4 0 0 0 8 0c0-3-1.5-7-4-11z"/></svg></span><span><b class="lead-brand-name" title="Funerária Lira">Funerária Lira</b><small></small></span></a>
+      <nav class="nav" id="nav" aria-label="Principal"><a href="#servicos">Serviços</a></nav>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+</div>
+
+<main>
+<section class="hero" id="inicio">
+  <img src="assets/hero-vale.jpg" alt="Vale com aldeia e igreja nas Terras de Basto">
+  <div class="wrap">
+    <div><h1>Funerária Lira</h1><p class="lead">Serviços funerários em Vila Nova de Gaia</p></div>
+    <div class="hero-ctas"><a class="btn btn-lichen" href="#contacto">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-slate" href="tel:+351915933930"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> 915 933 930 · 24 h</a></div>
+  </div>
+</section>
+
+
+
+<section class="svc" id="servicos">
+  <div class="wrap">
+    <div class="head"><h2 class="h2">Serviços</h2><p class="lead" style="margin:0"></p></div>
+    <div class="sgrid"><article class="card"><div class="pic"><img src="assets/altar.jpg" alt="" loading="lazy"><svg class="ic ic-flower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5"/><path d="M12 7.5V9M7.5 12H9M16.5 12H15M12 16.5V15"/></svg></div><div class="txt"><h3>Inumação e Cremação</h3><p>Os serviços funerários acompanham a organização de uma despedida. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p></div></article><article class="card"><div class="pic"><img src="assets/velas-igreja.jpg" alt="" loading="lazy"><svg class="ic ic-flower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5"/><path d="M12 7.5V9M7.5 12H9M16.5 12H15M12 16.5V15"/></svg></div><div class="txt"><h3>Trasladação Nacional e Internacional</h3><p>Os serviços funerários acompanham a organização de uma despedida. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p></div></article><article class="card"><div class="pic"><img src="assets/aldeia.jpg" alt="" loading="lazy"><svg class="ic ic-flower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5"/><path d="M12 7.5V9M7.5 12H9M16.5 12H15M12 16.5V15"/></svg></div><div class="txt"><h3>Preparação Estética</h3><p>Os serviços funerários acompanham a organização de uma despedida. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p></div></article><article class="card"><div class="pic"><img src="assets/maos.jpg" alt="" loading="lazy"><svg class="ic ic-flower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5"/><path d="M12 7.5V9M7.5 12H9M16.5 12H15M12 16.5V15"/></svg></div><div class="txt"><h3>Processo Documental</h3><p>Os serviços funerários acompanham a organização de uma despedida. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p></div></article></div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2 class="h2">Pedir contacto</h2>
+      <p class="lead" style="margin-top:12px">Indique o seu nome e como prefere ser contactado.</p>
+      <a class="bigcall" href="tel:+351915933930"><svg class="ic ic-phone-call" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94M14.05 6A5 5 0 0 1 18 10"/></svg><span><small>Urgências, 24 horas</small><b>915 933 930</b></span></a>
+      <div class="info">
+        <div><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span>Escritório: <a href="tel:+351224951085">224 951 085</a></span></div>
+        <div><svg class="ic ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><a href="mailto:ineditacortesia@gmail.com">ineditacortesia@gmail.com</a></div>
+        <div><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Rua Soares dos Reis, 1043, 4430-241 Mafamude, Vila Nova de Gaia<br></span></div>
+        
+      </div>
+    </div>
+    <form id="form" class="form" novalidate><h2>Pedir contacto</h2><p>Indique o seu nome e como prefere ser contactado.</p>
+<div class="fields"><label class="f">Nome<input name="nome" autocomplete="name" required></label>
+<label class="f">Telefone<input name="tel" type="tel" autocomplete="tel" required></label>
+<label class="f">Email (opcional)<input name="email" type="email" autocomplete="email"></label></div>
+<label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+<button class="btn" type="submit">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+  </div>
+</section>
+<section class="extra-facts lead-contact-data" aria-label="Informação e contactos">
+<h2>Sobre Funerária Lira</h2><p>Agência funerária situada em Mafamude, Vila Nova de Gaia, que apresenta serviços de inumação, cremação, trasladação e processo documental.</p>
+
+<p>Atendimento 24 horas: <a href="tel:+351915933930">915 933 930</a></p>
+
+
+<p><a href="tel:+351224951085">224 951 085</a></p>
+<p><a href="mailto:ineditacortesia@gmail.com">ineditacortesia@gmail.com</a></p>
+
+
+
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><p>Funerária Lira.</p></div>
+    <ul>
+      <li>Inéditacortesia - Funerária, Limitada</li>
+      
+      <li>NIF <span class="ph">513384936</span></li>
+      
+      <li>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</li>
+    </ul>
+  </div>
+</footer>
+<a class="dock" href="tel:+351915933930"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> Ligar 24 h · 915 933 930</a>
+
+
+<script>
+(function(){
+  var d=document, root=d.documentElement, capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture)root.classList.add('capture');if(still)root.classList.add('still');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  if(nav&&burger){burger.addEventListener('click',function(){var on=nav.classList.toggle('open');burger.setAttribute('aria-expanded',on);});
+    nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});}
+  function m(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  function hm(s){return String(s||'').replace(':','h');}
+  function pt(n){return(n>0?'+':n<0?'−':'')+Math.abs(n).toFixed(2).replace('.',',');}
+  var hours=[]||[],now=new Date(),wd=((now.getDay()+6)%7)+1,mins=now.getHours()*60+now.getMinutes(),isOpen=false;
+  hours.forEach(function(h){if((h.days||[]).indexOf(wd)<0)return;(h.ranges||[]).forEach(function(r){if(mins>=m(r[0])&&mins<m(r[1]))isOpen=true;});});
+  if(hours.length)['state','st','chip','now','live'].forEach(function(id){var el=d.getElementById(id);if(!el)return;
+    var label=el.querySelector('span')||el;label.textContent=isOpen?'Aberto agora':'Fechado agora';el.classList.toggle('open',isOpen);});
+  var tc=d.getElementById('txtC');if(tc&&hours.length)tc.textContent=isOpen?'abertas agora':'fechadas agora';
+  function updateClock(){var clock=d.querySelector('#board .clock #clock');if(!clock)return;
+    var current=new Date(),valid=hours.length>0&&Number.isFinite(current.getTime());
+    clock.parentNode.hidden=!valid;
+    if(valid)clock.textContent=String(current.getHours()).padStart(2,'0')+':'+String(current.getMinutes()).padStart(2,'0');}
+  updateClock();if(!still&&d.querySelector('#board .clock #clock'))setInterval(updateClock,60000);
+  var finder=d.querySelector('.finder[role="search"]'),query=finder&&finder.querySelector('input'),results=finder&&finder.querySelector('ul');
+  if(query&&results)query.addEventListener('input',function(){results.innerHTML='';var term=query.value.trim().toLocaleLowerCase('pt');if(term.length<2)return;
+    var found=[].filter.call(d.querySelectorAll('.lead-chapel,.notice'),function(item){return ((item.dataset.name||'')+' '+item.textContent).toLocaleLowerCase('pt').indexOf(term)>=0;}).slice(0,5);
+    found.forEach(function(item){var li=d.createElement('li'),button=d.createElement('button');button.type='button';button.textContent=item.dataset.name;
+      button.addEventListener('click',function(){item.scrollIntoView({behavior:still?'auto':'smooth',block:'center'});});li.appendChild(button);results.appendChild(li);});
+    if(!found.length){var li=d.createElement('li');li.textContent='Sem resultados.';results.appendChild(li);}});
+  var sizes=[].slice.call(d.querySelectorAll('.fs button'));
+  function setSize(n){root.classList.remove('fs1','fs2');if(n>0)root.classList.add('fs'+n);
+    sizes.forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.fs===n);});
+    try{localStorage.setItem('v4-text-size',String(n));}catch(e){}}
+  sizes.forEach(function(b){b.addEventListener('click',function(){setSize(+b.dataset.fs);});});
+  try{var saved=+localStorage.getItem('v4-text-size');if(saved&&!capture)setSize(Math.min(2,saved));}catch(e){}
+  var flags={},names={},steps=[],lvlSel=null,langSel=null;
+  var team=[]||[],areas=null||[],pubs=null||[],byKey={};
+  team.forEach(function(t){byKey[t.key]=t;});
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  [].forEach.call(d.querySelectorAll('#flagstore span'),function(s){flags[s.dataset.k]=s.innerHTML;names[s.dataset.k]=s.dataset.n;});
+  [].forEach.call(d.querySelectorAll('video'),function(v){
+    if(still){v.pause();return;} var src=v.dataset.small||v.dataset.src;if(src)v.src=src;
+    v.play().catch(function(){});
+  });
+  var video=d.querySelector('video'), pause=d.getElementById('playBtn');
+  if(video&&pause)pause.addEventListener('click',function(){if(video.paused)video.play().catch(function(){});else video.pause();});
+  // Guarded, independent blocks from the approved prototype.
+  
+  var mm=location.hash.match(/^#shot-(.+)/), sh=mm&&d.getElementById(mm[1]);
+  if(sh&&!sh.hidden){root.classList.add('shot-mode');[].forEach.call(d.querySelectorAll('main > *, footer'),function(s){if(s!==sh)s.style.display='none';});}
+})();
+</script>
+</body>
+</html>

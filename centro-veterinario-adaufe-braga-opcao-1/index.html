@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Centro Veterinário de Adaúfe · Adaúfe</title>
+<meta name="description" content="Medicina veterinária · Centro Veterinário de Adaúfe">
+
+
+
+<style>
+@font-face{font-family:"Plus Jakarta Sans";src:url("assets/fonts/of-plus-jakarta-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Work Sans";src:url("assets/fonts/work-sans-400.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --em:#0c855c; --lab:#d8f4e7; --gr:#1E2526; --alert:#e32a1d;
+  --mist:#F2F5F4; --ink:#18201F; --muted:#5C6866;
+  --display:"Plus Jakarta Sans", Georgia, sans-serif; --body:"Work Sans", sans-serif;
+  --wrap:1260px; --pad:clamp(18px,4.5vw,52px); --line:#dde5e2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17px/1.6 var(--body);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.04;letter-spacing:-.025em;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px solid var(--em);outline-offset:3px}
+section{scroll-margin-top:84px}
+.ic{width:22px;height:22px}
+.ph{background:#fff2bf;color:#594300;padding:0 5px;border-radius:3px;font-size:.92em}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:8px;font:700 16px/1 var(--display);text-decoration:none;border:0;cursor:pointer;transition:background .15s,transform .15s}
+.btn .ic{width:19px;height:19px}
+.btn-em{background:var(--em);color:#fff}
+.btn-em:hover{background:#08704c}
+.btn-alert{background:var(--alert);color:#fff}
+.btn-alert:hover{background:#c42519}
+.btn-ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.h2{font-size:clamp(34px,4vw,54px)}
+.sub{color:var(--muted);font-size:18px;max-width:54ch;margin:14px 0 0}
+.led{width:10px;height:10px;border-radius:50%;background:#3ee08f;box-shadow:0 0 0 0 #3ee08f88;animation:led 1.6s infinite;flex:none}
+.led.off{background:#ff6b5e;animation:none}
+.led.wait{background:#f5c044;animation:none}
+@keyframes led{70%{box-shadow:0 0 0 8px transparent}}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mono{width:42px;height:42px;border-radius:8px;background:var(--em);color:#fff;display:grid;place-items:center;font:900 22px/1 var(--display);position:relative}
+.mono::after{content:"";position:absolute;right:-4px;top:-4px;width:14px;height:14px;border-radius:3px;background:var(--alert);box-shadow:0 0 0 3px #fff}
+.brand b{display:block;font:800 18px/1.05 var(--display)}
+.brand small{display:block;font-size:13px;color:var(--muted)}
+.nav{display:flex;align-items:center;gap:26px;font:700 15px var(--display)}
+.nav a:not(.btn){text-decoration:none}
+.nav a:not(.btn):hover{color:var(--em)}
+.nav .btn{padding:11px 16px;font-size:15px}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{position:relative;background:var(--mist)}
+.hero .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);min-height:600px}
+.hero .copy{padding:58px var(--pad) 150px max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad)))}
+.hero .tag{display:inline-flex;gap:10px;align-items:center;font:700 14.5px var(--display);background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 14px;margin-bottom:24px}
+.hero h1{font-size:clamp(40px,4.7vw,68px);max-width:13ch}
+.hero .lead{font-size:clamp(17px,1.4vw,20px);color:var(--muted);max-width:44ch;margin:22px 0 30px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .photo{position:relative;overflow:hidden}
+.hero .photo img{width:100%;height:100%;object-fit:cover;object-position:60% center;animation:zoom 14s ease-out both}
+@keyframes zoom{from{transform:scale(1.12)}}
+.board{position:absolute;left:max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad)));bottom:-52px;z-index:5;width:min(760px,calc(100% - 2 * var(--pad)));background:var(--gr);color:#fff;border-radius:14px;padding:20px 24px;box-shadow:0 30px 50px -30px rgba(0,0,0,.6);display:grid;grid-template-columns:auto 1fr;gap:10px 30px;align-items:center}
+.board .clock{grid-row:span 3;border-right:1px solid #ffffff22;padding-right:28px}
+.board .clock b{display:block;font:800 46px/1 var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.board .clock span{font-size:13px;color:#aab6b3}
+.board .row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;font-size:15px;border-bottom:1px dashed #ffffff1f;padding-bottom:9px}
+.board .row:last-child{border:0;padding-bottom:0}
+.board .row b{font:700 15px var(--display)}
+.board .row em{font-style:normal;color:#cfd8d6;text-align:right}
+.board a{color:#fff}
+
+/* equipment */
+.equip{padding:110px 0 30px}
+.equip ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.equip li{display:flex;gap:12px;align-items:center;padding:20px;font:700 15.5px/1.3 var(--display);border-left:1px solid var(--line)}
+.equip li:first-child{border-left:0}
+.equip .ic{width:40px;height:40px;padding:8px;border-radius:8px;background:var(--lab);color:var(--em);flex:none}
+
+/* services tabs */
+.svc{padding:70px 0 100px}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin:36px 0 34px;position:relative;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{all:unset;display:flex;gap:10px;align-items:center;padding:14px 18px 18px;font:700 17px var(--display);color:var(--muted);cursor:pointer;white-space:nowrap}
+.tabs button .ic{width:24px;height:24px}
+.tabs button[aria-selected="true"]{color:var(--ink)}
+.tabs button[aria-selected="true"] .ic{color:var(--em)}
+.tabs button:focus-visible{outline:3px solid var(--em);outline-offset:-3px}
+.bar{position:absolute;left:0;bottom:0;height:3px;background:var(--em);border-radius:3px;transition:transform .35s cubic-bezier(.2,.8,.2,1),width .35s cubic-bezier(.2,.8,.2,1)}
+.pane{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:stretch}
+.pane[hidden]{display:none}
+.pane .pic{border-radius:12px;overflow:hidden;min-height:420px;position:relative}
+.pane .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:fadein .5s both}
+@keyframes fadein{from{opacity:0;transform:scale(1.03)}}
+.pane h3{font-size:34px;margin-bottom:14px;display:flex;gap:14px;align-items:center}
+.pane h3 .ic{width:46px;height:46px;padding:10px;border-radius:10px;background:var(--lab);color:var(--em)}
+.pane p{color:var(--muted);font-size:17.5px}
+.checks{list-style:none;padding:0;margin:20px 0 24px;display:grid;gap:10px}
+.checks li{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+.checks .ic{color:var(--em);width:22px;height:22px;flex:none;margin-top:1px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.facts div{background:var(--mist);border-radius:10px;padding:14px 16px}
+.facts span{display:block;font-size:13px;color:var(--muted)}
+.facts b{font:700 16px/1.3 var(--display)}
+
+/* vaccines */
+.vac{background:var(--lab);padding:100px 0}
+.vac .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+.vac .note{font-size:14px;color:#3e5a4f;margin-top:18px;display:flex;gap:8px}
+.vac .note .ic{flex:none;width:20px;height:20px}
+.tool{background:#fff;border-radius:16px;padding:28px;box-shadow:0 30px 50px -40px rgba(12,80,55,.6)}
+.controls{display:flex;gap:16px;flex-wrap:wrap;align-items:end;margin-bottom:22px}
+.seg{display:inline-flex;background:var(--mist);border-radius:10px;padding:4px}
+.seg button{all:unset;display:flex;gap:8px;align-items:center;padding:10px 16px;border-radius:8px;font:700 15px var(--display);cursor:pointer}
+.seg button[aria-pressed="true"]{background:#fff;box-shadow:0 2px 6px -2px #0003;color:var(--em)}
+.seg button:focus-visible{outline:3px solid var(--em)}
+.f{display:block;font:700 14px var(--display)}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:6px;padding:12px 14px;border-radius:8px;border:1.5px solid var(--line);background:#fff;font:inherit;font-family:var(--body);font-weight:400;font-size:16px;color:var(--ink)}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--em)}
+.timeline{list-style:none;padding:0;margin:0;position:relative}
+.timeline::before{content:"";position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.timeline li{position:relative;display:grid;grid-template-columns:32px 1fr auto;gap:14px;align-items:center;padding:10px 0}
+.timeline .dot{width:32px;height:32px;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center;position:relative;z-index:1}
+.timeline .dot .ic{width:16px;height:16px;opacity:0}
+.timeline li.done .dot{background:var(--em);border-color:var(--em);color:#fff}
+.timeline li.done .dot .ic{opacity:1}
+.timeline li.done b{color:var(--muted);font-weight:500}
+.timeline li.next .dot{border-color:var(--em);box-shadow:0 0 0 5px var(--lab)}
+.timeline li.next{background:linear-gradient(90deg,var(--lab),transparent);border-radius:10px;margin:0 -10px;padding:10px}
+.timeline b{font:700 16px/1.3 var(--display)}
+.timeline time{font:700 14px var(--display);white-space:nowrap;color:var(--muted)}
+.timeline li.next time{color:var(--em)}
+.timeline .pill{display:inline-block;font:700 11.5px/1 var(--display);background:var(--em);color:#fff;border-radius:99px;padding:4px 8px;margin-left:8px;vertical-align:2px}
+.remind{display:flex;gap:10px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap;align-items:end}
+.remind .f{flex:1;min-width:200px}
+.remind small{flex-basis:100%;color:var(--muted);font-size:13px}
+
+/* urgency */
+.urg{position:relative;color:#fff;padding:110px 0;overflow:hidden;background:var(--gr)}
+.urg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.urg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--gr) 30%,transparent)}
+.urg .wrap{position:relative;z-index:2}
+.urg .h2{color:#fff;display:flex;gap:16px;align-items:center}
+.urg .h2 .ic{width:56px;height:56px;padding:12px;border-radius:12px;background:var(--alert);color:#fff;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 10px #e5372b33}}
+.urg p.l{max-width:48ch;color:#d6dfdc;font-size:19px;margin:18px 0 28px}
+.urg .tel{font:900 clamp(40px,6vw,84px)/1 var(--display);color:#fff;text-decoration:none;letter-spacing:-.02em;display:inline-block}
+.urg .tel:hover{color:#ffb3ab}
+.urg ul{list-style:none;padding:0;margin:30px 0 0;display:flex;gap:10px;flex-wrap:wrap}
+.urg li{background:#ffffff14;border:1px solid #ffffff2a;border-radius:99px;padding:8px 14px;font-size:15px}
+
+/* team + spaces */
+.team{padding:100px 0 60px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+.doc{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.doc .pic{aspect-ratio:4/3.4;overflow:hidden;position:relative;background:var(--mist)}
+.doc .pic img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .5s}
+.doc:hover .pic img{transform:scale(1.04)}
+.doc .dirtag{position:absolute;left:12px;top:12px;background:var(--em);color:#fff;font:700 12.5px var(--display);border-radius:6px;padding:5px 9px}
+.doc .in{padding:18px 20px 20px}
+.doc h3{font-size:21px}
+.doc p{margin:4px 0 10px;color:var(--muted);font-size:15.5px}
+.doc .cred{display:inline-flex;gap:8px;align-items:center;font:700 13px var(--display);background:var(--mist);border-radius:6px;padding:6px 10px}
+.doc .cred .ic{width:16px;height:16px;color:var(--em)}
+.spaces{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;padding-bottom:100px}
+.spaces figure{margin:0;position:relative;border-radius:14px;overflow:hidden;min-height:320px}
+.spaces img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.spaces figcaption{position:absolute;left:14px;bottom:14px;background:#fff;border-radius:8px;padding:8px 12px;font:700 14.5px var(--display)}
+
+/* faq */
+.faq{background:var(--mist);padding:90px 0}
+.faq .wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px}
+.faq details{background:#fff;border-radius:10px;margin-bottom:10px;padding:0 22px;border:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 36px 18px 0;font:700 18px/1.35 var(--display);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:4px;top:24px;width:10px;height:10px;border-right:2.5px solid var(--em);border-bottom:2.5px solid var(--em);transform:rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(-135deg);top:28px}
+.faq details p{color:var(--muted)}
+
+/* contact */
+.contact{padding:100px 0}
+.contact .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:50px}
+.form{border:1px solid var(--line);border-radius:16px;padding:34px}
+.form .h2{font-size:clamp(30px,3vw,42px)}
+.form > p{color:var(--muted);margin:10px 0 24px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields > *{min-width:0}
+.full{grid-column:1/-1}
+.consent{display:flex;gap:10px;font-size:14px;color:var(--muted);margin:16px 0 20px;align-items:flex-start}
+.consent input{margin-top:4px;accent-color:var(--em)}
+.sent{display:none;margin-top:14px;background:var(--lab);border-radius:8px;padding:12px 14px;font-size:15px}
+.sent.on{display:block}
+.form .note{font-size:14px;color:var(--alert);margin:14px 0 0;font-weight:700}
+.info h3{font-size:22px;margin:0 0 12px}
+.hrs{display:grid;gap:0;margin-bottom:28px;border-top:1px solid var(--line)}
+.hrs div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:11px 0;font-size:15.5px}
+.hrs div.em{color:var(--alert);font-weight:700}
+.lines{display:grid;gap:12px;margin-bottom:26px}
+.lines a{display:flex;gap:12px;align-items:center;text-decoration:none;font:700 17px var(--display)}
+.lines .ic{width:40px;height:40px;padding:9px;border-radius:8px;background:var(--lab);color:var(--em);flex:none}
+.lines a.red .ic{background:#fde3e0;color:var(--alert)}
+.lines small{display:block;font:400 13px var(--body);color:var(--muted)}
+.mapbox{border-radius:14px;overflow:hidden;position:relative;border:1px solid var(--line)}
+.mapbox svg{display:block;width:100%;height:auto}
+.mapbox p{position:absolute;left:12px;bottom:12px;margin:0;background:#fff;border-radius:8px;padding:10px 12px;font-size:14px;box-shadow:0 6px 16px -8px #0005}
+.mapbox a{color:var(--em);font-weight:700}
+
+footer{background:var(--gr);color:#c4cecb;padding:60px 0 30px;font-size:15px}
+.fcols{display:grid;grid-template-columns:1.3fr 1fr 1.3fr;gap:40px}
+footer h3{font:800 16px var(--display);color:#fff;margin-bottom:12px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+footer .brand b{color:#fff}
+footer .brand small{color:#9aa7a4}
+footer .mono::after{box-shadow:0 0 0 3px var(--gr)}
+.social{display:flex;gap:10px;margin-top:16px}
+.social a{width:40px;height:40px;border-radius:8px;display:grid;place-items:center;background:#ffffff12}
+.social .ic{width:18px;height:18px}
+.legal{border-top:1px solid #ffffff1f;margin-top:44px;padding-top:22px;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:13.5px}
+
+@media (max-width:1060px){
+  .hero .grid{grid-template-columns:1fr}
+  .hero .copy{padding:56px var(--pad) 40px}
+  .hero .photo{height:380px}
+  .board{position:relative;left:auto;bottom:auto;margin:-60px var(--pad) 0;width:auto}
+  .equip{padding-top:60px}
+  .equip ul{grid-template-columns:1fr 1fr}
+  .equip li{border-left:0;border-top:1px solid var(--line)}
+  .pane,.vac .wrap,.contact .wrap,.faq .wrap{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:74px 0 0;background:#fff;flex-direction:column;align-items:flex-start;padding:28px var(--pad);gap:22px;font-size:20px}
+  .top .wrap{height:66px}
+  .hero .copy{padding:26px var(--pad) 26px}
+  .hero .photo{height:230px;order:-1}
+  .board{margin:0 var(--pad)}
+  .brand b{font-size:16px}
+  .board{grid-template-columns:1fr;padding:18px}
+  .board .clock{grid-row:auto;border:0;padding:0;display:flex;gap:10px;align-items:baseline}
+  .board .clock b{font-size:34px}
+  .equip ul{grid-template-columns:1fr}
+  .pane .pic{min-height:240px}
+  .facts{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .spaces{grid-template-columns:1fr}
+  .fields{grid-template-columns:1fr}
+  .form{padding:22px}
+  .fcols{grid-template-columns:1fr}
+  .svc,.vac,.urg,.team,.faq,.contact{padding:64px 0}
+  .timeline li{grid-template-columns:32px 1fr}
+  .timeline time{grid-column:2}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:74px}
+@media (max-width:760px){.shot-mode main{padding-top:66px}}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Centro Veterinário de Adaúfe (opção 1) · pré-visualização do site">
+<meta property="og:description" content="Medicina veterinária · Centro Veterinário de Adaúfe">
+<meta property="og:url" content="https://preview.northsoftware.pt/centro-veterinario-adaufe-braga-opcao-1/">
+<meta property="og:image" content="https://preview.northsoftware.pt/centro-veterinario-adaufe-braga-opcao-1/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 v4-new v4-j" data-service-count="4" style="--service-columns:3">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"da clínica veterinária"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de pedir informações.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de pedir informações.");}
+},true);
+</script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Centro Veterinário de Adaúfe, início">
+      <span class="mono" aria-hidden="true">CV</span>
+      <span><b class="lead-brand-name" title="Centro Veterinário de Adaúfe">Centro Veterinário de Adaúfe</b><small>Adaúfe</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a class="btn btn-alert" href="tel:+351910550062" aria-label="Ligar: 910 550 062"><svg class="ic ic-siren" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg> Contacto de urgência</a>
+      <a class="btn btn-em" href="#contacto">Pedir contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="grid">
+    <div class="copy">
+      <span class="tag"><span class="led"></span>Medicina veterinária em Adaúfe</span>
+      <h1>Centro Veterinário de Adaúfe</h1>
+      <p class="lead">Medicina preventiva, diagnóstico e cirurgia veterinária em Adaúfe</p>
+      <div class="ctas">
+        <a class="btn btn-em" href="#contacto"><svg class="ic ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg> Pedir contacto</a>
+        <a class="btn btn-ghost" href="tel:+351910550062"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> Urgência 910 550 062</a>
+      </div>
+    </div>
+    <div class="photo"><img src="assets/hero.jpg" alt="Fotografia ilustrativa de banco de imagens"></div>
+  </div>
+  
+</section>
+
+
+
+
+<section class="svc" id="servicos">
+  <div class="wrap">
+    <h2 class="h2">Serviços</h2>
+    <p class="sub"></p>
+    <div class="tabs" role="tablist" aria-label="Serviços" id="tabs">
+      <button type="button" role="tab" id="t-service-1" aria-controls="p-service-1" aria-selected="true"><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Consultas de medicina interna</button><button type="button" role="tab" id="t-service-2" aria-controls="p-service-2" aria-selected="false"><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Medicina preventiva</button><button type="button" role="tab" id="t-service-3" aria-controls="p-service-3" aria-selected="false"><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Exames de diagnóstico</button><button type="button" role="tab" id="t-service-4" aria-controls="p-service-4" aria-selected="false"><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Cirurgia</button>
+      <span class="bar" id="bar"></span>
+    </div>
+    
+    <div class="pane" role="tabpanel" id="p-service-1" aria-labelledby="t-service-1">
+      <div class="pic"><img src="assets/s-consultas.jpg" alt="Imagem ilustrativa" loading="lazy"></div>
+      <div>
+        <h3><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Consultas de medicina interna</h3>
+        <p>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p>
+        <ul class="checks"></ul>
+        
+        <a class="btn btn-em" href="#contacto" data-service="Consultas de medicina interna">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    
+    <div class="pane" role="tabpanel" id="p-service-2" aria-labelledby="t-service-2" hidden>
+      <div class="pic"><img src="assets/s-vacinacao.jpg" alt="Imagem ilustrativa" loading="lazy"></div>
+      <div>
+        <h3><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Medicina preventiva</h3>
+        <p>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p>
+        <ul class="checks"></ul>
+        
+        <a class="btn btn-em" href="#contacto" data-service="Medicina preventiva">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    
+    <div class="pane" role="tabpanel" id="p-service-3" aria-labelledby="t-service-3" hidden>
+      <div class="pic"><img src="assets/s-cirurgia.jpg" alt="Imagem ilustrativa" loading="lazy"></div>
+      <div>
+        <h3><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Exames de diagnóstico</h3>
+        <p>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p>
+        <ul class="checks"></ul>
+        
+        <a class="btn btn-em" href="#contacto" data-service="Exames de diagnóstico">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    
+    <div class="pane" role="tabpanel" id="p-service-4" aria-labelledby="t-service-4" hidden>
+      <div class="pic"><img src="assets/s-imagiologia.jpg" alt="Imagem ilustrativa" loading="lazy"></div>
+      <div>
+        <h3><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Cirurgia</h3>
+        <p>O enquadramento de uma intervenção depende da avaliação médico-veterinária.</p>
+        <ul class="checks"></ul>
+        
+        <a class="btn btn-em" href="#contacto" data-service="Cirurgia">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="vac" id="vacinas">
+  <div class="wrap">
+    <div>
+      <h2 class="h2">Quando é a próxima vacina?</h2>
+      <p class="sub">Indique a espécie e a data de nascimento: mostramos um calendário indicativo para o primeiro ano. O plano final é decidido na consulta.</p>
+      <p class="note"><svg class="ic ic-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.5v.1"/></svg><span>Datas indicativas. O plano depende do animal, do estilo de vida e das vacinas já feitas.</span></p>
+    </div>
+    <div class="tool">
+      <div class="controls">
+        <div class="seg" role="group" aria-label="Espécie">
+          <button type="button" data-sp="dog" aria-pressed="true"><svg class="ic ic-dog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11.25 16.25h1.5L12 17z"/><path d="M16 14v.5"/><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 0 0-.493-3.309"/><path d="M8 14v.5"/><path d="M8.5 8.5c-.384 1.05-1.083 2.028-2.344 2.5-1.931.722-3.576-.297-3.656-1-.113-.994 1.177-6.53 4-7 1.923-.321 3.651.845 3.651 2.235A7.497 7.497 0 0 1 14 5.277c0-1.39 1.844-2.598 3.767-2.277 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.855-1.45-2.239-2.5"/></svg> Cão</button>
+          <button type="button" data-sp="cat" aria-pressed="false"><svg class="ic ic-cat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/></svg> Gato</button>
+        </div>
+        <label class="f">Data de nascimento<input type="date" id="birth"></label>
+      </div>
+      <ol class="timeline" id="timeline" aria-live="polite"></ol>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<section class="urg" id="urgencias">
+  
+  <div class="wrap">
+    <h2 class="h2"><svg class="ic ic-siren" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg>Contacto de urgência</h2>
+    <p class="l">Ligue para o contacto publicado.</p>
+    <a class="tel" href="tel:+351910550062">910 550 062</a>
+    <ul></ul>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <form id="form" class="form" novalidate><h2>Pedir contacto</h2><p>Indique o seu nome e como prefere ser contactado.</p>
+<div class="fields"><label class="f">Nome<input name="nome" autocomplete="name" required></label>
+<label class="f">Telefone<input name="tel" type="tel" autocomplete="tel" required></label>
+<label class="f">Email (opcional)<input name="email" type="email" autocomplete="email"></label></div>
+<label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+<button class="btn" type="submit">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+    <div class="info">
+      <div class="lines">
+        <a class="red" href="tel:+351910550062"><svg class="ic ic-siren" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg><span>910 550 062<small>Contacto de urgência</small></span></a>
+        <a href="tel:+351253092845"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span>253 092 845<small>receção, chamada para a rede fixa nacional</small></span></a>
+        <a href="mailto:cvetadaufe@gmail.com"><svg class="ic ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>cvetadaufe@gmail.com<small>Email</small></span></a>
+      </div>
+      
+      <div class="mapbox">
+        <svg viewBox="0 0 560 300" aria-hidden="true">
+          <rect width="560" height="300" fill="#eef3f1"/>
+          <path d="M0 210C120 190 200 250 320 220S480 150 560 170v130H0z" fill="#cfe9df"/>
+          <g fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"><path d="M-10 120h580M220-10l40 320M420-10 380 310"/></g>
+          <g fill="none" stroke="#fff" stroke-width="6"><path d="M0 50l230 30M260 170l140-40"/></g>
+          <g fill="#dde6e3"><rect x="40" y="140" width="140" height="50" rx="4"/><rect x="290" y="30" width="80" height="70" rx="4"/><rect x="440" y="20" width="90" height="80" rx="4"/></g>
+          <rect x="280" y="140" width="96" height="56" rx="6" fill="#0c855c"/>
+          <path d="M322 156h12M328 150v12" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+          <text x="328" y="186" fill="#fff" font-family="Arial" font-size="12" font-weight="700" text-anchor="middle">Centro Veterinário de Adaúfe</text>
+        </svg>
+        <p>Travessa do Comércio, 14, R/C C, 4710-820 Adaúfe<br></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="extra-facts lead-contact-data" aria-label="Informação e contactos">
+<h2>Sobre Centro Veterinário de Adaúfe</h2><p>O Centro Veterinário de Adaúfe nasceu em 2014, em Braga. Apresenta consultas, medicina preventiva, exames de diagnóstico e cirurgia, com Ricardo Pimenta identificado como diretor clínico.</p>
+<p>Autorização DGAV: PT10153CN</p><p>CAMV: consultório</p>
+
+<p>Urgência: <a href="tel:+351910550062">910 550 062</a></p>
+
+<p><a href="tel:+351253092845">253 092 845</a></p>
+<p><a href="mailto:cvetadaufe@gmail.com">cvetadaufe@gmail.com</a></p>
+
+<p><a href="https://www.facebook.com/cvadaufe/">Facebook</a></p><p><a href="https://www.instagram.com/cvadaufe/">Instagram</a></p>
+
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <a class="brand" href="#"><span class="mono" aria-hidden="true">CV</span><span><b>Centro Veterinário de Adaúfe</b><small>Adaúfe</small></span></a>
+        <p style="margin-top:16px">Medicina preventiva, diagnóstico e cirurgia veterinária em Adaúfe</p>
+        <div class="social"><a href="https://www.facebook.com/cvadaufe/" aria-label="Facebook" rel="noopener"><svg class="ic ic-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a href="https://www.instagram.com/cvadaufe/" aria-label="Instagram" rel="noopener"><svg class="ic ic-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+      </div>
+      <div><h3>Serviços</h3><ul><li><a href="#servicos">Consultas de medicina interna</a></li><li><a href="#servicos">Medicina preventiva</a></li><li><a href="#servicos">Exames de diagnóstico</a></li><li><a href="#servicos">Cirurgia</a></li></ul></div>
+      <div><h3>Informação legal</h3><ul>
+        <li>consultório</li>
+        <li>Autorização de funcionamento DGAV <span class="ph">PT10153CN</span></li>
+        <li>Diretor clínico: Ricardo Pimenta</li>
+        
+      </ul></div>
+    </div>
+    <div class="legal"><span>CVAB - Centro Veterinário de Adaúfe, Lda, NIF <span class="ph">513096566</span></span><span>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</span></div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var d=document, root=d.documentElement, capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture)root.classList.add('capture');if(still)root.classList.add('still');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  if(nav&&burger){burger.addEventListener('click',function(){var on=nav.classList.toggle('open');burger.setAttribute('aria-expanded',on);});
+    nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});}
+  function m(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  function hm(s){return String(s||'').replace(':','h');}
+  function pt(n){return(n>0?'+':n<0?'−':'')+Math.abs(n).toFixed(2).replace('.',',');}
+  var hours=[]||[],now=new Date(),wd=((now.getDay()+6)%7)+1,mins=now.getHours()*60+now.getMinutes(),isOpen=false;
+  hours.forEach(function(h){if((h.days||[]).indexOf(wd)<0)return;(h.ranges||[]).forEach(function(r){if(mins>=m(r[0])&&mins<m(r[1]))isOpen=true;});});
+  if(hours.length)['state','st','chip','now','live'].forEach(function(id){var el=d.getElementById(id);if(!el)return;
+    var label=el.querySelector('span')||el;label.textContent=isOpen?'Aberto agora':'Fechado agora';el.classList.toggle('open',isOpen);});
+  var tc=d.getElementById('txtC');if(tc&&hours.length)tc.textContent=isOpen?'abertas agora':'fechadas agora';
+  function updateClock(){var clock=d.querySelector('#board .clock #clock');if(!clock)return;
+    var current=new Date(),valid=hours.length>0&&Number.isFinite(current.getTime());
+    clock.parentNode.hidden=!valid;
+    if(valid)clock.textContent=String(current.getHours()).padStart(2,'0')+':'+String(current.getMinutes()).padStart(2,'0');}
+  updateClock();if(!still&&d.querySelector('#board .clock #clock'))setInterval(updateClock,60000);
+  var finder=d.querySelector('.finder[role="search"]'),query=finder&&finder.querySelector('input'),results=finder&&finder.querySelector('ul');
+  if(query&&results)query.addEventListener('input',function(){results.innerHTML='';var term=query.value.trim().toLocaleLowerCase('pt');if(term.length<2)return;
+    var found=[].filter.call(d.querySelectorAll('.lead-chapel,.notice'),function(item){return ((item.dataset.name||'')+' '+item.textContent).toLocaleLowerCase('pt').indexOf(term)>=0;}).slice(0,5);
+    found.forEach(function(item){var li=d.createElement('li'),button=d.createElement('button');button.type='button';button.textContent=item.dataset.name;
+      button.addEventListener('click',function(){item.scrollIntoView({behavior:still?'auto':'smooth',block:'center'});});li.appendChild(button);results.appendChild(li);});
+    if(!found.length){var li=d.createElement('li');li.textContent='Sem resultados.';results.appendChild(li);}});
+  var sizes=[].slice.call(d.querySelectorAll('.fs button'));
+  function setSize(n){root.classList.remove('fs1','fs2');if(n>0)root.classList.add('fs'+n);
+    sizes.forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.fs===n);});
+    try{localStorage.setItem('v4-text-size',String(n));}catch(e){}}
+  sizes.forEach(function(b){b.addEventListener('click',function(){setSize(+b.dataset.fs);});});
+  try{var saved=+localStorage.getItem('v4-text-size');if(saved&&!capture)setSize(Math.min(2,saved));}catch(e){}
+  var flags={},names={},steps=[],lvlSel=null,langSel=null;
+  var team=[]||[],areas=null||[],pubs=null||[],byKey={};
+  team.forEach(function(t){byKey[t.key]=t;});
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  [].forEach.call(d.querySelectorAll('#flagstore span'),function(s){flags[s.dataset.k]=s.innerHTML;names[s.dataset.k]=s.dataset.n;});
+  [].forEach.call(d.querySelectorAll('video'),function(v){
+    if(still){v.pause();return;} var src=v.dataset.small||v.dataset.src;if(src)v.src=src;
+    v.play().catch(function(){});
+  });
+  var video=d.querySelector('video'), pause=d.getElementById('playBtn');
+  if(video&&pause)pause.addEventListener('click',function(){if(video.paused)video.play().catch(function(){});else video.pause();});
+  // Guarded, independent blocks from the approved prototype.
+  (function(){if(!d.querySelector("#tabs"))return;
+  var tabs=[].slice.call(d.querySelectorAll('#tabs [role=tab]')), bar=d.getElementById('bar');
+  function place(t){ if(bar&&t){ bar.style.width=t.offsetWidth+'px'; bar.style.transform='translateX('+t.offsetLeft+'px)'; } }
+  function show(t){ tabs.forEach(function(x){ var on=x===t; x.setAttribute('aria-selected',on); x.tabIndex=on?0:-1; d.getElementById(x.getAttribute('aria-controls')).hidden=!on; }); place(t); }
+  tabs.forEach(function(t,i){ t.tabIndex=i?-1:0; t.addEventListener('click',function(){show(t);}); t.addEventListener('keydown',function(e){ var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0; if(k){ var n=tabs[(i+k+tabs.length)%tabs.length]; show(n); n.focus(); } }); });
+  place(tabs[0]); addEventListener('resize',function(){ place(d.querySelector('#tabs [aria-selected=true]')); });
+})();
+(function(){if(!d.querySelector("#timeline"))return;
+  var plans={"dog": [{"weeks": 8, "label": "1.ª vacina polivalente e desparasitação"}, {"weeks": 12, "label": "2.ª polivalente e microchip (até aos 4 meses)"}, {"weeks": 16, "label": "3.ª polivalente e antirrábica"}, {"weeks": 26, "label": "Consulta dos 6 meses e esterilização (se decidir)"}, {"weeks": 52, "label": "Reforço anual"}], "cat": [{"weeks": 8, "label": "1.ª vacina trivalente e desparasitação"}, {"weeks": 12, "label": "2.ª trivalente e microchip (até aos 4 meses)"}, {"weeks": 16, "label": "3.ª trivalente (e leucemia felina se sair à rua)"}, {"weeks": 24, "label": "Esterilização (se decidir)"}, {"weeks": 52, "label": "Reforço anual"}]}, sp='dog', birth=d.getElementById('birth'), tl=d.getElementById('timeline');
+  if(plans&&tl){
+    var def=new Date(); def.setDate(def.getDate()-70); birth.value=def.toISOString().slice(0,10);
+    var fmt=new Intl.DateTimeFormat('pt-PT',{day:'numeric',month:'short',year:'numeric'});
+    function draw(){
+      var b=new Date(birth.value+'T12:00:00'); if(isNaN(b)) return; var today=new Date(), html='', nextSet=false;
+      (plans[sp]||[]).forEach(function(s){ var dt=new Date(b.getTime()+s.weeks*7*864e5), done=dt<today, cls=done?'done':(!nextSet?(nextSet=true,'next'):'');
+        html+='<li class="'+cls+'"><span class="dot"><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></span><b>'+s.label+(cls==='next'?'<span class="pill">próxima</span>':'')+'</b><time>'+(s.weeks<52?s.weeks+' semanas, ':'1 ano, ')+fmt.format(dt)+'</time></li>'; });
+      tl.innerHTML=html;
+    }
+    [].forEach.call(d.querySelectorAll('.seg button'),function(btn){ btn.addEventListener('click',function(){ sp=btn.dataset.sp; [].forEach.call(d.querySelectorAll('.seg button'),function(x){x.setAttribute('aria-pressed',x===btn);}); draw(); }); });
+    birth.addEventListener('change',draw); draw();
+    
+  }
+  var day=d.getElementById('day'); if(day){ var t=new Date(); t.setDate(t.getDate()+1); day.min=t.toISOString().slice(0,10); }
+})();
+  var mm=location.hash.match(/^#shot-(.+)/), sh=mm&&d.getElementById(mm[1]);
+  if(sh&&!sh.hidden){root.classList.add('shot-mode');[].forEach.call(d.querySelectorAll('main > *, footer'),function(s){if(s!==sh)s.style.display='none';});}
+})();
+</script>
+</body>
+</html>

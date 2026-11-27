@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Telmo Mesquita, Gil Rafael &amp; Associados · Mogadouro</title>
+<meta name="description" content="Solicitadores · Telmo Mesquita, Gil Rafael &amp; Associados">
+
+
+
+<style>
+@font-face{font-family:"Zilla Slab";src:url("assets/fonts/zilla-slab-700.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Work Sans";src:url("assets/fonts/work-sans-400.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --ink:#254536; --ink2:#33604b; --sun:#bfd4ae; --sky:#e2f7ec; --blush:#F8DED6;
+  --leaf:#3E7D5B; --muted:#5B6874;
+  --display:"Zilla Slab", Georgia, sans-serif; --body:"Work Sans", sans-serif;
+  --wrap:1220px; --pad:clamp(18px,4.5vw,52px); --r:26px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 19px/1.6 var(--body);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.08;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+section{scroll-margin-top:80px}
+.ic{width:24px;height:24px}
+.ph{background:#fff1b8;color:#4d3d00;padding:0 5px;border-radius:4px;font-size:.9em}
+.h2{font-size:clamp(38px,4.6vw,60px)}
+.lead{font-size:21px;color:var(--muted);max-width:58ch}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font:700 18px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn .ic{width:20px;height:20px}
+.btn-sun{background:var(--sun);color:var(--ink);box-shadow:0 4px 0 #c99a1f}
+.btn-sun:hover{transform:translateY(-2px);box-shadow:0 6px 0 #c99a1f}
+.btn-sun:active{transform:translateY(3px);box-shadow:0 1px 0 #c99a1f}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-line{box-shadow:inset 0 0 0 2px var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:#fffffff2;backdrop-filter:blur(8px);border-bottom:1px solid #e6edf2}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .mk{width:44px;height:44px;border-radius:14px;background:var(--ink);color:var(--sun);display:grid;place-items:center;font:800 20px var(--display)}
+.brand b{display:block;font:800 25px/1 var(--display)}
+.brand small{display:block;font-size:15px;color:var(--muted)}
+.nav{display:flex;align-items:center;gap:26px;font-weight:500;font-size:17px}
+.nav a:not(.btn){text-decoration:none}
+.nav a:not(.btn):hover{text-decoration:underline;text-decoration-color:var(--sun);text-decoration-thickness:3px;text-underline-offset:6px}
+.nav .btn{padding:12px 20px;font-size:16px}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+.burger .ic{width:28px;height:28px}
+
+/* hero */
+.hero{padding:64px 0 90px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(46px,5.4vw,76px);letter-spacing:-.01em}
+.hero .lead{margin:26px 0 34px}
+.ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.quick{display:flex;gap:22px;flex-wrap:wrap;margin-top:34px;font-weight:700}
+.quick a{display:inline-flex;gap:10px;align-items:center;text-decoration:none}
+.quick .ic{color:var(--leaf)}
+.art{position:relative;aspect-ratio:1/1.02}
+.art .sunc{position:absolute;right:-6%;top:-4%;width:58%;aspect-ratio:1;border-radius:50%;background:var(--sun);animation:pop 1s cubic-bezier(.2,.9,.3,1.3) both}
+.art .ring{position:absolute;right:-12%;top:-10%;width:70%;aspect-ratio:1;border-radius:50%;border:2px dashed #c99a1f88;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pop{from{transform:scale(.4);opacity:0}}
+.art .photo{position:absolute;left:0;bottom:6%;width:86%;height:84%;border-radius:220px 40px 40px 40px;overflow:hidden;box-shadow:0 30px 60px -30px #24323f66;animation:rise .9s .15s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{transform:translateY(40px);opacity:0}}
+.art .photo img{width:100%;height:100%;object-fit:cover}
+.bridge{position:absolute;left:-4%;right:0;bottom:0;height:18%;color:var(--ink)}
+.bridge path{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 2.4s .6s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.capture .bridge path,.still .bridge path{stroke-dashoffset:0}
+.badge{position:absolute;right:0;bottom:14%;width:min(300px,62%);background:#fff;border-radius:20px;padding:18px 20px;box-shadow:0 18px 40px -18px #24323f55;display:flex;gap:14px;font-size:16.5px;line-height:1.4;animation:rise .9s .5s cubic-bezier(.2,.8,.2,1) both}
+.badge .ic{flex:none;width:40px;height:40px;padding:9px;border-radius:50%;background:var(--blush);color:var(--ink)}
+
+/* navigator */
+.navi{background:var(--sky);padding:100px 0 110px;border-radius:48px 48px 0 0}
+.navi .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:40px}
+.picks{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:22px}
+.pick{all:unset;cursor:pointer;background:#fff;border-radius:20px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;font:700 19px/1.2 var(--body);box-shadow:0 2px 0 #c9d9e6;transition:transform .2s,background .2s,box-shadow .2s}
+.pick .ic{width:34px;height:34px;padding:6px;border-radius:12px;background:var(--sky);transition:background .2s}
+.pick:hover{transform:translateY(-3px)}
+.pick[aria-selected="true"]{background:var(--ink);color:#fff;box-shadow:0 6px 0 #0f1820}
+.pick[aria-selected="true"] .ic{background:var(--sun);color:var(--ink)}
+.pick:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.panel{display:none;background:#fff;border-radius:var(--r);overflow:hidden;grid-template-columns:.8fr 1.1fr .9fr;box-shadow:0 30px 60px -40px #24323f55}
+.panel.on{display:grid;animation:swap .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes swap{from{opacity:0;transform:translateY(14px)}}
+.panel .pic{position:relative;min-height:340px}
+.panel .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.panel .mid{padding:34px 34px}
+.panel h3{font-size:34px;margin-bottom:14px}
+.panel ol{list-style:none;padding:0;margin:22px 0 0;counter-reset:s;display:grid;gap:12px}
+.panel ol li{counter-increment:s;display:flex;gap:14px;align-items:center;font-weight:500}
+.panel ol li::before{content:counter(s);flex:none;width:34px;height:34px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font:800 17px var(--display)}
+.panel .side{background:#fbfcfd;border-left:1px solid #e6edf2;padding:30px 28px;display:flex;flex-direction:column;gap:18px}
+.panel h4{margin:0;font:800 16px var(--body);color:var(--muted)}
+.docs{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.docs label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:17px}
+.docs input{width:20px;height:20px;accent-color:var(--leaf);margin-top:3px;flex:none}
+.docs input:checked + span{text-decoration:line-through;color:var(--muted)}
+.dl{background:var(--blush);border-radius:16px;padding:14px 16px;font-size:16.5px;display:flex;gap:10px}
+.dl .ic{flex:none;width:22px;height:22px;margin-top:2px}
+.who{font-size:16.5px;color:var(--muted)}
+.who b{color:var(--ink)}
+
+/* first meeting */
+.first{padding:110px 0}
+.first .top2{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.first .pic{border-radius:40px 200px 40px 40px;overflow:hidden;aspect-ratio:4/3}
+.first .pic img{width:100%;height:100%;object-fit:cover}
+.path{list-style:none;padding:0;margin:64px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:26px;position:relative}
+.path::before{content:"";position:absolute;left:30px;right:30px;top:30px;border-top:3px dashed #c9d9e6}
+.path .dot{position:absolute;top:22px;left:30px;width:18px;height:18px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 6px #3e7d5b33;transition:left 2.4s cubic-bezier(.4,0,.2,1)}
+.path.on .dot{left:calc(100% - 48px)}
+.path li{position:relative}
+.path li > .ic{position:relative;z-index:1;width:62px;height:62px;padding:16px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 3px var(--ink);margin-bottom:20px}
+.path h3{font-size:25px;margin-bottom:8px}
+.path p{color:var(--muted);font-size:17.5px;margin:0}
+.aid{margin-top:54px;background:var(--sun);border-radius:22px;padding:20px 26px;display:flex;align-items:center;gap:16px;font-weight:700;font-size:19px}
+.aid .ic{flex:none;width:34px;height:34px}
+
+/* glossary */
+.gloss{background:var(--ink);color:#fff;padding:100px 0;border-radius:48px}
+.gloss .lead{color:#c6d1db}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.card{all:unset;cursor:pointer;perspective:900px;height:190px;display:block}
+.card .in{display:block;position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.card[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.card .fa,.card .ba{position:absolute;inset:0;border-radius:22px;padding:24px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.card .fa{background:var(--ink2)}
+.card .fa b{font:800 30px/1.1 var(--display)}
+.card .fa span{display:flex;align-items:center;gap:8px;font-size:15px;color:#c6d1db}
+.card .ba{background:var(--sun);color:var(--ink);transform:rotateY(180deg);font-size:18px;line-height:1.45}
+.card .ba b{font:800 19px var(--display)}
+.card:focus-visible{outline:3px solid var(--sun);outline-offset:4px;border-radius:22px}
+
+/* team */
+.team{padding:110px 0}
+.team .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:50px}
+.mate{text-align:left}
+.mate .ph0{width:78%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--sky);box-shadow:12px 12px 0 var(--sun);margin-bottom:26px;transition:box-shadow .3s}
+.mate:hover .ph0{box-shadow:-12px 12px 0 var(--sun)}
+.mate img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.mate h3{font-size:31px}
+.mate .role{color:var(--leaf);font-weight:700;margin:4px 0 10px}
+.mate p{color:var(--muted);font-size:17.5px;margin:0 0 6px}
+.mate .ced{display:inline-flex;gap:8px;align-items:center;font-size:15.5px;font-weight:700;background:var(--sky);border-radius:999px;padding:5px 12px 5px 8px;margin-top:6px}
+.mate .ced .ic{width:20px;height:20px}
+
+/* useful */
+.useful{padding:0 0 110px}
+.ugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.u{display:flex;gap:16px;padding:24px;border-radius:22px;background:#f6f9fb;text-decoration:none;transition:background .2s}
+.u:hover{background:var(--sky)}
+.u .ic{flex:none;width:44px;height:44px;padding:10px;border-radius:14px;background:#fff;color:var(--leaf)}
+.u b{display:block;font:800 22px var(--display);margin-bottom:4px}
+.u span{font-size:16.5px;color:var(--muted)}
+.u small{display:block;margin-top:8px;font-weight:700;color:var(--ink);font-size:15px}
+
+.testi{padding:0 0 100px}
+.testi .tq{background:var(--blush);border-radius:22px;padding:26px}
+
+/* contact */
+.contact{background:var(--sky);padding:100px 0;border-radius:48px 48px 0 0}
+.contact .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:start}
+.bigtel{display:block;font:800 clamp(38px,4vw,54px)/1 var(--display);text-decoration:none;margin:26px 0 8px}
+.ways{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 24px}
+.ways a{display:inline-flex;gap:8px;align-items:center;padding:10px 16px;border-radius:999px;background:#fff;text-decoration:none;font-weight:700;font-size:16.5px}
+.ways .ic{width:20px;height:20px;color:var(--leaf)}
+.info{display:grid;gap:14px;font-size:17.5px}
+.info > div{display:flex;gap:12px}
+.info .ic{flex:none;color:var(--leaf);margin-top:2px}
+.state{display:inline-flex;align-items:center;gap:8px;font-weight:700;margin-top:4px}
+.state i{width:10px;height:10px;border-radius:50%;background:#9aa7b2}
+.state.open i{background:var(--leaf);box-shadow:0 0 0 4px #3e7d5b33}
+.map{margin-top:26px;border-radius:22px;overflow:hidden;position:relative;aspect-ratio:16/9;background:#eef4f8}
+.map svg{width:100%;height:100%;display:block}
+.map .pin{position:absolute;left:47%;top:38%;transform:translate(-50%,-100%);animation:bob 2s ease-in-out infinite}
+.map .pin .ic{width:40px;height:40px;fill:var(--sun);stroke:var(--ink)}
+@keyframes bob{50%{transform:translate(-50%,-112%)}}
+.map a{position:absolute;right:12px;bottom:12px;background:#fff;border-radius:999px;padding:8px 14px;font-weight:700;font-size:15px;text-decoration:none}
+.form{background:#fff;border-radius:var(--r);padding:34px;box-shadow:0 30px 60px -40px #24323f55}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.fields > *{min-width:0}
+.full{grid-column:1/-1}
+.f{display:block;font-weight:700;font-size:16px}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:6px;padding:13px 14px;border:2px solid #d5e1ea;border-radius:14px;font:400 18px var(--body);color:var(--ink);background:#fff}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--ink)}
+.when{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.when label{cursor:pointer}
+.when input{position:absolute;opacity:0}
+.when span{display:inline-block;padding:9px 15px;border-radius:999px;background:var(--sky);font-size:16px;font-weight:700}
+.when input:checked + span{background:var(--ink);color:#fff}
+.when input:focus-visible + span{outline:3px solid var(--sun)}
+.pnote{font-size:15.5px;color:var(--muted);margin:16px 0 0}
+.consent{display:flex;gap:10px;font-size:15.5px;color:var(--muted);margin:16px 0 22px}
+.consent input{accent-color:var(--leaf);margin-top:5px}
+.sent{display:none;margin-top:12px;font-weight:700;color:var(--leaf)}
+.sent.on{display:block}
+
+footer{background:var(--ink);color:#c6d1db;font-size:16px;padding:44px 0}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer a{color:#fff}
+
+@media (max-width:1060px){
+  .hero .wrap,.navi .head,.first .top2,.team .head,.contact .wrap{grid-template-columns:1fr}
+  .art{max-width:560px}
+  .picks{grid-template-columns:repeat(3,1fr)}
+  .panel{grid-template-columns:1fr 1fr}
+  .panel .pic{grid-column:1/-1;min-height:240px}
+  .path{grid-template-columns:1fr 1fr}
+  .path::before,.path .dot{display:none}
+  .ggrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  body{font-size:17.5px}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:68px 0 0;background:#fff;flex-direction:column;align-items:flex-start;padding:28px var(--pad);gap:22px;font-size:22px}
+  .top .wrap{height:68px}
+  .hero{padding:36px 0 60px}
+  .hero h1{font-size:42px}
+  .lead{font-size:19px}
+  .picks{grid-template-columns:1fr 1fr;gap:10px}
+  .pick{font-size:17px;padding:14px}
+  .panel{grid-template-columns:1fr}
+  .panel .mid,.panel .side{padding:24px 20px}
+  .panel .side{border-left:0;border-top:1px solid #e6edf2}
+  .navi,.first,.gloss,.team,.contact{padding:64px 0}
+  .navi,.contact{border-radius:30px 30px 0 0}.gloss{border-radius:30px}
+  .path,.ggrid,.tgrid,.ugrid{grid-template-columns:1fr}
+  .card{height:160px}
+  .fields{grid-template-columns:1fr}
+  .form{padding:22px}
+  .mate .ph0{width:60%}
+  footer .wrap{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:76px}
+@media (max-width:760px){.shot-mode main{padding-top:68px}}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Telmo Mesquita &amp; Gil Rafael (opção 2) · pré-visualização do site">
+<meta property="og:description" content="Solicitadores · Telmo Mesquita, Gil Rafael &amp; Associados">
+<meta property="og:url" content="https://preview.northsoftware.pt/telmo-mesquita-gil-rafael-mogadouro-opcao-2/">
+<meta property="og:image" content="https://preview.northsoftware.pt/telmo-mesquita-gil-rafael-mogadouro-opcao-2/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 long-name long-hero v4-new v4-p" data-service-count="5" style="--service-columns:3">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"do escritório"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de pedir informações.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de pedir informações.");}
+},true);
+</script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Telmo Mesquita, Gil Rafael &amp; Associados, início"><span class="mk" aria-hidden="true">TM</span><span><b class="lead-brand-name" title="Telmo Mesquita, Gil Rafael &amp; Associados">Telmo Mesquita, Gil Rafael &amp; Associados</b><small>Solicitadores em Mogadouro</small></span></a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a><a href="#equipa">Equipa</a>
+      <a class="btn btn-sun" href="#contacto">Pedir contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <h1>Telmo Mesquita, Gil Rafael &amp; Associados</h1>
+      <p class="lead">Solicitadoria, contratos, registos e património em Mogadouro</p>
+      <div class="ctas">
+        <a class="btn btn-sun" href="#contacto">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-line" href="#servicos">Ver serviços</a>
+      </div>
+      <div class="quick">
+        <a href="tel:+351279341497"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> 279 341 497</a>
+        
+      </div>
+    </div>
+    <div class="art">
+      <span class="ring" aria-hidden="true"></span><span class="sunc" aria-hidden="true"></span>
+      <div class="photo"><img src="assets/hero-familia.jpg" alt="Fotografia ilustrativa de banco de imagens"></div>
+      <svg class="bridge" viewBox="0 0 600 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40H600"/><path d="M40 108V70a50 50 0 0 1 100 0v38M180 108V58a70 70 0 0 1 140 0v50M360 108V70a50 50 0 0 1 100 0v38"/><path d="M0 108H600"/></svg>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="navi" id="servicos">
+  <div class="wrap">
+    <div class="head"><h2 class="h2">Serviços</h2><p class="lead"></p></div>
+    <div class="picks" role="tablist" aria-label="Situações">
+      <button class="pick" type="button" role="tab" id="tab-service-1" aria-controls="p-service-1" aria-selected="true" data-k="service-1"><svg class="ic ic-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5M9 13h6M9 17h6M9 9h2"/></svg>Contratos e Termos de Autenticação</button><button class="pick" type="button" role="tab" id="tab-service-2" aria-controls="p-service-2" aria-selected="false" data-k="service-2"><svg class="ic ic-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5M9 13h6M9 17h6M9 9h2"/></svg>Urbanismo</button><button class="pick" type="button" role="tab" id="tab-service-3" aria-controls="p-service-3" aria-selected="false" data-k="service-3"><svg class="ic ic-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5M9 13h6M9 17h6M9 9h2"/></svg>Administração de Patrimónios</button><button class="pick" type="button" role="tab" id="tab-service-4" aria-controls="p-service-4" aria-selected="false" data-k="service-4"><svg class="ic ic-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5M9 13h6M9 17h6M9 9h2"/></svg>Registo e Legalização de Automóveis</button><button class="pick" type="button" role="tab" id="tab-service-5" aria-controls="p-service-5" aria-selected="false" data-k="service-5"><svg class="ic ic-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5M9 13h6M9 17h6M9 9h2"/></svg>Heranças / Partilhas</button>
+    </div>
+    <div class="panel on" id="p-service-1" role="tabpanel" aria-labelledby="tab-service-1">
+      <div class="pic"><img src="assets/s-divorcio.jpg" alt="" loading="lazy"></div>
+      <div class="mid"><h3>Contratos e Termos de Autenticação</h3><p>A documentação e os registos dependem da natureza de cada assunto. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p></div>
+      <div class="side">
+        
+        <ul class="docs"></ul>
+        
+        
+        <a class="btn btn-ink" href="#contacto" data-topic="Contratos e Termos de Autenticação">Marcar sobre isto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div><div class="panel" id="p-service-2" role="tabpanel" aria-labelledby="tab-service-2">
+      <div class="pic"><img src="assets/s-herancas.jpg" alt="" loading="lazy"></div>
+      <div class="mid"><h3>Urbanismo</h3><p>A documentação e os registos dependem da natureza de cada assunto. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p></div>
+      <div class="side">
+        
+        <ul class="docs"></ul>
+        
+        
+        <a class="btn btn-ink" href="#contacto" data-topic="Urbanismo">Marcar sobre isto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div><div class="panel" id="p-service-3" role="tabpanel" aria-labelledby="tab-service-3">
+      <div class="pic"><img src="assets/s-arrendamento.jpg" alt="" loading="lazy"></div>
+      <div class="mid"><h3>Administração de Patrimónios</h3><p>A documentação e os registos dependem da natureza de cada assunto. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p></div>
+      <div class="side">
+        
+        <ul class="docs"></ul>
+        
+        
+        <a class="btn btn-ink" href="#contacto" data-topic="Administração de Patrimónios">Marcar sobre isto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div><div class="panel" id="p-service-4" role="tabpanel" aria-labelledby="tab-service-4">
+      <div class="pic"><img src="assets/s-laboral.jpg" alt="" loading="lazy"></div>
+      <div class="mid"><h3>Registo e Legalização de Automóveis</h3><p>A documentação e os registos dependem da natureza de cada assunto. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p></div>
+      <div class="side">
+        
+        <ul class="docs"></ul>
+        
+        
+        <a class="btn btn-ink" href="#contacto" data-topic="Registo e Legalização de Automóveis">Marcar sobre isto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div><div class="panel" id="p-service-5" role="tabpanel" aria-labelledby="tab-service-5">
+      <div class="pic"><img src="assets/s-empresas.jpg" alt="" loading="lazy"></div>
+      <div class="mid"><h3>Heranças / Partilhas</h3><p>A documentação e os registos dependem da natureza de cada assunto. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</p></div>
+      <div class="side">
+        
+        <ul class="docs"></ul>
+        
+        
+        <a class="btn btn-ink" href="#contacto" data-topic="Heranças / Partilhas">Marcar sobre isto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="gloss" id="glossario">
+  <div class="wrap">
+    <h2 class="h2">Palavras difíceis, explicadas</h2>
+    <p class="lead" style="margin-top:14px">Toque num cartão para ver o significado.</p>
+    <div class="ggrid"><button class="card" type="button" aria-pressed="false"><span class="in"><span class="fa"><b>Procuração</b><span><svg class="ic ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v17H5.5A2.5 2.5 0 0 1 3 17.5z"/><path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H13v17h5.5a2.5 2.5 0 0 0 2.5-2.5z"/><path d="M6 8h2M6 12h2M16 8h2M16 12h2"/></svg> Ver o significado</span></span><span class="ba"><b>Procuração</b>Um documento em que autoriza outra pessoa, designadamente o advogado, a agir em seu nome.</span></span></button><button class="card" type="button" aria-pressed="false"><span class="in"><span class="fa"><b>Habilitação de herdeiros</b><span><svg class="ic ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v17H5.5A2.5 2.5 0 0 1 3 17.5z"/><path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H13v17h5.5a2.5 2.5 0 0 0 2.5-2.5z"/><path d="M6 8h2M6 12h2M16 8h2M16 12h2"/></svg> Ver o significado</span></span><span class="ba"><b>Habilitação de herdeiros</b>O documento que diz oficialmente quem são os herdeiros de quem faleceu.</span></span></button><button class="card" type="button" aria-pressed="false"><span class="in"><span class="fa"><b>Partilha</b><span><svg class="ic ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v17H5.5A2.5 2.5 0 0 1 3 17.5z"/><path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H13v17h5.5a2.5 2.5 0 0 0 2.5-2.5z"/><path d="M6 8h2M6 12h2M16 8h2M16 12h2"/></svg> Ver o significado</span></span><span class="ba"><b>Partilha</b>A divisão dos bens de uma herança ou de um casal, por acordo ou por decisão.</span></span></button><button class="card" type="button" aria-pressed="false"><span class="in"><span class="fa"><b>Responsabilidades parentais</b><span><svg class="ic ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v17H5.5A2.5 2.5 0 0 1 3 17.5z"/><path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H13v17h5.5a2.5 2.5 0 0 0 2.5-2.5z"/><path d="M6 8h2M6 12h2M16 8h2M16 12h2"/></svg> Ver o significado</span></span><span class="ba"><b>Responsabilidades parentais</b>As decisões sobre os filhos depois da separação: com quem vivem, visitas e pensão de alimentos.</span></span></button><button class="card" type="button" aria-pressed="false"><span class="in"><span class="fa"><b>Injunção</b><span><svg class="ic ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v17H5.5A2.5 2.5 0 0 1 3 17.5z"/><path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H13v17h5.5a2.5 2.5 0 0 0 2.5-2.5z"/><path d="M6 8h2M6 12h2M16 8h2M16 12h2"/></svg> Ver o significado</span></span><span class="ba"><b>Injunção</b>Um pedido rápido para cobrar uma dívida de dinheiro sem uma ação comum em tribunal.</span></span></button><button class="card" type="button" aria-pressed="false"><span class="in"><span class="fa"><b>Apoio judiciário</b><span><svg class="ic ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v17H5.5A2.5 2.5 0 0 1 3 17.5z"/><path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H13v17h5.5a2.5 2.5 0 0 0 2.5-2.5z"/><path d="M6 8h2M6 12h2M16 8h2M16 12h2"/></svg> Ver o significado</span></span><span class="ba"><b>Apoio judiciário</b>Ajuda do Estado para pagar advogado e custas, para quem não tem meios suficientes.</span></span></button></div>
+  </div>
+</section>
+
+
+
+<section class="team" id="equipa">
+  <div class="wrap">
+    <div class="head"><h2 class="h2">Equipa</h2><p class="lead"></p></div>
+    <div class="tgrid"><article class="mate"><div class="ph0"></div><h3>Telmo Mesquita</h3><p class="role">Solicitador</p><p></p></article><article class="mate"><div class="ph0"></div><h3>Gil Rafael</h3><p class="role">Solicitador</p><p></p></article></div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2 class="h2">Fale connosco</h2>
+      <a class="bigtel" href="tel:+351279341497">279 341 497</a><span style="font-size:15.5px;color:var(--muted)">Chamada para a rede fixa nacional</span>
+      <div class="ways">
+        
+        
+        <a href="mailto:4983@solicitador.net"><svg class="ic ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg> Email</a>
+      </div>
+      <div class="info">
+        <div><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Avenida do Sabor, 53, Cave, 5200-204 Mogadouro<br></span></div>
+        
+        
+      </div>
+      <div class="map">
+        
+        <span class="pin"><svg class="ic ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+        
+      </div>
+    </div>
+    <form id="form" class="form" novalidate><h2>Pedir contacto</h2><p>Indique o seu nome e como prefere ser contactado.</p>
+<div class="fields"><label class="f">Nome<input name="nome" autocomplete="name" required></label>
+<label class="f">Telefone<input name="tel" type="tel" autocomplete="tel" required></label>
+<label class="f">Email (opcional)<input name="email" type="email" autocomplete="email"></label></div>
+<label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+<button class="btn" type="submit">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+  </div>
+</section>
+<section class="extra-facts lead-contact-data" aria-label="Informação e contactos">
+<h2>Sobre Telmo Mesquita, Gil Rafael &amp; Associados</h2><p>Sociedade de solicitadores com escritórios em Mogadouro e Alfândega da Fé, que apresenta serviços de solicitadoria generalista, contratos, registos, património e heranças.</p>
+
+
+
+
+<p><a href="tel:+351279341497">279 341 497</a></p>
+<p><a href="mailto:4983@solicitador.net">4983@solicitador.net</a></p>
+
+
+
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><p></p></div>
+    <ul>
+      <li>Telmo Mesquita, Gil Rafael &amp; Associados, Sociedade de Solicitadores, SP, RL</li>
+      <li>Telmo Mesquita</li><li>Gil Rafael</li>
+      <li>NIF <span class="ph">510328326</span></li>
+      
+      <li>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</li>
+    </ul>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var d=document, root=d.documentElement, capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture)root.classList.add('capture');if(still)root.classList.add('still');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  if(nav&&burger){burger.addEventListener('click',function(){var on=nav.classList.toggle('open');burger.setAttribute('aria-expanded',on);});
+    nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});}
+  function m(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  function hm(s){return String(s||'').replace(':','h');}
+  function pt(n){return(n>0?'+':n<0?'−':'')+Math.abs(n).toFixed(2).replace('.',',');}
+  var hours=[]||[],now=new Date(),wd=((now.getDay()+6)%7)+1,mins=now.getHours()*60+now.getMinutes(),isOpen=false;
+  hours.forEach(function(h){if((h.days||[]).indexOf(wd)<0)return;(h.ranges||[]).forEach(function(r){if(mins>=m(r[0])&&mins<m(r[1]))isOpen=true;});});
+  if(hours.length)['state','st','chip','now','live'].forEach(function(id){var el=d.getElementById(id);if(!el)return;
+    var label=el.querySelector('span')||el;label.textContent=isOpen?'Aberto agora':'Fechado agora';el.classList.toggle('open',isOpen);});
+  var tc=d.getElementById('txtC');if(tc&&hours.length)tc.textContent=isOpen?'abertas agora':'fechadas agora';
+  function updateClock(){var clock=d.querySelector('#board .clock #clock');if(!clock)return;
+    var current=new Date(),valid=hours.length>0&&Number.isFinite(current.getTime());
+    clock.parentNode.hidden=!valid;
+    if(valid)clock.textContent=String(current.getHours()).padStart(2,'0')+':'+String(current.getMinutes()).padStart(2,'0');}
+  updateClock();if(!still&&d.querySelector('#board .clock #clock'))setInterval(updateClock,60000);
+  var finder=d.querySelector('.finder[role="search"]'),query=finder&&finder.querySelector('input'),results=finder&&finder.querySelector('ul');
+  if(query&&results)query.addEventListener('input',function(){results.innerHTML='';var term=query.value.trim().toLocaleLowerCase('pt');if(term.length<2)return;
+    var found=[].filter.call(d.querySelectorAll('.lead-chapel,.notice'),function(item){return ((item.dataset.name||'')+' '+item.textContent).toLocaleLowerCase('pt').indexOf(term)>=0;}).slice(0,5);
+    found.forEach(function(item){var li=d.createElement('li'),button=d.createElement('button');button.type='button';button.textContent=item.dataset.name;
+      button.addEventListener('click',function(){item.scrollIntoView({behavior:still?'auto':'smooth',block:'center'});});li.appendChild(button);results.appendChild(li);});
+    if(!found.length){var li=d.createElement('li');li.textContent='Sem resultados.';results.appendChild(li);}});
+  var sizes=[].slice.call(d.querySelectorAll('.fs button'));
+  function setSize(n){root.classList.remove('fs1','fs2');if(n>0)root.classList.add('fs'+n);
+    sizes.forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.fs===n);});
+    try{localStorage.setItem('v4-text-size',String(n));}catch(e){}}
+  sizes.forEach(function(b){b.addEventListener('click',function(){setSize(+b.dataset.fs);});});
+  try{var saved=+localStorage.getItem('v4-text-size');if(saved&&!capture)setSize(Math.min(2,saved));}catch(e){}
+  var flags={},names={},steps=[],lvlSel=null,langSel=null;
+  var team=[{"name": "Telmo Mesquita", "role": "Solicitador", "photo": "", "bio": "", "director": false, "credential": "", "credentials": [], "text": "Solicitador", "key": "person-14-0", "cedula": "", "omd": "", "osae": "", "line": "", "mobile": "", "teaches": "Solicitador", "subjects": "Solicitador", "langs": "", "areas": "", "languages": "", "flag": "flag-pt"}, {"name": "Gil Rafael", "role": "Solicitador", "photo": "", "bio": "", "director": false, "credential": "", "credentials": [], "text": "Solicitador", "key": "person-10-1", "cedula": "", "omd": "", "osae": "", "line": "", "mobile": "", "teaches": "Solicitador", "subjects": "Solicitador", "langs": "", "areas": "", "languages": "", "flag": "flag-pt"}]||[],areas=null||[],pubs=null||[],byKey={};
+  team.forEach(function(t){byKey[t.key]=t;});
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  [].forEach.call(d.querySelectorAll('#flagstore span'),function(s){flags[s.dataset.k]=s.innerHTML;names[s.dataset.k]=s.dataset.n;});
+  [].forEach.call(d.querySelectorAll('video'),function(v){
+    if(still){v.pause();return;} var src=v.dataset.small||v.dataset.src;if(src)v.src=src;
+    v.play().catch(function(){});
+  });
+  var video=d.querySelector('video'), pause=d.getElementById('playBtn');
+  if(video&&pause)pause.addEventListener('click',function(){if(video.paused)video.play().catch(function(){});else video.pause();});
+  // Guarded, independent blocks from the approved prototype.
+  (function(){if(!d.querySelector("#servicos"))return;
+  var picks=[].slice.call(d.querySelectorAll('.pick'));
+  function sel(b,focus){ picks.forEach(function(x){ var on=x===b; x.setAttribute('aria-selected',on); x.tabIndex=on?0:-1; d.getElementById(x.getAttribute('aria-controls')).classList.toggle('on',on); }); if(focus) b.focus(); }
+  picks.forEach(function(b,i){ b.tabIndex=i?-1:0; b.addEventListener('click',function(){sel(b);}); b.addEventListener('keydown',function(e){ var k=e.key==='ArrowRight'||e.key==='ArrowDown'?1:e.key==='ArrowLeft'||e.key==='ArrowUp'?-1:0; if(k){ e.preventDefault(); sel(picks[(i+k+picks.length)%picks.length],true); } }); });
+  var topic=d.getElementById('topic');
+  [].forEach.call(d.querySelectorAll('[data-topic]'),function(a){ a.addEventListener('click',function(){ if(topic) topic.value=a.dataset.topic; }); });
+})();
+(function(){if(!d.querySelector("#glossario"))return;
+  [].forEach.call(d.querySelectorAll('.card'),function(c){ c.addEventListener('click',function(){ c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')!=='true'); }); });
+})();
+  var mm=location.hash.match(/^#shot-(.+)/), sh=mm&&d.getElementById(mm[1]);
+  if(sh&&!sh.hidden){root.classList.add('shot-mode');[].forEach.call(d.querySelectorAll('main > *, footer'),function(s){if(s!==sh)s.style.display='none';});}
+})();
+</script>
+</body>
+</html>

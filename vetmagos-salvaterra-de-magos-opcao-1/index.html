@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vetmagos - Clínica Veterinária · Salvaterra de Magos</title>
+<meta name="description" content="Medicina veterinária · Vetmagos - Clínica Veterinária">
+
+
+
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url("assets/fonts/bricolage-grotesque-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Nunito Sans";src:url("assets/fonts/nunito-sans-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --lemon:#ffe15a; --tangerine:#FF7A2F; --bubble:#FF9EC7; --sky:#8AD3FF;
+  --plum:#2a1e4a; --cream:#FFF9EC; --muted:#5E5476;
+  --display:"Bricolage Grotesque", Georgia, sans-serif; --body:"Nunito Sans", sans-serif;
+  --wrap:1220px; --pad:clamp(18px,4.5vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:600 17px/1.6 var(--body);color:var(--plum);background:var(--cream);-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;margin:0;letter-spacing:.005em}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:3px dashed var(--plum);outline-offset:4px;border-radius:8px}
+section{scroll-margin-top:90px}
+.ic{width:22px;height:22px}
+.ph{background:#fff;color:#6b4a00;padding:0 5px;border-radius:4px;font-size:.92em;box-shadow:inset 0 0 0 1px #e9c64f}
+.ex{display:inline-block;font:800 11.5px/1.7 var(--body);background:var(--lemon);padding:0 8px;border-radius:99px;vertical-align:middle}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:18px;font:400 19px/1 var(--display);text-decoration:none;border:3px solid var(--plum);cursor:pointer;box-shadow:4px 4px 0 var(--plum);transition:transform .12s,box-shadow .12s;letter-spacing:.01em}
+.btn .ic{width:20px;height:20px;stroke-width:2.2}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--plum)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--plum)}
+.b-tan{background:var(--tangerine);color:#fff}
+.b-white{background:#fff;color:var(--plum)}
+.b-plum{background:var(--plum);color:#fff;box-shadow:4px 4px 0 var(--tangerine)}
+.h2{font-size:clamp(38px,5vw,66px)}
+.lead{font-size:clamp(17px,1.4vw,19.5px);color:var(--muted);max-width:50ch}
+.c-sky{--c:var(--sky)} .c-bubble{--c:var(--bubble)} .c-tangerine{--c:var(--tangerine)} .c-lemon{--c:var(--lemon)}
+
+/* header */
+.strip{background:var(--plum);color:#fff;font-size:14px}
+.strip .wrap{display:flex;justify-content:space-between;align-items:center;min-height:38px;gap:16px}
+.strip .st{display:inline-flex;gap:8px;align-items:center;font-weight:800}
+.strip .st i{width:9px;height:9px;border-radius:50%;background:#5fe39a}
+.strip .st.closed i{background:#ff8b6b}
+.strip a{color:var(--lemon);font-weight:800;text-decoration:none}
+.top{position:sticky;top:0;z-index:40;background:var(--cream);border-bottom:3px solid var(--plum)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo{width:54px;height:54px;border-radius:50%;background:var(--lemon);border:3px solid var(--plum);display:grid;place-items:center}
+.logo svg{width:38px;height:38px}
+.brand b{display:block;font:400 25px/1 var(--display)}
+.brand small{display:block;font-size:13px;color:var(--muted);font-weight:800}
+.nav{display:flex;align-items:center;gap:24px;font-weight:900;font-size:16px}
+.nav a:not(.btn){text-decoration:none;border-radius:10px;padding:6px 10px}
+.nav a:not(.btn):hover{background:var(--lemon)}
+.nav .btn{padding:11px 16px;font-size:17px}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--plum)}
+.burger .ic{width:30px;height:30px}
+
+/* hero */
+.hero{background:var(--lemon);position:relative;overflow:hidden;border-bottom:3px solid var(--plum)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;min-height:600px;padding-top:50px;padding-bottom:60px;position:relative;z-index:2}
+.badge{display:inline-flex;gap:8px;align-items:center;background:#fff;border:3px solid var(--plum);border-radius:99px;padding:6px 14px 6px 8px;font-weight:900;font-size:15px;margin-bottom:22px}
+.badge .ic{width:26px;height:26px;padding:4px;border-radius:50%;background:var(--tangerine);color:#fff}
+.hero h1{font-size:clamp(50px,6.4vw,96px);max-width:10ch}
+.hero .lead{color:#4a3f60;margin:22px 0 30px}
+.ctas{display:flex;gap:14px;flex-wrap:wrap}
+.stick{position:relative;height:520px}
+.sticker{position:absolute;margin:0;border:8px solid #fff;border-radius:34px;overflow:hidden;box-shadow:0 0 0 3px var(--plum),10px 12px 0 var(--plum);background:#fff}
+.sticker img{width:100%;height:100%;object-fit:cover}
+.sticker:nth-child(1){width:300px;height:340px;left:4%;top:20px;transform:rotate(-7deg);animation:bob1 6s ease-in-out infinite}
+.sticker:nth-child(2){width:250px;height:280px;right:0;top:0;transform:rotate(6deg);animation:bob2 7s ease-in-out infinite}
+.sticker:nth-child(3){width:270px;height:220px;right:12%;bottom:0;transform:rotate(-3deg);animation:bob1 8s ease-in-out infinite reverse}
+@keyframes bob1{50%{translate:0 -10px}}
+@keyframes bob2{50%{translate:0 8px}}
+.say{position:absolute;left:0;bottom:70px;z-index:3;background:#fff;border:3px solid var(--plum);border-radius:22px 22px 22px 4px;padding:12px 18px;font:400 22px/1.1 var(--display);box-shadow:4px 4px 0 var(--plum);transform:rotate(-3deg)}
+.bubbles{position:absolute;inset:0;pointer-events:none;z-index:1}
+.bubbles i{position:absolute;bottom:-60px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff 0 14%,#ffffff55 15% 60%,#ffffff22 61%);box-shadow:inset 0 0 0 2px #ffffffaa;animation:rise linear infinite}
+.bubbles i:nth-child(1){left:6%;width:36px;height:36px;animation-duration:9s}
+.bubbles i:nth-child(2){left:22%;width:18px;height:18px;animation-duration:7s;animation-delay:-3s}
+.bubbles i:nth-child(3){left:41%;width:52px;height:52px;animation-duration:12s;animation-delay:-6s}
+.bubbles i:nth-child(4){left:55%;width:24px;height:24px;animation-duration:8s;animation-delay:-1s}
+.bubbles i:nth-child(5){left:68%;width:40px;height:40px;animation-duration:11s;animation-delay:-8s}
+.bubbles i:nth-child(6){left:82%;width:20px;height:20px;animation-duration:6s;animation-delay:-4s}
+.bubbles i:nth-child(7){left:93%;width:46px;height:46px;animation-duration:13s;animation-delay:-2s}
+.bubbles i:nth-child(8){left:33%;width:14px;height:14px;animation-duration:6.5s;animation-delay:-5s}
+@keyframes rise{to{transform:translate(30px,-760px)}}
+.capture .bubbles i,.still .bubbles i{bottom:auto}
+.capture .bubbles i:nth-child(odd),.still .bubbles i:nth-child(odd){top:18%}
+.capture .bubbles i:nth-child(even),.still .bubbles i:nth-child(even){top:72%}
+
+/* three doors */
+.doors{padding:100px 0 90px}
+.doors .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:70px}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.door{position:relative;background:var(--c);border:3px solid var(--plum);border-radius:30px 30px 30px 30px;padding:150px 26px 26px;box-shadow:6px 6px 0 var(--plum);margin-top:40px}
+.door .pop{position:absolute;left:22px;right:22px;top:-44px;height:170px;border-radius:22px;overflow:hidden;border:6px solid #fff;box-shadow:0 0 0 3px var(--plum);transform:rotate(-2deg);transition:transform .3s cubic-bezier(.2,.9,.3,1.4)}
+.door:nth-child(2) .pop{transform:rotate(2deg)}
+.door:hover .pop{transform:rotate(0) translateY(-8px)}
+.door .pop img{width:100%;height:100%;object-fit:cover}
+.door h3{font-size:34px;display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.door h3 .ic{width:46px;height:46px;padding:9px;border-radius:50%;background:#fff;border:3px solid var(--plum);stroke-width:2}
+.door ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:6px;font-weight:800}
+.door li{display:flex;gap:8px;align-items:center}
+.door li .ic{width:18px;height:18px;stroke-width:2.6}
+.door .from{display:inline-block;background:#fff;border:3px solid var(--plum);border-radius:12px;padding:6px 12px;font-weight:900;font-size:15px}
+
+/* grooming */
+.groom{background:var(--bubble);border-top:3px solid var(--plum);border-bottom:3px solid var(--plum);padding:96px 0}
+.groom .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.tub{position:relative;border-radius:200px 200px 40px 40px;overflow:hidden;border:8px solid #fff;box-shadow:0 0 0 3px var(--plum),10px 10px 0 var(--plum);aspect-ratio:1/1.05;background:#fff}
+.tub video,.tub img{width:100%;height:100%;object-fit:cover}
+.tub .playbtn{position:absolute;right:16px;bottom:16px;width:48px;height:48px;border-radius:50%;border:3px solid var(--plum);background:#fff;display:grid;place-items:center;cursor:pointer;color:var(--plum)}
+.playbtn .ic{width:18px;height:18px}
+.playbtn .ic-play,.playbtn.paused .ic-pause{display:none}
+.playbtn.paused .ic-play{display:block}
+.groom .lead{color:#4a2a44;margin:14px 0 26px}
+.sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.sizes label{position:relative}
+.sizes input{position:absolute;opacity:0}
+.sizes span{display:flex;flex-direction:column;align-items:center;gap:2px;background:#fff;border:3px solid var(--plum);border-radius:18px;padding:12px 6px;cursor:pointer;text-align:center;transition:transform .15s}
+.sizes span b{font:400 19px/1.1 var(--display)}
+.sizes span small{font-size:12.5px;color:var(--muted);font-weight:800}
+.sizes .ic{stroke-width:2;color:var(--plum)}
+.sizes label:nth-child(1) .ic{width:24px;height:24px}
+.sizes label:nth-child(2) .ic{width:30px;height:30px}
+.sizes label:nth-child(3) .ic{width:38px;height:38px}
+.sizes label:nth-child(4) .ic{width:30px;height:30px}
+.sizes input:checked + span{background:var(--lemon);transform:translateY(-4px);box-shadow:0 4px 0 var(--plum)}
+.sizes input:focus-visible + span{outline:3px dashed var(--plum);outline-offset:3px}
+.menu{background:#fff;border:3px solid var(--plum);border-radius:24px;padding:8px 22px}
+.menu div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:13px 0;border-bottom:2px dotted #d9c9e0;font-weight:800}
+.menu div:last-child{border:0}
+.menu b{font:400 26px/1 var(--display);color:var(--tangerine);transition:transform .25s}
+.menu b.bump{transform:scale(1.25)}
+.groom .note{font-size:15px;margin:14px 0 0;color:#4a2a44}
+
+/* clinic info */
+.clinic{padding:100px 0}
+.clinic .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.duo{position:relative;height:460px}
+.duo img{position:absolute;border:7px solid #fff;border-radius:28px;box-shadow:0 0 0 3px var(--plum);object-fit:cover}
+.duo img:nth-child(1){width:62%;height:78%;left:0;top:0;transform:rotate(-3deg)}
+.duo img:nth-child(2){width:50%;height:62%;right:0;bottom:0;transform:rotate(4deg)}
+.clinic .lead{margin:16px 0 22px}
+.after{display:flex;gap:12px;background:#fff;border:3px solid var(--plum);border-radius:20px;padding:16px 18px;font-size:15.5px;margin-top:20px}
+.after .ic{flex:none;width:28px;height:28px;color:var(--tangerine)}
+.reg{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.reg span{background:var(--sky);border:2px solid var(--plum);border-radius:10px;padding:4px 10px;font-size:13.5px;font-weight:800}
+
+/* team */
+.team{padding:20px 0 100px}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:40px}
+.pal{text-align:center}
+.pal .face{width:210px;height:210px;margin:0 auto 18px;border-radius:50%;overflow:hidden;border:7px solid #fff;box-shadow:0 0 0 3px var(--plum),0 0 0 14px var(--c),0 0 0 17px var(--plum)}
+.pal:nth-child(1){--c:var(--sky)} .pal:nth-child(2){--c:var(--bubble)} .pal:nth-child(3){--c:var(--lemon)}
+.pal .face img{width:100%;height:100%;object-fit:cover}
+.pal h3{font-size:28px}
+.pal .role{font-weight:900;margin:2px 0}
+.pal small{display:block;color:var(--muted);font-weight:700}
+.pal .fact{display:inline-block;margin-top:10px;background:#fff;border:2px solid var(--plum);border-radius:14px;padding:6px 12px;font-size:14.5px}
+.voices{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:60px}
+.voice{margin:0;background:#fff;border:3px solid var(--plum);border-radius:26px;padding:22px 24px;box-shadow:5px 5px 0 var(--sky)}
+.voice:nth-child(2){box-shadow:5px 5px 0 var(--bubble)}
+.voice blockquote{margin:0 0 10px;font-size:18px;font-weight:700}
+.voice figcaption{font-size:14.5px;color:var(--muted)}
+
+/* booking */
+.book{background:var(--plum);color:#fff;padding:100px 0;border-top:3px solid var(--plum)}
+.book .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+.form{background:#fff;color:var(--plum);border-radius:30px;padding:34px;border:3px solid var(--plum);box-shadow:8px 8px 0 var(--tangerine)}
+.form .h2{font-size:clamp(34px,3.6vw,50px)}
+.form > p{color:var(--muted);margin:10px 0 20px}
+.types{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.types label{position:relative}
+.types input{position:absolute;opacity:0}
+.types span{display:inline-flex;gap:8px;align-items:center;padding:9px 14px;border-radius:14px;border:3px solid var(--plum);font-weight:900;font-size:15px;cursor:pointer;background:#fff}
+.types span .ic{width:20px;height:20px;stroke-width:2}
+.types input:checked + span{background:var(--lemon)}
+.types input:focus-visible + span{outline:3px dashed var(--plum);outline-offset:3px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields > *{min-width:0}
+.full{grid-column:1/-1}
+.f{display:block;font-weight:900;font-size:14.5px}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:6px;padding:13px 14px;border-radius:14px;border:3px solid var(--plum);background:var(--cream);font:inherit;font-weight:600;font-size:16px;color:var(--plum)}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;background:#fff;border-color:var(--tangerine)}
+.consent{display:flex;gap:10px;font-size:14px;color:var(--muted);margin:16px 0 20px;align-items:flex-start}
+.consent input{margin-top:4px;accent-color:var(--tangerine)}
+.sent{display:none;margin-top:14px;background:var(--lemon);border-radius:12px;padding:12px 14px;font-size:15px}
+.sent.on{display:block}
+.side h3{font-size:30px;margin-bottom:14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.state{font:900 13px/1 var(--body);border-radius:99px;padding:7px 12px;background:#5fe39a;color:var(--plum)}
+.state.closed{background:#ff8b6b}
+.hrs{display:grid;gap:8px;margin-bottom:26px}
+.hrs div{display:flex;justify-content:space-between;gap:12px;border-bottom:2px dotted #ffffff40;padding-bottom:8px}
+.hrs div.today{color:var(--lemon);font-weight:900}
+.quick{display:grid;gap:10px;margin-bottom:26px}
+.quick a{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:900;font-size:17px}
+.quick .ic{width:44px;height:44px;padding:10px;border-radius:14px;background:var(--lemon);color:var(--plum);flex:none;stroke-width:2}
+.map{border-radius:26px;overflow:hidden;border:3px solid #fff;position:relative}
+.map svg{display:block;width:100%;height:auto}
+.map p{position:absolute;left:12px;bottom:12px;margin:0;background:#fff;color:var(--plum);border-radius:14px;padding:10px 12px;font-size:14px;border:2px solid var(--plum)}
+.map a{color:var(--tangerine);font-weight:900}
+.pinb{animation:hop 1.6s ease-in-out infinite}
+@keyframes hop{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-12px)}}
+
+footer{background:var(--cream);padding:56px 0 30px;font-size:15px;border-top:3px solid var(--plum)}
+.fcols{display:grid;grid-template-columns:1.3fr 1fr 1.3fr;gap:36px}
+footer h3{font-size:22px;margin-bottom:10px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline}
+.social{display:flex;gap:10px;margin-top:14px}
+.social a{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:#fff;border:3px solid var(--plum)}
+.social .ic{width:18px;height:18px}
+.legal{border-top:2px dotted #cbbfd8;margin-top:40px;padding-top:20px;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:13.5px;color:var(--muted)}
+
+@media (max-width:1020px){
+  .hero .wrap,.groom .wrap,.clinic .wrap,.book .wrap,.doors .head{grid-template-columns:1fr}
+  .stick{height:440px;max-width:560px;width:100%;margin:0 auto}
+  .dgrid{grid-template-columns:1fr;gap:64px;max-width:520px}
+  .people{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .strip .wrap > a{display:none}
+  .nav{display:none}
+  .burger{display:block}
+  .nav.open{display:flex;position:fixed;inset:116px 0 0;background:var(--cream);flex-direction:column;align-items:flex-start;padding:28px var(--pad);gap:18px;font-size:22px}
+  .top .wrap{height:70px}
+  .logo{width:46px;height:46px}
+  .brand b{font-size:21px}
+  .hero .wrap{min-height:0;padding-top:20px;padding-bottom:44px;gap:20px}
+  .stick{height:300px;order:-1}
+  .sticker:nth-child(1){width:170px;height:200px;left:0;top:30px}
+  .sticker:nth-child(2){width:150px;height:170px;right:4px;top:0}
+  .sticker:nth-child(3){width:160px;height:130px;right:22%;bottom:0}
+  .sticker{border-width:5px;border-radius:24px;box-shadow:0 0 0 3px var(--plum),6px 7px 0 var(--plum)}
+  .say{font-size:17px;bottom:auto;top:0;left:auto;right:0;display:none}
+  .hero h1{font-size:46px}
+  .doors,.groom,.clinic,.book{padding:64px 0}
+  .doors .head{margin-bottom:60px}
+  .sizes{grid-template-columns:1fr 1fr}
+  .duo{height:320px}
+  .people{grid-template-columns:1fr}
+  .voices{grid-template-columns:1fr}
+  .fields{grid-template-columns:1fr}
+  .form{padding:22px}
+  .fcols{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.capture *,.capture *::before,.capture *::after{animation:none!important;transition:none!important}
+.shot-mode .strip{display:none}
+.shot-mode .top{position:fixed;left:0;right:0}
+.shot-mode main{padding-top:78px}
+@media (max-width:760px){.shot-mode main{padding-top:70px}}
+
+
+.preview-note{padding:.5rem 1rem;text-align:center;background:#ffd84d;color:#222;font:14px system-ui}
+.hero h1,.brand b,.logo b{overflow-wrap:anywhere}
+.person:not(:has(img)),.pt:not(:has(img)),.pol:not(:has(img)){min-height:0;padding:1.5rem}
+.person:not(:has(img)) .info{position:static;color:inherit;background:none}
+.person:not(:has(img)) .pic,.person:not(:has(img)) .shot,.pol:not(:has(img)) .ph-wrap{display:none}
+.pt:not(:has(img)) figure{display:none}
+.director:not(:has(img)){grid-template-columns:1fr}.mini:not(:has(img)){display:block}
+.flip:not(:has(img)) .front{background:var(--slate,#263047)}
+.about:not(:has(img)) .wrap{grid-template-columns:1fr}.about .photos:not(:has(img)),.about .pic:not(:has(img)){display:none}
+.hero.ledger:not(:has(.compare-box,.lead-hero-photo))>.wrap{grid-template-columns:1fr;max-width:1000px}
+.lead-hero-photo img{width:100%;max-height:540px;object-fit:cover}
+.hero .arches:not(:has(.arch)),.hero .hero-pic:not(:has(img,video)){display:none}
+.feature:not(:has(img)){grid-template-columns:1fr}
+.week:not(:has(.chart)) .wrap{grid-template-columns:1fr}
+.extra-facts{padding:3rem max(5vw,20px);font:inherit}.extra-facts h2{margin-bottom:1rem}
+.extra-facts article{margin:1.5rem 0}.extra-facts img{max-width:180px}
+body:not(:has(#live)){--live-h:0px}body:not(:has(#live)) .top{top:0}
+.capture *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* Lead adaptations. Scope every design-specific rule; illustration is valid media. */
+.v4-new [hidden] { display: none !important; }
+.v4-new span.ph { background: none; color: inherit; padding: 0; font-size: inherit; }
+.v4-new .lead-contact-data { max-width: 1200px; margin-inline: auto; }
+.v4-new .lead-contact-data:empty { display: none; }
+.v4-new .form { min-width: 0; }
+.v4-new .form .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr)); gap: 18px; }
+.v4-new .form input { max-width: 100%; width: 100%; }
+.v4-new .form input[type="checkbox"] { width: auto; }
+.v4-new .form button[type="submit"] { background: var(--ink,var(--plum,var(--navy,#233041))); color: #fff; border: 0; padding: 16px 24px; cursor: pointer; }
+.v4-new .map:not(:has(svg,img)) { min-height: 0; height: auto; padding: 20px; }
+.v4-new .map:not(:has(svg,img)) a { position: static; display: inline-block; }
+.v4-new .map:not(:has(svg,img)) > p { position: static; margin: 0; box-shadow: none; }
+.v4-new .map:not(:has(svg,img,a,p)) { display: none; }
+.v4-new :is(.ph0,.face,.oval,.portrait,.ph-wrap):not(:has(img)) { display: none; }
+.v4-new .doc:not(:has(img)) .pic { min-height: 0; aspect-ratio: auto; }
+.v4-ag .dayview:not(:has(img)) { grid-template-columns: 1fr; }
+.v4-ag .dpic:not(:has(img)) { display: none; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) { height: auto; min-height: 0; }
+.v4-new :is(.person,.member,.tm,.tc,.pol):not(:has(img)) :is(.ph,.pic,.portrait) { display: none; }
+.v4-new .hero :is(.proof,.print,.polaroid):not(:has(img)) { display: none; }
+.v4-i .pick-animal,.v4-j #tabs,.v4-q .tabs,.v4-r .plates,.v4-s .steps,.v4-t .tabs { overflow-x: auto; }
+.v4-k .doors .grid,.v4-l .svc .grid,.v4-m .prods .grid,.v4-x .svc .grid,
+.v4-y .svc .grid,.v4-aa .svc .grid,.v4-ab .svc .grid,.v4-ac .svc .grid,
+.v4-ad .sgrid,.v4-af .egrid,.v4-ah .svc .grid,.v4-ai .svc .grid {
+  grid-template-columns: repeat(var(--service-columns),minmax(0,1fr));
+}
+.v4-ae .room:not(:has(img)) { grid-template-columns: minmax(0,1fr) auto; }
+.v4-ae .room:not(:has(img)) > .p { display: none; }
+.v4-ad .space:not(:has(img)) > .p,.v4-af .ex:not(:has(img)) > .p { display: none; }
+@media(max-width:700px) {
+  .v4-new .form .fields,.v4-ae .room:not(:has(img)) { grid-template-columns: 1fr; }
+  .v4-new :is(.sgrid,.egrid) { grid-template-columns: 1fr; }
+  .v4-new .lead-contact-data { padding: 32px 20px; }
+}
+.v4 .hero .wrap > * { min-width: 0; }
+.v4 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.v4 .hero-ctas .ic { width: 20px; height: 20px; }
+
+/* I–AI: long supplied identities share the header with navigation and tools. */
+.v4-new header > .wrap { min-width: 0; gap: clamp(10px,1.4vw,20px); }
+.v4-new header .brand { min-width: 0; flex: 1 1 auto; max-width: 100%; }
+.v4-new header .brand > span:has(.lead-brand-name) { min-width: 0; }
+.v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { flex-shrink: 0; }
+.v4-new header .lead-brand-name {
+  display: block; min-width: 0; max-width: 100%; line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none;
+}
+.v4-new.long-name header .lead-brand-name { font-size: clamp(14px,1.45vw,20px); letter-spacing: normal; }
+.v4-new header .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4-new header :is(.nav,.tools,.burger) { flex-shrink: 0; }
+.v4-new header .nav { gap: clamp(10px,1.3vw,24px); }
+.v4-new :is(.btn,button,a[href^="tel:"]),.v4-new header .nav > a { white-space: nowrap; }
+.v4-new header :is(.btn,.call) { flex-shrink: 0; }
+.v4-new.long-hero .hero h1 { font-size: clamp(32px,4vw,56px); line-height: 1.08; max-width: 22ch; }
+.v4-new.long-hero .hero h1 .l { overflow: visible; }
+.v4-m .lead-contact-card { position: relative; min-width: 0; }
+.v4-m .lead-contact-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.v4-j .board:not(:has(.clock:not([hidden]))) { grid-template-columns: minmax(0,1fr); }
+.v4-z .hero .chart { left: 24px; right: 24px; width: min(300px,calc(100% - 48px)); max-width: 100%; }
+.v4-z .hero .copy { min-width: 0; }
+.v4-w .hero .wrap:not(:has(.finder)) { grid-template-columns: minmax(0,1fr); }
+.v4-w .hero .wrap:not(:has(.finder)) .hero-ctas { margin-top: 0; }
+.v4-w .lead-chapel { padding: 20px; background: #fff; border-radius: 12px; margin-block: 16px; }
+/* Natural flow accounts for the preview note's actual height, even when it wraps. */
+.v4-ad:has(> .preview-note) header.top,.v4-af:has(> .preview-note) header.top { position: sticky; top: 0; }
+.v4-ad:has(> .preview-note) header.top { background: var(--forest); }
+.v4-af:has(> .preview-note) header.top { background: #2b2725; }
+@media (max-width: 1180px) {
+  .v4-new header .nav { display: none; }
+  .v4-new header .burger { display: block; flex: none; }
+  .v4-new header .nav.open {
+    display: flex; position: absolute; inset: 100% 0 auto; width: auto; max-height: calc(100dvh - 90px);
+    overflow-y: auto; flex-direction: column; align-items: stretch; padding: 20px;
+    background: var(--paper,#fff); color: var(--ink,#233041); box-shadow: 0 12px 24px #0002;
+  }
+  .v4-new header .nav.open > a:not(.btn) { color: inherit; }
+}
+@media (max-width: 700px) {
+  .v4-new header .brand > :is(svg,.ic,.logo,.mono,.seal,.mk,.lg) { max-width: 36px; }
+  .v4-new header .brand small { display: none; }
+  .v4-new header .tools { gap: 8px; }
+  .v4-new header .tools .fs { display: none; }
+  .v4-new header a[href^="tel:"] .lead-phone-number { display: none; }
+  .v4-new header .nav.open a[href^="tel:"] .lead-phone-number { display: inline; }
+  .v4-new.long-name header .lead-brand-name { font-size: clamp(14px,3.8vw,18px); }
+  .v4-new.long-hero .hero h1 { font-size: clamp(30px,8vw,42px); }
+  .v4-z .hero .visual { min-height: 560px; }
+}
+
+/* C: a CSS/SVG scene must remain beside the copy even without a proof/faces row. */
+@media (min-width: 1021px) {
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr) minmax(0,1.02fr); }
+}
+.v4-c .scene { align-self: center; }
+.v4-c .bento { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; }
+.v4-c[data-service-count="1"] .bento { grid-template-columns: minmax(0,1fr); }
+.v4-c[data-service-count="2"] .bento,
+.v4-c[data-service-count="3"] .bento,
+.v4-c[data-service-count="4"] .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.v4-c .bento .tile.big { grid-row: auto; }
+.v4-c[data-service-count="3"] .bento .tile.big,
+.v4-c[data-service-count="5"] .bento .tile.big { grid-row: span 2; }
+.v4-c .bento .tile:not(.big):not(.photo) { display: flex; flex-direction: column; justify-content: center; }
+
+/* A/F/E: use the complete row for small supplied service lists. B tabs and D's
+   full-width index already accommodate any count without an empty grid cell. */
+.v4-a .svc-grid,
+.v4-f .services .cards,
+.v4-e .stages .tabs { grid-template-columns: repeat(var(--service-columns),minmax(0,1fr)); }
+.v4-f .card .ph-arch { max-height: 350px; }
+.v4-g .spread > .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.v4-e .panel[hidden] { display: none; }
+.v4-h[data-service-count="1"] .services .track { grid-auto-columns: 100%; }
+.v4-h[data-service-count="2"] .services .track { grid-auto-columns: calc((100% - 22px)/2); }
+.v4-h[data-service-count="3"] .services .track { grid-auto-columns: calc((100% - 44px)/3); }
+
+/* E: one margin for the whole sheet, above section backgrounds, including
+   sections whose content is absent. It cannot jump with section-local values. */
+.v4-e main { position: relative; --ledger-margin: max(24px,calc((100vw - var(--wrap))/2 + 8px)); }
+.v4-e main::before {
+  content: ""; position: absolute; left: var(--ledger-margin); top: 0; bottom: 0;
+  border-left: 4px double var(--red); z-index: 5; pointer-events: none;
+}
+.v4-e .ledger {
+  background: repeating-linear-gradient(180deg,transparent 0 33px,color-mix(in srgb,var(--rule) 55%,transparent) 33px 34px),var(--paper);
+}
+.v4-e .heritage-print { position: relative; margin: 12px 8px 10px; padding: 12px 12px 42px; background: #fff;
+  transform: rotate(1.2deg); box-shadow: 0 2px 0 #0000000d,0 30px 50px -30px #1e2a3a88; }
+.v4-e .heritage-print img { width: 100%; height: clamp(300px,32vw,440px); object-fit: cover; }
+.v4-e .heritage-print figcaption { margin-top: 12px; color: var(--muted); font: 16px var(--hand); text-align: center; }
+.v4-e .print-stamp { position: absolute; right: -8px; bottom: 10px; width: 84px; height: 84px;
+  display: grid; place-items: center; border: 5px double var(--red); border-radius: 50%; color: var(--red);
+  background: color-mix(in srgb,var(--paper) 85%,transparent); font: 25px var(--serif); transform: rotate(-14deg); }
+
+/* G: a complete hero with or without the optional service finder. No band can
+   begin through the middle of a short tagline. Contact facts stay in flow when
+   an optional contact photograph has not been supplied. */
+.v4-g .hero { background: var(--mist); padding-bottom: 60px; }
+.v4-g .hero > .wrap { align-items: center; }
+.v4-g .hero .lead { margin: 22px 0 0; }
+.v4-g .hero .finder { margin-top: 28px; }
+.v4-g .hero-pic { margin-top: 0; }
+.v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 560px; }
+.v4-g .answer img { border-radius: 12px; object-position: center; }
+.v4-g .place:not(:has(img)) .addr { position: static; margin: 0; padding: 22px; }
+.v4-g .book { padding-block: 80px; }
+
+@media (max-width: 1020px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-a[data-service-count="1"] .svc-grid,.v4-f[data-service-count="1"] .services .cards,
+  .v4-e[data-service-count="1"] .stages .tabs { grid-template-columns: minmax(0,1fr); }
+  .v4-c .hero > .wrap { grid-template-columns: minmax(0,1fr); }
+  .v4-c .bento { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .v4-c[data-service-count="5"] .bento .tile.big { grid-row: auto; grid-column: 1 / -1; }
+  .v4-g .hero > .wrap { gap: 32px; }
+  .v4-g .hero-pic { width: 100%; max-width: 520px; justify-self: center; }
+  .v4-h[data-service-count="3"] .services .track { grid-auto-columns: minmax(260px,46%); }
+}
+@media (max-width: 640px) {
+  .v4-a .svc-grid,.v4-f .services .cards,.v4-e .stages .tabs,
+  .v4-c .bento,.v4-c[data-service-count] .bento { grid-template-columns: minmax(0,1fr); }
+  .v4-c[data-service-count] .bento .tile.big { grid-row: auto; grid-column: auto; }
+  .v4-e main { --ledger-margin: 12px; }
+  .v4-e .heritage-print { margin: 8px 4px 4px; }
+  .v4-e .heritage-print img { height: 300px; }
+  .v4-g .hero { padding: 30px 0 40px; }
+  .v4-g .hero-ctas .btn { justify-content: center; }
+  .v4-g .hero-pic > img,.v4-g .hero-pic > video { max-height: 430px; }
+  .v4-g .book { padding-block: 52px; }
+  .v4-h[data-service-count] .services .track { grid-auto-columns: 82%; }
+}
+
+</style>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vetmagos (opção 1) · pré-visualização do site">
+<meta property="og:description" content="Medicina veterinária · Vetmagos - Clínica Veterinária">
+<meta property="og:url" content="https://preview.northsoftware.pt/vetmagos-salvaterra-de-magos-opcao-1/">
+<meta property="og:image" content="https://preview.northsoftware.pt/vetmagos-salvaterra-de-magos-opcao-1/desktop.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="860">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="v4 long-name long-hero v4-new v4-k" data-service-count="4" style="--service-columns:3">
+<script>
+function demoWA(msg){alert('Pré-visualização: no site final, isto abre o WhatsApp '+"da clínica veterinária"+""+' com a mensagem:\n\n'+msg);}
+document.addEventListener('submit',function(event){
+  event.preventDefault();event.stopImmediatePropagation();
+  var form=event.target;if(!form.reportValidity())return;
+  var message="Olá, gostaria de pedir informações.", labels={nome:'Nome',tel:'Telefone',email:'Email',servico:'Serviço',s:'Serviço',assunto:'Assunto',msg:'Mensagem',empresa:'Empresa',periodo:'Período',dias:'Dias',dia:'Dia'};
+  form.querySelectorAll('input,select,textarea').forEach(function(field){
+    if(!field.name || !field.value || ((field.type==='checkbox'||field.type==='radio')&&!field.checked))return;
+    message+='\n'+(labels[field.name]||field.name)+': '+field.value;
+  });
+  demoWA(message);
+},true);
+document.addEventListener('click',function(event){
+  var a=event.target.closest('a[href^="https://wa.me/"]');
+  if(a){event.preventDefault();event.stopImmediatePropagation();demoWA("Olá, gostaria de pedir informações.");}
+},true);
+</script>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Vetmagos - Clínica Veterinária, início">
+      <span class="logo" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="20" cy="18" r="3" fill="currentColor" stroke="none"/><path d="M17 23c1.5 1.6 4.5 1.6 6 0"/><path d="M16 20 4 17M16 22 5 25M24 20l12-3M24 22l11 3"/></svg></span>
+      <span><b class="lead-brand-name" title="Vetmagos - Clínica Veterinária">Vetmagos - Clínica Veterinária</b><small>Medicina veterinária</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a class="btn b-tan" href="#contacto">Pedir contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="ic ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div>
+      
+      <h1>Vetmagos - Clínica Veterinária</h1>
+      <p class="lead">Consultas veterinárias, vacinação e tosquias em Salvaterra de Magos</p>
+      <div class="ctas">
+        <a class="btn b-tan" href="#contacto"><svg class="ic ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg> Pedir contacto</a>
+        
+      </div>
+    </div>
+    <div class="stick">
+      <figure class="sticker"><img src="assets/c-corgi.jpg" alt="Fotografia ilustrativa de banco de imagens"></figure><figure class="sticker"><img src="assets/c-bulldog.jpg" alt="Fotografia ilustrativa de banco de imagens"></figure><figure class="sticker"><img src="assets/c-jack.jpg" alt="Fotografia ilustrativa de banco de imagens"></figure>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="doors" id="servicos">
+  <div class="wrap">
+    <div class="head"><h2 class="h2">Serviços</h2><p class="lead"></p></div>
+    <div class="dgrid">
+      
+      <article class="door c-sky">
+        <div class="pop"><img src="assets/v-consulta.jpg" alt="" loading="lazy"></div>
+        <h3><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Consultas e diagnóstico</h3>
+        <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</li></ul>
+        
+      </article>
+      
+      <article class="door c-bubble">
+        <div class="pop"><img src="assets/g-pente.jpg" alt="" loading="lazy"></div>
+        <h3><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Administração de vacinas</h3>
+        <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</li></ul>
+        
+      </article>
+      
+      <article class="door c-tangerine">
+        <div class="pop"><img src="assets/c-amarelo.jpg" alt="" loading="lazy"></div>
+        <h3><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Banhos e tosquias</h3>
+        <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</li></ul>
+        
+      </article>
+      
+      <article class="door c-sky">
+        <div class="pop"><img src="assets/v-consulta.jpg" alt="" loading="lazy"></div>
+        <h3><svg class="ic ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.1 4.2 4 7.4 4c2 0 3.5 1.1 4.6 2.7C13.1 5.1 14.6 4 16.6 4c3.2 0 5.5 3.1 4.4 6.7C19.5 15.4 12 20 12 20z"/><path d="M3.5 12h5l1.5-2.5 2.5 5 1.5-2.5h6.5"/></svg>Domicílios</h3>
+        <ul><li><svg class="ic ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>A medicina veterinária acompanha a saúde e o bem-estar dos animais. O âmbito deste serviço pode ser esclarecido no contacto com a entidade.</li></ul>
+        
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="book" id="contacto">
+  <div class="wrap">
+    <form id="form" class="form" novalidate><h2>Pedir contacto</h2><p>Indique o seu nome e como prefere ser contactado.</p>
+<div class="fields"><label class="f">Nome<input name="nome" autocomplete="name" required></label>
+<label class="f">Telefone<input name="tel" type="tel" autocomplete="tel" required></label>
+<label class="f">Email (opcional)<input name="email" type="email" autocomplete="email"></label></div>
+<label class="consent"><input type="checkbox" required> Compreendo que se trata de uma pré-visualização.</label>
+<button class="btn" type="submit">Pedir contacto <svg class="ic ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+    <div class="side">
+      
+      <div class="quick">
+        <a href="tel:+351263098572"><svg class="ic ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>263 098 572</a>
+        
+        <a href="mailto:vetmagos@gmail.com"><svg class="ic ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>vetmagos@gmail.com</a>
+      </div>
+      <div class="map">
+        
+        <p>Largo dos Combatentes, 14, 2120-071 Salvaterra de Magos<br></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="extra-facts lead-contact-data" aria-label="Informação e contactos">
+<h2>Sobre Vetmagos - Clínica Veterinária</h2><p>A Vetmagos apresenta serviços veterinários para animais de companhia em Salvaterra de Magos. A sua página enumera consultas, vacinação, banhos e tosquias e serviços ao domicílio.</p>
+
+
+
+
+<p><a href="tel:+351263098572">263 098 572</a></p>
+<p><a href="mailto:vetmagos@gmail.com">vetmagos@gmail.com</a></p>
+
+
+
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <a class="brand" href="#"><span class="logo" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="20" cy="18" r="3" fill="currentColor" stroke="none"/><path d="M17 23c1.5 1.6 4.5 1.6 6 0"/><path d="M16 20 4 17M16 22 5 25M24 20l12-3M24 22l11 3"/></svg></span><span><b>Vetmagos - Clínica Veterinária</b><small>Medicina veterinária</small></span></a>
+        <p style="margin-top:14px">Consultas veterinárias, vacinação e tosquias em Salvaterra de Magos</p>
+        
+      </div>
+      <div><h3>Contactos</h3><ul><li>Largo dos Combatentes, 14, 2120-071 Salvaterra de Magos</li><li><a href="tel:+351263098572">263 098 572</a></li><li><a href="mailto:vetmagos@gmail.com">vetmagos@gmail.com</a></li></ul></div>
+      
+    </div>
+    <div class="legal"><span>Vetmagos - Clínica Veterinária, Unipessoal, Lda, NIF <span class="ph">508872529</span></span><span>Pré-visualização North Software · Imagens ilustrativas de banco de imagens</span></div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var d=document, root=d.documentElement, capture=/[?&]capture=1/.test(location.search);
+  var still=capture||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(capture)root.classList.add('capture');if(still)root.classList.add('still');
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  if(nav&&burger){burger.addEventListener('click',function(){var on=nav.classList.toggle('open');burger.setAttribute('aria-expanded',on);});
+    nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);}});}
+  function m(s){var p=s.split(':');return +p[0]*60+ +p[1];}
+  function hm(s){return String(s||'').replace(':','h');}
+  function pt(n){return(n>0?'+':n<0?'−':'')+Math.abs(n).toFixed(2).replace('.',',');}
+  var hours=[]||[],now=new Date(),wd=((now.getDay()+6)%7)+1,mins=now.getHours()*60+now.getMinutes(),isOpen=false;
+  hours.forEach(function(h){if((h.days||[]).indexOf(wd)<0)return;(h.ranges||[]).forEach(function(r){if(mins>=m(r[0])&&mins<m(r[1]))isOpen=true;});});
+  if(hours.length)['state','st','chip','now','live'].forEach(function(id){var el=d.getElementById(id);if(!el)return;
+    var label=el.querySelector('span')||el;label.textContent=isOpen?'Aberto agora':'Fechado agora';el.classList.toggle('open',isOpen);});
+  var tc=d.getElementById('txtC');if(tc&&hours.length)tc.textContent=isOpen?'abertas agora':'fechadas agora';
+  function updateClock(){var clock=d.querySelector('#board .clock #clock');if(!clock)return;
+    var current=new Date(),valid=hours.length>0&&Number.isFinite(current.getTime());
+    clock.parentNode.hidden=!valid;
+    if(valid)clock.textContent=String(current.getHours()).padStart(2,'0')+':'+String(current.getMinutes()).padStart(2,'0');}
+  updateClock();if(!still&&d.querySelector('#board .clock #clock'))setInterval(updateClock,60000);
+  var finder=d.querySelector('.finder[role="search"]'),query=finder&&finder.querySelector('input'),results=finder&&finder.querySelector('ul');
+  if(query&&results)query.addEventListener('input',function(){results.innerHTML='';var term=query.value.trim().toLocaleLowerCase('pt');if(term.length<2)return;
+    var found=[].filter.call(d.querySelectorAll('.lead-chapel,.notice'),function(item){return ((item.dataset.name||'')+' '+item.textContent).toLocaleLowerCase('pt').indexOf(term)>=0;}).slice(0,5);
+    found.forEach(function(item){var li=d.createElement('li'),button=d.createElement('button');button.type='button';button.textContent=item.dataset.name;
+      button.addEventListener('click',function(){item.scrollIntoView({behavior:still?'auto':'smooth',block:'center'});});li.appendChild(button);results.appendChild(li);});
+    if(!found.length){var li=d.createElement('li');li.textContent='Sem resultados.';results.appendChild(li);}});
+  var sizes=[].slice.call(d.querySelectorAll('.fs button'));
+  function setSize(n){root.classList.remove('fs1','fs2');if(n>0)root.classList.add('fs'+n);
+    sizes.forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.fs===n);});
+    try{localStorage.setItem('v4-text-size',String(n));}catch(e){}}
+  sizes.forEach(function(b){b.addEventListener('click',function(){setSize(+b.dataset.fs);});});
+  try{var saved=+localStorage.getItem('v4-text-size');if(saved&&!capture)setSize(Math.min(2,saved));}catch(e){}
+  var flags={},names={},steps=[],lvlSel=null,langSel=null;
+  var team=[]||[],areas=null||[],pubs=null||[],byKey={};
+  team.forEach(function(t){byKey[t.key]=t;});
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  [].forEach.call(d.querySelectorAll('#flagstore span'),function(s){flags[s.dataset.k]=s.innerHTML;names[s.dataset.k]=s.dataset.n;});
+  [].forEach.call(d.querySelectorAll('video'),function(v){
+    if(still){v.pause();return;} var src=v.dataset.small||v.dataset.src;if(src)v.src=src;
+    v.play().catch(function(){});
+  });
+  var video=d.querySelector('video'), pause=d.getElementById('playBtn');
+  if(video&&pause)pause.addEventListener('click',function(){if(video.paused)video.play().catch(function(){});else video.pause();});
+  // Guarded, independent blocks from the approved prototype.
+  
+  var mm=location.hash.match(/^#shot-(.+)/), sh=mm&&d.getElementById(mm[1]);
+  if(sh&&!sh.hidden){root.classList.add('shot-mode');[].forEach.call(d.querySelectorAll('main > *, footer'),function(s){if(s!==sh)s.style.display='none';});}
+})();
+</script>
+</body>
+</html>
